@@ -7,6 +7,30 @@
 		<script
 			src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 		<script src="js/mustache.js"></script>
+		<script>
+			var overviewstr = '{"header": "StadtChronik","cards": ['
+				  + '{"key": "4", "name": "Mühle"},'
+				  + '{"name": "Bauernhof"},'
+				  + '{"name": "Kaserne"},'
+				  + '{"name": "test"},'
+				  + '{"key": "4", "name": "Mühle"},'
+				  + '{"name": "Bauernhof"},'
+				  + '{"name": "Kaserne"},'
+				  + '{"name": "test"},'
+				  + '{"key": "4", "name": "Mühle"},'
+				  + '{"name": "Bauernhof"},'
+				  + '{"name": "Kaserne"},'
+				  + '{"name": "test"},'
+				  + '{"key": "4", "name": "Mühle"},'
+				  + '{"name": "Bauernhof"},'
+				  + '{"name": "Kaserne"},'
+				  + '{"name": "test"},'
+				  + '{"key": "4", "name": "Mühle"},'
+				  + '{"name": "Bauernhof"},'
+				  + '{"name": "Kaserne"},'
+				  + '{"name": "test"}'
+				  + ']}';
+		</script>
 		<script src="js/data.js"></script>
 
 </head>
@@ -14,9 +38,12 @@
 	<div id="content"></div>
 	<div id="template" style="display: none;">
 		<div style="">{{header}}</div>
-		{{#cards}}<div style="margin:1px; padding: 3px;float:left;width: 180px;height: 350px;border: 1px solid black; background-color: gray;">
+		{{#cards}}
+		<div style="margin:1px; padding: 3px;float:left;width: 180px;height: 300px;border: 1px solid black; background-color: gray;">
 		<div class="toprow"><span class="key">{{key}}</span><span class="name">{{name}}</span><span class="key right">{{key}}</span></div>
-		</div>{{/cards}}
+		</div>
+		
+		{{/cards}}
 
 </body>
 </html>

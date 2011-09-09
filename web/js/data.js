@@ -18,11 +18,6 @@
  
 
 
-var overviewstr = '{"header": "StadtChronik","cards": ['
-	  + '{"key": "3", "name": "Mühle"},'
-	  + '{"name": "Bauernhof"},'
-	  + '{"name": "Kaserne"},'
-	  + '{"name": "test"}]}';
 
 function publish(templ, jsonstr, target) {
 	var html, json, template;
