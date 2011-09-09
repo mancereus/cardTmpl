@@ -1,0 +1,21 @@
+body, * {
+	font-size: 14px;
+	font-family: 'Nobile', arial, serif;
+}
+
+.key {
+	font-size: 24px;
+	font-weight: bold;
+}
+.name {
+	padding: 0 5px;
+	text-align: center;
+	width: 60%;
+}
+.right {
+	float: right;
+}
+.toprow {
+	float: left;
+	width: 100%;
+}
