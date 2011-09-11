@@ -25,6 +25,7 @@ function publish(templ, jsonstr, target) {
     json = $.parseJSON(jsonstr);
     html = Mustache.to_html(template, json).replace(/^\s*/mg, '');
     $(target).html(html).show();
+    $(".pagebreak").css("page-break-after", "always");
 	
 }
 
