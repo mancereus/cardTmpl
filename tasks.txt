@@ -1,3 +1,6 @@
 * include page-break
 * automate ie9 print to PDF
-* 
+# rotate text
+# include images
+# bottomrow at the bottom
+#
