@@ -1,0 +1,11 @@
+cardtmpl
+
+i want an easy way to define cards for board games.
+i use mustache templates to define the card 
+and JSON data to define the content.
+
+Up til now only IE(9) supports to print with CSS color.
+I hope this will change in the future.
+
+ms, Sep.2011
+
