@@ -8,7 +8,7 @@
 		<script src="js/mustache.js"></script>
 		<script>
 			var overviewstr = '{"cards": ['
-				  + '{"key": "1", "name": "Goblin"},'
+				  + '{"key": "1", "name": "Goblin", "rows": [{"a":"1","p":"2","s":"4,2,1"},{"a":"1","p":"2","s":"4,2,1"},{"a":"1","p":"2","s":"4,2,1"} ] },'
 				  + '{"key": "1", "name": "Skelett"},'
 				  + '{"key": "1", "name": "Ork"},'
 				  + '{"key": "1", "name": "Zombie"},'
@@ -54,21 +54,13 @@
     <th>Punkte</th>
     <th>Schaden</th>
   </tr>
-  <tr>
-    <td>1</td>
-    <td>2</td>
-    <td>4/ 2/ 1</td>
+{{#rows}}
+		  <tr>
+    <td>{{a}}</td>
+    <td>{{p}}</td>
+    <td>{{s}}</td>
   </tr>
-  <tr>
-    <td>2</td>
-    <td>2</td>
-    <td>4/ 2/ 1</td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>22</td>
-    <td>4/ 2/ 1</td>
-  </tr>
+{{/rows}}
 </table>
 
 		</div>
