@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>RRZ Monster</title>
+<link href="css/style.css" rel="stylesheet" ="text/css" />
+		<script
+			src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script src="js/mustache.js"></script>
+		<script>
+			var overviewstr = '{"cards": ['
+				  + '{"key": "1", "name": "Goblin"},'
+				  + '{"key": "1", "name": "Skelett"},'
+				  + '{"key": "1", "name": "Ork"},'
+				  + '{"key": "1", "name": "Zombie"},'
+				  + '{"key": "2", "name": "Ghul"},'
+				  + '{"key": "2", "name": "Wurm"},'
+				  + '{"key": "2", "name": "Schlangen"},'
+				  + '{"key": "2", "name": "Monster"},'
+				  + '{"key": "3", "name": "Monster"},'
+				  + '{"key": "3", "name": "Monster"},'
+				  + '{"key": "3", "name": "Monster"},'
+				  + '{"key": "3", "name": "Monster", "pagebreak": {}},'
+				  + '{"key": "4", "name": "Monster"},'
+				  + '{"key": "4", "name": "Monster"},'
+				  + '{"key": "4", "name": "Monster"},'
+				  + '{"key": "4", "name": "Monster"},'
+				  + '{"key": "5", "name": "Monster"},'
+				  + '{"key": "5", "name": "Monster"},'
+				  + '{"key": "5", "name": "Monster"},'
+				  + '{"key": "5", "name": "Monster"},'
+				  + '{"key": "6", "name": "Monster"},'
+				  + '{"key": "6", "name": "Medusa"},'
+				  + '{"key": "7", "name": "Hydra"},'
+				  + '{"key": "7", "name": "Drache"}'
+				  + ']}';
+		</script>
+		<script src="js/data.js"></script>
+<style type="text/css">
+</style>
+</head>
+<body>
+	<div id="content"></div>
+	<div id="template" style="display: none;">
+		<div style="">{{header}}</div>
+		{{#cards}}
+		<div class="card {{name}}">
+		<div class="toprow"><span class="key">{{key}}</span><span class="name">{{name}}</span><span class="key right">{{key}}</span></div>
+		<div><img alt="picture" src="img/Monster.png" style="width: 100px; height: 100px;margin: 10px 40px;"></div>
+		<div style="width: 100%; text-align:center;">Monsterkarte</div>
+		<div style="width: 100%; text-align:center;">
+		<table class="monstertable">
+  <tr>
+    <th>Alarm</th>
+    <th>Punkte</th>
+    <th>Schaden</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>4/ 2/ 1</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>2</td>
+    <td>4/ 2/ 1</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>22</td>
+    <td>4/ 2/ 1</td>
+  </tr>
+</table>
+
+		</div>
+
+		<div class="bottomrow" style="margin-top: 10px;"><span class="key rotate">{{key}}</span><span class="name rotate">{{name}}</span><span class="key right rotate">{{key}}</span></div>
+		</div>
+		{{#pagebreak}}<div class="pagebreak"></span>{{/pagebreak}}
+		{{/cards}}
+
+</body>
+</html>

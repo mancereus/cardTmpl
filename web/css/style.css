@@ -39,6 +39,10 @@ body, * {
 	float: left;
 	width: 100%;
 }
+.monstertable {
+	border: 1px solid black;
+	margin-left: 10px;
+}
 .pagebreak { 
-     page-break-before: always;
+	page-break-before: always;
 }
