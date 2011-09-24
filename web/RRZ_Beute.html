@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Ruhmreiche Zwerge</title>
+<link href="css/style.css" rel="stylesheet" ="text/css" />
+		<script
+			src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script src="js/mustache.js"></script>
+		<script>
+			var overviewstr = '{"cards": ['
+				  + '{"key": "*2", "name": "Axt"},'
+				  + '{"key": "+2", "name": "Axt"},'
+				  + '{"key": "+4", "name": "Axt"},'
+				  + '{"key": "+6", "name": "Axt"},'
+				  + '{"key": "*2", "name": "Schwert"},'
+				  + '{"key": "+2", "name": "Schwert"},'
+				  + '{"key": "+4", "name": "Schwert"},'
+				  + '{"key": "+6", "name": "Schwert", "pagebreak": {}},'
+				  + '{"key": "*2", "name": "Armbrust"},'
+				  + '{"key": "+2", "name": "Armbrust"},'
+				  + '{"key": "+4", "name": "Armbrust"},'
+				  + '{"key": "+6", "name": "Armbrust"},'
+				  + '{"key": "3", "name": "Niete"},'
+				  + '{"key": "1", "name": "Niete"}'
+				  + ']}';
+		</script>
+		<script src="js/data.js"></script>
+<style type="text/css">
+.Armbrust {
+	border: 10px solid #3c6;
+}
+.Axt {
+	border: 10px solid #36c;
+}
+.Schwert {
+	border: 10px solid #fc6;
+}
+.Niete {
+	border: 10px solid black;
+}
+</style>
+</head>
+<body>
+	<div id="content"></div>
+	<div id="template" style="display: none;">
+		<div style="">{{header}}</div>
+		{{#cards}}
+		<div class="card" style="background-color: #fc9">
+		<div class="toprow"><span class="key">{{key}}</span><span class="name" style="font-size:20px">{{name}}</span><span class="key right">{{key}}</span></div>
+		<div><img class="{{name}}" alt="picture" src="img/{{name}}.png" style="width: 100px; height: 100px;margin: 30px;"></div>
+		<div style="width: 100%; text-align:center;">Beutekarte</div>
+		<div class="bottomrow"><span class="key rotate">{{key}}</span><span class="name rotate" style="font-size:20px">{{name}}</span><span class="key right rotate">{{key}}</span></div>
+		</div>
+		{{#pagebreak}}<div class="pagebreak"></span>{{/pagebreak}}
+		{{/cards}}
+
+</body>
+</html>
