@@ -1,8 +1,0 @@
-* automate ie9 print to PDF
-* libeling groll zwerge /zwerg karten
-* beutekarten
-* nietenkarten
-# include page-break
-# rotate text
-# include images
-# bottomrow at the bottom

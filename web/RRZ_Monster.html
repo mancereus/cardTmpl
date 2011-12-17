@@ -8,30 +8,30 @@
 		<script src="js/mustache.js"></script>
 		<script>
 			var overviewstr = '{"cards": ['
-				  + '{"key": "1", "name": "Goblin", "rows": [{"a":"1","p":"2","s":"4,2,1"},{"a":"1","p":"2","s":"4,2,1"},{"a":"1","p":"2","s":"4,2,1"} ] },'
-				  + '{"key": "1", "name": "Skelett"},'
-				  + '{"key": "1", "name": "Ork"},'
-				  + '{"key": "1", "name": "Zombie"},'
-				  + '{"key": "2", "name": "Ghul"},'
-				  + '{"key": "2", "name": "Wurm"},'
-				  + '{"key": "2", "name": "Schlangen"},'
-				  + '{"key": "2", "name": "Monster"},'
-				  + '{"key": "3", "name": "Monster"},'
-				  + '{"key": "3", "name": "Monster"},'
-				  + '{"key": "3", "name": "Monster"},'
-				  + '{"key": "3", "name": "Monster", "pagebreak": {}},'
-				  + '{"key": "4", "name": "Monster"},'
-				  + '{"key": "4", "name": "Monster"},'
-				  + '{"key": "4", "name": "Monster"},'
-				  + '{"key": "4", "name": "Monster"},'
-				  + '{"key": "5", "name": "Monster"},'
-				  + '{"key": "5", "name": "Monster"},'
-				  + '{"key": "5", "name": "Monster"},'
-				  + '{"key": "5", "name": "Monster"},'
-				  + '{"key": "6", "name": "Monster"},'
-				  + '{"key": "6", "name": "Medusa"},'
-				  + '{"key": "7", "name": "Hydra"},'
-				  + '{"key": "7", "name": "Drache"}'
+				  + '{"key": "2", "name": "Goblin", "rows": [{"txt":"blockt","a":"","b":"","c":"1"},{"txt":"Ruhm","a":"1","b":"1","c":"2"},{"txt":"Beute","a":"","b":"","c":"1"} ] },'
+				  + '{"key": "3", "name": "Skelett", "rows": [{"txt":"blockt","a":"","b":"1","c":"1"},{"txt":"Ruhm","a":"1","b":"2","c":"2"},{"txt":"Beute","a":"1","b":"","c":""} ] },'
+				  + '{"key": "4", "name": "Ork", "rows": [{"txt":"blockt","a":"","b":"1","c":"1"},{"txt":"Ruhm","a":"1","b":"2","c":"2"},{"txt":"Beute","a":"","b":"2","c":"2"} ] },'
+				  + '{"key": "5", "name": "Zombie", "rows": [{"txt":"blockt","a":"","b":"1","c":"1,2"},{"txt":"Ruhm","a":"1","b":"2","c":"4"},{"txt":"Beute","a":"2","b":"2","c":""} ] },'
+				  + '{"key": "6", "name": "Ghul", "rows": [{"txt":"blockt","a":"1","b":"2","c":"2"},{"txt":"Ruhm","a":"2","b":"3","c":"4"},{"txt":"Beute","a":"2","b":"2","c":"2"} ] },'
+				  + '{"key": "7", "name": "Schlangen", "rows": [{"txt":"blockt","a":"1","b":"2","c":"3"},{"txt":"Ruhm","a":"1","b":"2","c":"3"},{"txt":"Beute","a":"2","b":"2","c":"5"} ] },'
+				  + '{"key": "8", "name": "Wurm", "rows": [{"txt":"blockt","a":"","b":"2","c":"3"},{"txt":"Ruhm","a":"3","b":"4","c":"4"},{"txt":"Beute","a":"","b":"2","c":"3"} ] },'
+				  + '{"key": "8", "name": "Monster", "rows": [{"txt":"blockt","a":"1","b":"2","c":"3"},{"txt":"Ruhm","a":"1","b":"2","c":"3"},{"txt":"Beute","a":"2","b":"2","c":"5"} ] },'
+				  + '{"key": "9", "name": "Monster", "rows": [{"txt":"blockt","a":"1","b":"2","c":"3"},{"txt":"Ruhm","a":"1","b":"2","c":"3"},{"txt":"Beute","a":"2","b":"2","c":"5"} ]},'
+				  + '{"key": "10", "name": "Monster", "rows": [{"txt":"blockt","a":"1","b":"2","c":"3"},{"txt":"Ruhm","a":"1","b":"2","c":"3"},{"txt":"Beute","a":"2","b":"2","c":"5"} ] },'
+				  + '{"key": "10", "name": "Monster", "rows": [{"txt":"blockt","a":"1","b":"2","c":"3"},{"txt":"Ruhm","a":"1","b":"2","c":"3"},{"txt":"Beute","a":"2","b":"2","c":"5"} ]},'
+				  + '{"key": "11", "name": "Monster", "rows": [{"txt":"blockt","a":"1","b":"2","c":"3"},{"txt":"Ruhm","a":"1","b":"2","c":"3"},{"txt":"Beute","a":"2","b":"2","c":"5"} ] },'
+				  + '{"key": "11", "name": "Monster", "rows": [{"txt":"blockt","a":"1","b":"2","c":"3"},{"txt":"Ruhm","a":"1","b":"2","c":"3"},{"txt":"Beute","a":"2","b":"2","c":"5"} ]},'
+				  + '{"key": "12", "name": "Monster", "pagebreak": {}, "rows": [{"txt":"blockt","a":"1","b":"2","c":"3"},{"txt":"Ruhm","a":"1","b":"2","c":"3"},{"txt":"Beute","a":"2","b":"2","c":"5"} ]},'
+				  + '{"key": "12", "name": "Monster", "rows": [{"txt":"blockt","a":"1","b":"2","c":"3"},{"txt":"Ruhm","a":"1","b":"2","c":"3"},{"txt":"Beute","a":"2","b":"2","c":"5"} ]},'
+				  + '{"key": "13", "name": "Monster", "rows": [{"txt":"blockt","a":"1","b":"2","c":"3"},{"txt":"Ruhm","a":"1","b":"2","c":"3"},{"txt":"Beute","a":"2","b":"2","c":"5"} ] },'
+				  + '{"key": "14", "name": "Monster", "rows": [{"txt":"blockt","a":"1","b":"2","c":"3"},{"txt":"Ruhm","a":"1","b":"2","c":"3"},{"txt":"Beute","a":"2","b":"2","c":"5"} ]},'
+				  + '{"key": "15", "name": "Monster", "rows": [{"txt":"blockt","a":"1","b":"2","c":"3"},{"txt":"Ruhm","a":"1","b":"2","c":"3"},{"txt":"Beute","a":"2","b":"2","c":"5"} ]},'
+				  + '{"key": "16", "name": "Monster", "rows": [{"txt":"blockt","a":"1","b":"2","c":"3"},{"txt":"Ruhm","a":"1","b":"2","c":"3"},{"txt":"Beute","a":"2","b":"2","c":"5"} ]},'
+				  + '{"key": "17", "name": "Monster", "rows": [{"txt":"blockt","a":"1","b":"2","c":"3"},{"txt":"Ruhm","a":"1","b":"2","c":"3"},{"txt":"Beute","a":"2","b":"2","c":"5"} ]},'
+				  + '{"key": "18", "name": "Monster", "rows": [{"txt":"blockt","a":"1","b":"2","c":"3"},{"txt":"Ruhm","a":"1","b":"2","c":"3"},{"txt":"Beute","a":"2","b":"2","c":"5"} ]},'
+				  + '{"key": "20", "name": "Medusa", "rows": [{"txt":"blockt","a":"1","b":"2","c":"3"},{"txt":"Ruhm","a":"1","b":"2","c":"3"},{"txt":"Beute","a":"2","b":"2","c":"5"} ]},'
+				  + '{"key": "23", "name": "Hydra", "rows": [{"txt":"blockt","a":"1","b":"2","c":"3"},{"txt":"Ruhm","a":"1","b":"2","c":"3"},{"txt":"Beute","a":"2","b":"2","c":"5"} ]},'
+				  + '{"key": "28", "name": "Drache", "rows": [{"txt":"blockt","a":"1","b":"2","c":"3"},{"txt":"Ruhm","a":"1","b":"2","c":"3"},{"txt":"Beute","a":"2","b":"2","c":"5"} ]}'
 				  + ']}';
 		</script>
 		<script src="js/data.js"></script>
@@ -41,31 +41,32 @@
 <body>
 	<div id="content"></div>
 	<div id="template" style="display: none;">
-		<div style="">{{header}}</div>
+		<div>{{header}}</div>
 		{{#cards}}
-		<div class="card {{name}}">
-		<div class="toprow"><span class="key">{{key}}</span><span class="name">{{name}}</span><span class="key right">{{key}}</span></div>
+		<div  class="card {{name}}">
+		<div class="toprow"><span class="key">{{key}}</span><span style="font-size: 18px;" class="name">{{name}}</span><span class="key right">{{key}}</span></div>
 		<div><img alt="picture" src="img/Monster.png" style="width: 100px; height: 100px;margin: 10px 40px;"></div>
 		<div style="width: 100%; text-align:center;">Monsterkarte</div>
 		<div style="width: 100%; text-align:center;">
-		<table class="monstertable">
-  <tr>
-    <th>Alarm</th>
-    <th>Punkte</th>
-    <th>Schaden</th>
+		<table class="monstertable" style="width:160px; text-align: center;">
+  <tr >
+  	<th></th>
+    <th>1/2</th>
+    <th>3/4</th>
+    <th>5/6</th>
   </tr>
 {{#rows}}
-		  <tr>
+		  <tr style="height: 30px;">
+	<td style="font-weight: bold;">{{txt}}</td>	  
     <td>{{a}}</td>
-    <td>{{p}}</td>
-    <td>{{s}}</td>
+    <td>{{b}}</td>
+    <td>{{c}}</td>
   </tr>
 {{/rows}}
 </table>
 
 		</div>
 
-		<div class="bottomrow" style="margin-top: 10px;"><span class="key rotate">{{key}}</span><span class="name rotate">{{name}}</span><span class="key right rotate">{{key}}</span></div>
 		</div>
 		{{#pagebreak}}<div class="pagebreak"></span>{{/pagebreak}}
 		{{/cards}}

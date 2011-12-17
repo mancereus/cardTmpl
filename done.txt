@@ -1,0 +1,5 @@
+x 2011-12-17 beutekarten
+x 2011-12-17 include page-break
+x 2011-12-17 include images
+x 2011-12-17 bottomrow at the bottom
+x 2011-12-17 rotate text

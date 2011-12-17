@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Dracula Orte</title>
+<style>
+<!--
+body, * {
+	font-size: 12px;
+	font-family: 'Nobile', arial, serif;
+}
+
+.card {
+	margin:1px; 
+	padding: 3px;
+	float:left;
+	width: 300px;
+	height: 180px;
+	border: 1px solid black;
+}
+.key {
+	font-size: 20px;
+	font-weight: bold;
+}
+.name {
+	padding: 0 15px;
+	text-align: center;
+	width: 60%;
+	font-size: 20px;
+	
+}
+.rotate {
+	-ms-transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+}
+.right {
+	float: right;
+}
+.toprow {
+	float: left;
+	width: 100%;
+}
+.bottomrow {
+	margin-top: 30px;
+	float: left;
+	width: 100%;
+}
+.monstertable {
+	border: 1px solid black;
+	margin-left: 10px;
+}
+.pagebreak { 
+	page-break-before: always;
+}
+
+-->
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script src="js/mustache.js"></script>
+<script>
+	var overviewstr = '{"cards": [{"title":"Kellertreppe","desc":"Das Tor durch das du den Keller betreten hast, fällt hinter dir ins Schloss","action":"Mit dem passenden Schlüssel kannt du dem keller entkommen und dich retten","dir":"w o s"},'
+			+ '{"title":"Abzweigung mit Tor","desc":"Die Ostrichtung ist mit einem Tor blockiert.","action":"Mit einem Schlüssel kannst du das Tor öffnen","dir":"w o s"},'
+			+ '{"title":"Kerkerzelle","desc":"Im Westen ist eine Kerkerzelle mit Skelett.","action":"Alle Karten iegen in der Zelle. Du kannst die Karten anschauen, benötigst aber einen Schlüssel oder die Brechstange, um an sie heranzukommen.","dir":"n o s"},'
+			+ '{"title":"Tropfsteinhöhle","desc":"Die Tropsteinhöhle tropft vor sich hin.","action":"Ortsergänzungen haben hier keine Auswrkung und werden abgelegt.","dir":"n w s "},'
+			+ '{"title":"Draculas Gruft","desc":"Draculas Gruft kann nur durch das Westtor (mit dem Gruftschlüssel) oder den Geheimgang (Tagebuch) betreten werden.","action":"Alle Karten liegen in der Gruft. Liegt Darcula hier, dann kann man ihn mit Hammer und Pflock töten. Damit er nicht fliehen kann benötigst du Kreuz oder Knoblauch.","dir":"n w o s "},'
+			+ '{"title":"Tunnelabzweigung","desc":"Hier ist eine einfache Tunnelabzweigung.","action":"Hier sind maximal 2 Karten. Alle weiteren befinden sich südlich von hier.","dir":"n w o"},'
+			+ '{"title":"Abzweigung mit Tor","desc":"Die Westrichtung ist mit einem Tor blockiert.","action":"Mit einem Schlüssel kannst du das Tor öffnen.","dir":"n w s"},'
+			+ '{"title":"Williams Gruft","desc":"Hier ist die Gruft von Opa William","action":"Liegt Opa William in seinem Sarg, wirst du gebissen, falls du nicht das Kreuz hast","dir":"n w s"},'
+			+ '{"title":"Unterirdischer Tunnel","desc":"Auf der Kreuzung führt ein Tunnel nach Unten.","action":"Falls die zweite Karte Unterirdischer Tunnel offen liegt, besteht hier eine Verbindung zwischen den beiden Karten.","dir":"n w o"},'
+			+ '{"title":"Labyrinth","desc":"In diesem Tunnellabyrinth verirrt man sich. ","action":"betrittst du diesen ort kannst du ihn nur in eine andere Richtung verlassen","dir":"n w o s","pagebreak":"true"},'
+			+ '{"title":"Tunnelabzweigung","desc":"Hier ist eine einfache Tunnelabzweigung.","action":"Hier sind maximal 2 Karten. Alle weiteren befinden sich westlich von hier.","dir":"n o s"},'
+			+ '{"title":"Unterirdischer Tunnel","desc":"Auf der Kreuzung führt ein Tunnel nach Unten.","action":"Falls die zweite Karte Unterirdischer Tunnel offen liegt, besteht hier eine Verbindung zwischen den beiden Karten.","dir":"w o s"},'
+			+ '{"title":"Kammer","desc":"An dieser Abzweigung ist eine verschlossene Kammer.","action":"In der Kammer sind alle Karten. Zum Öffnen benötigst du einen Schlüssel","dir":"n w o"},'
+			+ '{"title":"Hängebrucken","desc":"zwei Hängebrücken überqueren hier ein tiefes Loch","action":"Du kannst jeweils nur zu gegenüberliegende Seite wechseln. Alle Karten sind verloren und wandern auf den Ablagestapel.","dir":"n s w o "},'
+			+ '{"title":"Leere Kreuzung","desc":"Vier schmale Gänge treffen hier aufeinander.","action":"Hier sind keine Karten zu finden. Alle Karten leigen auf der Kellertreppe","dir":"n w o s"},'
+			+ '{"title":"Kreuzung mit Falltüren","desc":"Im Norden und West sind Falltüren, durch die du auf die Kreuzung fällst.","action":"Du kannst dieden Ort nur hach Süden oder Osten verlassen. Wenn du die Leiter hast, kannst du auch nach Norden oder Westen gehen.","dir":"s o"},'
+			+ '{"title":"Müllhalde","desc":"In einer Nebenhöhle liegt viel altes Zeug.","action":"Vermische alle Kartne mit den Karten des Ablagetapels und zeihe genausoviel Karten nach.","dir":"n o s"},'
+			+ '{"title":"Tunnelabzweigung","desc":"Hier ist eine einfache Tunnelabzweigung.","action":"Hier sind maximal 2 Karten. Alle weiteren befinden sich östlich von hier.","dir":"n w s"},'
+			+ '{"title":"Monsterhöhle","desc":"Hier befindet sich die Monsterhöhle","action":"Liegt das Monster in seiner Höhle, dann ist dieser Ort blockiert. betritt man den Ort wird man vom Monster bis zur Kellertreppe gejagt.","dir":"w o s"},'
+			+ '{"title":"Verschüttete Höhle","desc":"Die Decke dieser Höhle ist eingestürzt","action":"Ohne die Schaufel ist der Ort blockiert und alle Karten verschüttet.","dir":""}'
+			+ ']}';
+</script>
+<script src="js/data.js"></script>
+<style type="text/css">
+</style>
+</head>
+<body>
+	<div id="content"></div>
+	<div id="template" style="display: none;">
+		<div style="">{{header}}</div>
+		{{#cards}}
+		<div class="card {{dir}}">
+			<div class="toprow">
+				<span class="name">{{title}}</span><span class="key right">{{dir}}</span>
+			</div>
+			<div>
+				<img alt="picture" src="img/room.png" style="width: 80px; height: 80px; margin: 5px;float:left;">
+			</div><br/><br/>
+			<div style="width: 100%; text-align: left;">{{desc}}</div><br/>
+			<div style="width: 100%; text-align: left;">{{action}}</div>
+		</div>
+		{{#pagebreak}}<div class="pagebreak"></div>{{/pagebreak}} {{/cards}}
+</body>
+</html>

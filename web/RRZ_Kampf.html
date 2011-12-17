@@ -23,23 +23,27 @@
 				  + '{"key": "5", "name": "Schwert"},'
 				  + '{"key": "5", "name": "Schwert"},'
 				  + '{"key": "1", "name": "Armbrust"},'
-				  + '{"key": "1", "name": "Armbrust"},'
-				  + '{"key": "2", "name": "Armbrust"},'
 				  + '{"key": "2", "name": "Armbrust"},'
 				  + '{"key": "3", "name": "Armbrust"},'
-				  + '{"key": "1", "name": "Armbrust"}'
+				  + '{"key": "4", "name": "Armbrust"},'
+				  + '{"key": "3", "name": "Armbrust"},'
+				  + '{"key": "4", "name": "Armbrust"},'
+				  + '{"key": "1", "name": "Schwert"},'
+				  + '{"key": "2", "name": "Schwert"},'
+				  + '{"key": "4", "name": "Schwert"},'
+				  + '{"key": "3", "name": "Schwert"}'
 				  + ']}';
 		</script>
 		<script src="js/data.js"></script>
 <style type="text/css">
 .Armbrust {
-	background-color: #3c6;
+	border: 7px solid #3c6;
 }
 .Axt {
-	background-color: #36c;
+	border:  7px solid #36c;
 }
 .Schwert {
-	background-color: #fc6;
+	border:  7px solid #fc6;
 }
 </style>
 </head>
@@ -48,9 +52,9 @@
 	<div id="template" style="display: none;">
 		<div style="">{{header}}</div>
 		{{#cards}}
-		<div class="card {{name}}">
+		<div class="card ">
 		<div class="toprow"><span class="key">{{key}}</span><span class="name">{{name}}</span><span class="key right">{{key}}</span></div>
-		<div><img alt="picture" src="img/{{name}}.png" style="width: 100px; height: 100px;margin: 40px;"></div>
+		<div><img class="{{name}}" alt="picture" src="img/{{name}}.png" style="width: 100px; height: 100px;margin: 40px;"></div>
 		<div style="width: 100%; text-align:center;">Kampfkarte</div>
 		<div class="bottomrow"><span class="key rotate">{{key}}</span><span class="name rotate">{{name}}</span><span class="key right rotate">{{key}}</span></div>
 		</div>
