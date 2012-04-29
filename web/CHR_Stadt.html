@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Stadtchronik</title>
+<link href="css/style.css" rel="stylesheet" ="text/css" />
+		<script
+			src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script src="js/mustache.js"></script>
+		<script>
+			var overviewstr = '{"cards": [' +
+			'{"Karte" : "H2", "typ" : "Ware", "name" : "2 Holz", "Aktion" : "2 Holz oder", "Vorteil" : "1H", "Kosten" : "-" },' +
+			'{"Karte" : "H3", "typ" : "Ware", "name" : "3 Holz", "Aktion" : "3 Holz oder", "Vorteil" : "1H", "Kosten" : "-" },' +
+			'{"Karte" : "H4", "typ" : "Ware", "name" : "Pergament", "Aktion" : "", "Vorteil" : "2 Punkte", "Kosten" : "-" },' +
+			'{"Karte" : "H5", "typ" : "Gebäude", "name" : "Waldhütte", "Aktion" : "5H", "Vorteil" : "1 Holz, 1P", "Kosten" : "3H" },' +
+			'{"Karte" : "H6", "typ" : "Gebäude", "name" : "Räucherstube", "Aktion" : "3G", "Vorteil" : "1 Getreide, 1P", "Kosten" : "3H, 2S" },' +
+			'{"Karte" : "H7", "typ" : "Gebäude", "name" : "Steinbruch", "Aktion" : "5S", "Vorteil" : "2S", "Kosten" : "5H, 3S" },' +
+			'{"Karte" : "H8", "typ" : "Gebäude", "name" : "Erzmine", "Aktion" : "5E", "Vorteil" : "2E", "Kosten" : "8H, 4S" },' +
+			'{"Karte" : "H9", "typ" : "Gebäude", "name" : "Krankenhaus", "Aktion" : "schützt vor der Seuche", "Vorteil" : "12P", "Kosten" : "10H, 7S" },' +
+			'{"Karte" : "H10", "typ" : "Gebäude", "name" : "Universität", "Aktion" : "", "Vorteil" : "20P", "Kosten" : "10H, 13S" },' +
+			'{"Karte" : "HB", "typ" : "Person", "name" : "Händler", "Aktion" : "als 1 bel. Resource verwendbar", "Vorteil" : "", "Kosten" : "" },' +
+			'{"Karte" : "HD", "typ" : "Person", "name" : "Räuber", "Aktion" : "nimmt zuletzt gespielte Ware", "Vorteil" : "", "Kosten" : "" },' +
+			'{"Karte" : "HK", "typ" : "Person", "name" : "Gilde", "Aktion" : "nimmt alle gespielten Holzkarten", "Vorteil" : "", "Kosten" : "", "pagebreak" : "pagebreak" },' +
+			'{"Karte" : "HA", "typ" : "Unglück", "name" : "Feuer", "Aktion" : "(aus dem Markt:) ein Lagerhaus brennt ab. G-1", "Vorteil" : "", "Kosten" : "" },' +
+			'{"Karte" : "S2", "typ" : "Ware", "name" : "2 Stein", "Aktion" : "2 Steine oder", "Vorteil" : "1S", "Kosten" : "" },' +
+			'{"Karte" : "S3", "typ" : "Ware", "name" : "3 Stein", "Aktion" : "3 Steine oder", "Vorteil" : "1S", "Kosten" : "" },' +
+			'{"Karte" : "S4", "typ" : "Ware", "name" : "Marmor", "Aktion" : "-", "Vorteil" : "Die Punkte eines gebauten Gebäudes verdoppeln sich.", "Kosten" : "" },' +
+			'{"Karte" : "S5", "typ" : "Gebäude", "name" : "Wall", "Aktion" : "Verteidigung bei Angriff +2 ", "Vorteil" : "1S, 3P", "Kosten" : "1H, 2S" },' +
+			'{"Karte" : "S6", "typ" : "Gebäude", "name" : "Wachturm", "Aktion" : "Verteidigung bei Angriff +3", "Vorteil" : "1S, 5P", "Kosten" : "2H, 3S" },' +
+			'{"Karte" : "S7", "typ" : "Gebäude", "name" : "Stadtmauer", "Aktion" : "Verteidigung bei Angriff +4", "Vorteil" : "1S, 8P", "Kosten" : "2H, 6S" },' +
+			'{"Karte" : "S8", "typ" : "Gebäude", "name" : "Glockenturm", "Aktion" : "Verteidigung bei Angriff +5 ", "Vorteil" : "1S, 12P", "Kosten" : "3H, 9S" },' +
+			'{"Karte" : "S9", "typ" : "Gebäude", "name" : "Burg", "Aktion" : "Verteidigung bei Angriff +6", "Vorteil" : "1S, 15P", "Kosten" : "4H, 13S" },' +
+			'{"Karte" : "S10", "typ" : "Gebäude", "name" : "Festung", "Aktion" : "schützt vor allen Angriffen", "Vorteil" : "1S, 20P", "Kosten" : "8H, 15S" },' +
+			'{"Karte" : "SB", "typ" : "Person", "name" : "Stadtmiliz", "Aktion" : "kann einen Angriff aufhalten. Die Karte kommt dann in den Markt.", "Vorteil" : "", "Kosten" : "" },' +
+			'{"Karte" : "SD", "typ" : "Person", "name" : "Baumeister", "Aktion" : "Die Baukosten eines Gebäudes halbieren sich. (aufrunden)", "Vorteil" : "", "Kosten" : "", "pagebreak" : "pagebreak"  },' +
+			'{"Karte" : "SK", "typ" : "Person", "name" : "König", "Aktion" : "König besucht die Stadt: 4P", "Vorteil" : "", "Kosten" : "" },' +
+			'{"Karte" : "SA", "typ" : "Unglück", "name" : "Seuche", "Aktion" : "(aus dem Markt:) Die Seuche tötet. Bev-2", "Vorteil" : "", "Kosten" : "" },' +
+			'{"Karte" : "E2", "typ" : "Ware", "name" : "2 Erz", "Aktion" : "2 Erz oder", "Vorteil" : "1E", "Kosten" : "" },' +
+			'{"Karte" : "E3", "typ" : "Ware", "name" : "3 Erz", "Aktion" : "3 Erz oder ", "Vorteil" : "1E", "Kosten" : "" },' +
+			'{"Karte" : "E4", "typ" : "Ware", "name" : "Schmiedekunst", "Aktion" : "-", "Vorteil" : "1E + 5P bei Gebäudebau", "Kosten" : "-" },' +
+			'{"Karte" : "E5", "typ" : "Gebäude", "name" : "Miliz", "Aktion" : "Angriff schlägt Karten <=5+E-V", "Vorteil" : "1E, 1P", "Kosten" : "2H" },' +
+			'{"Karte" : "E6", "typ" : "Gebäude", "name" : "Truppe", "Aktion" : "Angriff schlägt Karten <=6+E-V", "Vorteil" : "1E, 2P", "Kosten" : "2H" },' +
+			'{"Karte" : "E7", "typ" : "Gebäude", "name" : "Schütze", "Aktion" : "Angriff schlägt Karten <=7+E-V", "Vorteil" : "1E, 3P", "Kosten" : "3H" },' +
+			'{"Karte" : "E8", "typ" : "Gebäude", "name" : "Reiter", "Aktion" : "Angriff schlägt Karten <=8+E-V", "Vorteil" : "1E, 4P", "Kosten" : "3H" },' +
+			'{"Karte" : "E9", "typ" : "Gebäude", "name" : "Ritter", "Aktion" : "Angriff schlägt Karten <=9+E-V", "Vorteil" : "1E, 5P", "Kosten" : "4H" },' +
+			'{"Karte" : "E10", "typ" : "Gebäude", "name" : "Armee", "Aktion" : "Angriff schlägt Karten <=10+E-V", "Vorteil" : "1E, 6P", "Kosten" : "4H" },' +
+			'{"Karte" : "EB", "typ" : "Person", "name" : "Saboteur", "Aktion" : "beseitigt das zuletzt gespielte Gebäude dieser Runde", "Vorteil" : "", "Kosten" : "", "pagebreak" : "pagebreak"  },' +
+			'{"Karte" : "ED", "typ" : "Person", "name" : "Henker", "Aktion" : "tötet die zuletzt gespielte Person in dieser Runde", "Vorteil" : "", "Kosten" : "" },' +
+			'{"Karte" : "EK", "typ" : "Person", "name" : "Richter", "Aktion" : "eine gespielte Karte geht in den Markt", "Vorteil" : "", "Kosten" : "" },' +
+			'{"Karte" : "EA", "typ" : "Unglück", "name" : "Söldner", "Aktion" : "(aus dem Markt:) Eine Armee überfällt die Stadt und nimmt die wertvollste Karte mit.", "Vorteil" : "-", "Kosten" : "-" },' +
+			'{"Karte" : "G2", "typ" : "Ware", "name" : "2 Getreide", "Aktion" : "2 Getreide oder", "Vorteil" : "1G", "Kosten" : "" },' +
+			'{"Karte" : "G3", "typ" : "Ware", "name" : "3 Getreide", "Aktion" : "3 Getreide oder", "Vorteil" : "1G", "Kosten" : "" },' +
+			'{"Karte" : "G4", "typ" : "Ware", "name" : "Gewürze", "Aktion" : "Jedes nicht benötigte Getreidekarte gibt 3 Punkte", "Vorteil" : "-", "Kosten" : "" },' +
+			'{"Karte" : "G5", "typ" : "Gebäude", "name" : "Kornspeicher", "Aktion" : "-", "Vorteil" : "1G", "Kosten" : "2H, 1S" },' +
+			'{"Karte" : "G6", "typ" : "Gebäude", "name" : "Mühle", "Aktion" : "-", "Vorteil" : "1G", "Kosten" : "3H,2S" },' +
+			'{"Karte" : "G7", "typ" : "Gebäude", "name" : "Marktplatz", "Aktion" : "Bevölkerung steigt um 1", "Vorteil" : "1G", "Kosten" : "6H, 2S" },' +
+			'{"Karte" : "G8", "typ" : "Gebäude", "name" : "Trinkstuben", "Aktion" : "Bevölkerung steigt um 1", "Vorteil" : "1G", "Kosten" : "6H, 6S" },' +
+			'{"Karte" : "G9", "typ" : "Gebäude", "name" : "Ratshaus", "Aktion" : "3P", "Vorteil" : "1G", "Kosten" : "12H, 5S" },' +
+			'{"Karte" : "G10", "typ" : "Gebäude", "name" : "Königshof", "Aktion" : "5P", "Vorteil" : "1G", "Kosten" : "10H, 13S", "pagebreak" : "pagebreak"  },' +
+			'{"Karte" : "GB", "typ" : "Person", "name" : "Händler", "Aktion" : "nimm eine Ware aus dem Markt (ohne Katastrophe)", "Vorteil" : "", "Kosten" : "" },' +
+			'{"Karte" : "GD", "typ" : "Person", "name" : "Landwirt", "Aktion" : "alle Getreidekarten zählen beim Ernähren 2G", "Vorteil" : "", "Kosten" : "" },' +
+			'{"Karte" : "GK", "typ" : "Person", "name" : "Mönch", "Aktion" : "nimmt alle gespielten Getreidekarten", "Vorteil" : "", "Kosten" : "" },' +
+			'{"Karte" : "GA", "typ" : "Unglück", "name" : "Unwetter", "Aktion" : "(aus dem Markt:) 2 eigene Getreidekarten werden vernichtet.", "Vorteil" : "", "Kosten" : "" }]}';
+		</script>
+		<script src="js/data.js"></script>
+<style type="text/css">
+	.key{ font-size: 16pt;}
+	
+</style>
+</head>
+<body>
+	<div id="content"></div>
+	<div id="template" style="display: none;">
+		<div>{{header}}</div>
+		{{#cards}}
+		<div  class="card {{name}}">
+		<div class="toprow"><span class="key">{{Karte}}</span><span style="font-size: 16px;" class="name">{{name}}</span><span class="key right">{{Karte}}</span></div>
+		<div><img alt="picture" src="img/{{typ}}.png" style="width: 100px; height: 100px;margin: 10px 40px;"></div>
+		<div style="width: 100%; text-align:center;">{{typ}}</div>
+		<div style="width: 90%; text-align:center;border: 1px solid black"><strong>Aktion: </strong>{{Aktion}}</div>
+		<div style="width: 90%; text-align:center;border: 1px solid black"><strong>Vorteil: </strong>{{Vorteil}}</div>
+		<div style="width: 90%; text-align:center;border: 1px solid black"><strong>Kosten: </strong>{{Kosten}}</div>
+		<div style="width: 100%; text-align:center;">
+			
+		</div>
+
+		</div>
+		{{#pagebreak}}<div class="pagebreak"></span>{{/pagebreak}}
+		{{/cards}}
+
+</body>
+</html>
