@@ -4,81 +4,80 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
 <title>Stadtchronik</title>
 <link href="css/style.css" rel="stylesheet" ="text/css" />
-		<script
-			src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 		<script src="js/mustache.js"></script>
 		<script>
 			var overviewstr = '{"cards": [' +
-			'{"art" : "H","Karte" : "H2", "typ" : "Ware", "name" : "2 Holz", "Aktion" : "", "Vorteil" : "Resourcenauswertung: H+2" },' +
-			'{"art" : "H","Karte" : "H3", "typ" : "Ware", "name" : "3 Holz", "Aktion" : "", "Vorteil" : "Resourcenauswertung: H+3" },' +
-			'{"art" : "H","Karte" : "H4", "typ" : "Ware", "name" : "Pergament", "Aktion" : "", "Vorteil" : "Resourcenauswertung: H+4" },' +
-			'{"art" : "H","Karte" : "H5", "typ" : "Gebäude", "name" : "Waldhütte", "Aktion" : "Kosten: 2 Holz", "Vorteil" : "Bauvorteil: Bei Resourcenauswertung H+2" },' +
-			'{"art" : "H","Karte" : "H6", "typ" : "Gebäude", "name" : "Jagdhütte", "Aktion" : "Kosten: 3 Holz", "Vorteil" : "Bauvorteil: Bei Resourcenauswertung G+2" },' +
-			'{"art" : "H","Karte" : "H7", "typ" : "Gebäude", "name" : "Krankenhaus", "Aktion" : "Kosten: 3 Holz, 2 Stein", "Vorteil" : "Bauvorteil: schützt vor der Pest und Sturm" },' +
-			'{"art" : "H","Karte" : "H8", "typ" : "Gebäude", "name" : "Handelhaus", "Aktion" : "Kosten: 5 Holz, 1 Stein, 2 Erz", "Vorteil" : "Bauvorteil: Bei jedem gewonnenen Stich 1 Warenkarte von der Hand in die Ablage" },' +
-			'{"art" : "H","Karte" : "H9", "typ" : "Gebäude", "name" : "Hafen", "Aktion" : "Kosten: 6 Holz, 6 Steine", "Vorteil" : "Bauvorteil: Bei Resourcenauswertung: Alle Warenkarten verdoppeln ihren Wert" },' +
-			'{"art" : "H","Karte" : "H10", "typ" : "Gebäude", "name" : "Universität", "Aktion" : "Kosten: 5 Holz, 5 Steine, 5 Erz, 2 Getreide, 3 Bev", "Vorteil" : "Bauvorteil: Siegpunkte am Ende der Partie verdoppeln." },' +
-			'{"art" : "H","Karte" : "HB", "typ" : "Person", "name" : "Krämer", "Aktion" : "Baubonus: Baukosten sinken pro Resourcentyp -2", "Vorteil" : "" },' +
-			'{"art" : "H","Karte" : "HD", "typ" : "Person", "name" : "Räuber", "Aktion" : "Stichbonus: 1 Karte von der Hand in die eigene Ablage.", "Vorteil" : "" },' +
-			'{"art" : "H","Karte" : "HK", "typ" : "Person", "name" : "Gildemeister", "Aktion" : "Stichbonus: sticht zusätzlich zu der niedrigsten Karte alle Holzkarten.", "Vorteil" : "", "pagebreak" : "pagebreak" },' +
-			'{"art" : "H","Karte" : "As", "typ" : "Apokalypse", "name" : "Feuerbrunst", "Aktion" : "Besiegt Personen (As) und unterliegt Gebäuden und Waren. (1)", "Vorteil" : "Nachteil: ein gebautes Gebäude brennt ab."},' +
-			'{"art" : "S","Karte" : "S2", "typ" : "Ware", "name" : "2 Stein", "Aktion" : "", "Vorteil" : "Resourcenauswertung: S+2" },' +
-			'{"art" : "S","Karte" : "S3", "typ" : "Ware", "name" : "3 Stein", "Aktion" : "", "Vorteil" : "Resourcenauswertung: S+3" },' +
-			'{"art" : "S","Karte" : "S4", "typ" : "Ware", "name" : "Marmor", "Aktion" : "", "Vorteil" : "Resourcenauswertung: S+4" },' +
-			'{"art" : "S","Karte" : "S5", "typ" : "Gebäude", "name" : "Steinbruch", "Aktion" : "Kosten: 2 Steine", "Vorteil" : "Bauvorteil: Bei Resourcenauswertung S+2" },' +
-			'{"art" : "S","Karte" : "S6", "typ" : "Gebäude", "name" : "Bergwerk", "Aktion" : "Kosten: 3 Steine", "Vorteil" : "Bauvorteil: direkt Stein Max +2"},' +
-			'{"art" : "S","Karte" : "S7", "typ" : "Gebäude", "name" : "Stadtmauer", "Aktion" : "Kosten: 4 Steine", "Vorteil" : "Bauvorteil: kein Mitspieler kann Karten aus deiner Hand oder Ablage nehmen"},' +
-			'{"art" : "S","Karte" : "S8", "typ" : "Gebäude", "name" : "Aquädukt", "Aktion" : "Kosten: 5 Steine", "Vorteil" : "Bauvorteil: schützt vor der Feuerbrunst" },' +
-			'{"art" : "S","Karte" : "S9", "typ" : "Gebäude", "name" : "Burg", "Aktion" : "Kosten: 8 Steine, 2 Erz", "Vorteil" : "Bauvorteil: schützt vor dem Krieg"},' +
-			'{"art" : "S","Karte" : "S10", "typ" : "Gebäude", "name" : "Festung", "Aktion" : "Kosten: 10 Steine, 2 Erz, 3 Holz", "Vorteil" : "Bauvorteil: bis zu 3 Warenkarten für die folgenden Runden behalten" },' +
-			'{"art" : "S","Karte" : "SB", "typ" : "Person", "name" : "Architekt", "Aktion" : "Baubonus: Die Punkte eines gebauten Gebäudes verdoppeln sich.", "Vorteil" : "" },' +
-			'{"art" : "S","Karte" : "SD", "typ" : "Person", "name" : "Baumeister", "Aktion" : "Baubonus: jedes gebaute Gebäude Punkte +2", "Vorteil" : "", "pagebreak" : "pagebreak"  },' +
-			'{"art" : "S","Karte" : "SK", "typ" : "Person", "name" : "Karawane", "Aktion" : "Stichbonus: sticht zusätzlich zu der niedrigsten Karte alle Steinkarten.", "Vorteil" : "" },' +
-			'{"art" : "S","Karte" : "As", "typ" : "Apokalypse", "name" : "Pest", "Aktion" : "Besiegt Personen (As) und unterliegt Gebäuden und Waren. (1)", "Vorteil" : "Nachteil: Punkte -5" },' +
-			'{"art" : "E","Karte" : "E2", "typ" : "Ware", "name" : "2 Erz", "Aktion" : "", "Vorteil" : "Resourcenauswertung: E+2" },' +
-			'{"art" : "E","Karte" : "E3", "typ" : "Ware", "name" : "3 Erz", "Aktion" : "", "Vorteil" : "Resourcenauswertung: E+3" },' +
-			'{"art" : "E","Karte" : "E4", "typ" : "Ware", "name" : "Gold", "Aktion" : "", "Vorteil" : "Resourcenauswertung: E+4"},' +
-			'{"art" : "E","Karte" : "E5", "typ" : "Gebäude", "name" : "Erzmine", "Aktion" : "Kosten: 1 Holz, 1 Stein", "Vorteil" : "Bauvorteil: Bei Resourcenauswertung E+2" },' +
-			'{"art" : "E","Karte" : "E6", "typ" : "Gebäude", "name" : "Sägewerk", "Aktion" : "Kosten: 2 Erz, 1 Stein", "Vorteil" : "Bauvorteil: direkt Holz Max +2" },' +
-			'{"art" : "E","Karte" : "E7", "typ" : "Gebäude", "name" : "Miliz", "Aktion" : "Kosten: 2 Holz, 2 Stein", "Vorteil" : "Bauvorteil: Wird die eigene Warenkarte gestochen, darf man direkt 1 Karte vom Stapel auf die Hand ziehen." },' +
-			'{"art" : "E","Karte" : "E8", "typ" : "Gebäude", "name" : "Schmelze", "Aktion" : "Kosten: 2 Holz, 2 Stein, 1 Erz", "Vorteil" : "Bauvorteil: direkt Erz Max +2" },' +
-			'{"art" : "E","Karte" : "E9", "typ" : "Gebäude", "name" : "Reiterhof", "Aktion" : "Kosten: 4 Holz, 4 Stein, 2 Erz", "Vorteil" : "Vorteil: Vor der Resourcenauswertung 1 Warenkarte von einem Spieler mit den meisten Karten in der Ablage ziehen." },' +
-			'{"art" : "E","Karte" : "E10", "typ" : "Gebäude", "name" : "Armee", "Aktion" : "Kosten: 3 Holz, 3 Stein, 5 Erz, 3 Getreide", "Vorteil" : "Vorteil: Zu Beginn der Runde je 1 Handkarte von den Spielern mit der grössten Bevölkerung ziehen." },' +
-			'{"art" : "E","Karte" : "EB", "typ" : "Person", "name" : "Saboteur", "Aktion" : "Baubonus: bis zu 5 benötigte Resourcen können 1:1 getauscht werden.", "Vorteil" : "", "pagebreak" : "pagebreak"  },' +
-			'{"art" : "E","Karte" : "ED", "typ" : "Person", "name" : "Alchemist", "Aktion" : "Baubonus: Schutz vor allen Apokalypsen.", "Vorteil" : "" },' +
-			'{"art" : "E","Karte" : "EK", "typ" : "Person", "name" : "Fürst", "Aktion" : "Stichbonus: sticht zusätzlich zu der niedrigsten Karte alle Erzkarten.", "Vorteil" : "" },' +
-			'{"art" : "E","Karte" : "As", "typ" : "Apokalypse", "name" : "Krieg", "Aktion" : "Besiegt Personen (As) und unterliegt Gebäuden und Waren. (1)", "Vorteil" : "Nachteil: E -1, S -1, H -1" },' +
-			'{"art" : "Dorf","Karte" : "D3", "typ" : "Ereignis", "name" : "Rattenplage", "Aktion" : "", "Vorteil" : "Resourcenauswertung: Getreide-1" },' +
-			'{"art" : "Dorf","Karte" : "D4", "typ" : "Ereignis", "name" : "Missernte", "Aktion" : "", "Vorteil" : "Resourcenauswertung: Getreide-2" },' +
-			'{"art" : "Dorf","Karte" : "D5", "typ" : "Ereignis", "name" : "Siedler", "Aktion" : "", "Vorteil" : "Resourcenauswertung: Bev+1" },' +
-			'{"art" : "Dorf","Karte" : "D6", "typ" : "Ereignis", "name" : "grosse Ernte", "Aktion" : "", "Vorteil" : "Resourcenauswertung: Getreide+3" },' +
-			'{"art" : "Dorf","Karte" : "D7", "typ" : "Gebäude", "name" : "kleiner Hof", "Aktion" : "Kosten: 3 Holz, 1 Stein", "Vorteil" : "Bauvorteil: Resourcenauswertung: Getreide +1"},' +
-			'{"art" : "Dorf","Karte" : "D8", "typ" : "Gebäude", "name" : "Hof", "Aktion" : "Kosten: 3 Holz, 2 Steine, 1 Erz", "Vorteil" : "Bauvorteil: Resourcenauswertung: Getreide +2" },' +
-			'{"art" : "Dorf","Karte" : "D9", "typ" : "Gebäude", "name" : "grosser Hof", "Aktion" : "Kosten: 1 Erz, 4 Holz, 3 Steine", "Vorteil" : "Bauvorteil: Resourcenauswertung: Getreide +3" },' +
-			'{"art" : "Dorf","Karte" : "D10", "typ" : "Gebäude", "name" : "Speicher", "Aktion" : "Kosten: 6 Steine, 6 Holz", "Vorteil" : "Bauvorteil: Endauswertung: 2 Ruhmpunkte extra"  },' +
+			'{"art" : "H","Karte" : "H2", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "" ,"anz1" : "2"},' +
+			'{"art" : "H","Karte" : "H3", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "" ,"anz1" : "3"},' +
+			'{"art" : "H","Karte" : "H4", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "" ,"anz1" : "4"},' +
+			'{"art" : "H","Karte" : "H5", "typ" : "Gebäude", "name" : "Waldhütte", "Aktion" : "Kosten: 2 Holz", "Vorteil" : "Bauvorteil: Bei Resourcenauswertung H+2" ,"anz1" : "1"},' +
+			'{"art" : "H","Karte" : "H6", "typ" : "Gebäude", "name" : "Jagdhütte", "Aktion" : "Kosten: 3 Holz", "Vorteil" : "Bauvorteil: Bei Resourcenauswertung G+2" ,"anz1" : "1"},' +
+			'{"art" : "H","Karte" : "H7", "typ" : "Gebäude", "name" : "Krankenhaus", "Aktion" : "Kosten: 3 Holz, 2 Stein", "Vorteil" : "Bauvorteil: schützt vor der Pest und Sturm" ,"anz1" : "1"},' +
+			'{"art" : "H","Karte" : "H8", "typ" : "Gebäude", "name" : "Handelhaus", "Aktion" : "Kosten: 5 Holz, 1 Stein, 2 Erz", "Vorteil" : "Bauvorteil: Bei jedem gewonnenen Stich 1 Warenkarte von der Hand in die Ablage" ,"anz1" : "1"},' +
+			'{"art" : "H","Karte" : "H9", "typ" : "Gebäude", "name" : "Hafen", "Aktion" : "Kosten: 6 Holz, 6 Steine", "Vorteil" : "Bauvorteil: Bei Resourcenauswertung: Alle Warenkarten verdoppeln ihren Wert" ,"anz1" : "1"},' +
+			'{"art" : "H","Karte" : "H10", "typ" : "Gebäude", "name" : "Universität", "Aktion" : "Kosten: 5 Holz, 5 Steine, 5 Erz, 2 Getreide, 3 Bev", "Vorteil" : "Bauvorteil: Siegpunkte am Ende der Partie verdoppeln." ,"anz1" : "1"},' +
+			'{"art" : "H","Karte" : "H11", "typ" : "Person", "name" : "Krämer", "Aktion" : "Baubonus: Baukosten sinken pro Resourcentyp -2", "Vorteil" : "" ,"anz1" : "1"},' +
+			'{"art" : "H","Karte" : "H12", "typ" : "Person", "name" : "Räuber", "Aktion" : "Stichbonus: 1 Karte von der Hand in die eigene Ablage.", "Vorteil" : "" ,"anz1" : "1"},' +
+			'{"art" : "H","Karte" : "H13", "typ" : "Person", "name" : "Gildemeister", "Aktion" : "Stichbonus: sticht zusätzlich zu der niedrigsten Karte alle Holzkarten.", "Vorteil" : "", "pagebreak" : "pagebreak" ,"anz1" : "1"},' +
+			'{"art" : "H","Karte" : "As", "typ" : "Apokalypse", "name" : "Feuerbrunst", "Aktion" : "Stichbonus: Besiegt Personen (As) und unterliegt Gebäuden und Waren. (1)", "Vorteil" : "Nachteil: ein gebautes Gebäude brennt ab.","anz1" : ""},' +
+			'{"art" : "S","Karte" : "S2", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "" ,"anz1" : "2"},' +
+			'{"art" : "S","Karte" : "S3", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "" ,"anz1" : "3"},' +
+			'{"art" : "S","Karte" : "S4", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "" ,"anz1" : "4"},' +
+			'{"art" : "S","Karte" : "S5", "typ" : "Gebäude", "name" : "Steinbruch", "Aktion" : "Kosten: 2 Steine", "Vorteil" : "Bauvorteil: Bei Resourcenauswertung S+2" ,"anz1" : "1"},' +
+			'{"art" : "S","Karte" : "S6", "typ" : "Gebäude", "name" : "Bergwerk", "Aktion" : "Kosten: 3 Steine", "Vorteil" : "Bauvorteil: direkt Stein Max +2","anz1" : "1"},' +
+			'{"art" : "S","Karte" : "S7", "typ" : "Gebäude", "name" : "Stadtmauer", "Aktion" : "Kosten: 4 Steine", "Vorteil" : "Bauvorteil: kein Mitspieler kann Karten aus deiner Hand oder Ablage nehmen","anz1" : "1"},' +
+			'{"art" : "S","Karte" : "S8", "typ" : "Gebäude", "name" : "Aquädukt", "Aktion" : "Kosten: 5 Steine", "Vorteil" : "Bauvorteil: schützt vor der Feuerbrunst" ,"anz1" : "1"},' +
+			'{"art" : "S","Karte" : "S9", "typ" : "Gebäude", "name" : "Burg", "Aktion" : "Kosten: 8 Steine, 2 Erz", "Vorteil" : "Bauvorteil: schützt vor dem Krieg","anz1" : "1"},' +
+			'{"art" : "S","Karte" : "S10", "typ" : "Gebäude", "name" : "Festung", "Aktion" : "Kosten: 10 Steine, 2 Erz, 3 Holz", "Vorteil" : "Bauvorteil: bis zu 3 Warenkarten für die folgenden Runden behalten" ,"anz1" : "1"},' +
+			'{"art" : "S","Karte" : "S11", "typ" : "Person", "name" : "Architekt", "Aktion" : "Baubonus: Die Punkte eines gebauten Gebäudes verdoppeln sich.", "Vorteil" : "" ,"anz1" : "1"},' +
+			'{"art" : "S","Karte" : "S12", "typ" : "Person", "name" : "Baumeister", "Aktion" : "Baubonus: jedes gebaute Gebäude Punkte +2", "Vorteil" : "", "pagebreak" : "pagebreak"  ,"anz1" : "1"},' +
+			'{"art" : "S","Karte" : "S13", "typ" : "Person", "name" : "Karawane", "Aktion" : "Stichbonus: sticht zusätzlich zu der niedrigsten Karte alle Steinkarten.", "Vorteil" : "" ,"anz1" : "1"},' +
+			'{"art" : "S","Karte" : "As", "typ" : "Apokalypse", "name" : "Pest", "Aktion" : "Stichbonus: Besiegt Personen (As) und unterliegt Gebäuden und Waren. (1)", "Vorteil" : "Nachteil: Punkte -5" ,"anz1" : ""},' +
+			'{"art" : "E","Karte" : "E2", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "" ,"anz1" : "2"},' +
+			'{"art" : "E","Karte" : "E3", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "" ,"anz1" : "3"},' +
+			'{"art" : "E","Karte" : "E4", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "","anz1" : "4"},' +
+			'{"art" : "E","Karte" : "E5", "typ" : "Gebäude", "name" : "Erzmine", "Aktion" : "Kosten: 1 Holz, 1 Stein", "Vorteil" : "Bauvorteil: Bei Resourcenauswertung E+2" ,"anz1" : "1"},' +
+			'{"art" : "E","Karte" : "E6", "typ" : "Gebäude", "name" : "Sägewerk", "Aktion" : "Kosten: 2 Erz, 1 Stein", "Vorteil" : "Bauvorteil: direkt Holz Max +2" ,"anz1" : "1"},' +
+			'{"art" : "E","Karte" : "E7", "typ" : "Gebäude", "name" : "Miliz", "Aktion" : "Kosten: 2 Holz, 2 Stein", "Vorteil" : "Bauvorteil: Wird die eigene Warenkarte gestochen, darf man direkt 1 Karte vom Stapel auf die Hand ziehen." ,"anz1" : "1"},' +
+			'{"art" : "E","Karte" : "E8", "typ" : "Gebäude", "name" : "Schmelze", "Aktion" : "Kosten: 2 Holz, 2 Stein, 1 Erz", "Vorteil" : "Bauvorteil: direkt Erz Max +2" ,"anz1" : "1"},' +
+			'{"art" : "E","Karte" : "E9", "typ" : "Gebäude", "name" : "Reiterhof", "Aktion" : "Kosten: 4 Holz, 4 Stein, 2 Erz", "Vorteil" : "Vorteil: Vor der Resourcenauswertung 1 Warenkarte von einem Spieler mit den meisten Karten in der Ablage ziehen." ,"anz1" : "1"},' +
+			'{"art" : "E","Karte" : "E10", "typ" : "Gebäude", "name" : "Armee", "Aktion" : "Kosten: 3 Holz, 3 Stein, 5 Erz, 3 Getreide", "Vorteil" : "Vorteil: Zu Beginn der Runde je 1 Handkarte von den Spielern mit der grössten Bevölkerung ziehen." ,"anz1" : "1"},' +
+			'{"art" : "E","Karte" : "E11", "typ" : "Person", "name" : "Saboteur", "Aktion" : "Baubonus: bis zu 5 benötigte Resourcen können 1:1 getauscht werden.", "Vorteil" : "", "pagebreak" : "pagebreak"  ,"anz1" : "1"},' +
+			'{"art" : "E","Karte" : "E12", "typ" : "Person", "name" : "Alchemist", "Aktion" : "Baubonus: Schutz vor allen Apokalypsen.", "Vorteil" : "" ,"anz1" : "1"},' +
+			'{"art" : "E","Karte" : "E13", "typ" : "Person", "name" : "Fürst", "Aktion" : "Stichbonus: Stichbonus: sticht zusätzlich zu der niedrigsten Karte alle Erzkarten.", "Vorteil" : "" ,"anz1" : "1"},' +
+			'{"art" : "E","Karte" : "As", "typ" : "Apokalypse", "name" : "Krieg", "Aktion" : "Besiegt Personen (As) und unterliegt Gebäuden und Waren. (1)", "Vorteil" : "Nachteil: E -1, S -1, H -1" ,"anz1" : "1"},' +
+			'{"art" : "Dorf","Karte" : "D3", "typ" : "Ereignis", "name" : "Rattenplage", "Aktion" : "", "Vorteil" : "" ,"anz1" : "-1"},' +
+			'{"art" : "Dorf","Karte" : "D4", "typ" : "Ereignis", "name" : "Missernte", "Aktion" : "", "Vorteil" : "" ,"anz1" : "-1"},' +
+			'{"art" : "Dorf","Karte" : "D5", "typ" : "Ereignis", "name" : "Siedler", "Aktion" : "", "Vorteil" : "Resourcenauswertung: Bev+1" ,"anz1" : "1"},' +
+			'{"art" : "Dorf","Karte" : "D6", "typ" : "Ereignis", "name" : "grosse Ernte", "Aktion" : "", "Vorteil" : "" ,"anz1" : "2","anz2" : "2","art2" : "H"},' +
+			'{"art" : "Dorf","Karte" : "D7", "typ" : "Gebäude", "name" : "kleiner Hof", "Aktion" : "Kosten: 3 Holz, 1 Stein", "Vorteil" : "Bauvorteil: Resourcenauswertung: Getreide +1","anz1" : "1","anz2" : "1","art2" : "H"},' +
+			'{"art" : "Dorf","Karte" : "D8", "typ" : "Gebäude", "name" : "Hof", "Aktion" : "Kosten: 3 Holz, 2 Steine, 1 Erz", "Vorteil" : "Bauvorteil: Resourcenauswertung: Getreide +2" ,"anz1" : "1","anz2" : "2","art2" : "H"},' +
+			'{"art" : "Dorf","Karte" : "D9", "typ" : "Gebäude", "name" : "grosser Hof", "Aktion" : "Kosten: 1 Erz, 4 Holz, 3 Steine", "Vorteil" : "Bauvorteil: Resourcenauswertung: Getreide +3" ,"anz1" : "1","anz2" : "1","art2" : "S"},' +
+			'{"art" : "Dorf","Karte" : "D10", "typ" : "Gebäude", "name" : "Speicher", "Aktion" : "Kosten: 6 Steine, 6 Holz", "Vorteil" : "Bauvorteil: Endauswertung: 2 Ruhmpunkte extra"  ,"anz1" : "1","anz2" : "1","art2" : "E"},' +
 
-			'{"art" : "Markt","Karte" : "M3", "typ" : "Ereignis", "name" : "Frondienst", "Aktion" : "", "Vorteil" : "Resourcenauswertung: Getreide-1, Holz-1" },' +
-			'{"art" : "Markt","Karte" : "M4", "typ" : "Ereignis", "name" : "Barbaren", "Aktion" : "", "Vorteil" : "Resourcenauswertung: Getreide-1, Erz-1 " },' +
-			'{"art" : "Markt","Karte" : "M5", "typ" : "Ereignis", "name" : "Aufforstung", "Aktion" : "", "Vorteil" : "Resourcenauswertung: Holz+1, Karte zu Gebäuden legen." },' +
-			'{"art" : "Markt","Karte" : "M6", "typ" : "Ereignis", "name" : "Trockenleg.", "Aktion" : "", "Vorteil" : "Resourcenauswertung: Holz+1, Karte zu Gebäuden legen." },' +
-			'{"art" : "Markt","Karte" : "M7", "typ" : "Gebäude", "name" : "Sägewerk", "Aktion" : "Kosten: 3 Holz, 1 Erz", "Vorteil" : "Bauvorteil: Resourcenauswertung: Holz +1"},' +
-			'{"art" : "Markt","Karte" : "M8", "typ" : "Gebäude", "name" : "Flösserei", "Aktion" : "Kosten: 5 Holz, 1 Stein", "Vorteil" : "Bauvorteil: Resourcenauswertung: Holz +2" },' +
-			'{"art" : "Markt","Karte" : "M9", "typ" : "Gebäude", "name" : "Mühle", "Aktion" : "Kosten: 4 Steine, 4 Erz", "Vorteil" : "Bauvorteil: Resourcenauswertung: Getreide +3" },' +
-			'{"art" : "Markt","Karte" : "M10", "typ" : "Gebäude", "name" : "Kloster", "Aktion" : "Kosten: 6 Steine, 6 Holz", "Vorteil" : "Bauvorteil: Endauswertung: 2 Ruhmpunkte extra"  },' +
+			'{"art" : "Markt","Karte" : "M3", "typ" : "Ereignis", "name" : "Frondienst", "Aktion" : "", "Vorteil" : "", "pagebreak" : "pagebreak"  ,"anz1" : "-1","anz2" : "-1","art2" : "G"},' +
+			'{"art" : "Markt","Karte" : "M4", "typ" : "Ereignis", "name" : "Barbaren", "Aktion" : "", "Vorteil" : "" ,"anz1" : "-1","anz2" : "-1","art2" : "E"},' +
+			'{"art" : "Markt","Karte" : "M5", "typ" : "Ereignis", "name" : "Aufforstung", "Aktion" : "", "Vorteil" : "Resourcenauswertung: Holz+1, Karte zu Gebäuden legen." ,"anz1" : "1","anz2" : "1","art2" : "S"},' +
+			'{"art" : "Markt","Karte" : "M6", "typ" : "Ereignis", "name" : "Trockenleg.", "Aktion" : "", "Vorteil" : "Resourcenauswertung: Holz+1, Karte zu Gebäuden legen." ,"anz1" : "1","anz2" : "2","art2" : "S"},' +
+			'{"art" : "Markt","Karte" : "M7", "typ" : "Gebäude", "name" : "Sägewerk", "Aktion" : "Kosten: 3 Holz, 1 Erz", "Vorteil" : "Bauvorteil: Resourcenauswertung: Holz +1","anz1" : "1","anz2" : "1","art2" : "E"},' +
+			'{"art" : "Markt","Karte" : "M8", "typ" : "Gebäude", "name" : "Flösserei", "Aktion" : "Kosten: 5 Holz, 1 Stein", "Vorteil" : "Bauvorteil: Resourcenauswertung: Holz +2" ,"anz1" : "3"},' +
+			'{"art" : "Markt","Karte" : "M9", "typ" : "Gebäude", "name" : "Mühle", "Aktion" : "Kosten: 4 Steine, 4 Erz", "Vorteil" : "Bauvorteil: Resourcenauswertung: Getreide +3" ,"anz1" : "1","anz2" : "1","art2" : "S"},' +
+			'{"art" : "Markt","Karte" : "M10", "typ" : "Gebäude", "name" : "Kloster", "Aktion" : "Kosten: 6 Steine, 6 Holz", "Vorteil" : "Bauvorteil: Endauswertung: 2 Ruhmpunkte extra"  ,"anz1" : "1","anz2" : "1","art2" : "G"},' +
 
-			'{"art" : "G","Karte" : "G2", "typ" : "Ware", "name" : "2 Getreide", "Aktion" : "", "Vorteil" : "Resourcenauswertung: G+2" },' +
-			'{"art" : "G","Karte" : "G3", "typ" : "Ware", "name" : "3 Getreide", "Aktion" : "", "Vorteil" : "Resourcenauswertung: G+3" },' +
-			'{"art" : "G","Karte" : "G4", "typ" : "Ware", "name" : "Gewürze", "Aktion" : "", "Vorteil" : "Resourcenauswertung: G+4" },' +
-			'{"art" : "G","Karte" : "G5", "typ" : "Gebäude", "name" : "Bauernhof", "Aktion" : "Kosten: 1 Holz, 1 Getreide", "Vorteil" : "Bauvorteil: Resourcenauswertung: G+2" },' +
-			'{"art" : "G","Karte" : "G6", "typ" : "Gebäude", "name" : "Mühle", "Aktion" : "Kosten: 1 Stein, 2 Holz", "Vorteil" : "Bauvorteil: direkt Getreidelager max +2" },' +
-			'{"art" : "G","Karte" : "G7", "typ" : "Gebäude", "name" : "Marktplatz", "Aktion" : "Kosten: 3 Holz, 1 Erz", "Vorteil" : "Bauvorteil: Bei Resourcenauswertung: Bev +1"},' +
-			'{"art" : "G","Karte" : "G8", "typ" : "Gebäude", "name" : "Trinkstuben", "Aktion" : "Kosten: 3 Holz, 2 Steine, 1 Erz", "Vorteil" : "Bauvorteil: Bei Resourcenauswertung: Bev +1, G+1" },' +
-			'{"art" : "G","Karte" : "G9", "typ" : "Gebäude", "name" : "Rathaus", "Aktion" : "Kosten: 3 Erz, 4 Holz, 3 Steine", "Vorteil" : "Bauvorteil: Die Punkte der zukünfitg gebauten Gebäude +3" },' +
-			'{"art" : "G","Karte" : "G10", "typ" : "Gebäude", "name" : "Schloss", "Aktion" : "Kosten: 7 Erz, 7 Steine, 1 Holz", "Vorteil" : "1 Siegpunkt direkt", "pagebreak" : "pagebreak"  },' +
-			'{"art" : "G","Karte" : "GB", "typ" : "Person", "name" : "Händler", "Aktion" : "Baubonus: ein Resourcentyp ist kostenlos.", "Vorteil" : "" },' +
-			'{"art" : "G","Karte" : "GD", "typ" : "Person", "name" : "Karawane", "Aktion" : "Baubonus: keine Getreide zur Ernährung der Bevölkerung nötig.", "Vorteil" : "" },' +
-			'{"art" : "G","Karte" : "GK", "typ" : "Person", "name" : "König", "Aktion" : "Stichbonus: sticht zusätzlich zu der niedrigsten Karte alle Getreidekarten.", "Vorteil" : "" },' +
-			'{"art" : "G","Karte" : "As", "typ" : "Apokalypse", "name" : "Sturm", "Aktion" : "Besiegt Personen (As) und unterliegt Gebäuden und Waren.", "Vorteil" : "Nachteil: G -1" }]}';
+			'{"art" : "G","Karte" : "G2", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "" ,"anz1" : "2"},' +
+			'{"art" : "G","Karte" : "G3", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "" ,"anz1" : "3"},' +
+			'{"art" : "G","Karte" : "G4", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "" ,"anz1" : "4"},' +
+			'{"art" : "G","Karte" : "G5", "typ" : "Gebäude", "name" : "Bauernhof", "Aktion" : "Kosten: 1 Holz, 1 Getreide", "Vorteil" : "Bauvorteil: Resourcenauswertung: G+2" ,"anz1" : "1"},' +
+			'{"art" : "G","Karte" : "G6", "typ" : "Gebäude", "name" : "Mühle", "Aktion" : "Kosten: 1 Stein, 2 Holz", "Vorteil" : "Bauvorteil: direkt Getreidelager max +2", "pagebreak" : "pagebreak"  ,"anz1" : "1"},' +
+			'{"art" : "G","Karte" : "G7", "typ" : "Gebäude", "name" : "Marktplatz", "Aktion" : "Kosten: 3 Holz, 1 Erz", "Vorteil" : "Bauvorteil: Bei Resourcenauswertung: Bev +1","anz1" : "1"},' +
+			'{"art" : "G","Karte" : "G8", "typ" : "Gebäude", "name" : "Trinkstuben", "Aktion" : "Kosten: 3 Holz, 2 Steine, 1 Erz", "Vorteil" : "Bauvorteil: Bei Resourcenauswertung: Bev +1, G+1" ,"anz1" : "1"},' +
+			'{"art" : "G","Karte" : "G9", "typ" : "Gebäude", "name" : "Rathaus", "Aktion" : "Kosten: 3 Erz, 4 Holz, 3 Steine", "Vorteil" : "Bauvorteil: Die Punkte der zukünfitg gebauten Gebäude +3" ,"anz1" : "1"},' +
+			'{"art" : "G","Karte" : "G10", "typ" : "Gebäude", "name" : "Schloss", "Aktion" : "Kosten: 7 Erz, 7 Steine, 1 Holz", "Vorteil" : "1 Siegpunkt direkt", "anz1" : "1"},' +
+			'{"art" : "G","Karte" : "G11", "typ" : "Person", "name" : "Händler", "Aktion" : "Baubonus: ein Resourcentyp ist kostenlos.", "Vorteil" : "" ,"anz1" : "1"},' +
+			'{"art" : "G","Karte" : "G12", "typ" : "Person", "name" : "Karawane", "Aktion" : "Baubonus: keine Getreide zur Ernährung der Bevölkerung nötig.", "Vorteil" : "" ,"anz1" : "1"},' +
+			'{"art" : "G","Karte" : "G13", "typ" : "Person", "name" : "König", "Aktion" : "Stichbonus: sticht zusätzlich zu der niedrigsten Karte alle Getreidekarten.", "Vorteil" : "" ,"anz1" : "1"},' +
+			'{"art" : "G","Karte" : "As", "typ" : "Apokalypse", "name" : "Sturm", "Aktion" : "Stichbonus: Besiegt Personen (As) und unterliegt Gebäuden und Waren.", "Vorteil" : "Nachteil: G -1","anz1" : "-1" }]}';
 		</script>
 		<script src="js/data.js"></script>
 <style type="text/css">
@@ -116,9 +115,17 @@
 		<div>{{header}}</div>
 		{{#cards}}
 		<div  class="card">
-		<div class="toprow {{art}}"><span class="key">{{Karte}}</span><span style="font-size: 16px;" class="name">{{name}}</span><span class="key right">{{Karte}}</span></div>
-		<div><img alt="picture" src="img/{{typ}}.png" style="width: 100px; height: 100px;margin: 10px 40px;"></div>
-		<div style="width: 100%; text-align:center;">{{typ}}</div>
+		<div class="toprow {{art}}">
+			<span class="key">{{Karte}}</span>
+			<span style="font-size: 11px;padding: 0 10px;" class="name">{{typ}}</span>
+			<span class="key right">{{Karte}}</span>
+		</div>
+		<div class="toprow" style="margin-top: 3px;">
+			<span style="margin-left: 3px;">{{name}}</span>
+			<span class="key {{art}} right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">{{anz1}}</span>
+			<span class="key {{art2}} right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">{{anz2}}</span>
+		</div>
+		<div><img alt="picture" src="img/{{typ}}.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
 		<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">{{Aktion}}</div>
 		<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">{{Vorteil}}</div>
 		<div style="width: 100%; text-align:center;">
@@ -126,7 +133,7 @@
 		</div>
               
 		</div>
-		{{#pagebreak}}<div class="pagebreak"></span>{{/pagebreak}}
+		{{#pagebreak}}<div class="pagebreak" style="width: 600px">page-break</div>{{/pagebreak}}
 		{{/cards}}
               
 </body>       

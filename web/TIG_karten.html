@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<title>Stadtchronik</title>
+<link href="css/style.css" rel="stylesheet" ="text/css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script src="js/mustache.js"></script>
+		<script>
+			var overviewstr = '{"cards": [' +
+			'{"name" : "Start", "Aktion" : "Start mit 1 Gegengift und 1 Verband. Bis zu 4 Dinge sammeln.","hor" : "none","ver" : "none"},' +
+			'{"name" : "Tiger", "Aktion" : "Du verlierst alle Schätze.","hor" : "none","ver" : "none" },' +
+			'{"name" : "Tiger", "Aktion" : "Du verlierst alle Schätze.","hor" : "none","ver" : "none" },' +
+			'{"name" : "Tiger", "Aktion" : "Du verlierst alle Schätze.","hor" : "none","ver" : "none" },' +
+			'{"name" : "Tiger", "Aktion" : "Du verlierst alle Schätze.","hor" : "none","ver" : "none" },' +
+			'{"name" : "Tiger", "Aktion" : "Du verlierst alle Schätze.","hor" : "none","ver" : "none" },' +
+			'{"name" : "Schlange", "Aktion" : "Gebissen. 1 Gegengift abgeben, sonst tot.","hor" : "none","ver" : "none"},' +
+			'{"name" : "Schlange", "Aktion" : "Gebissen. 1 Gegengift abgeben, sonst tot.","hor" : "none","ver" : "none"},' +
+			'{"name" : "Schlange", "Aktion" : "Gebissen. 1 Gegengift abgeben, sonst tot.","hor" : "none","ver" : "none"},' +
+			'{"name" : "Schlange", "Aktion" : "Gebissen. 1 Gegengift abgeben, sonst tot.","hor" : "auto","ver" : "none"},' +
+			'{"name" : "Schlange", "Aktion" : "Gebissen. 1 Gegengift abgeben, sonst tot.","hor" : "none","ver" : "auto"},' +
+			'{"name" : "Kannibale", "Aktion" : "Vom Speer getroffen. 1 Verband abgeben, sonst tot.","hor" : "auto","ver" : "none"},' +
+			'{"name" : "Kannibale", "Aktion" : "Vom Speer getroffen. 1 Verband abgeben, sonst tot.","hor" : "none","ver" : "auto"},' +
+			'{"name" : "Kannibale", "Aktion" : "Vom Speer getroffen. 1 Verband abgeben, sonst tot.","hor" : "none","ver" : "none"},' +
+			'{"name" : "Kannibale", "Aktion" : "Vom Speer getroffen. 1 Verband abgeben, sonst tot.","hor" : "none","ver" : "none"},' +
+			'{"name" : "Kannibale", "Aktion" : "Vom Speer getroffen. 1 Verband abgeben, sonst tot.","hor" : "none","ver" : "none", "pagebreak" : "pagebreak"},' +
+			'{"name" : "Verband", "Aktion" : "heilt Wunden der Kannibalen.","hor" : "auto","ver" : "none"},' +
+			'{"name" : "Verband", "Aktion" : "heilt Wunden der Kannibalen.","hor" : "auto","ver" : "auto"},' +
+			'{"name" : "Gegengift", "Aktion" : "heilt Bisse der Schlange.","hor" : "none","ver" : "auto"},' +
+			'{"name" : "Gegengift", "Aktion" : "heilt Bisse der Schlange.","hor" : "auto","ver" : "auto"},' +
+			'{"name" : "Machete", "Aktion" : "kann eine Weg durch eine Dschungelwand erstellen.","hor" : "auto","ver" : "none"},' +
+			'{"name" : "Machete", "Aktion" : "kann eine Weg durch eine Dschungelwand erstellen.","hor" : "auto","ver" : "auto"},' +
+			'{"name" : "Liane", "Aktion" : "kann ein Feld überspringen.","hor" : "none","ver" : "auto"},' +
+			'{"name" : "Liane", "Aktion" : "kann ein Feld überspringen.","hor" : "auto","ver" : "auto"},' +
+			'{"name" : "Leer", "Aktion" : "","hor" : "none","ver" : "auto"},' +
+			'{"name" : "Leer", "Aktion" : "","hor" : "none","ver" : "auto"},' +
+			'{"name" : "Leer", "Aktion" : "","hor" : "none","ver" : "auto"},' +
+			'{"name" : "Leer", "Aktion" : "","hor" : "none","ver" : "auto"},' +
+			'{"name" : "Leer", "Aktion" : "","hor" : "none","ver" : "auto"},' +
+			'{"name" : "Leer", "Aktion" : "","hor" : "none","ver" : "auto"},' +
+			'{"name" : "Leer", "Aktion" : "","hor" : "none","ver" : "auto"},' +
+			'{"name" : "Leer", "Aktion" : "","hor" : "none","ver" : "auto", "pagebreak" : "pagebreak"},' +
+			'{"name" : "Leer", "Aktion" : "","hor" : "none","ver" : "auto"},' +
+			'{"name" : "Leer", "Aktion" : "","hor" : "none","ver" : "none"},' +
+			'{"name" : "Leer", "Aktion" : "","hor" : "auto","ver" : "none"},' +
+			'{"name" : "Leer", "Aktion" : "","hor" : "auto","ver" : "none"},' +
+			'{"name" : "Leer", "Aktion" : "","hor" : "auto","ver" : "none"},' +
+			'{"name" : "Leer", "Aktion" : "","hor" : "auto","ver" : "none"},' +
+			'{"name" : "Leer", "Aktion" : "","hor" : "auto","ver" : "none"},' +
+			'{"name" : "Leer", "Aktion" : "","hor" : "auto","ver" : "none"},' +
+			'{"name" : "Leer", "Aktion" : "","hor" : "auto","ver" : "none"},' +
+			'{"name" : "Leer", "Aktion" : "","hor" : "auto","ver" : "none"},' +
+			'{"name" : "Leer", "Aktion" : "","hor" : "auto","ver" : "none"},' +
+			'{"name" : "Leer", "Aktion" : "","hor" : "none","ver" : "none"},' +
+			'{"name" : "Tempel", "Aktion" : "1 Schatz gefunden. Nimm ihn und das Ziel liegt in Zeile 7/ Spalte 7.","hor" : "none","ver" : "none"},' +
+			'{"name" : "Tempel", "Aktion" : "1 Schatz gefunden. Nimm ihn und das Ziel liegt in Zeile 1/ Spalte 7.","hor" : "none","ver" : "auto"},' +
+			'{"name" : "Tempel", "Aktion" : "1 Schatz gefunden. Nimm ihn und das Ziel liegt in Zeile 7/ Spalte 1.","hor" : "auto","ver" : "none"},' +
+			'{"name" : "Ziel", "Aktion" : "Bring den Schatz hierher. Beginne wieder bei Start, um die anderen Schätze zu holen.","hor" : "none","ver" : "none"}' +
+			']}';
+		</script>
+		<script src="js/data.js"></script>
+<style type="text/css">
+	.key{ font-size: 14pt;}
+	.H { background-color: #CCFFCC;
+		 -webkit-print-color-adjust: exact;
+	}          
+	.S { background-color: #CCFFFF;
+		 -webkit-print-color-adjust: exact;
+	}          
+          
+	.E { background-color: #FFCCCC;
+		 -webkit-print-color-adjust: exact;
+	}                    
+	.G { background-color: #FFFFCC;
+		 -webkit-print-color-adjust: exact;
+	}            
+	.Dorf { background-color: #FFFF99;
+		 -webkit-print-color-adjust: exact;
+	}            
+	.Markt { background-color: #99FF99;
+		 -webkit-print-color-adjust: exact;
+	}            
+	.Stadt { background-color: #99FFFF;
+		 -webkit-print-color-adjust: exact;
+	}            
+	.Gstadt { background-color: #FF9999;
+		 -webkit-print-color-adjust: exact;
+	}            
+</style>      
+</head>       
+<body>        
+	<div id="content"></div>
+	<div id="template" style="display: none;">
+		{{#cards}}
+		<div  class="card" style="height: 210px;">
+		
+		<div style="position: relative; ">
+			<img alt="picture" src="img/TIG/{{name}}.jpg" style="width: 158px; height: 158px;margin: 2px;">
+			<img alt="picture" src="img/TIG/horiz.jpg" style="position: absolute; margin-left: 12px; width:90px; height: 30px;top: 122px;display: {{hor}}">
+			<img alt="picture" src="img/TIG/vertic.jpg" style="position: absolute; margin-left: 124px; width:30px; height: 94px;top: 10px;display: {{ver}}">
+		</div>
+		<div style="width: 100%; text-align:center;font-size: 9px;">
+		<span style="margin-left: 3px;font-size: 14px;font-weight: bold">{{name}} </span>{{Aktion}}			  
+		</div>
+              
+		</div>
+		{{#pagebreak}}<div class="pagebreak" style="width: 600px">page-break</div>{{/pagebreak}}
+		{{/cards}}
+              
+</body>       
+</html>       
+              

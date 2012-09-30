@@ -1,0 +1,1298 @@
+<html><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+<title>Stadtchronik</title>
+<link href="css/style.css" rel="stylesheet" ="text="" css"="">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script src="js/mustache.js"></script>
+		<script>
+			var overviewstr = '{"cards": [' +
+			'{"art" : "H","Karte" : "H2", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "" ,"anz1" : "2"},' +
+			'{"art" : "H","Karte" : "H3", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "" ,"anz1" : "3"},' +
+			'{"art" : "H","Karte" : "H4", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "" ,"anz1" : "4"},' +
+			'{"art" : "H","Karte" : "H5", "typ" : "Gebäude", "name" : "Waldhütte", "Aktion" : "Kosten: 2 Holz", "Vorteil" : "Bauvorteil: Bei Resourcenauswertung H+2" ,"anz1" : "1"},' +
+			'{"art" : "H","Karte" : "H6", "typ" : "Gebäude", "name" : "Jagdhütte", "Aktion" : "Kosten: 3 Holz", "Vorteil" : "Bauvorteil: Bei Resourcenauswertung G+2" ,"anz1" : "1"},' +
+			'{"art" : "H","Karte" : "H7", "typ" : "Gebäude", "name" : "Krankenhaus", "Aktion" : "Kosten: 3 Holz, 2 Stein", "Vorteil" : "Bauvorteil: schützt vor der Pest und Sturm" ,"anz1" : "1"},' +
+			'{"art" : "H","Karte" : "H8", "typ" : "Gebäude", "name" : "Handelhaus", "Aktion" : "Kosten: 5 Holz, 1 Stein, 2 Erz", "Vorteil" : "Bauvorteil: Bei jedem gewonnenen Stich 1 Warenkarte von der Hand in die Ablage" ,"anz1" : "1"},' +
+			'{"art" : "H","Karte" : "H9", "typ" : "Gebäude", "name" : "Hafen", "Aktion" : "Kosten: 6 Holz, 6 Steine", "Vorteil" : "Bauvorteil: Bei Resourcenauswertung: Alle Warenkarten verdoppeln ihren Wert" ,"anz1" : "1"},' +
+			'{"art" : "H","Karte" : "H10", "typ" : "Gebäude", "name" : "Universität", "Aktion" : "Kosten: 5 Holz, 5 Steine, 5 Erz, 2 Getreide, 3 Bev", "Vorteil" : "Bauvorteil: Siegpunkte am Ende der Partie verdoppeln." ,"anz1" : "1"},' +
+			'{"art" : "H","Karte" : "H11", "typ" : "Person", "name" : "Krämer", "Aktion" : "Baubonus: Baukosten sinken pro Resourcentyp -2", "Vorteil" : "" ,"anz1" : "1"},' +
+			'{"art" : "H","Karte" : "H12", "typ" : "Person", "name" : "Räuber", "Aktion" : "Stichbonus: 1 Karte von der Hand in die eigene Ablage.", "Vorteil" : "" ,"anz1" : "1"},' +
+			'{"art" : "H","Karte" : "H13", "typ" : "Person", "name" : "Gildemeister", "Aktion" : "Stichbonus: sticht zusätzlich zu der niedrigsten Karte alle Holzkarten.", "Vorteil" : "", "pagebreak" : "pagebreak" ,"anz1" : "1"},' +
+			'{"art" : "H","Karte" : "As", "typ" : "Apokalypse", "name" : "Feuerbrunst", "Aktion" : "Stichbonus: Besiegt Personen (As) und unterliegt Gebäuden und Waren. (1)", "Vorteil" : "Nachteil: ein gebautes Gebäude brennt ab.","anz1" : ""},' +
+			'{"art" : "S","Karte" : "S2", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "" ,"anz1" : "2"},' +
+			'{"art" : "S","Karte" : "S3", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "" ,"anz1" : "3"},' +
+			'{"art" : "S","Karte" : "S4", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "" ,"anz1" : "4"},' +
+			'{"art" : "S","Karte" : "S5", "typ" : "Gebäude", "name" : "Steinbruch", "Aktion" : "Kosten: 2 Steine", "Vorteil" : "Bauvorteil: Bei Resourcenauswertung S+2" ,"anz1" : "1"},' +
+			'{"art" : "S","Karte" : "S6", "typ" : "Gebäude", "name" : "Bergwerk", "Aktion" : "Kosten: 3 Steine", "Vorteil" : "Bauvorteil: direkt Stein Max +2","anz1" : "1"},' +
+			'{"art" : "S","Karte" : "S7", "typ" : "Gebäude", "name" : "Stadtmauer", "Aktion" : "Kosten: 4 Steine", "Vorteil" : "Bauvorteil: kein Mitspieler kann Karten aus deiner Hand oder Ablage nehmen","anz1" : "1"},' +
+			'{"art" : "S","Karte" : "S8", "typ" : "Gebäude", "name" : "Aquädukt", "Aktion" : "Kosten: 5 Steine", "Vorteil" : "Bauvorteil: schützt vor der Feuerbrunst" ,"anz1" : "1"},' +
+			'{"art" : "S","Karte" : "S9", "typ" : "Gebäude", "name" : "Burg", "Aktion" : "Kosten: 8 Steine, 2 Erz", "Vorteil" : "Bauvorteil: schützt vor dem Krieg","anz1" : "1"},' +
+			'{"art" : "S","Karte" : "S10", "typ" : "Gebäude", "name" : "Festung", "Aktion" : "Kosten: 10 Steine, 2 Erz, 3 Holz", "Vorteil" : "Bauvorteil: bis zu 3 Warenkarten für die folgenden Runden behalten" ,"anz1" : "1"},' +
+			'{"art" : "S","Karte" : "S11", "typ" : "Person", "name" : "Architekt", "Aktion" : "Baubonus: Die Punkte eines gebauten Gebäudes verdoppeln sich.", "Vorteil" : "" ,"anz1" : "1"},' +
+			'{"art" : "S","Karte" : "S12", "typ" : "Person", "name" : "Baumeister", "Aktion" : "Baubonus: jedes gebaute Gebäude Punkte +2", "Vorteil" : "", "pagebreak" : "pagebreak"  ,"anz1" : "1"},' +
+			'{"art" : "S","Karte" : "S13", "typ" : "Person", "name" : "Karawane", "Aktion" : "Stichbonus: sticht zusätzlich zu der niedrigsten Karte alle Steinkarten.", "Vorteil" : "" ,"anz1" : "1"},' +
+			'{"art" : "S","Karte" : "As", "typ" : "Apokalypse", "name" : "Pest", "Aktion" : "Stichbonus: Besiegt Personen (As) und unterliegt Gebäuden und Waren. (1)", "Vorteil" : "Nachteil: Punkte -5" ,"anz1" : ""},' +
+			'{"art" : "E","Karte" : "E2", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "" ,"anz1" : "2"},' +
+			'{"art" : "E","Karte" : "E3", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "" ,"anz1" : "3"},' +
+			'{"art" : "E","Karte" : "E4", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "","anz1" : "4"},' +
+			'{"art" : "E","Karte" : "E5", "typ" : "Gebäude", "name" : "Erzmine", "Aktion" : "Kosten: 1 Holz, 1 Stein", "Vorteil" : "Bauvorteil: Bei Resourcenauswertung E+2" ,"anz1" : "1"},' +
+			'{"art" : "E","Karte" : "E6", "typ" : "Gebäude", "name" : "Sägewerk", "Aktion" : "Kosten: 2 Erz, 1 Stein", "Vorteil" : "Bauvorteil: direkt Holz Max +2" ,"anz1" : "1"},' +
+			'{"art" : "E","Karte" : "E7", "typ" : "Gebäude", "name" : "Miliz", "Aktion" : "Kosten: 2 Holz, 2 Stein", "Vorteil" : "Bauvorteil: Wird die eigene Warenkarte gestochen, darf man direkt 1 Karte vom Stapel auf die Hand ziehen." ,"anz1" : "1"},' +
+			'{"art" : "E","Karte" : "E8", "typ" : "Gebäude", "name" : "Schmelze", "Aktion" : "Kosten: 2 Holz, 2 Stein, 1 Erz", "Vorteil" : "Bauvorteil: direkt Erz Max +2" ,"anz1" : "1"},' +
+			'{"art" : "E","Karte" : "E9", "typ" : "Gebäude", "name" : "Reiterhof", "Aktion" : "Kosten: 4 Holz, 4 Stein, 2 Erz", "Vorteil" : "Vorteil: Vor der Resourcenauswertung 1 Warenkarte von einem Spieler mit den meisten Karten in der Ablage ziehen." ,"anz1" : "1"},' +
+			'{"art" : "E","Karte" : "E10", "typ" : "Gebäude", "name" : "Armee", "Aktion" : "Kosten: 3 Holz, 3 Stein, 5 Erz, 3 Getreide", "Vorteil" : "Vorteil: Zu Beginn der Runde je 1 Handkarte von den Spielern mit der grössten Bevölkerung ziehen." ,"anz1" : "1"},' +
+			'{"art" : "E","Karte" : "E11", "typ" : "Person", "name" : "Saboteur", "Aktion" : "Baubonus: bis zu 5 benötigte Resourcen können 1:1 getauscht werden.", "Vorteil" : "", "pagebreak" : "pagebreak"  ,"anz1" : "1"},' +
+			'{"art" : "E","Karte" : "E12", "typ" : "Person", "name" : "Alchemist", "Aktion" : "Baubonus: Schutz vor allen Apokalypsen.", "Vorteil" : "" ,"anz1" : "1"},' +
+			'{"art" : "E","Karte" : "E13", "typ" : "Person", "name" : "Fürst", "Aktion" : "Stichbonus: Stichbonus: sticht zusätzlich zu der niedrigsten Karte alle Erzkarten.", "Vorteil" : "" ,"anz1" : "1"},' +
+			'{"art" : "E","Karte" : "As", "typ" : "Apokalypse", "name" : "Krieg", "Aktion" : "Besiegt Personen (As) und unterliegt Gebäuden und Waren. (1)", "Vorteil" : "Nachteil: E -1, S -1, H -1" ,"anz1" : "1"},' +
+
+			'{"art" : "G","Karte" : "G2", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "" ,"anz1" : "2"},' +
+			'{"art" : "G","Karte" : "G3", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "" ,"anz1" : "3"},' +
+			'{"art" : "G","Karte" : "G4", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "" ,"anz1" : "4"},' +
+			'{"art" : "G","Karte" : "G5", "typ" : "Gebäude", "name" : "Bauernhof", "Aktion" : "Kosten: 1 Holz, 1 Getreide", "Vorteil" : "Bauvorteil: Resourcenauswertung: G+2" ,"anz1" : "1"},' +
+			'{"art" : "G","Karte" : "G6", "typ" : "Gebäude", "name" : "Mühle", "Aktion" : "Kosten: 1 Stein, 2 Holz", "Vorteil" : "Bauvorteil: direkt Getreidelager max +2" ,"anz1" : "1"},' +
+			'{"art" : "G","Karte" : "G7", "typ" : "Gebäude", "name" : "Marktplatz", "Aktion" : "Kosten: 3 Holz, 1 Erz", "Vorteil" : "Bauvorteil: Bei Resourcenauswertung: Bev +1","anz1" : "1"},' +
+			'{"art" : "G","Karte" : "G8", "typ" : "Gebäude", "name" : "Trinkstuben", "Aktion" : "Kosten: 3 Holz, 2 Steine, 1 Erz", "Vorteil" : "Bauvorteil: Bei Resourcenauswertung: Bev +1, G+1" ,"anz1" : "1"},' +
+			'{"art" : "G","Karte" : "G9", "typ" : "Gebäude", "name" : "Rathaus", "Aktion" : "Kosten: 3 Erz, 4 Holz, 3 Steine", "Vorteil" : "Bauvorteil: Die Punkte der zukünfitg gebauten Gebäude +3" ,"anz1" : "1"},' +
+			'{"art" : "G","Karte" : "G10", "typ" : "Gebäude", "name" : "Schloss", "Aktion" : "Kosten: 7 Erz, 7 Steine, 1 Holz", "Vorteil" : "1 Siegpunkt direkt", "pagebreak" : "pagebreak"  ,"anz1" : "1"},' +
+			'{"art" : "G","Karte" : "G11", "typ" : "Person", "name" : "Händler", "Aktion" : "Baubonus: ein Resourcentyp ist kostenlos.", "Vorteil" : "" ,"anz1" : "1"},' +
+			'{"art" : "G","Karte" : "G12", "typ" : "Person", "name" : "Karawane", "Aktion" : "Baubonus: keine Getreide zur Ernährung der Bevölkerung nötig.", "Vorteil" : "" ,"anz1" : "1"},' +
+			'{"art" : "G","Karte" : "G13", "typ" : "Person", "name" : "König", "Aktion" : "Stichbonus: sticht zusätzlich zu der niedrigsten Karte alle Getreidekarten.", "Vorteil" : "" ,"anz1" : "1"},' +
+			'{"art" : "G","Karte" : "As", "typ" : "Apokalypse", "name" : "Sturm", "Aktion" : "Stichbonus: Besiegt Personen (As) und unterliegt Gebäuden und Waren.", "Vorteil" : "Nachteil: G -1","anz1" : "-1" },' +
+			'{"art" : "Dorf","Karte" : "D3", "typ" : "Ereignis", "name" : "Rattenplage", "Aktion" : "", "Vorteil" : "Resourcenauswertung: Getreide-1" ,"anz1" : "1"},' +
+			'{"art" : "Dorf","Karte" : "D4", "typ" : "Ereignis", "name" : "Missernte", "Aktion" : "", "Vorteil" : "Resourcenauswertung: Getreide-2" ,"anz1" : "1"},' +
+			'{"art" : "Dorf","Karte" : "D5", "typ" : "Ereignis", "name" : "Siedler", "Aktion" : "", "Vorteil" : "Resourcenauswertung: Bev+1" ,"anz1" : "1"},' +
+			'{"art" : "Dorf","Karte" : "D6", "typ" : "Ereignis", "name" : "grosse Ernte", "Aktion" : "", "Vorteil" : "Resourcenauswertung: Getreide+3" ,"anz1" : "1"},' +
+			'{"art" : "Dorf","Karte" : "D7", "typ" : "Gebäude", "name" : "kleiner Hof", "Aktion" : "Kosten: 3 Holz, 1 Stein", "Vorteil" : "Bauvorteil: Resourcenauswertung: Getreide +1","anz1" : "1"},' +
+			'{"art" : "Dorf","Karte" : "D8", "typ" : "Gebäude", "name" : "Hof", "Aktion" : "Kosten: 3 Holz, 2 Steine, 1 Erz", "Vorteil" : "Bauvorteil: Resourcenauswertung: Getreide +2" ,"anz1" : "1"},' +
+			'{"art" : "Dorf","Karte" : "D9", "typ" : "Gebäude", "name" : "grosser Hof", "Aktion" : "Kosten: 1 Erz, 4 Holz, 3 Steine", "Vorteil" : "Bauvorteil: Resourcenauswertung: Getreide +3" ,"anz1" : "1"},' +
+			'{"art" : "Dorf","Karte" : "D10", "typ" : "Gebäude", "name" : "Speicher", "Aktion" : "Kosten: 6 Steine, 6 Holz", "Vorteil" : "Bauvorteil: Endauswertung: 2 Ruhmpunkte extra"  ,"anz1" : "1"},' +
+
+			'{"art" : "Markt","Karte" : "M3", "typ" : "Ereignis", "name" : "Frondienst", "Aktion" : "", "Vorteil" : "Resourcenauswertung: Getreide-1, Holz-1" ,"anz1" : "1"},' +
+			'{"art" : "Markt","Karte" : "M4", "typ" : "Ereignis", "name" : "Barbaren", "Aktion" : "", "Vorteil" : "Resourcenauswertung: Getreide-1, Erz-1 " ,"anz1" : "1"},' +
+			'{"art" : "Markt","Karte" : "M5", "typ" : "Ereignis", "name" : "Aufforstung", "Aktion" : "", "Vorteil" : "Resourcenauswertung: Holz+1, Karte zu Gebäuden legen." ,"anz1" : "1"},' +
+			'{"art" : "Markt","Karte" : "M6", "typ" : "Ereignis", "name" : "Trockenleg.", "Aktion" : "", "Vorteil" : "Resourcenauswertung: Holz+1, Karte zu Gebäuden legen." ,"anz1" : "1"},' +
+			'{"art" : "Markt","Karte" : "M7", "typ" : "Gebäude", "name" : "Sägewerk", "Aktion" : "Kosten: 3 Holz, 1 Erz", "Vorteil" : "Bauvorteil: Resourcenauswertung: Holz +1","anz1" : "1"},' +
+			'{"art" : "Markt","Karte" : "M8", "typ" : "Gebäude", "name" : "Flösserei", "Aktion" : "Kosten: 5 Holz, 1 Stein", "Vorteil" : "Bauvorteil: Resourcenauswertung: Holz +2" ,"anz1" : "1"},' +
+			'{"art" : "Markt","Karte" : "M9", "typ" : "Gebäude", "name" : "Mühle", "Aktion" : "Kosten: 4 Steine, 4 Erz", "Vorteil" : "Bauvorteil: Resourcenauswertung: Getreide +3" ,"anz1" : "1"},' +
+			'{"art" : "Markt","Karte" : "M10", "typ" : "Gebäude", "name" : "Kloster", "Aktion" : "Kosten: 6 Steine, 6 Holz", "Vorteil" : "Bauvorteil: Endauswertung: 2 Ruhmpunkte extra"  ,"anz1" : "1"}' 
+
+			]}';
+		</script>
+		<script src="js/data.js"></script>
+<style type="text/css">
+	.key{ font-size: 14pt;}
+	.H { background-color: #CCFFCC;
+		 -webkit-print-color-adjust: exact;
+	}          
+	.S { background-color: #CCFFFF;
+		 -webkit-print-color-adjust: exact;
+	}          
+          
+	.E { background-color: #FFCCCC;
+		 -webkit-print-color-adjust: exact;
+	}                    
+	.G { background-color: #FFFFCC;
+		 -webkit-print-color-adjust: exact;
+	}            
+	.Dorf { background-color: #FFFF99;
+		 -webkit-print-color-adjust: exact;
+	}            
+	.Markt { background-color: #99FF99;
+		 -webkit-print-color-adjust: exact;
+	}            
+	.Stadt { background-color: #99FFFF;
+		 -webkit-print-color-adjust: exact;
+	}            
+	.Gstadt { background-color: #FF9999;
+		 -webkit-print-color-adjust: exact;
+	}            
+</style>      
+</head>       
+<body>        
+	<div id="content" style=""><div></div>
+<div class="card">
+<div class="toprow H">
+<span class="key">H2</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Ware</span>
+<span class="key right">H2</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;"></span>
+<span class="key H right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">2</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Ware.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow H">
+<span class="key">H3</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Ware</span>
+<span class="key right">H3</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;"></span>
+<span class="key H right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">3</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Ware.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow H">
+<span class="key">H4</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Ware</span>
+<span class="key right">H4</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;"></span>
+<span class="key H right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">4</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Ware.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow H">
+<span class="key">H5</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">H5</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Waldhütte</span>
+<span class="key H right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 2 Holz</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: Bei Resourcenauswertung H+2</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow H">
+<span class="key">H6</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">H6</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Jagdhütte</span>
+<span class="key H right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 3 Holz</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: Bei Resourcenauswertung G+2</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow H">
+<span class="key">H7</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">H7</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Krankenhaus</span>
+<span class="key H right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 3 Holz, 2 Stein</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: schützt vor der Pest und Sturm</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow H">
+<span class="key">H8</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">H8</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Handelhaus</span>
+<span class="key H right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 5 Holz, 1 Stein, 2 Erz</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: Bei jedem gewonnenen Stich 1 Warenkarte von der Hand in die Ablage</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow H">
+<span class="key">H9</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">H9</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Hafen</span>
+<span class="key H right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 6 Holz, 6 Steine</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: Bei Resourcenauswertung: Alle Warenkarten verdoppeln ihren Wert</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow H">
+<span class="key">H10</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">H10</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Universität</span>
+<span class="key H right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 5 Holz, 5 Steine, 5 Erz, 2 Getreide, 3 Bev</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: Siegpunkte am Ende der Partie verdoppeln.</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow H">
+<span class="key">H11</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Person</span>
+<span class="key right">H11</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Krämer</span>
+<span class="key H right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Person.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Baubonus: Baukosten sinken pro Resourcentyp -2</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow H">
+<span class="key">H12</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Person</span>
+<span class="key right">H12</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Räuber</span>
+<span class="key H right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Person.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Stichbonus: 1 Karte von der Hand in die eigene Ablage.</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow H">
+<span class="key">H13</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Person</span>
+<span class="key right">H13</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Gildemeister</span>
+<span class="key H right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Person.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Stichbonus: sticht zusätzlich zu der niedrigsten Karte alle Holzkarten.</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="pagebreak" style="page-break-after: always; "></div><div class="card">
+<div class="toprow H">
+<span class="key">As</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Apokalypse</span>
+<span class="key right">As</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Feuerbrunst</span>
+<span class="key H right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;"></span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Apokalypse.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Stichbonus: Besiegt Personen (As) und unterliegt Gebäuden und Waren. (1)</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Nachteil: ein gebautes Gebäude brennt ab.</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow S">
+<span class="key">S2</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Ware</span>
+<span class="key right">S2</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;"></span>
+<span class="key S right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">2</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Ware.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow S">
+<span class="key">S3</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Ware</span>
+<span class="key right">S3</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;"></span>
+<span class="key S right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">3</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Ware.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow S">
+<span class="key">S4</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Ware</span>
+<span class="key right">S4</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;"></span>
+<span class="key S right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">4</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Ware.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow S">
+<span class="key">S5</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">S5</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Steinbruch</span>
+<span class="key S right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 2 Steine</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: Bei Resourcenauswertung S+2</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow S">
+<span class="key">S6</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">S6</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Bergwerk</span>
+<span class="key S right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 3 Steine</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: direkt Stein Max +2</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow S">
+<span class="key">S7</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">S7</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Stadtmauer</span>
+<span class="key S right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 4 Steine</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: kein Mitspieler kann Karten aus deiner Hand oder Ablage nehmen</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow S">
+<span class="key">S8</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">S8</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Aquädukt</span>
+<span class="key S right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 5 Steine</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: schützt vor der Feuerbrunst</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow S">
+<span class="key">S9</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">S9</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Burg</span>
+<span class="key S right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 8 Steine, 2 Erz</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: schützt vor dem Krieg</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow S">
+<span class="key">S10</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">S10</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Festung</span>
+<span class="key S right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 10 Steine, 2 Erz, 3 Holz</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: bis zu 3 Warenkarten für die folgenden Runden behalten</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow S">
+<span class="key">S11</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Person</span>
+<span class="key right">S11</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Architekt</span>
+<span class="key S right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Person.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Baubonus: Die Punkte eines gebauten Gebäudes verdoppeln sich.</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow S">
+<span class="key">S12</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Person</span>
+<span class="key right">S12</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Baumeister</span>
+<span class="key S right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Person.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Baubonus: jedes gebaute Gebäude Punkte +2</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="pagebreak" style="page-break-after: always; "></div><div class="card">
+<div class="toprow S">
+<span class="key">S13</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Person</span>
+<span class="key right">S13</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Karawane</span>
+<span class="key S right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Person.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Stichbonus: sticht zusätzlich zu der niedrigsten Karte alle Steinkarten.</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow S">
+<span class="key">As</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Apokalypse</span>
+<span class="key right">As</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Pest</span>
+<span class="key S right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;"></span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Apokalypse.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Stichbonus: Besiegt Personen (As) und unterliegt Gebäuden und Waren. (1)</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Nachteil: Punkte -5</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow E">
+<span class="key">E2</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Ware</span>
+<span class="key right">E2</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;"></span>
+<span class="key E right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">2</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Ware.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow E">
+<span class="key">E3</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Ware</span>
+<span class="key right">E3</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;"></span>
+<span class="key E right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">3</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Ware.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow E">
+<span class="key">E4</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Ware</span>
+<span class="key right">E4</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;"></span>
+<span class="key E right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">4</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Ware.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow E">
+<span class="key">E5</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">E5</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Erzmine</span>
+<span class="key E right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 1 Holz, 1 Stein</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: Bei Resourcenauswertung E+2</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow E">
+<span class="key">E6</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">E6</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Sägewerk</span>
+<span class="key E right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 2 Erz, 1 Stein</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: direkt Holz Max +2</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow E">
+<span class="key">E7</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">E7</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Miliz</span>
+<span class="key E right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 2 Holz, 2 Stein</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: Wird die eigene Warenkarte gestochen, darf man direkt 1 Karte vom Stapel auf die Hand ziehen.</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow E">
+<span class="key">E8</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">E8</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Schmelze</span>
+<span class="key E right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 2 Holz, 2 Stein, 1 Erz</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: direkt Erz Max +2</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow E">
+<span class="key">E9</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">E9</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Reiterhof</span>
+<span class="key E right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 4 Holz, 4 Stein, 2 Erz</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Vorteil: Vor der Resourcenauswertung 1 Warenkarte von einem Spieler mit den meisten Karten in der Ablage ziehen.</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow E">
+<span class="key">E10</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">E10</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Armee</span>
+<span class="key E right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 3 Holz, 3 Stein, 5 Erz, 3 Getreide</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Vorteil: Zu Beginn der Runde je 1 Handkarte von den Spielern mit der grössten Bevölkerung ziehen.</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow E">
+<span class="key">E11</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Person</span>
+<span class="key right">E11</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Saboteur</span>
+<span class="key E right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Person.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Baubonus: bis zu 5 benötigte Resourcen können 1:1 getauscht werden.</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="pagebreak" style="page-break-after: always; "></div><div class="card">
+<div class="toprow E">
+<span class="key">E12</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Person</span>
+<span class="key right">E12</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Alchemist</span>
+<span class="key E right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Person.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Baubonus: Schutz vor allen Apokalypsen.</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow E">
+<span class="key">E13</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Person</span>
+<span class="key right">E13</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Fürst</span>
+<span class="key E right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Person.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Stichbonus: Stichbonus: sticht zusätzlich zu der niedrigsten Karte alle Erzkarten.</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow E">
+<span class="key">As</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Apokalypse</span>
+<span class="key right">As</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Krieg</span>
+<span class="key E right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Apokalypse.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Besiegt Personen (As) und unterliegt Gebäuden und Waren. (1)</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Nachteil: E -1, S -1, H -1</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow Dorf">
+<span class="key">D3</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Ereignis</span>
+<span class="key right">D3</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Rattenplage</span>
+<span class="key Dorf right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Ereignis.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Resourcenauswertung: Getreide-1</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow Dorf">
+<span class="key">D4</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Ereignis</span>
+<span class="key right">D4</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Missernte</span>
+<span class="key Dorf right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Ereignis.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Resourcenauswertung: Getreide-2</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow Dorf">
+<span class="key">D5</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Ereignis</span>
+<span class="key right">D5</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Siedler</span>
+<span class="key Dorf right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Ereignis.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Resourcenauswertung: Bev+1</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow Dorf">
+<span class="key">D6</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Ereignis</span>
+<span class="key right">D6</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">grosse Ernte</span>
+<span class="key Dorf right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Ereignis.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Resourcenauswertung: Getreide+3</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow Dorf">
+<span class="key">D7</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">D7</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">kleiner Hof</span>
+<span class="key Dorf right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 3 Holz, 1 Stein</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: Resourcenauswertung: Getreide +1</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow Dorf">
+<span class="key">D8</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">D8</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Hof</span>
+<span class="key Dorf right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 3 Holz, 2 Steine, 1 Erz</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: Resourcenauswertung: Getreide +2</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow Dorf">
+<span class="key">D9</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">D9</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">grosser Hof</span>
+<span class="key Dorf right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 1 Erz, 4 Holz, 3 Steine</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: Resourcenauswertung: Getreide +3</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow Dorf">
+<span class="key">D10</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">D10</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Speicher</span>
+<span class="key Dorf right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 6 Steine, 6 Holz</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: Endauswertung: 2 Ruhmpunkte extra</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow Markt">
+<span class="key">M3</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Ereignis</span>
+<span class="key right">M3</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Frondienst</span>
+<span class="key Markt right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Ereignis.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Resourcenauswertung: Getreide-1, Holz-1</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow Markt">
+<span class="key">M4</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Ereignis</span>
+<span class="key right">M4</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Barbaren</span>
+<span class="key Markt right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Ereignis.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Resourcenauswertung: Getreide-1, Erz-1 </div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow Markt">
+<span class="key">M5</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Ereignis</span>
+<span class="key right">M5</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Aufforstung</span>
+<span class="key Markt right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Ereignis.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Resourcenauswertung: Holz+1, Karte zu Gebäuden legen.</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow Markt">
+<span class="key">M6</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Ereignis</span>
+<span class="key right">M6</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Trockenleg.</span>
+<span class="key Markt right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Ereignis.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Resourcenauswertung: Holz+1, Karte zu Gebäuden legen.</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow Markt">
+<span class="key">M7</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">M7</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Sägewerk</span>
+<span class="key Markt right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 3 Holz, 1 Erz</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: Resourcenauswertung: Holz +1</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow Markt">
+<span class="key">M8</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">M8</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Flösserei</span>
+<span class="key Markt right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 5 Holz, 1 Stein</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: Resourcenauswertung: Holz +2</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow Markt">
+<span class="key">M9</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">M9</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Mühle</span>
+<span class="key Markt right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 4 Steine, 4 Erz</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: Resourcenauswertung: Getreide +3</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow Markt">
+<span class="key">M10</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">M10</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Kloster</span>
+<span class="key Markt right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 6 Steine, 6 Holz</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: Endauswertung: 2 Ruhmpunkte extra</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow G">
+<span class="key">G2</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Ware</span>
+<span class="key right">G2</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;"></span>
+<span class="key G right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">2</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Ware.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow G">
+<span class="key">G3</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Ware</span>
+<span class="key right">G3</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;"></span>
+<span class="key G right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">3</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Ware.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow G">
+<span class="key">G4</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Ware</span>
+<span class="key right">G4</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;"></span>
+<span class="key G right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">4</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Ware.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow G">
+<span class="key">G5</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">G5</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Bauernhof</span>
+<span class="key G right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 1 Holz, 1 Getreide</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: Resourcenauswertung: G+2</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow G">
+<span class="key">G6</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">G6</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Mühle</span>
+<span class="key G right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 1 Stein, 2 Holz</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: direkt Getreidelager max +2</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow G">
+<span class="key">G7</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">G7</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Marktplatz</span>
+<span class="key G right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 3 Holz, 1 Erz</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: Bei Resourcenauswertung: Bev +1</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow G">
+<span class="key">G8</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">G8</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Trinkstuben</span>
+<span class="key G right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 3 Holz, 2 Steine, 1 Erz</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: Bei Resourcenauswertung: Bev +1, G+1</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow G">
+<span class="key">G9</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">G9</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Rathaus</span>
+<span class="key G right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 3 Erz, 4 Holz, 3 Steine</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Bauvorteil: Die Punkte der zukünfitg gebauten Gebäude +3</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow G">
+<span class="key">G10</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Gebäude</span>
+<span class="key right">G10</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Schloss</span>
+<span class="key G right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Gebäude.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Kosten: 7 Erz, 7 Steine, 1 Holz</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">1 Siegpunkt direkt</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="pagebreak" style="page-break-after: always; "></div><div class="card">
+<div class="toprow G">
+<span class="key">G11</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Person</span>
+<span class="key right">G11</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Händler</span>
+<span class="key G right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Person.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Baubonus: ein Resourcentyp ist kostenlos.</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow G">
+<span class="key">G12</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Person</span>
+<span class="key right">G12</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Karawane</span>
+<span class="key G right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Person.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Baubonus: keine Getreide zur Ernährung der Bevölkerung nötig.</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow G">
+<span class="key">G13</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Person</span>
+<span class="key right">G13</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">König</span>
+<span class="key G right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Person.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Stichbonus: sticht zusätzlich zu der niedrigsten Karte alle Getreidekarten.</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px"></div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+<div class="card">
+<div class="toprow G">
+<span class="key">As</span>
+<span style="font-size: 11px;padding: 0 10px;" class="name">Apokalypse</span>
+<span class="key right">As</span>
+</div>
+<div class="toprow" style="margin-top: 3px;">
+<span style="margin-left: 3px;">Sturm</span>
+<span class="key G right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">-1</span>
+<span class="key right"></span>
+</div>
+<div><img alt="picture" src="img/Apokalypse.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Stichbonus: Besiegt Personen (As) und unterliegt Gebäuden und Waren.</div>
+<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">Nachteil: G -1</div>
+<div style="width: 100%; text-align:center;">
+</div>
+</div>
+</div>
+	<div id="template" style="display: none;">
+		<div>{{header}}</div>
+		{{#cards}}
+		<div class="card">
+		<div class="toprow {{art}}">
+			<span class="key">{{Karte}}</span>
+			<span style="font-size: 11px;padding: 0 10px;" class="name">{{typ}}</span>
+			<span class="key right">{{Karte}}</span>
+		</div>
+		<div class="toprow" style="margin-top: 3px;">
+			<span style="margin-left: 3px;">{{name}}</span>
+			<span class="key {{art}} right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">{{anz1}}</span>
+			<span class="key right">{{anz2}}</span>
+		</div>
+		<div><img alt="picture" src="img/{{typ}}.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+		<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">{{Aktion}}</div>
+		<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">{{Vorteil}}</div>
+		<div style="width: 100%; text-align:center;">
+			  
+		</div>
+              
+		</div>
+		{{#pagebreak}}<div class="pagebreak" style="page-break-after: always; "></div>{{/pagebreak}}
+		{{/cards}}
+              
+       
+       
+              </div></body></html>
