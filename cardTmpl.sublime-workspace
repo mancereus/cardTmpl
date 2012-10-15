@@ -31,81 +31,7 @@
 			"file": "web/TIG_karten.html",
 			"settings":
 			{
-				"buffer_size": 6905,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "org.hibernate.PropertyAccessException: could not get a field value by reflection getter of com.dpdhl.fm.fmcalc.server.model.StdFahrzeugklasseEbene1.fahrzeugklasseEbene1Id\n	at org.hibernate.property.DirectPropertyAccessor$DirectGetter.get(DirectPropertyAccessor.java:62)\n	at org.hibernate.tuple.entity.AbstractEntityTuplizer.getIdentifier(AbstractEntityTuplizer.java:227)\n	at org.hibernate.persister.entity.AbstractEntityPersister.getIdentifier(AbstractEntityPersister.java:3876)\n	at org.hibernate.persister.entity.AbstractEntityPersister.isTransient(AbstractEntityPersister.java:3584)\n	at org.hibernate.engine.ForeignKeys.isTransient(ForeignKeys.java:203)\n	at org.hibernate.engine.ForeignKeys.getEntityIdentifierIfNotUnsaved(ForeignKeys.java:242)\n	at org.hibernate.type.EntityType.getIdentifier(EntityType.java:456)\n	at org.hibernate.type.ManyToOneType.nullSafeSet(ManyToOneType.java:130)\n	at org.hibernate.loader.Loader.bindPositionalParameters(Loader.java:1873)\n	at org.hibernate.loader.Loader.bindParameterValues(Loader.java:1844)\n	at org.hibernate.loader.Loader.prepareQueryStatement(Loader.java:1716)\n	at org.hibernate.loader.Loader.doQuery(Loader.java:801)\n	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:274)\n	at org.hibernate.loader.Loader.doList(Loader.java:2542)\n	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2276)\n	at org.hibernate.loader.Loader.list(Loader.java:2271)\n	at org.hibernate.loader.criteria.CriteriaLoader.list(CriteriaLoader.java:119)\n	at org.hibernate.impl.SessionImpl.list(SessionImpl.java:1716)\n	at org.hibernate.impl.CriteriaImpl.list(CriteriaImpl.java:347)\n	at com.dpdhl.fm.fmcalc.server.dao.impl.StammdatenDaoImpl.findFahrzeugklassenEbene2(StammdatenDaoImpl.java:476)\n	at com.dpdhl.fm.fmcalc.server.business.impl.StammdatenServiceImpl.findFahrzeugklassenEbene2(StammdatenServiceImpl.java:732)\n	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)\n	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)\n	at java.lang.reflect.Method.invoke(Method.java:597)\n	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:318)\n	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:183)\n	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:150)\n	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:110)\n	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:172)\n	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:202)\n	at $Proxy30.findFahrzeugklassenEbene2(Unknown Source)\n	at com.dpdhl.fm.fmcalc.server.business.impl.StammdatenServiceTest.testFindFahrzeugklasseEbene2(StammdatenServiceTest.java:269)\n	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)\n	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)\n	at java.lang.reflect.Method.invoke(Method.java:597)\n	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)\n	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)\n	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)\n	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)\n	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:74)\n	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:83)\n	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)\n	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231)\n	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)\n	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)\n	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)\n	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)\n	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)\n	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)\n	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)\n	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)\n	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)\n	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174)\n	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)\n	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)\n	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)\n	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)\n	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)\n	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)\nCaused by: java.lang.IllegalArgumentException: Can not set java.lang.String field com.dpdhl.fm.fmcalc.server.model.StdFahrzeugklasseEbene1.fahrzeugklasseEbene1Id to java.lang.String\n	at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:146)\n	at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:150)\n	at sun.reflect.UnsafeFieldAccessorImpl.ensureObj(UnsafeFieldAccessorImpl.java:37)\n	at sun.reflect.UnsafeObjectFieldAccessorImpl.get(UnsafeObjectFieldAccessorImpl.java:18)\n	at java.lang.reflect.Field.get(Field.java:358)\n	at org.hibernate.property.DirectPropertyAccessor$DirectGetter.get(DirectPropertyAccessor.java:59)\n	... 60 more\n\n",
-			"settings":
-			{
-				"buffer_size": 6223,
-				"line_ending": "Windows",
-				"name": "org.hibernate.PropertyAccessException: could not g"
-			}
-		},
-		{
-			"file": "/C/sde/workspace/fm4.1/FMCalc/logs/sqltiming.log",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/mschmitt/Downloads/prepare_owner.sql",
-			"settings":
-			{
-				"buffer_size": 3146,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/mschmitt/Downloads/nachmigration_kalkulation.sh",
-			"settings":
-			{
-				"buffer_size": 2452,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/mschmitt/Downloads/prepare_kalkulation.sql",
-			"settings":
-			{
-				"buffer_size": 2184,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "duplicates\nKONDITIONENSATZNUMMER\n28364\n27400\n27404\n27423\n27430\n27152\n27136\n27399\n27403\n27424",
-			"settings":
-			{
-				"buffer_size": 92,
-				"line_ending": "Windows",
-				"name": "duplicates"
-			}
-		},
-		{
-			"file": "web/RRZ_Kampf.html",
-			"settings":
-			{
-				"buffer_size": 2742,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "web/css/RRZstyle.css",
-			"settings":
-			{
-				"buffer_size": 677,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "web/RRZ_Zwerg.html",
-			"settings":
-			{
-				"buffer_size": 2753,
+				"buffer_size": 7018,
 				"line_ending": "Windows"
 			}
 		}
@@ -166,18 +92,22 @@
 	},
 	"file_history":
 	[
+		"/C/sde/workspace/fm4.1/FMCalc/logs/sqltiming.log",
+		"/C/Users/mschmitt/Downloads/prepare_owner.sql",
+		"/C/Users/mschmitt/Downloads/nachmigration_kalkulation.sh",
+		"/C/Users/mschmitt/Downloads/prepare_kalkulation.sql",
+		"/C/sde/db12/cardtmpl/web/RRZ_Kampf.html",
+		"/C/sde/db12/cardtmpl/web/css/RRZstyle.css",
+		"/C/sde/db12/cardtmpl/web/RRZ_Zwerg.html",
 		"/C/sde/db12/cardtmpl/web/RRZ_Beute.html",
 		"/C/sde/db12/cardtmpl/web/RRZ_Monster.html",
 		"/C/sde/db12/cardtmpl/web/css/style.css",
-		"/C/sde/workspace/fm4.1/FMCalc/logs/sqltiming.log",
 		"/C/sde/db12/cardtmpl/web/TIG_karten.html",
 		"/C/sde/db12/cardtmpl/web/CHR_karten.html",
 		"/C/sde/db12/cardtmpl/web/CHR_Stadt.html",
-		"/C/sde/db12/cardtmpl/web/RRZ_Kampf.html",
 		"/C/sde/db12/cardtmpl/web/SCG_Orte.html",
 		"/C/sde/db12/cardtmpl/web/js/mustache.js",
 		"/C/sde/db12/cardtmpl/web/js/data.js",
-		"/C/sde/db12/cardtmpl/web/RRZ_Zwerg.html",
 		"/C/Users/mschmitt/AppData/Local/Temp/Temp1_FM_OWNER (1).zip/BearingPoint/insert_STD_4.1.sql",
 		"/C/sde/db12/cardtmpl/web/test2.html",
 		"/C/Users/mschmitt/AppData/Roaming/Sublime Text 2/Packages/Git/Git.sublime-settings",
@@ -238,6 +168,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Beginne dann wieder bei Start für die anderen Schätze.",
+			"Leer",
 			"<br/>Ruhm: 4",
 			", \"text\" : \"\" ",
 			"\"key\": ",
@@ -327,6 +259,8 @@
 		"replace_history":
 		[
 			"",
+			"Weg",
+			"",
 			"_",
 			"values ('MXFM",
 			"",
@@ -347,7 +281,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -355,257 +289,15 @@
 					"file": "web/TIG_karten.html",
 					"settings":
 					{
-						"buffer_size": 6905,
+						"buffer_size": 7018,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6741,
-								6832
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"settings":
-					{
-						"buffer_size": 6223,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1698,
-								1723
-							]
-						],
-						"settings":
-						{
-							"auto_name": "org.hibernate.PropertyAccessException: could not g",
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/C/sde/workspace/fm4.1/FMCalc/logs/sqltiming.log",
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/C/Users/mschmitt/Downloads/prepare_owner.sql",
-					"settings":
-					{
-						"buffer_size": 3146,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1032,
-								1032
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/SQL/SQL.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 315.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/C/Users/mschmitt/Downloads/nachmigration_kalkulation.sh",
-					"settings":
-					{
-						"buffer_size": 2452,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1915,
-								1915
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/C/Users/mschmitt/Downloads/prepare_kalkulation.sql",
-					"settings":
-					{
-						"buffer_size": 2184,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2145,
-								2145
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/SQL/SQL.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"settings":
-					{
-						"buffer_size": 92,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								39,
-								44
-							]
-						],
-						"settings":
-						{
-							"auto_name": "duplicates",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "web/RRZ_Kampf.html",
-					"settings":
-					{
-						"buffer_size": 2742,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								62,
-								160
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 405.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "web/css/RRZstyle.css",
-					"settings":
-					{
-						"buffer_size": 677,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								218,
-								218
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 360.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "web/RRZ_Zwerg.html",
-					"settings":
-					{
-						"buffer_size": 2753,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2266,
-								2266
+								501,
+								501
 							]
 						],
 						"settings":
