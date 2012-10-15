@@ -2,24 +2,29 @@
 <html>
 <head>
 <title>RRZ Monster</title>
-<link href="css/style.css" rel="stylesheet" ="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Metal+Mania' rel='stylesheet' type='text/css'>
+<link href="css/RRZstyle.css" rel="stylesheet" ="text/css" />
 		<script
 			src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 		<script src="js/mustache.js"></script>
 		<script>
 			var overviewstr = '{"cards": ['
-				  + '{"key": "5", "name": "Goblin", "rows": [{"txt":"blockt","a":"1","b":"2","c":"2"},{"txt":"Ruhm","a":"2","b":"3","c":"3"}] },'
-				  + '{"key": "4", "name": "Skelett", "rows": [{"txt":"blockt","a":"","b":"1","c":"2"},{"txt":"Ruhm","a":"2","b":"3","c":"4"}] },'
-				  + '{"key": "6", "name": "Ork", "rows": [{"txt":"blockt","a":"","b":"2","c":"3"},{"txt":"Ruhm","a":"3","b":"4","c":"4"} ] },'
-				  + '{"key": "8", "name": "Zombie", "rows": [{"txt":"blockt","a":"1","b":"2","c":"3"},{"txt":"Ruhm","a":"5","b":"4","c":"4"}] },'
-				  + '{"key": "10", "name": "Ghul", "rows": [{"txt":"blockt","a":"3","b":"4","c":"5"},{"txt":"Ruhm","a":"5","b":"5","c":"5"}] },'
-				  + '{"key": "11", "name": "Schlange", "rows": [{"txt":"blockt","a":"Ab","b":"5","c":"2"},{"txt":"Ruhm","a":"6","b":"5","c":"4"}] },'
-				  + '{"key": "12", "name": "Wurm", "rows": [{"txt":"blockt","a":"Sw","b":"3","c":"4"},{"txt":"Ruhm","a":"5","b":"5","c":"5"}] },'
-				  + '{"key": "13", "name": "Skelett", "rows": [{"txt":"blockt","a":"Ab","b":"Ab","c":"4"},{"txt":"Ruhm","a":"6","b":"6","c":"8"}] },'
-				  + '{"key": "14", "name": "Troll", "rows": [{"txt":"blockt","a":"Sw","b":"Ax","c":"Ab"},{"txt":"Ruhm","a":"7","b":"9","c":"5"}] },'
-				  + '{"key": "16", "name": "Medusa", "rows": [{"txt":"blockt","a":"3","b":"4","c":"5"},{"txt":"Ruhm","a":"8","b":"8","c":"8"}] },'
-				  + '{"key": "18", "name": "Hydra", "rows": [{"txt":"blockt","a":"4","b":"5","c":"Ab"},{"txt":"Ruhm","a":"8","b":"8","c":"6"}]},'
-				  + '{"key": "24", "name": "Drache", "rows": [{"txt":"Karte","a":"1","b":"2","c":"3"}]}'
+				  + '{"level" : "1", "key": "5", "shadow" : "6", "name": "Goblin", "immun": "(5-6) immun gegen 1<br/>Ruhm: 4<br/>Beute: 1"},'
+				  + '{"level" : "1", "key": "4", "shadow" : "2", "name": "Skelett", "immun": "(5-6) immun gegen 2<br/>Ruhm: 4<br/>Beute: 1"},'
+				  + '{"level" : "1", "key": "6", "shadow" : "6", "name": "Ork", "immun": "(5-6) immun gegen 3<br/>Ruhm: 4<br/>Beute: 1"},'
+				  + '{"level" : "1", "key": "8", "shadow" : "4", "name": "Zombie", "immun": "(5-6) immun gegen 1,2<br/>Ruhm: 4<br/>Beute: 1"},'
+				  + '{"level" : "1", "key": "10", "shadow" : "5", "name": "Werbär", "immun": "(5-6) immun gegen 2,3<br/>Ruhm: 4<br/>Beute: 1"},'
+				  + '{"level" : "1", "key": "X", "shadow" : "7", "name": "Falle", "immun": "Held fällt in Fallgrube. Hilfe für Waffen > 4 oder alle eigenen Waffen."},'
+				  + '{"level" : "2", "key": "10", "shadow" : "5", "name": "Werbär", "immun": "(5-6) immun gegen Axt<br/>Ruhm: 4<br/>Beute: 1"},'
+				  + '{"level" : "2", "key": "11", "shadow" : "4", "name": "Schlange", "immun": "(5-6) immun gegen Armbrust<br/>Ruhm: 4<br/>Beute: 1"},'
+				  + '{"level" : "2", "key": "12", "shadow" : "4", "name": "Wurm", "immun": "(5-6) immun gegen Axt<br/>Ruhm: 4<br/>Beute: 1"},'
+				  + '{"level" : "2", "key": "14", "shadow" : "1", "name": "Ghul", "immun": "(5-6) immun gegen Schwert<br/>Ruhm: 4<br/>Beute: 1"},'
+				  + '{"level" : "2", "key": "15", "shadow" : "2", "name": "Troll", "immun": "(5-6) immun gegen Schwert<br/>Ruhm: 4<br/>Beute: 1"},'
+				  + '{"level" : "2", "key": "X", "shadow" : "7", "name": "Falle", "immun": "Held fällt in Fallgrube. Hilfe für Waffen > 4 oder alle eigenen Waffen."},'
+				  + '{"level" : "3", "key": "18", "shadow" : "1", "name": "Medusa", "immun": "(5-6) immun gegen 4<br/>Ruhm: 4<br/>Beute: 1"},'
+				  + '{"level" : "3", "key": "14", "shadow" : "1", "name": "Hydra", "immun": "(5-6) immun gegen 5<br/>Ruhm: 4<br/>Beute: 1"},'
+				  + '{"level" : "3", "key": "14", "shadow" : "5", "name": "Werbär", "immun": "(5-6) immun gegen 6<br/>Ruhm: 4<br/>Beute: 1"},'
+				  + '{"level" : "3", "key": "20", "shadow" : "8", "name": "Drache", "immun": "alle Immunkarten"}'
 				  + ']}';
 		</script>
 		<script src="js/data.js"></script>
@@ -33,27 +38,9 @@
 		{{#cards}}
 		<div  class="card {{name}}">
 		<div class="toprow"><span class="key">{{key}}</span><span style="font-size: 18px;" class="name">{{name}}</span><span class="key right">{{key}}</span></div>
-		<div><img alt="picture" src="img/Monster.png" style="width: 100px; height: 100px;margin: 10px 40px;"></div>
-		<div style="width: 100%; text-align:center;">Monsterkarte</div>
-		<div style="width: 100%; text-align:center;">
-		<table class="monstertable" style="width:160px; text-align: center;">
-  <tr >
-  	<th></th>
-    <th>1/2</th>
-    <th>3/4</th>
-    <th>5/6</th>
-  </tr>
-{{#rows}}
-		  <tr style="height: 30px;">
-	<td style="font-weight: bold;">{{txt}}</td>	  
-    <td>{{a}}</td>
-    <td>{{b}}</td>
-    <td>{{c}}</td>
-  </tr>
-{{/rows}}
-</table>
-
-		</div>
+		<div><img alt="picture" src="img/RRZ/shadow{{shadow}}.png" style="width: 80px; height: 80px;margin: 10px 25px;"></div>
+		<div style="width: 100%; text-align:center;">Monsterkarte  ({{level}})</div>
+		<div style="width: 100%; text-align:center;">{{{immun}}}</div>
 
 		</div>
 		{{#pagebreak}}<div class="pagebreak"></span>{{/pagebreak}}

@@ -2,24 +2,29 @@
 <html>
 <head>
 <title>RRZ Beute</title>
-<link href="css/style.css" rel="stylesheet" ="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Metal+Mania' rel='stylesheet' type='text/css'>
+<link href="css/RRZstyle.css" rel="stylesheet" ="text/css" />
 		<script
 			src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 		<script src="js/mustache.js"></script>
 		<script>
 			var overviewstr = '{"cards": ['
-				  + '{"key": "0", "name": "Beute"},'
-				  + '{"key": "0", "name": "Beute"},'
-				  + '{"key": "1", "name": "Beute"},'
-				  + '{"key": "1", "name": "Beute"},'
-				  + '{"key": "2", "name": "Beute"},'
-				  + '{"key": "2", "name": "Beute"},'
-				  + '{"key": "3", "name": "Beute"},'
-				  + '{"key": "3", "name": "Beute"},'
-				  + '{"key": "4", "name": "Beute"},'
-				  + '{"key": "re", "name": "Würfel"},'
-				  + '{"key": "+-1", "name": "Würfel"},'
-				  + '{"key": "+-1", "name": "Würfel"}'
+				  + '{"key": "1", "name": "Beute", "immun": "Schwert 1"},'
+				  + '{"key": "1", "name": "Beute", "immun": "Schwert 2"},'
+				  + '{"key": "2", "name": "Beute", "immun": "Schwert 3"},'
+				  + '{"key": "2", "name": "Beute", "immun": "Schwert 4"},'
+				  + '{"key": "3", "name": "Beute", "immun": "Schwert 5"},'
+				  + '{"key": "1", "name": "Beute", "immun": "Schwert 6"},'
+				  + '{"key": "2", "name": "Beute", "immun": "Axt 2"},'
+				  + '{"key": "2", "name": "Beute", "immun": "Axt 3"},'
+				  + '{"key": "3", "name": "Beute", "immun": "Axt 4"},'
+				  + '{"key": "3", "name": "Beute", "immun": "Axt 5"},'
+				  + '{"key": "4", "name": "Beute", "immun": "Axt 6"},'
+				  + '{"key": "4", "name": "Beute", "immun": "Armbrust 1"},'
+				  + '{"key": "5", "name": "Beute", "immun": "Armbrust 2"},'
+				  + '{"key": "5", "name": "Beute", "immun": "Armbrust 3"},'
+				  + '{"key": "re", "name": "Würfel", "immun": "Armbrust 4"},'
+				  + '{"key": "re", "name": "Würfel", "immun": "Armbrust 5"}'
 				  + ']}';
 		</script>
 		<script src="js/data.js"></script>
@@ -47,11 +52,10 @@
 		<div class="toprow"><span class="key">{{key}}</span><span class="name" style="font-size:20px">{{name}}</span><span class="key right">{{key}}</span></div>
 		<div><img class="{{name}}" alt="picture" src="img/{{name}}.png" style="width: 50px; height: 50px;margin: 30px;"></div>
 		<div style="width: 100%; text-align:center;"><hr></div>
-        <div class="rotate" style="height: 60px; font-size: 20px;">{{vorteil}}</div>
-		<div class="rotate" style="margin-right: 20px;">Drache ist immun gegen </div>
+		<div class="rotate" style="margin-right: 20px;">Drache ist immun gegen {{immun}}</div>
 		<div class="bottomrow"><span class="name rotate" style="font-size:16px; font-weight: bold ;text-align: right;">Pergament</span></div>
 		</div>
-		{{#pagebreak}}<div class="pagebreak"></span>{{/pagebreak}}
+		{{#pagebreak}}<div class="pagebreak" style="width: 600px">page-break</div>{{/pagebreak}}
 		{{/cards}}
 
 </body>

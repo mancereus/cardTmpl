@@ -1,14 +1,15 @@
 body, * {
 	font-size: 14px;
-	font-family: 'Nobile', arial, serif;
+	font-family: 'Metal Mania', cursive;
+/*font-family: 'Nobile', arial, serif;*/
 }
 
 .card {
 	margin:1px; 
 	padding: 3px;
 	float:left;
-	width: 160px;
-	height: 280px;
+	width: 140px;
+	height: 240px;
 	border: 1px solid black;
 }
 .key {
@@ -16,11 +17,10 @@ body, * {
 	font-weight: bold;
 }
 .name {
-	padding: 0 15px;
+	padding: 0 10px;
 	text-align: center;
 	width: 60%;
-	font-size: 24px;
-	
+	font-size: 22px;	
 }
 .rotate {
 	text-transform: rotate(180deg); 
@@ -30,12 +30,15 @@ body, * {
 .right {
 	float: right;
 }
+.left {
+	float: left;
+}
 .toprow {
 	float: left;
 	width: 100%;
 }
 .bottomrow {
-	margin-top: 20px;
+	margin-top: 10px;
 	float: left;
 	width: 100%;
 }

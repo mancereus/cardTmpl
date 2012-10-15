@@ -2,7 +2,8 @@
 <html>
 <head>
 <title>Ruhmreiche Zwerge</title>
-<link href="css/style.css" rel="stylesheet" ="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Metal+Mania' rel='stylesheet' type='text/css'>
+<link href="css/RRZstyle.css" rel="stylesheet" ="text/css" />
 		<script
 			src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 		<script src="js/mustache.js"></script>
@@ -19,17 +20,25 @@
 				  + '{"key": "1", "name": "Schwert"},'
 				  + '{"key": "2", "name": "Schwert"},'
 				  + '{"key": "3", "name": "Schwert"},'
-				  + '{"key": "4", "name": "Schwert", "pagebreak": {}},'
+				  + '{"key": "4", "name": "Schwert"},'
 				  + '{"key": "5", "name": "Schwert"},'
 				  + '{"key": "5", "name": "Schwert"},'
 				  + '{"key": "1", "name": "Armbrust"},'
-				  + '{"key": "2", "name": "Armbrust"},'
+				  + '{"key": "2", "name": "Armbrust", "pagebreak": {}},'
 				  + '{"key": "3", "name": "Armbrust"},'
 				  + '{"key": "4", "name": "Armbrust"},'
 				  + '{"key": "3", "name": "Armbrust"},'
-				  + '{"key": "4", "name": "Armbrust"},'
+				  + '{"key": "5", "name": "Armbrust"},'
 				  + '{"key": "1", "name": "Schwert"},'
 				  + '{"key": "2", "name": "Schwert"},'
+				  + '{"key": "4", "name": "Schwert"},'
+				  + '{"key": "3", "name": "Schwert"},'
+				  + '{"key": "3", "name": "Armbrust"},'
+				  + '{"key": "4", "name": "Armbrust"},'
+				  + '{"key": "6", "name": "Axt"},'
+				  + '{"key": "5", "name": "Axt"},'
+				  + '{"key": "6", "name": "Schwert"},'
+				  + '{"key": "5", "name": "Schwert"},'
 				  + '{"key": "4", "name": "Schwert"},'
 				  + '{"key": "3", "name": "Schwert"}'
 				  + ']}';
@@ -45,6 +54,7 @@
 .Schwert {
 	border:  7px solid #fc6;
 }
+
 </style>
 </head>
 <body>
@@ -53,12 +63,12 @@
 		<div style="">{{header}}</div>
 		{{#cards}}
 		<div class="card ">
-		<div class="toprow"><span class="key">{{key}}</span><span class="name">{{name}}</span><span class="key right">{{key}}</span></div>
-		<div><img class="{{name}}" alt="picture" src="img/{{name}}.png" style="width: 100px; height: 100px;margin: 40px;"></div>
+		<div class="toprow"><span class="key">{{key}}</span><span class="name" >{{name}}</span><span class="key right">{{key}}</span></div>
+		<div><img class="{{name}}" alt="picture" src="img/{{name}}.png" style="width: 80px; height: 80px;margin: 18px;"></div>
 		<div style="width: 100%; text-align:center;">Kampfkarte</div>
-		<div class="bottomrow"><span class="key rotate">{{key}}</span><span class="name rotate">{{name}}</span><span class="key right rotate">{{key}}</span></div>
+		<div class="bottomrow"><span class="key rotate left">{{key}}</span><span  class="name rotate">{{name}}</span><span class="key right rotate">{{key}}</span></div>
 		</div>
-		{{#pagebreak}}<div class="pagebreak"></span>{{/pagebreak}}
+		{{#pagebreak}}<div class="pagebreak" style="width: 600px">page-break</div>{{/pagebreak}}
 		{{/cards}}
 
 </body>
