@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<title>Stadtchronik</title>
+<link href="css/style.css" rel="stylesheet" ="text/css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script src="js/mustache.js"></script>
+		<script>
+			var overview = {"cards": [
+			{art : "Dorf",Karte : "Df2", typ: "Ereignis", name: "Rattenplage", Aktion: "", Vorteil: "" ,anz1: "-1"},
+			{art : "Dorf",Karte : "Df3", typ: "Ereignis", name: "Missernte", Aktion: "", Vorteil: "" ,anz1: "-1"},
+			{art : "Dorf",Karte : "Df4", typ: "Ereignis", name: "Siedler", Aktion: "", Vorteil: "Resourcenauswertung: Bev+1" ,anz1: "1"},
+			{art : "Dorf",Karte : "Df5", typ: "Ereignis", name: "grosse Ernte", Aktion: "", Vorteil: "" ,anz1: "2",anz2: "2",art2: "H"},
+			{art : "Dorf",Karte : "Df6", typ: "Gebäude", name: "kleiner Hof", Aktion: "Kosten: 3 Holz, 1 Stein", Vorteil: "Bauvorteil: Resourcenauswertung: Getreide +1",anz1: "1",anz2: "1",art2: "H"},
+			{art : "Dorf",Karte : "Df7", typ: "Gebäude", name: "Hof", Aktion: "Kosten: 3 Holz, 2 Steine, 1 Erz", Vorteil: "Bauvorteil: Resourcenauswertung: Getreide +2" ,anz1: "1",anz2: "2",art2: "H"},
+			{art : "Dorf",Karte : "Df8", typ: "Gebäude", name: "grosser Hof", Aktion: "Kosten: 1 Erz, 4 Holz, 3 Steine", Vorteil: "Bauvorteil: Resourcenauswertung: Getreide +3" ,anz1: "1",anz2: "1",art2: "S"},
+			{art : "Dorf",Karte : "Df9", typ: "Gebäude", name: "Speicher", Aktion: "Kosten: 6 Steine, 6 Holz", Vorteil: "Bauvorteil: Endauswertung: 2 Ruhmpunkte extra"  ,anz1: "1",anz2: "1",art2: "E"},
+
+			{art : "Markt",Karte : "Mk2", typ: "Ereignis", name: "Frondienst", Aktion: "", Vorteil: "",anz1: "-1",anz2: "-1",art2: "G"},
+			{art : "Markt",Karte : "Mk3", typ: "Ereignis", name: "Barbaren", Aktion: "", Vorteil: "" ,anz1: "-1",anz2: "-1",art2: "E"},
+			{art : "Markt",Karte : "Mk4", typ: "Ereignis", name: "Aufforstung", Aktion: "", Vorteil: "Resourcenauswertung: Holz+1, Karte zu Gebäuden legen." ,anz1: "1",anz2: "1",art2: "S"},
+			{art : "Markt",Karte : "Mk5", typ: "Ereignis", name: "Trockenleg.", Aktion: "", Vorteil: "Resourcenauswertung: Holz+1, Karte zu Gebäuden legen." ,anz1: "1",anz2: "2",art2: "S"},
+			{art : "Markt",Karte : "Mk6", typ: "Gebäude", name: "Sägewerk", Aktion: "Kosten: 3 Holz, 1 Erz", Vorteil: "Bauvorteil: Resourcenauswertung: Holz +1",anz1: "1",anz2: "1",art2: "E"},
+			{art : "Markt",Karte : "Mk7", typ: "Gebäude", name: "Flösserei", Aktion: "Kosten: 5 Holz, 1 Stein", Vorteil: "Bauvorteil: Resourcenauswertung: Holz +2" ,anz1: "3"},
+			{art : "Markt",Karte : "Mk8", typ: "Gebäude", name: "Mühle", Aktion: "Kosten: 4 Steine, 4 Erz", Vorteil: "Bauvorteil: Resourcenauswertung: Getreide +3" ,anz1: "1",anz2: "1",art2: "S"},
+			{art : "Markt",Karte : "Mk9", typ: "Gebäude", name: "Kloster", Aktion: "Kosten: 6 Steine, 6 Holz", Vorteil: "Bauvorteil: Endauswertung: 2 Ruhmpunkte extra"  ,anz1: "1",anz2: "1",art2: "G", pagebreak: "pagebreak"  },
+
+			{art : "Stadt",Karte : "St2", typ: "Ereignis", name: "Frondienst", Aktion: "", Vorteil: "",anz1: "-1",anz2: "-1",art2: "G"},
+			{art : "Stadt",Karte : "St3", typ: "Ereignis", name: "Barbaren", Aktion: "", Vorteil: "" ,anz1: "-1",anz2: "-1",art2: "E"},
+			{art : "Stadt",Karte : "St4", typ: "Ereignis", name: "Aufforstung", Aktion: "", Vorteil: "Resourcenauswertung: Holz+1, Karte zu Gebäuden legen." ,anz1: "1",anz2: "1",art2: "S"},
+			{art : "Stadt",Karte : "St5", typ: "Ereignis", name: "Trockenleg.", Aktion: "", Vorteil: "Resourcenauswertung: Holz+1, Karte zu Gebäuden legen." ,anz1: "1",anz2: "2",art2: "S"},
+			{art : "Stadt",Karte : "St6", typ: "Gebäude", name: "Sägewerk", Aktion: "Kosten: 3 Holz, 1 Erz", Vorteil: "Bauvorteil: Resourcenauswertung: Holz +1",anz1: "1",anz2: "1",art2: "E"},
+			{art : "Stadt",Karte : "St7", typ: "Gebäude", name: "Flösserei", Aktion: "Kosten: 5 Holz, 1 Stein", Vorteil: "Bauvorteil: Resourcenauswertung: Holz +2" ,anz1: "3"},
+			{art : "Stadt",Karte : "St8", typ: "Gebäude", name: "Mühle", Aktion: "Kosten: 4 Steine, 4 Erz", Vorteil: "Bauvorteil: Resourcenauswertung: Getreide +3" ,anz1: "1",anz2: "1",art2: "S"},
+			{art : "Stadt",Karte : "St9", typ: "Gebäude", name: "Kloster", Aktion: "Kosten: 6 Steine, 6 Holz", Vorteil: "Bauvorteil: Endauswertung: 2 Ruhmpunkte extra"  ,anz1: "1",anz2: "1",art2: "G"},
+
+			{art : "Grstadt",Karte : "Gs2", typ: "Ereignis", name: "Frondienst", Aktion: "", Vorteil: "",anz1: "-1",anz2: "-1",art2: "G"},
+			{art : "Grstadt",Karte : "Gs3", typ: "Ereignis", name: "Barbaren", Aktion: "", Vorteil: "" ,anz1: "-1",anz2: "-1",art2: "E"},
+			{art : "Grstadt",Karte : "Gs4", typ: "Ereignis", name: "Aufforstung", Aktion: "", Vorteil: "Resourcenauswertung: Holz+1, Karte zu Gebäuden legen." ,anz1: "1",anz2: "1",art2: "S"},
+			{art : "Grstadt",Karte : "Gs5", typ: "Ereignis", name: "Trockenleg.", Aktion: "", Vorteil: "Resourcenauswertung: Holz+1, Karte zu Gebäuden legen." ,anz1: "1",anz2: "2",art2: "S"},
+			{art : "Grstadt",Karte : "Gs6", typ: "Gebäude", name: "Sägewerk", Aktion: "Kosten: 3 Holz, 1 Erz", Vorteil: "Bauvorteil: Resourcenauswertung: Holz +1",anz1: "1",anz2: "1",art2: "E"},
+			{art : "Grstadt",Karte : "Gs7", typ: "Gebäude", name: "Flösserei", Aktion: "Kosten: 5 Holz, 1 Stein", Vorteil: "Bauvorteil: Resourcenauswertung: Holz +2" ,anz1: "3"},
+			{art : "Grstadt",Karte : "Gs8", typ: "Gebäude", name: "Mühle", Aktion: "Kosten: 4 Steine, 4 Erz", Vorteil: "Bauvorteil: Resourcenauswertung: Getreide +3" ,anz1: "1",anz2: "1",art2: "S"},
+			{art : "Grstadt",Karte : "Gs9", typ: "Gebäude", name: "Kloster", Aktion: "Kosten: 6 Steine, 6 Holz", Vorteil: "Bauvorteil: Endauswertung: 2 Ruhmpunkte extra"  ,anz1: "1",anz2: "1",art2: "G", pagebreak: "pagebreak"}
+
+			]};
+		</script>
+		<script src="js/data2.js"></script>
+<style type="text/css">
+	.key{ font-size: 14pt;}
+	.H { background-color: #CCFFCC;
+		 -webkit-print-color-adjust: exact;
+	}          
+	.S { background-color: #CCFFFF;
+		 -webkit-print-color-adjust: exact;
+	}          
+          
+	.E { background-color: #FFCCCC;
+		 -webkit-print-color-adjust: exact;
+	}                    
+	.G { background-color: #FFFFCC;
+		 -webkit-print-color-adjust: exact;
+	}            
+	.Dorf { background-color: #FFFF99;
+		 -webkit-print-color-adjust: exact;
+	}            
+	.Markt { background-color: #99FF99;
+		 -webkit-print-color-adjust: exact;
+	}            
+	.Stadt { background-color: #99FFFF;
+		 -webkit-print-color-adjust: exact;
+	}            
+	.Grstadt { background-color: #FF9999;
+		 -webkit-print-color-adjust: exact;
+	}            
+</style>      
+</head>       
+<body>        
+	<div id="content"></div>
+	<div id="template" style="display: none;">
+		<div>{{header}}</div>
+		{{#cards}}
+		<div  class="card">
+		<div class="toprow {{art}}">
+			<span class="key">{{Karte}}</span>
+			<span style="font-size: 11px;padding: 0 10px;" class="name">{{typ}}</span>
+			<span class="key right">{{Karte}}</span>
+		</div>
+		<div class="toprow" style="margin-top: 3px;">
+			<span style="margin-left: 3px;">{{name}}</span>
+			<span class="key {{art}} right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">{{anz1}}</span>
+			<span class="key {{art2}} right" style="width: 20px;text-align: center; border: 1px solid black;mrgin-right: 3px;">{{anz2}}</span>
+		</div>
+		<div><img alt="picture" src="img/{{typ}}.png" style="width: 80px; height: 80px;margin: 5px 30px;"></div>
+		<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">{{Aktion}}</div>
+		<div style="width: 90%; text-align:center;border: 1px solid black; padding: 2px">{{Vorteil}}</div>
+		<div style="width: 100%; text-align:center; font-size: 8pt;">{{art}}karte</div>
+              
+		</div>
+		{{#pagebreak}}<div class="pagebreak" style="width: 600px">page-break</div>{{/pagebreak}}
+		{{/cards}}
+              
+</body>       
+</html>       
+              
