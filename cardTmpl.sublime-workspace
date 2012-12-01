@@ -28,28 +28,94 @@
 	"buffers":
 	[
 		{
-			"file": "web/CHR_Stadt.html",
+			"file": "/C/sde/logs/rmc.log",
 			"settings":
 			{
-				"buffer_size": 11551,
+				"buffer_size": 338251,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "web/CHR_Stadt2.html",
+			"file": "/C/sde/logs/rmcweb7.log",
 			"settings":
 			{
-				"buffer_size": 7881,
+				"buffer_size": 317878,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/sde/rmc/RMCMasterNCL/output/rmc_apps/rmcweb7/webapps/nclgui/WEB-INF/web.xml",
+			"settings":
+			{
+				"buffer_size": 2702,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/mschmitt/.rmcrc",
+			"settings":
+			{
+				"buffer_size": 1965,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/sde/logs/rmcweb6.log",
+			"settings":
+			{
+				"buffer_size": 48117,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/sde/logs/nohup_rmcweb7.out",
+			"settings":
+			{
+				"buffer_size": 122,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/sde/cygwin/home/mschmitt/.rmcrc",
+			"settings":
+			{
+				"buffer_size": 1956,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Package Control Messages\n========================\n\nEmmet:\n-----\n\n  New features:\n  \n  Fuzzy search for CSS abbreviations\n  ==================================\n  \n  Emmet now supports fuzzy searching of unknowns CSS abbreviations.\n  For example, instead of using ov:h abbreviation to get overflow: hidden, you can write, ov-h, ovh or even oh.\n  \n  Read more about fuzzy search feature:\n  http://docs.emmet.io/css-abbreviations/fuzzy-search/\n  \n  Emmet CSS snippets in auto-complete popup\n  =========================================\n  \n  All Emmet snippets are displayed in standard auto-complete popup,\n  so you don't need to remember them all: just start typing first \n  letters of required CSS snippet and let editor do the rest \n  (works with fuzzy search too).\n  \n  To disable Emmet completions, set\n  \n  \"show_css_completions\": false\n  \n  preference in user's Emmet.sublime-settings\n  \n  ------------------------------\n  Follow me on Twitter: @emmetio\n  ------------------------------ \n",
+			"settings":
+			{
+				"buffer_size": 989,
+				"line_ending": "Windows",
+				"name": "Package Control Messages",
+				"scratch": true
 			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 242.0,
+		"height": 219.0,
 		"selected_items":
 		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Disable Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
 			[
 				"prett",
 				"HTMLPrettify: Prettify"
@@ -69,14 +135,6 @@
 			[
 				"for",
 				"Format: Javascript"
-			],
-			[
-				"inst",
-				"Package Control: Install Package"
-			],
-			[
-				"insta",
-				"Package Control: Install Package"
 			],
 			[
 				"Snippet: ",
@@ -100,6 +158,10 @@
 	},
 	"file_history":
 	[
+		"/C/sde/logs/nohup_rmcweb7.out",
+		"/C/sde/logs/rmc.log",
+		"/C/sde/db12/cardtmpl/web/CHR_Stadt2.html",
+		"/C/sde/db12/cardtmpl/web/CHR_Stadt.html",
 		"/C/sde/db12/cardtmpl/web/js/data.js",
 		"/C/sde/db12/cardtmpl/web/js/data2.js",
 		"/C/sde/db12/cardtmpl/web/css/style.css",
@@ -123,7 +185,6 @@
 		"/C/sde/db12/cardtmpl/web/css/RRZstyle.css",
 		"/C/sde/db12/cardtmpl/web/RRZ_Zwerg.html",
 		"/C/sde/db12/cardtmpl/web/CHR_karten.html",
-		"/C/sde/db12/cardtmpl/web/CHR_Stadt.html",
 		"/C/sde/db12/cardtmpl/web/SCG_Orte.html",
 		"/C/sde/db12/cardtmpl/web/js/mustache.js",
 		"/C/Users/mschmitt/AppData/Local/Temp/Temp1_FM_OWNER (1).zip/BearingPoint/insert_STD_4.1.sql",
@@ -186,6 +247,18 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"remove",
+			"session",
+			"remove",
+			"session",
+			"B85F14D9425FEBFFDDF42942ED3F3CE1",
+			"session",
+			"1tq7vnjr55g59",
+			"Session",
+			"SessionManager",
+			"Session",
+			"session",
+			"Bauvorteil:",
 			"\"art2\" ",
 			"\"anz2\" ",
 			"\"anz1\" ",
@@ -304,6 +377,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"<br>Bauvorteil:</br>",
 			"art2",
 			"anz2",
 			"anz1",
@@ -342,55 +416,216 @@
 			[
 				{
 					"buffer": 0,
-					"file": "web/CHR_Stadt.html",
+					"file": "/C/sde/logs/rmc.log",
 					"settings":
 					{
-						"buffer_size": 11551,
+						"buffer_size": 338251,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7234,
-								7234
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 765.0,
+						"translation.y": 759.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "web/CHR_Stadt2.html",
+					"file": "/C/sde/logs/rmcweb7.log",
 					"settings":
 					{
-						"buffer_size": 7881,
+						"buffer_size": 317878,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5524,
-								5524
+								270226,
+								270232
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false,
-							"word_wrap": false
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 360.0,
+						"translation.y": 21058.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/sde/rmc/RMCMasterNCL/output/rmc_apps/rmcweb7/webapps/nclgui/WEB-INF/web.xml",
+					"settings":
+					{
+						"buffer_size": 2702,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								856,
+								856
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 45.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/Users/mschmitt/.rmcrc",
+					"settings":
+					{
+						"buffer_size": 1965,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								187,
+								187
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/C/sde/logs/rmcweb6.log",
+					"settings":
+					{
+						"buffer_size": 48117,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								23343,
+								23350
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1695.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/C/sde/logs/nohup_rmcweb7.out",
+					"settings":
+					{
+						"buffer_size": 122,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/C/sde/cygwin/home/mschmitt/.rmcrc",
+					"settings":
+					{
+						"buffer_size": 1956,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								187,
+								187
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"settings":
+					{
+						"buffer_size": 989,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								989,
+								989
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -454,6 +689,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 109.0,
+	"side_bar_width": 307.0,
 	"status_bar_visible": true
 }
