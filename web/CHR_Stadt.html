@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
 <title>Stadtchronik</title>
-<link href="css/style.css" rel="stylesheet" ="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 		<script src="js/mustache.js"></script>
 		<script>
@@ -20,7 +20,7 @@
 			{"art" : "H","Karte" : "H11", "typ" : "Person", "name" : "Krämer", "Aktion" : "Baubonus: Baukosten sinken pro Resourcentyp -2", "Vorteil" : "" ,"anz1" : "1"},
 			{"art" : "H","Karte" : "H12", "typ" : "Person", "name" : "Räuber", "Aktion" : "Stichbonus: 1 Karte von der Hand in die eigene Ablage.", "Vorteil" : "" ,"anz1" : "1"},
 			{"art" : "H","Karte" : "H13", "typ" : "Person", "name" : "Gildemeister", "Aktion" : "Stichbonus: sticht zusätzlich zu der niedrigsten Karte alle Holzkarten.", "Vorteil" : "", "pagebreak" : "pagebreak" ,"anz1" : "1"},
-			{"art" : "H","Karte" : "As", "typ" : "Apokalypse", "name" : "Feuerbrunst", "Aktion" : "Stichbonus: Besiegt Personen (As) und unterliegt Gebäuden und Waren. (1)", "Vorteil" : "Nachteil: ein gebautes Gebäude brennt ab.","anz1" : ""},
+			{"art" : "H","Karte" : "As", "typ" : "Apokalypse", "name" : "Feuerbrunst", "Aktion" : "Stichbonus: Besiegt Personen (As) und unterliegt Gebäuden und Waren. (1)", "Vorteil" : "Nachteil: kein neues Holz, ein gebautes Gebäude brennt ab.","anz1" : ""},
 			{"art" : "S","Karte" : "S2", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "" ,"anz1" : "2"},
 			{"art" : "S","Karte" : "S3", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "" ,"anz1" : "3"},
 			{"art" : "S","Karte" : "S4", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "" ,"anz1" : "4"},
@@ -46,7 +46,7 @@
 			{"art" : "E","Karte" : "E11", "typ" : "Person", "name" : "Saboteur", "Aktion" : "Baubonus: bis zu 5 benötigte Resourcen können 1:1 getauscht werden.", "Vorteil" : "", "pagebreak" : "pagebreak"  ,"anz1" : "1"},
 			{"art" : "E","Karte" : "E12", "typ" : "Person", "name" : "Alchemist", "Aktion" : "Baubonus: Schutz vor allen Apokalypsen.", "Vorteil" : "" ,"anz1" : "1"},
 			{"art" : "E","Karte" : "E13", "typ" : "Person", "name" : "Fürst", "Aktion" : "Stichbonus: Stichbonus: sticht zusätzlich zu der niedrigsten Karte alle Erzkarten.", "Vorteil" : "" ,"anz1" : "1"},
-			{"art" : "E","Karte" : "As", "typ" : "Apokalypse", "name" : "Krieg", "Aktion" : "Besiegt Personen (As) und unterliegt Gebäuden und Waren. (1)", "Vorteil" : "Nachteil: E -1, S -1, H -1" ,"anz1" : "1"},
+			{"art" : "E","Karte" : "As", "typ" : "Apokalypse", "name" : "Krieg", "Aktion" : "Besiegt Personen (As) und unterliegt Gebäuden und Waren. (1)", "Vorteil" : "Nachteil: kein neues Erz und Stein" ,"anz1" : ""},
 			{"art" : "G","Karte" : "G2", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "" ,"anz1" : "2"},
 			{"art" : "G","Karte" : "G3", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "" ,"anz1" : "3"},
 			{"art" : "G","Karte" : "G4", "typ" : "Ware", "name" : "", "Aktion" : "", "Vorteil" : "" ,"anz1" : "4"},
@@ -55,11 +55,11 @@
 			{"art" : "G","Karte" : "G7", "typ" : "Gebäude", "name" : "Marktplatz", "Aktion" : "Kosten: 3 Holz, 1 Erz", "Vorteil" : "Bauvorteil: Bei Resourcenauswertung: Bev +1","anz1" : "1"},
 			{"art" : "G","Karte" : "G8", "typ" : "Gebäude", "name" : "Trinkstuben", "Aktion" : "Kosten: 3 Holz, 2 Steine, 1 Erz", "Vorteil" : "Bauvorteil: Bei Resourcenauswertung: Bev +1, G+1" ,"anz1" : "1"},
 			{"art" : "G","Karte" : "G9", "typ" : "Gebäude", "name" : "Rathaus", "Aktion" : "Kosten: 3 Erz, 4 Holz, 3 Steine", "Vorteil" : "Bauvorteil: Die Punkte der zukünfitg gebauten Gebäude +3" ,"anz1" : "1"},
-			{"art" : "G","Karte" : "G10", "typ" : "Gebäude", "name" : "Schloss", "Aktion" : "Kosten: 7 Erz, 7 Steine, 1 Holz", "Vorteil" : "1 Siegpunkt direkt", "anz1" : "1"},
+			{"art" : "G","Karte" : "G10", "typ" : "Gebäude", "name" : "Schloss", "Aktion" : "Kosten: 7 Erz, 7 Steine, 1 Holz", "Vorteil" : "Bauvorteil: 1 Siegpunkt direkt", "anz1" : "1"},
 			{"art" : "G","Karte" : "G11", "typ" : "Person", "name" : "Händler", "Aktion" : "Baubonus: ein Resourcentyp ist kostenlos.", "Vorteil" : "" ,"anz1" : "1"},
 			{"art" : "G","Karte" : "G12", "typ" : "Person", "name" : "Karawane", "Aktion" : "Baubonus: keine Getreide zur Ernährung der Bevölkerung nötig.", "Vorteil" : "" ,"anz1" : "1"},
 			{"art" : "G","Karte" : "G13", "typ" : "Person", "name" : "König", "Aktion" : "Stichbonus: sticht zusätzlich zu der niedrigsten Karte alle Getreidekarten.", "Vorteil" : "" ,"anz1" : "1"},
-			{"art" : "G","Karte" : "As", "typ" : "Apokalypse", "name" : "Sturm", "Aktion" : "Stichbonus: Besiegt Personen (As) und unterliegt Gebäuden und Waren.", "Vorteil" : "Nachteil: G -1","anz1" : "-1" }]};
+			{"art" : "G","Karte" : "As", "typ" : "Apokalypse", "name" : "Sturm", "Aktion" : "Stichbonus: Besiegt Personen (As) und unterliegt Gebäuden und Waren.", "Vorteil" : "Nachteil: kein neues Getreide.","anz1" : "" }]};
 		</script>
 		<script src="js/data2.js"></script>
 <style type="text/css">

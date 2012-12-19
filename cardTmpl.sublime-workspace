@@ -28,78 +28,136 @@
 	"buffers":
 	[
 		{
-			"file": "/C/sde/logs/rmc.log",
+			"file": "/C/sde/workspace/SlotManagement/Erweiterungen_2.3.txt",
 			"settings":
 			{
-				"buffer_size": 338251,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/sde/logs/rmcweb7.log",
-			"settings":
-			{
-				"buffer_size": 317878,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/sde/rmc/RMCMasterNCL/output/rmc_apps/rmcweb7/webapps/nclgui/WEB-INF/web.xml",
-			"settings":
-			{
-				"buffer_size": 2702,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/Users/mschmitt/.rmcrc",
-			"settings":
-			{
-				"buffer_size": 1965,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/sde/logs/rmcweb6.log",
-			"settings":
-			{
-				"buffer_size": 48117,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/sde/logs/nohup_rmcweb7.out",
-			"settings":
-			{
-				"buffer_size": 122,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/sde/cygwin/home/mschmitt/.rmcrc",
-			"settings":
-			{
-				"buffer_size": 1956,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "Package Control Messages\n========================\n\nEmmet:\n-----\n\n  New features:\n  \n  Fuzzy search for CSS abbreviations\n  ==================================\n  \n  Emmet now supports fuzzy searching of unknowns CSS abbreviations.\n  For example, instead of using ov:h abbreviation to get overflow: hidden, you can write, ov-h, ovh or even oh.\n  \n  Read more about fuzzy search feature:\n  http://docs.emmet.io/css-abbreviations/fuzzy-search/\n  \n  Emmet CSS snippets in auto-complete popup\n  =========================================\n  \n  All Emmet snippets are displayed in standard auto-complete popup,\n  so you don't need to remember them all: just start typing first \n  letters of required CSS snippet and let editor do the rest \n  (works with fuzzy search too).\n  \n  To disable Emmet completions, set\n  \n  \"show_css_completions\": false\n  \n  preference in user's Emmet.sublime-settings\n  \n  ------------------------------\n  Follow me on Twitter: @emmetio\n  ------------------------------ \n",
-			"settings":
-			{
-				"buffer_size": 989,
+				"buffer_size": 3121,
 				"line_ending": "Windows",
-				"name": "Package Control Messages",
+				"name": "1 Änderungen bei Anordnungen von AID"
+			}
+		},
+		{
+			"contents": "\n     <import resource=\"persistence-context.xml\"/>\n<!--    <import resource=\"persistence-prodcontext.xml\"/> -->\n\n    <import resource=\"security-context.xml\"/> \n\n    <import resource=\"ldap-context.xml\"/>    \n<!--    <import resource=\"ldap-prodcontext.xml\"/> -->",
+			"settings":
+			{
+				"buffer_size": 260,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/sde/h5bp-html5-boilerplate-0a340fb/humans.txt",
+			"settings":
+			{
+				"buffer_size": 191,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/sde/h5bp-html5-boilerplate-0a340fb/README.md",
+			"settings":
+			{
+				"buffer_size": 2476,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/sde/h5bp-html5-boilerplate-0a340fb/doc/TOC.md",
+			"settings":
+			{
+				"buffer_size": 1323,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/sde/h5bp-html5-boilerplate-0a340fb/doc/html.md",
+			"settings":
+			{
+				"buffer_size": 7337,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "33238 6486 33263 33262 33268",
+			"settings":
+			{
+				"buffer_size": 28,
+				"line_ending": "Windows",
+				"name": "33238 6486 33263 33262 33268"
+			}
+		},
+		{
+			"contents": "com.dpdhl.fm.fmcalc.server",
+			"settings":
+			{
+				"buffer_size": 26,
+				"line_ending": "Windows",
+				"name": "com.dpdhl.fm.fmcalc.server"
+			}
+		},
+		{
+			"contents": "\n\nSideBarEnhancements Changelog:\n\n	## Shorcuts collisioning with Sublime2's built-in shortcuts have been removed.\n\n	If you miss these\n\n		- Go to \"Preferences\" -> \"Browse Packages\" -> \"User\"\n		- Open or create file \"Default.sublime-keymap\"\n\n		- Add this content:\n\n				, { \"keys\": [\"ctrl+t\"], \"command\": \"side_bar_new_file2\" },\n				{ \"keys\": [\"f2\"], \"command\": \"side_bar_rename\" },\n				{ \"keys\": [\"ctrl+alt+f\"], \"command\": \"side_bar_find_files_path_containing\" }\n\n\n	## If you have problems configuring F12 key\n\n		- https://github.com/titoBouzout/SideBarEnhancements#f12-key",
+			"file": "/C/Users/mschmitt/AppData/Roaming/Sublime Text 2/Packages/SideBarEnhancements/messages/11.13.2012.1305.0.txt",
+			"file_size": 571,
+			"file_write_time": 129999496224457853,
+			"settings":
+			{
+				"buffer_size": 571,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "    com.dpdhl.fm.fmcommon.enums.KonstantenNamen    \n    com.dpdhl.fm.fmcommon.enums.VertragsnummerPrefixes    \n    com.dpdhl.fm.fmcommon.enums.VertragsnummerSuffixes    \n    com.dpdhl.fm.fmcommon.service.KonstantenService    \n    com.dpdhl.fm.fmcommon.service.TransferUserDataService    \n    com.dpdhl.fm.fmcommon.user.UserContext    \n    com.dpdhl.fm.fmcommon.user.UserDetails    \n",
+			"settings":
+			{
+				"buffer_size": 382,
+				"line_ending": "Windows",
+				"name": "Find Results",
 				"scratch": true
+			}
+		},
+		{
+			"file": "/C/Users/mschmitt/Downloads/ffmora01-01.00-00.txt",
+			"settings":
+			{
+				"buffer_size": 153504,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "\nC:\\sde\\workspace\\fm4.1\\FMCalc\\src\\main\\java\\com\\dpdhl\\fm\\fmcalc\\server\\model\\HisFahrzeugHistorie.java:\n\nC:\\sde\\workspace\\fm4.1\\FMCalc\\src\\main\\java\\com\\dpdhl\\fm\\fmcalc\\server\\model\\HisGeplanteAenderung.java:\n   47:             \n\nC:\\sde\\workspace\\fm4.1\\FMCalc\\src\\main\\java\\com\\dpdhl\\fm\\fmcalc\\server\\model\\StdFahrzeugTyp.java:\n   35:         \", nullable = true)\n\nC:\\sde\\workspace\\fm4.1\\FMCalc\\src\\main\\java\\com\\dpdhl\\fm\\fmcalc\\server\\model\\StdFahrzeugVariante.java:\n   32:         \", nullable = true)\n   43:         \", nullable = true)\n\n\nC:\\sde\\workspace\\fm4.1\\FMCalc\\src\\main\\java\\com\\dpdhl\\fm\\fmcalc\\server\\model\\VtgKostenEinheit.java:\n   32:             \n\nC:\\sde\\workspace\\fm4.1\\FMCalc\\src\\main\\java\\com\\dpdhl\\fm\\fmcalc\\server\\model\\VtgVertrag.java:\n   42:             \n   54:             \n\nC:\\sde\\workspace\\fm4.1\\FMCalc\\src\\main\\java\\com\\dpdhl\\fm\\fmcalc\\server\\model\\VtgVertragsKomponente.java:\n   37:             \n   40:             \n   43:             \n\nC:\\sde\\workspace\\fm4.1\\FMCalc\\src\\main\\java\\com\\dpdhl\\fm\\fmcalc\\server\\model\\VtgVertragskomponentenInhalt.java:\n   34:             \n   38:             \n\nC:\\sde\\workspace\\fm4.1\\FMCalc\\src\\main\\java\\com\\dpdhl\\fm\\fmcalc\\server\\model\\VtgVertragsKomponentenSpalte.java:\n   33:             \n\nC:\\sde\\workspace\\fm4.1\\FMCalc\\src\\main\\java\\com\\dpdhl\\fm\\fmcalc\\server\\model\\VtgVertragsKomponentenWert.java:\n   32:             \n   35:             \n\nC:\\sde\\workspace\\fm4.1\\FMCalc\\src\\main\\java\\com\\dpdhl\\fm\\fmcalc\\server\\model\\VtgVertragsKomponentenZeile.java:\n   37:             \n",
+			"settings":
+			{
+				"buffer_size": 1529,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/sde/workspace/fm4.1/FMCalc/src/main/java/com/dpdhl/fm/fmcalc/server/model/HisFahrzeugHistorie.java",
+			"settings":
+			{
+				"buffer_size": 14353,
+				"line_ending": "Windows"
 			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 219.0,
+		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"log",
+				"GoSublime: Open Log File"
+			],
 			[
 				"insta",
 				"Package Control: Install Package"
@@ -107,14 +165,6 @@
 			[
 				"Package Control: ",
 				"Package Control: Disable Package"
-			],
-			[
-				"inst",
-				"Package Control: Install Package"
-			],
-			[
-				"install",
-				"Package Control: Install Package"
 			],
 			[
 				"prett",
@@ -158,10 +208,28 @@
 	},
 	"file_history":
 	[
-		"/C/sde/logs/nohup_rmcweb7.out",
+		"/C/sde/logs/rmcweb6.log",
+		"/C/Users/mschmitt/AppData/Roaming/Sublime Text 2/Packages/User/GoSublime.sublime-settings",
 		"/C/sde/logs/rmc.log",
-		"/C/sde/db12/cardtmpl/web/CHR_Stadt2.html",
+		"/C/sde/logs/rmc_error.log",
+		"/C/Users/mschmitt/AppData/Roaming/Sublime Text 2/Packages/Logs Colorize/README.md",
+		"/C/Users/mschmitt/AppData/Roaming/Sublime Text 2/Packages/Logs Colorize/package-metadata.json",
+		"/C/Users/mschmitt/AppData/Roaming/Sublime Text 2/Packages/SublimeLog/SublimeLog.sublime-settings",
+		"/C/Users/mschmitt/AppData/Roaming/Sublime Text 2/Packages/User/GoSublime/9/log.txt",
+		"/C/sde/logs/rmcweb7.log",
+		"/C/sde/rmc/RMCMasterNCL/output/rmc_apps/rmcweb7/webapps/nclgui/WEB-INF/web.xml",
+		"/C/Users/mschmitt/.rmcrc",
+		"/C/sde/logs/nohup_rmcweb7.out",
+		"/C/sde/cygwin/home/mschmitt/.rmcrc",
 		"/C/sde/db12/cardtmpl/web/CHR_Stadt.html",
+		"/C/sde/workspace/fm4.1/FMClient/.classpath",
+		"/C/sde/tmp/svn/FMCalc/war/WEB-INF/deploy/fmcalc/rpcPolicyManifest/manifest.txt",
+		"/C/Users/mschmitt/AppData/Local/Temp/7zO1EE8.tmp/howtoexp.txt",
+		"/C/Users/mschmitt/AppData/Local/Temp/7zO594A.tmp/info.txt",
+		"/C/Users/mschmitt/Downloads/ora10_DBv.2.1/exp_ablage/_info.txt",
+		"/C/Users/mschmitt/AppData/Local/Temp/7zO517E.tmp/howtoexp.txt",
+		"/C/Users/mschmitt/AppData/Local/Temp/7zOA614.tmp/info.txt",
+		"/C/sde/db12/cardtmpl/web/CHR_Stadt2.html",
 		"/C/sde/db12/cardtmpl/web/js/data.js",
 		"/C/sde/db12/cardtmpl/web/js/data2.js",
 		"/C/sde/db12/cardtmpl/web/css/style.css",
@@ -239,6 +307,9 @@
 		"height": 0.0,
 		"where_history":
 		[
+			"C:\\sde\\workspace\\fm4.1\\FMCalc\\src\\main\\java\\com\\dpdhl\\fm\\fmcalc\\",
+			"C:\\sde\\workspace\\fm4.1\\FMCalc\\src\\main\\java\\com\\dpdhl\\fm\\fmcalc\\server\\model",
+			"C:\\sde\\workspace\\fm4.1\\FMCalc\\src\\main\\java\\com\\dpdhl\\fm\\fmcalc\\server\\mode",
 			""
 		]
 	},
@@ -247,6 +318,36 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			";",
+			"        import ",
+			"\\d\\d:",
+			"com.dpdhl.fm.(fmcommon|fmserver|fmclient)",
+			"com.dpdhl.fm.[fmcommon|fmserver|fmclient]",
+			"com.dpdhl.fm.",
+			"\")",
+			"@JoinColumn(name = \"",
+			"@JoinColumn",
+			"\n    ",
+			".*//.*\\n",
+			"//.*\\n",
+			"private .*;",
+			"private Integer co2;",
+			"private .*;",
+			"  1 ",
+			"\\d\\d:",
+			"    @Column(name=\"",
+			"C:\\sde\\workspace\\fm4.1\\FMCalc\\src\\main\\java\\com\\dpdhl\\fm\\fmcalc\\server\\model\\",
+			"    @Column(name = \"",
+			"@Table(name = \"",
+			"\")",
+			"@Table|@Column",
+			"  \n",
+			"@Column",
+			"gwt",
+			"remove",
+			"1zuf4s6afaee",
+			"#       deleted:   ",
+			".*:",
 			"remove",
 			"session",
 			"remove",
@@ -344,39 +445,17 @@
 			"ERROR",
 			"Except",
 			"annuitaetProKmLl",
-			"{",
-			"summenwert",
-			"add summenw",
-			"kalkFSUE",
-			"fixeInstandhaltungskosten",
-			"ixe",
-			"calculate Konditionensatz",
-			"laufl",
-			"prepareFromRequest",
-			"JAVA_OPTS",
-			"Instandhaltung",
-			"Instandhaltungsvertrag",
-			"kalkFSUE",
-			"calculate Konditionensatz",
-			"Rückgabevertrag",
-			"calculate ko",
-			"calculate Kondtionensatz",
-			"kond",
-			"manfee",
-			")",
-			", '.*', 0 ",
-			" WHERE",
-			" ( ",
-			"INSERT INTO ",
-			", BEZEICHNUNG, VERSION ) VALUES ( ",
-			", "
+			"{"
 		],
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": false,
+		"regex": true,
 		"replace_history":
 		[
+			"    ",
+			"",
+			"git rm",
 			"<br>Bauvorteil:</br>",
 			"art2",
 			"anz2",
@@ -403,7 +482,7 @@
 			"\\n, "
 		],
 		"reverse": false,
-		"show_context": true,
+		"show_context": false,
 		"use_buffer2": true,
 		"whole_word": false,
 		"wrap": true
@@ -411,110 +490,29 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 10,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/C/sde/logs/rmc.log",
+					"file": "/C/sde/workspace/SlotManagement/Erweiterungen_2.3.txt",
 					"settings":
 					{
-						"buffer_size": 338251,
+						"buffer_size": 3121,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1,
+								1
 							]
 						],
 						"settings":
 						{
+							"auto_name": "1 Änderungen bei Anordnungen von AID",
 							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 759.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/C/sde/logs/rmcweb7.log",
-					"settings":
-					{
-						"buffer_size": 317878,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								270226,
-								270232
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 21058.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/C/sde/rmc/RMCMasterNCL/output/rmc_apps/rmcweb7/webapps/nclgui/WEB-INF/web.xml",
-					"settings":
-					{
-						"buffer_size": 2702,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								856,
-								856
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/XML/XML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 45.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/C/Users/mschmitt/.rmcrc",
-					"settings":
-					{
-						"buffer_size": 1965,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								187,
-								187
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -523,37 +521,37 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "/C/sde/logs/rmcweb6.log",
+					"buffer": 1,
 					"settings":
 					{
-						"buffer_size": 48117,
+						"buffer_size": 260,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								23343,
-								23350
+								0,
+								260
 							]
 						],
 						"settings":
 						{
+							"auto_name": "",
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1695.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "/C/sde/logs/nohup_rmcweb7.out",
+					"buffer": 2,
+					"file": "/C/sde/h5bp-html5-boilerplate-0a340fb/humans.txt",
 					"settings":
 					{
-						"buffer_size": 122,
+						"buffer_size": 191,
 						"regions":
 						{
 						},
@@ -567,6 +565,84 @@
 						"settings":
 						{
 							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/sde/h5bp-html5-boilerplate-0a340fb/README.md",
+					"settings":
+					{
+						"buffer_size": 2476,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 630.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/C/sde/h5bp-html5-boilerplate-0a340fb/doc/TOC.md",
+					"settings":
+					{
+						"buffer_size": 1323,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/C/sde/h5bp-html5-boilerplate-0a340fb/doc/html.md",
+					"settings":
+					{
+						"buffer_size": 7337,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -576,25 +652,23 @@
 				},
 				{
 					"buffer": 6,
-					"file": "/C/sde/cygwin/home/mschmitt/.rmcrc",
 					"settings":
 					{
-						"buffer_size": 1956,
+						"buffer_size": 28,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								187,
-								187
+								28,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"auto_name": "33238 6486 33263 33262 33268",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -606,23 +680,172 @@
 					"buffer": 7,
 					"settings":
 					{
-						"buffer_size": 989,
+						"buffer_size": 26,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								989,
-								989
+								0,
+								26
+							]
+						],
+						"settings":
+						{
+							"auto_name": "com.dpdhl.fm.fmcalc.server",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/C/Users/mschmitt/AppData/Roaming/Sublime Text 2/Packages/SideBarEnhancements/messages/11.13.2012.1305.0.txt",
+					"settings":
+					{
+						"buffer_size": 571,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"word_wrap": true
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"settings":
+					{
+						"buffer_size": 382,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										382,
+										382
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								0,
+								382
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/C/Users/mschmitt/Downloads/ffmora01-01.00-00.txt",
+					"settings":
+					{
+						"buffer_size": 153504,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								87082,
+								87082
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 46935.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"settings":
+					{
+						"buffer_size": 1529,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1524,
+								1524
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"tab_size": 3,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "/C/sde/workspace/fm4.1/FMCalc/src/main/java/com/dpdhl/fm/fmcalc/server/model/HisFahrzeugHistorie.java",
+					"settings":
+					{
+						"buffer_size": 14353,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1541,
+								1541
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
