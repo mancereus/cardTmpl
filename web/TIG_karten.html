@@ -7,58 +7,58 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 		<script src="js/mustache.js"></script>
 		<script>
-			var overviewstr = '{"cards": [' +
-			'{"name" : "Start", "color" : "H", "Aktion" : "Start mit 1 Gegengift und 1 Verband. Bis zu 4 Dinge sammeln. <br/>(Reihe 1, Spalte 1)","hor" : "none","ver" : "none"},' +
-			'{"name" : "Tiger", "Aktion" : "Du verlierst alle Schätze.","hor" : "none","ver" : "none" },' +
-			'{"name" : "Tiger", "Aktion" : "Du verlierst alle Schätze.","hor" : "none","ver" : "none" },' +
-			'{"name" : "Tiger", "Aktion" : "Du verlierst alle Schätze.","hor" : "none","ver" : "none" },' +
-			'{"name" : "Tiger", "Aktion" : "Du verlierst alle Schätze.","hor" : "none","ver" : "none" },' +
-			'{"name" : "Tiger", "Aktion" : "Du verlierst alle Schätze.","hor" : "none","ver" : "none" },' +
-			'{"name" : "Schlange", "Aktion" : "Gebissen. 1 Gegengift abgeben, sonst tot.","hor" : "none","ver" : "none"},' +
-			'{"name" : "Schlange", "Aktion" : "Gebissen. 1 Gegengift abgeben, sonst tot.","hor" : "none","ver" : "none"},' +
-			'{"name" : "Schlange", "Aktion" : "Gebissen. 1 Gegengift abgeben, sonst tot.","hor" : "none","ver" : "none"},' +
-			'{"name" : "Schlange", "Aktion" : "Gebissen. 1 Gegengift abgeben, sonst tot.","hor" : "auto","ver" : "none"},' +
-			'{"name" : "Schlange", "Aktion" : "Gebissen. 1 Gegengift abgeben, sonst tot.","hor" : "none","ver" : "auto"},' +
-			'{"name" : "Kannibale", "Aktion" : "Vom Speer getroffen. 1 Verband abgeben, sonst tot.","hor" : "auto","ver" : "none"},' +
-			'{"name" : "Kannibale", "Aktion" : "Vom Speer getroffen. 1 Verband abgeben, sonst tot.","hor" : "none","ver" : "auto"},' +
-			'{"name" : "Kannibale", "Aktion" : "Vom Speer getroffen. 1 Verband abgeben, sonst tot.","hor" : "none","ver" : "none"},' +
-			'{"name" : "Kannibale", "Aktion" : "Vom Speer getroffen. 1 Verband abgeben, sonst tot.","hor" : "none","ver" : "none"},' +
-			'{"name" : "Kannibale", "Aktion" : "Vom Speer getroffen. 1 Verband abgeben, sonst tot.","hor" : "none","ver" : "none", "pagebreak" : "pagebreak"},' +
-			'{"name" : "Verband", "Aktion" : "heilt Wunden der Kannibalen.","hor" : "auto","ver" : "none"},' +
-			'{"name" : "Verband", "Aktion" : "heilt Wunden der Kannibalen.","hor" : "auto","ver" : "auto"},' +
-			'{"name" : "Gegengift", "Aktion" : "heilt Bisse der Schlange.","hor" : "none","ver" : "auto"},' +
-			'{"name" : "Gegengift", "Aktion" : "heilt Bisse der Schlange.","hor" : "auto","ver" : "auto"},' +
-			'{"name" : "Machete", "Aktion" : "kann eine Weg durch eine Dschungelwand erstellen.","hor" : "auto","ver" : "none"},' +
-			'{"name" : "Machete", "Aktion" : "kann eine Weg durch eine Dschungelwand erstellen.","hor" : "auto","ver" : "auto"},' +
-			'{"name" : "Liane", "Aktion" : "kann ein Feld überspringen.","hor" : "none","ver" : "auto"},' +
-			'{"name" : "Liane", "Aktion" : "kann ein Feld überspringen.","hor" : "auto","ver" : "auto"},' +
-			'{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto"},' +
-			'{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto"},' +
-			'{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto"},' +
-			'{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto"},' +
-			'{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto"},' +
-			'{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto"},' +
-			'{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto"},' +
-			'{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto", "pagebreak" : "pagebreak"},' +
-			'{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "none"},' +
-			'{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},' +
-			'{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},' +
-			'{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},' +
-			'{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},' +
-			'{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},' +
-			'{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},' +
-			'{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},' +
-			'{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},' +
-			'{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "none"},' +
-			'{"name" : "Tempel A", "Aktion" : "1 Schatz gefunden. Bringe ihn zum Ziel A.","hor" : "none","ver" : "none"},' +
-			'{"name" : "Tempel B", "Aktion" : "1 Schatz gefunden. Bringe ihn zum Ziel B.","hor" : "none","ver" : "auto"},' +
-			'{"name" : "Tempel C", "Aktion" : "1 Schatz gefunden. Bringe ihn zum Ziel C.","hor" : "auto","ver" : "none"},' +
-			'{"name" : "Ziel A", "color" : "H","Aktion" : "Bring den Schatz von Tempel A hierher. <br/>(Reihe 1, Spalte 8)","hor" : "none","ver" : "none"},' +
-			'{"name" : "Ziel B", "color" : "H","Aktion" : "Bring den Schatz von Tempel B hierher. <br/>(Reihe 6, Spalte 1)","hor" : "none","ver" : "none"},' +
-			'{"name" : "Ziel C", "color" : "H", "Aktion" : "Bring den Schatz von Tempel C hierher. <br/>(Reihe 6, Spalte 8)","hor" : "none","ver" : "none"}' +
-			']}';
+			var overview = {"cards": [
+			{"name" : "Start", "color" : "H", "Aktion" : "Start mit 1 Gegengift und 1 Verband. Bis zu 4 Dinge sammeln. <br/>(Reihe 1, Spalte 1)","hor" : "none","ver" : "none"},
+			{"name" : "Tiger", "Aktion" : "Du verlierst alle Schätze.","hor" : "none","ver" : "none" },
+			{"name" : "Tiger", "Aktion" : "Du verlierst alle Schätze.","hor" : "none","ver" : "none" },
+			{"name" : "Tiger", "Aktion" : "Du verlierst alle Schätze.","hor" : "none","ver" : "none" },
+			{"name" : "Tiger", "Aktion" : "Du verlierst alle Schätze.","hor" : "none","ver" : "none" },
+			{"name" : "Tiger", "Aktion" : "Du verlierst alle Schätze.","hor" : "none","ver" : "none" },
+			{"name" : "Schlange", "Aktion" : "Gebissen. 1 Gegengift abgeben, sonst tot.","hor" : "none","ver" : "none"},
+			{"name" : "Schlange", "Aktion" : "Gebissen. 1 Gegengift abgeben, sonst tot.","hor" : "none","ver" : "none"},
+			{"name" : "Schlange", "Aktion" : "Gebissen. 1 Gegengift abgeben, sonst tot.","hor" : "none","ver" : "none"},
+			{"name" : "Schlange", "Aktion" : "Gebissen. 1 Gegengift abgeben, sonst tot.","hor" : "auto","ver" : "none"},
+			{"name" : "Schlange", "Aktion" : "Gebissen. 1 Gegengift abgeben, sonst tot.","hor" : "none","ver" : "auto"},
+			{"name" : "Kannibale", "Aktion" : "Vom Speer getroffen. 1 Verband abgeben, sonst tot.","hor" : "auto","ver" : "none"},
+			{"name" : "Kannibale", "Aktion" : "Vom Speer getroffen. 1 Verband abgeben, sonst tot.","hor" : "none","ver" : "auto"},
+			{"name" : "Kannibale", "Aktion" : "Vom Speer getroffen. 1 Verband abgeben, sonst tot.","hor" : "none","ver" : "none"},
+			{"name" : "Kannibale", "Aktion" : "Vom Speer getroffen. 1 Verband abgeben, sonst tot.","hor" : "none","ver" : "none"},
+			{"name" : "Kannibale", "Aktion" : "Vom Speer getroffen. 1 Verband abgeben, sonst tot.","hor" : "none","ver" : "none", "pagebreak" : "pagebreak"},
+			{"name" : "Verband", "Aktion" : "heilt Wunden der Kannibalen.","hor" : "auto","ver" : "none"},
+			{"name" : "Verband", "Aktion" : "heilt Wunden der Kannibalen.","hor" : "auto","ver" : "auto"},
+			{"name" : "Gegengift", "Aktion" : "heilt Bisse der Schlange.","hor" : "none","ver" : "auto"},
+			{"name" : "Gegengift", "Aktion" : "heilt Bisse der Schlange.","hor" : "auto","ver" : "auto"},
+			{"name" : "Machete", "Aktion" : "kann eine Weg durch eine Dschungelwand erstellen.","hor" : "auto","ver" : "none"},
+			{"name" : "Machete", "Aktion" : "kann eine Weg durch eine Dschungelwand erstellen.","hor" : "auto","ver" : "auto"},
+			{"name" : "Liane", "Aktion" : "kann ein Feld überspringen.","hor" : "none","ver" : "auto"},
+			{"name" : "Liane", "Aktion" : "kann ein Feld überspringen.","hor" : "auto","ver" : "auto"},
+			{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto"},
+			{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto"},
+			{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto"},
+			{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto"},
+			{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto"},
+			{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto"},
+			{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto"},
+			{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto", "pagebreak" : "pagebreak"},
+			{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "none"},
+			{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},
+			{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},
+			{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},
+			{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},
+			{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},
+			{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},
+			{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},
+			{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},
+			{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "none"},
+			{"name" : "Tempel A", "Aktion" : "1 Schatz gefunden. Bringe ihn zum Ziel A.","hor" : "none","ver" : "none"},
+			{"name" : "Tempel B", "Aktion" : "1 Schatz gefunden. Bringe ihn zum Ziel B.","hor" : "none","ver" : "auto"},
+			{"name" : "Tempel C", "Aktion" : "1 Schatz gefunden. Bringe ihn zum Ziel C.","hor" : "auto","ver" : "none"},
+			{"name" : "Ziel A", "color" : "H","Aktion" : "Bring den Schatz von Tempel A hierher. <br/>(Reihe 1, Spalte 8)","hor" : "none","ver" : "none"},
+			{"name" : "Ziel B", "color" : "H","Aktion" : "Bring den Schatz von Tempel B hierher. <br/>(Reihe 6, Spalte 1)","hor" : "none","ver" : "none"},
+			{"name" : "Ziel C", "color" : "H", "Aktion" : "Bring den Schatz von Tempel C hierher. <br/>(Reihe 6, Spalte 8)","hor" : "none","ver" : "none"}
+			]};
 		</script>
-		<script src="js/data.js"></script>
+		<script src="js/data2.js"></script>
 <style type="text/css">
 	.key{ font-size: 14pt;}
 	.H { background-color: #CCFFCC;
