@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<title>Stadtchronik</title>
+<link href="css/style.css" rel="stylesheet" ="text/css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script src="js/mustache.js"></script>
+		<script>
+			var overview = {"cards": [
+			{"name" : "Eingang", "cardclass" : "H", "Aktion" : "J. Harker betritt das Schloss des Grafen auf der Suche nach Mina."},
+			{"name" : "Gruft", "Aktion" : "In der Gruft steht ein leerer Sarg.", "hwall": "true", "vwall": "true"},
+			{"name" : "Tiger", "Aktion" : "Mit Schlüssel kannst du das Feld nicht betreten.","hor" : "none","ver" : "none" },
+			{"name" : "Tiger", "Aktion" : "Mit Schlüssel kannst du das Feld nicht betreten.","hor" : "none","ver" : "none" },
+			{"name" : "Tiger", "Aktion" : "Mit Schlüssel kannst du das Feld nicht betreten.","hor" : "none","ver" : "none" },
+			{"name" : "Tiger", "Aktion" : "Mit Schlüssel kannst du das Feld nicht betreten.","hor" : "none","ver" : "none" },
+			{"name" : "Schlange", "Aktion" : "Bein Betreten des Feldes wirst du gebissen. 1 Gegengift abgeben, sonst tot.","hor" : "none","ver" : "none"},
+			{"name" : "Schlange", "Aktion" : "Bein Betreten des Feldes wirst du gebissen. 1 Gegengift abgeben, sonst tot.","hor" : "none","ver" : "none"},
+			{"name" : "Schlange", "Aktion" : "Bein Betreten des Feldes wirst du gebissen. 1 Gegengift abgeben, sonst tot.","hor" : "none","ver" : "none"},
+			{"name" : "Schlange", "Aktion" : "Bein Betreten des Feldes wirst du gebissen. 1 Gegengift abgeben, sonst tot.","hor" : "auto","ver" : "none"},
+			{"name" : "Schlange", "Aktion" : "Bein Betreten des Feldes wirst du gebissen. 1 Gegengift abgeben, sonst tot.","hor" : "none","ver" : "auto"},
+			{"name" : "Kannibale", "Aktion" : "Vom Speer getroffen. 1 Verband abgeben, sonst tot.","hor" : "auto","ver" : "none"},
+			{"name" : "Kannibale", "Aktion" : "Vom Speer getroffen. 1 Verband abgeben, sonst tot.","hor" : "none","ver" : "auto"},
+			{"name" : "Kannibale", "Aktion" : "Vom Speer getroffen. 1 Verband abgeben, sonst tot.","hor" : "none","ver" : "none"},
+			{"name" : "Kannibale", "Aktion" : "Vom Speer getroffen. 1 Verband abgeben, sonst tot.","hor" : "none","ver" : "none"},
+			{"name" : "Kannibale", "Aktion" : "Vom Speer getroffen. 1 Verband abgeben, sonst tot.","hor" : "none","ver" : "none", "pagebreak" : "pagebreak"},
+			{"name" : "Verband", "Aktion" : "heilt Wunden der Kannibalen.","hor" : "auto","ver" : "none"},
+			{"name" : "Verband", "Aktion" : "heilt Wunden der Kannibalen.","hor" : "auto","ver" : "auto"},
+			{"name" : "Gegengift", "Aktion" : "heilt Bisse der Schlange.","hor" : "none","ver" : "auto"},
+			{"name" : "Gegengift", "Aktion" : "heilt Bisse der Schlange.","hor" : "auto","ver" : "auto"},
+			{"name" : "Machete", "Aktion" : "Man kann einmal durch eine Dschungelwand gehen.","hor" : "none","ver" : "auto"},
+			{"name" : "Machete", "Aktion" : "Man kann einmal durch eine Dschungelwand gehen.","hor" : "auto","ver" : "auto"},
+			{"name" : "Liane", "Aktion" : "Mit der Liane kann man ein Feld und alle Wände überspringen. (auch leere Felder)","hor" : "none","ver" : "auto"},
+			{"name" : "Liane", "Aktion" : "Mit der Liane kann man ein Feld und alle Wände überspringen. (auch leere Felder)","hor" : "auto","ver" : "auto"},
+			{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto"},
+			{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto"},
+			{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto"},
+			{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto"},
+			{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto"},
+			{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto"},
+			{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto"},
+			{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto", "pagebreak" : "pagebreak"},
+			{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "none"},
+			{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},
+			{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},
+			{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},
+			{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},
+			{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},
+			{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},
+			{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},
+			{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},
+			{"name" : "Schatz", "Aktion" : "Wenn du alle 3 Schlüssel in den Zielen liegen hast, bekommst du hier den Schatz.","hor" : "none","ver" : "none"},
+			{"name" : "Tempel", "Aktion" : "1 goldenen Schlüssel gefunden. Bringe ihn zu einem Ziel (A).","hor" : "none","ver" : "none"},
+			{"name" : "Tempel", "Aktion" : "1 goldenen Schlüssel gefunden. Bringe ihn zu einem Ziel (B).","hor" : "none","ver" : "auto"},
+			{"name" : "Tempel", "Aktion" : "1 goldenen Schlüssel gefunden. Bringe ihn zu einem Ziel (C).","hor" : "auto","ver" : "none"},
+			{"name" : "Ziel", "cardclass" : "H","Aktion" : "Bring einen goldenen Schlüssel hierher. (A)","hor" : "none","ver" : "none"},
+			{"name" : "Ziel", "cardclass" : "H","Aktion" : "Bring einen goldenen Schlüssel hierher. (B)","hor" : "none","ver" : "none"},
+			{"name" : "Ziel", "cardclass" : "H", "Aktion" : "Bring einen goldenen Schlüssel hierher. (C)","hor" : "none","ver" : "none", "pagebreak" : "pagebreak"},
+			{"name" : "Machete", "Aktion" : "Man kann einmal durch eine Dschungelwand gehen.","hor" : "auto","ver" : "none"},
+			{"name" : "Modus",  "cardclass" : "S", "Aktion" : "<b>Einfach</b>: Start: 4 Dinge, Inventar: unbegrenzt. Im Ziel: alle Felder auffüllen.","hor" : "none","ver" : "none"},
+			{"name" : "Modus",  "cardclass" : "S", "Aktion" : "<b>Normal</b>: Start: (Rot/Grün), Inventar: max. 5 Dinge. Im Ziel: alle Felder auffüllen.","hor" : "none","ver" : "none"},
+			{"name" : "Modus",  "cardclass" : "S", "Aktion" : "<b>Schwer</b>: Start: (Rot/Grün), Inventar: 4 Dinge. Im Ziel: 2 Felder auffüllen. ABC beachten.","hor" : "none","ver" : "none"},
+			{"name" : "Modus",  "cardclass" : "S", "Aktion" : "<b>Ultimo</b>: Start: (nichts), Inventar: 2 Dinge. Im Ziel: nichts auffüllen. ABC beachten.","hor" : "none","ver" : "none"}
+			]};
+		</script>
+		<script src="js/data2.js"></script>
+<style type="text/css">
+	.key{ font-size: 14pt;}
+	.H { background-color: #CCFFCC;
+		 -webkit-print-color-adjust: exact;
+	}  
+	.S { background-color: #FFCCCC;
+		 -webkit-print-color-adjust: exact;
+	}          
+          
+	.E { background-color: #FFCCCC;
+		 -webkit-print-color-adjust: exact;
+	}                    
+	.G { background-color: #FFFFCC;
+		 -webkit-print-color-adjust: exact;
+	}            
+	.Dorf { background-color: #FFFF99;
+		 -webkit-print-color-adjust: exact;
+	}            
+	.Markt { background-color: #99FF99;
+		 -webkit-print-color-adjust: exact;
+	}            
+	.Stadt { background-color: #99FFFF;
+		 -webkit-print-color-adjust: exact;
+	}            
+	.Gstadt { background-color: #FF9999;
+		 -webkit-print-color-adjust: exact;
+	}       
+</style>      
+</head>       
+<body>        
+	<div id="content"></div>
+	<div id="template" style="display: none;">
+		{{#cards}}
+		<div  class="card {{cardclass}}" style="width: 160px; height: 210px;">
+		
+		<div style="position: relative; ">
+			<img alt="picture" src="img/DRAC/{{name}}.jpg" style="border: 1px solid black; position: absolute; margin-left: 0px; width:120px; height: 120px;top: 5px; left: 12px;">
+			{{#hwall}}<img alt="picture" src="img/TIG/horiz.jpg" style="position: absolute; margin-left: 0px; width:162px; height: 20px;top: 192px">{{/hwall}}
+			{{#vwall}}<img alt="picture" src="img/TIG/vertic.jpg" style="position: absolute; margin-left: 142px; width:20px; height: 208px;top: 0px">{{/vwall}}
+			<div style=" text-align:center;font-size: 9px;px;position: absolute; margin-left: 8px; width:132px; height: 60px;top: 132px">
+				{{{name}}} {{{Aktion}}}				
+		</div>
+	  
+		</div>
+              
+		</div>
+		{{#pagebreak}}<div class="pagebreak" style="width: 600px">page-break</div>{{/pagebreak}}
+		{{/cards}}
+              
+</body>       
+</html>       
+              
