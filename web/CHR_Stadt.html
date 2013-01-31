@@ -21,8 +21,8 @@
 			{art : "E",Karte : "4", Punkt: "shield", typ : "Ware",anz1 : "2"},
 			{art : "G",Karte : "4", typ : "Ware" ,anz1 : "2"},
 			{code: "H5", art : "H",Karte : "5", typ : "Gebäude", name : "Waldhütte", Kosten : "2 Holz", Vorteil : "jede Runde H+1" ,anz1 : "1"},
-			{code: "H6", art : "H",Karte : "6", typ : "Gebäude", name : "Jagdhütte", Kosten : "3 Holz" ,anz1 : "1", "shield" :"+1*","cross" :"+1*","book" :"x0"},
-			{code: "H7", art : "H",Karte : "7", Punkt: "book", typ : "Gebäude", name : "Heilhaus", Kosten : "3 Holz, 2 Stein", Vorteil : "Bauvorteil: Schutz vor Pest und Sturm" ,anz1 : "1",  "shield" :"+1*","cross" :"+1*","book" :"+1*"},
+			{code: "H6", art : "H",Karte : "6", typ : "Gebäude", name : "Jagdhütte", Kosten : "3 Holz", Vorteil : "jede Runde G+1" ,anz1 : "1", "shield" :"+1*","cross" :"+1*","book" :"x0"},
+			{code: "H7", art : "H",Karte : "7", Punkt: "book", typ : "Gebäude", name : "Heilhaus", Kosten : "3 Holz, 2 Stein", Vorteil : "Schutz vor Pest" ,anz1 : "1",  "shield" :"+1*","cross" :"+1*","book" :"+1*"},
 			{code: "H8", art : "H",Karte : "8", Punkt: "book", typ : "Gebäude", name : "Handelhaus", Kosten : "5 Holz, 1 Stein, 2 Erz", Vorteil : "Bauvorteil: Bei jedem gewonnenen Stich 1 Warenkarte von der Hand in die eigene Ablage" ,anz1 : "1"},
 			{code: "H9", art : "H",Karte : "9", typ : "Gebäude", name : "Hafen", Kosten : "6 Holz, 6 Steine", "shield" :"+2*","cross" :"+2*","book" :"x0" ,anz1 : "1"},
 			{code: "H10", art : "H",Karte : "10", typ : "Gebäude", name : "Universität", Kosten : "5 Holz, 5 Steine, 5 Erz, 2 Getreide", Vorteil : "Bauvorteil: Siegpunkte am Ende der Partie verdoppeln." ,anz1 : "1"},
@@ -179,7 +179,7 @@
 		</div>
 
 		{{#code}}
-			<span style="width: 20px;font-size: 11px;font-weight:bold;text-align: center; position: absolute; margin-top: 0;margin-left: 70px;background-color:white;">{{code}}</span>
+			<span style="width: 30px;font-size: 11px;font-weight:bold;text-align: center; position: absolute; margin-top: 0;margin-left: 70px;background-color:white;">{{code}}</span>
 		{{/code}}
 		{{#Punkt}}
 		<img src="img/CHR/{{Punkt}}.png" style="border-radius: 8px;border: 2px solid brown;background-color: white;width:36px;height:36px;position: absolute; margin-top: 35px;margin-left: 1px;"/>
