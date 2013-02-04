@@ -8,64 +8,71 @@
 		<script src="js/mustache.js"></script>
 		<script>
 			var overview = {"cards": [
-			{"name" : "Eingang", "cardclass" : "H", "Aktion" : "J. Harker betritt das Schloss des Grafen auf der Suche nach Mina."},
-			{"name" : "Gruft", "Aktion" : "In der Gruft steht ein leerer Sarg.", "hwall": "true", "vwall": "true"},
-			{"name" : "Tiger", "Aktion" : "Mit Schlüssel kannst du das Feld nicht betreten.","hor" : "none","ver" : "none" },
-			{"name" : "Tiger", "Aktion" : "Mit Schlüssel kannst du das Feld nicht betreten.","hor" : "none","ver" : "none" },
-			{"name" : "Tiger", "Aktion" : "Mit Schlüssel kannst du das Feld nicht betreten.","hor" : "none","ver" : "none" },
-			{"name" : "Tiger", "Aktion" : "Mit Schlüssel kannst du das Feld nicht betreten.","hor" : "none","ver" : "none" },
-			{"name" : "Schlange", "Aktion" : "Bein Betreten des Feldes wirst du gebissen. 1 Gegengift abgeben, sonst tot.","hor" : "none","ver" : "none"},
-			{"name" : "Schlange", "Aktion" : "Bein Betreten des Feldes wirst du gebissen. 1 Gegengift abgeben, sonst tot.","hor" : "none","ver" : "none"},
-			{"name" : "Schlange", "Aktion" : "Bein Betreten des Feldes wirst du gebissen. 1 Gegengift abgeben, sonst tot.","hor" : "none","ver" : "none"},
-			{"name" : "Schlange", "Aktion" : "Bein Betreten des Feldes wirst du gebissen. 1 Gegengift abgeben, sonst tot.","hor" : "auto","ver" : "none"},
-			{"name" : "Schlange", "Aktion" : "Bein Betreten des Feldes wirst du gebissen. 1 Gegengift abgeben, sonst tot.","hor" : "none","ver" : "auto"},
-			{"name" : "Kannibale", "Aktion" : "Vom Speer getroffen. 1 Verband abgeben, sonst tot.","hor" : "auto","ver" : "none"},
-			{"name" : "Kannibale", "Aktion" : "Vom Speer getroffen. 1 Verband abgeben, sonst tot.","hor" : "none","ver" : "auto"},
-			{"name" : "Kannibale", "Aktion" : "Vom Speer getroffen. 1 Verband abgeben, sonst tot.","hor" : "none","ver" : "none"},
-			{"name" : "Kannibale", "Aktion" : "Vom Speer getroffen. 1 Verband abgeben, sonst tot.","hor" : "none","ver" : "none"},
-			{"name" : "Kannibale", "Aktion" : "Vom Speer getroffen. 1 Verband abgeben, sonst tot.","hor" : "none","ver" : "none", "pagebreak" : "pagebreak"},
-			{"name" : "Verband", "Aktion" : "heilt Wunden der Kannibalen.","hor" : "auto","ver" : "none"},
-			{"name" : "Verband", "Aktion" : "heilt Wunden der Kannibalen.","hor" : "auto","ver" : "auto"},
-			{"name" : "Gegengift", "Aktion" : "heilt Bisse der Schlange.","hor" : "none","ver" : "auto"},
-			{"name" : "Gegengift", "Aktion" : "heilt Bisse der Schlange.","hor" : "auto","ver" : "auto"},
-			{"name" : "Machete", "Aktion" : "Man kann einmal durch eine Dschungelwand gehen.","hor" : "none","ver" : "auto"},
-			{"name" : "Machete", "Aktion" : "Man kann einmal durch eine Dschungelwand gehen.","hor" : "auto","ver" : "auto"},
-			{"name" : "Liane", "Aktion" : "Mit der Liane kann man ein Feld und alle Wände überspringen. (auch leere Felder)","hor" : "none","ver" : "auto"},
-			{"name" : "Liane", "Aktion" : "Mit der Liane kann man ein Feld und alle Wände überspringen. (auch leere Felder)","hor" : "auto","ver" : "auto"},
-			{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto"},
-			{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto"},
-			{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto"},
-			{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto"},
-			{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto"},
-			{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto"},
-			{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto"},
-			{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "auto", "pagebreak" : "pagebreak"},
-			{"name" : "Weg", "Aktion" : "","hor" : "none","ver" : "none"},
-			{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},
-			{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},
-			{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},
-			{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},
-			{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},
-			{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},
-			{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},
-			{"name" : "Weg", "Aktion" : "","hor" : "auto","ver" : "none"},
-			{"name" : "Schatz", "Aktion" : "Wenn du alle 3 Schlüssel in den Zielen liegen hast, bekommst du hier den Schatz.","hor" : "none","ver" : "none"},
-			{"name" : "Tempel", "Aktion" : "1 goldenen Schlüssel gefunden. Bringe ihn zu einem Ziel (A).","hor" : "none","ver" : "none"},
-			{"name" : "Tempel", "Aktion" : "1 goldenen Schlüssel gefunden. Bringe ihn zu einem Ziel (B).","hor" : "none","ver" : "auto"},
-			{"name" : "Tempel", "Aktion" : "1 goldenen Schlüssel gefunden. Bringe ihn zu einem Ziel (C).","hor" : "auto","ver" : "none"},
-			{"name" : "Ziel", "cardclass" : "H","Aktion" : "Bring einen goldenen Schlüssel hierher. (A)","hor" : "none","ver" : "none"},
-			{"name" : "Ziel", "cardclass" : "H","Aktion" : "Bring einen goldenen Schlüssel hierher. (B)","hor" : "none","ver" : "none"},
-			{"name" : "Ziel", "cardclass" : "H", "Aktion" : "Bring einen goldenen Schlüssel hierher. (C)","hor" : "none","ver" : "none", "pagebreak" : "pagebreak"},
-			{"name" : "Machete", "Aktion" : "Man kann einmal durch eine Dschungelwand gehen.","hor" : "auto","ver" : "none"},
-			{"name" : "Modus",  "cardclass" : "S", "Aktion" : "<b>Einfach</b>: Start: 4 Dinge, Inventar: unbegrenzt. Im Ziel: alle Felder auffüllen.","hor" : "none","ver" : "none"},
-			{"name" : "Modus",  "cardclass" : "S", "Aktion" : "<b>Normal</b>: Start: (Rot/Grün), Inventar: max. 5 Dinge. Im Ziel: alle Felder auffüllen.","hor" : "none","ver" : "none"},
-			{"name" : "Modus",  "cardclass" : "S", "Aktion" : "<b>Schwer</b>: Start: (Rot/Grün), Inventar: 4 Dinge. Im Ziel: 2 Felder auffüllen. ABC beachten.","hor" : "none","ver" : "none"},
-			{"name" : "Modus",  "cardclass" : "S", "Aktion" : "<b>Ultimo</b>: Start: (nichts), Inventar: 2 Dinge. Im Ziel: nichts auffüllen. ABC beachten.","hor" : "none","ver" : "none"}
+			{name: "Eingang", "cardclass" : "H", Aktion : "Jonathan Harker betritt das Schloss des Grafen auf der Suche nach Mina."},
+			{name: "Gruft", Aktion : "In der Gruft steht ein Sarg. Liegt ein Vampir darin beisst er dich."},
+			{name: "Gruft", Aktion : "In der Gruft steht ein Sarg. Liegt ein Vampir darin beisst er dich."},
+			{name: "Gruft", Aktion : "In der Gruft steht ein Sarg. Liegt ein Vampir darin beisst er dich."},
+			{name: "Gruft", Aktion : "In der Gruft steht ein Sarg. Liegt ein Vampir darin beisst er dich."},
+			{name: "Gruft", Aktion : "In der Gruft steht ein Sarg. Liegt ein Vampir darin beisst er dich."},
+			{name: "Gruft", Aktion : "In der Gruft steht ein Sarg. Liegt ein Vampir darin beisst er dich."},
+			{name: "Gruft", Aktion : "In der Gruft steht ein Sarg. Liegt ein Vampir darin beisst er dich."},
+			{name: "Gruft", Aktion : "In der Gruft steht ein Sarg. Liegt ein Vampir darin beisst er dich."},
+			{name: "Gruft", Aktion : "In der Gruft steht ein Sarg. Liegt ein Vampir darin beisst er dich."},
+			{name: "Gruft", Aktion : "In der Gruft steht ein Sarg. Liegt ein Vampir darin beisst er dich."},
+			{name: "Gruft", Aktion : "In der Gruft steht ein Sarg. Liegt ein Vampir darin beisst er dich."},
+			{name: "Vampir", Ding:"yellow", Aktion : "Der Vampir zieht in eine freie Gruft. Sind alle Grüfte belegt, bleibt er hier.", hwall : "wall" },
+			{name: "Vampir", Ding:"yellow", Aktion : "Der Vampir zieht in eine freie Gruft. Sind alle Grüfte belegt, bleibt er hier.", hwall : "wall" },
+			{name: "Vampir", Ding:"yellow", Aktion : "Der Vampir zieht in eine freie Gruft. Sind alle Grüfte belegt, bleibt er hier.", hwall : "wall" },
+			{name: "Vampir", Ding:"yellow", Aktion : "Der Vampir zieht in eine freie Gruft. Sind alle Grüfte belegt, bleibt er hier.", vwall : "wall", pagebreak: "true" },
+			{name: "Vampir", Ding:"yellow", Aktion : "Der Vampir zieht in eine freie Gruft. Sind alle Grüfte belegt, bleibt er hier.", vwall : "wall" },
+			{name: "Vampir", Ding:"yellow", Aktion : "Der Vampir zieht in eine freie Gruft. Sind alle Grüfte belegt, bleibt er hier.", vwall : "wall" },
+			{name: "Vampir", Ding:"yellow", Aktion : "Der Vampir zieht in eine freie Gruft. Sind alle Grüfte belegt, bleibt er hier."},
+			{name: "Vampir", Ding:"yellow", Aktion : "Der Vampir zieht in eine freie Gruft. Sind alle Grüfte belegt, bleibt er hier."},
+			{name: "Vampir", Ding:"yellow", Aktion : "Der Vampir zieht in eine freie Gruft. Sind alle Grüfte belegt, bleibt er hier."},
+			{name: "Schlüssel", Ding:"green", Aktion : "Mit dem Schlüssel kann man eine Tür öffnen. Lege dazu den Schlüssel auf die Tür",hwall : "wall" },
+			{name: "Schlüssel", Ding:"green", Aktion : "Mit dem Schlüssel kann man eine Tür öffnen. Lege dazu den Schlüssel auf die Tür",vwall : "wall" },
+			{name: "Schlüssel", Ding:"green", Aktion : "Mit dem Schlüssel kann man eine Tür öffnen. Lege dazu den Schlüssel auf die Tür" },
+			{name: "Geheimgang", Ding:"red", Aktion : "Mit dem Geheimgang kann man eine Wand öffnen. Lege dazu den 'Geheimgang' auf die Wand",vwall : "wall" },
+			{name: "Geheimgang", Ding:"red", Aktion : "Mit dem Geheimgang kann man eine Wand öffnen. Lege dazu den 'Geheimgang' auf die Wand",hwall : "wall" },
+			{name: "Hammer", Ding:"blue", Aktion : "Den Hammer benötigst du, um Vampire oder Dracula zu töten.",hwall : "tuer",vwall : "tuer" },
+			{name: "Pflock", Ding:"brown", Aktion : "Mit Hammer und Pflock kannst du einen Vampir töten. Der Pflock geht dabei verloren.",vwall : "wall"},
+			{name: "Pflock", Ding:"brown", Aktion : "Mit Hammer und Pflock kannst du einen Vampir töten. Der Pflock geht dabei verloren.",hwall : "wall"},
+			{name: "Pflock", Ding:"brown", Aktion : "Mit Hammer und Pflock kannst du einen Vampir töten. Der Pflock geht dabei verloren."},
+			{name: "Kreuz", Ding:"orange", Aktion : "Dracula kann nur mit Kreuz, Hammer und Pflock getötet werden.", vwall:"wall"},
+			{name: "Weihwasser", Ding:"white", Aktion : "Mit dem Weihwasser kann ein Biss geheilt werden.", vwall:"tuer", hwall:"tuer", pagebreak: "true"},
+			{name: "Raum", Aktion : "ein leerer Raum."},
+			{name: "Raum", Aktion : "ein leerer Raum."},
+			{name: "Raum", Aktion : "ein leerer Raum."},
+			{name: "Raum", Aktion : "ein leerer Raum.",hwall : "wall"},
+			{name: "Raum", Aktion : "ein leerer Raum.",hwall : "wall"},
+			{name: "Raum", Aktion : "ein leerer Raum.",hwall : "wall"},
+			{name: "Raum", Aktion : "ein leerer Raum.",hwall : "wall"},
+			{name: "Raum", Aktion : "ein leerer Raum.",vwall : "wall"},
+			{name: "Raum", Aktion : "ein leerer Raum.",vwall : "wall"},
+			{name: "Raum", Aktion : "ein leerer Raum.",vwall : "wall"},
+			{name: "Raum", Aktion : "ein leerer Raum.",vwall : "wall"},
+			{name: "Raum", Aktion : "ein leerer Raum.",vwall : "oneway"},
+			{name: "Raum", Aktion : "ein leerer Raum.",vwall : "oneway"},
+			{name: "Raum", Aktion : "ein leerer Raum.",hwall : "oneway"},
+			{name: "Raum", Aktion : "ein leerer Raum.",hwall : "oneway"},
+			{name: "Raum", Aktion : "ein leerer Raum.",vwall : "wall", pagebreak: "true"},
+			{name: "Raum", Aktion : "ein leerer Raum.",vwall : "wall"},
+			{name: "Raum", Aktion : "ein leerer Raum.",vwall : "wall"},
+			{name: "Mina", Ding: "white", Aktion : " liegt in ihrem Zimmer oder unter den Stapel."},
+			{name: "Minas Zimmer", Ding: "", Aktion : " Hier wird Mina gefunden.",vwall : "oneway",hwall : "wall"},
+			{name: "Dracula", Ding: "blue", Aktion : "beisst dich. Dann geht er in seine Gruft oder unter den Stapel."},
+			{name: "Draculas Gruft", Aktion : " Wenn man Darcula hier tötet, kann man mit Mina das Schloss verlassen. Ende.",hwall : "wall",vwall : "tuer", hupwall : "tuer", vupwall : "tuer"}
 			]};
 		</script>
 		<script src="js/data2.js"></script>
 <style type="text/css">
 	.key{ font-size: 14pt;}
+	.card {
+		width: 160px; 
+		height: 210px;
+		 -webkit-print-color-adjust: exact;
+		background-color: gray;
+	}
 	.H { background-color: #CCFFCC;
 		 -webkit-print-color-adjust: exact;
 	}  
@@ -97,14 +104,19 @@
 	<div id="content"></div>
 	<div id="template" style="display: none;">
 		{{#cards}}
-		<div  class="card {{cardclass}}" style="width: 160px; height: 210px;">
-		
+		<div  class="card {{cardclass}}">
+
+		{{#Ding}}
+			<span style="width: 25px;height: 25px; border-radius: 18px;border: 2px solid red; position: absolute; margin-top: 2px;margin-left: 2px;z-index: 22; background-color:{{Ding}};"></span>
+		{{/Ding}}
 		<div style="position: relative; ">
-			<img alt="picture" src="img/DRAC/{{name}}.jpg" style="border: 1px solid black; position: absolute; margin-left: 0px; width:120px; height: 120px;top: 5px; left: 12px;">
-			{{#hwall}}<img alt="picture" src="img/TIG/horiz.jpg" style="position: absolute; margin-left: 0px; width:162px; height: 20px;top: 192px">{{/hwall}}
-			{{#vwall}}<img alt="picture" src="img/TIG/vertic.jpg" style="position: absolute; margin-left: 142px; width:20px; height: 208px;top: 0px">{{/vwall}}
+			<img alt="picture" src="img/DRAC/{{name}}.png" style="background-color: white; border: 1px solid black; position: absolute; margin-left: 0px; width:120px; height: 120px;top: 5px; left: 12px;">
+			{{#hwall}}<img alt="picture" src="img/DRAC/{{hwall}}h.png" style="position: absolute; margin-left: 0px; width:162px; height: 20px;top: 192px">{{/hwall}}
+			{{#vwall}}<img alt="picture" src="img/DRAC/{{vwall}}v.png" style="position: absolute; margin-left: 142px; width:20px; height: 208px;top: 0px">{{/vwall}}
+			{{#hupwall}}<img alt="picture" src="img/DRAC/{{hupwall}}h.png" style="position: absolute; margin-left: 0px; width:162px; height: 15px;top: 0">{{/hupwall}}
+			{{#vupwall}}<img alt="picture" src="img/DRAC/{{vupwall}}v.png" style="position: absolute; margin-left: 0px; width:15px; height: 208px;top: 0px">{{/vupwall}}
 			<div style=" text-align:center;font-size: 9px;px;position: absolute; margin-left: 8px; width:132px; height: 60px;top: 132px">
-				{{{name}}} {{{Aktion}}}				
+				<b>{{{name}}}</b> {{{Aktion}}}				
 		</div>
 	  
 		</div>
