@@ -8,42 +8,42 @@
 		<script src="js/mustache.js"></script>
 		<script>
 			var overview = {"cards": [
-			{art : "H",Karte : "2", typ : "Ware" ,anz1 : "2"},
-			{art : "S",Karte : "2", typ : "Ware" ,anz1 : "2"},
-			{art : "E",Karte : "2", typ : "Ware" ,anz1 : "2"},
-			{art : "G",Karte : "2", typ : "Ware" ,anz1 : "2"},
-			{art : "H",Karte : "3", Punkt: "book", typ : "Ware" ,anz1 : "2"},
-			{art : "S",Karte : "3", Punkt: "cross", typ : "Ware" ,anz1 : "2"},
-			{art : "E",Karte : "3", Punkt: "shield", typ : "Ware" ,anz1 : "2"},
-			{art : "G",Karte : "3", typ : "Ware" ,anz1 : "2"},
-			{art : "H",Karte : "4", Punkt: "book", typ : "Ware" ,anz1 : "2"},
-			{art : "S",Karte : "4", Punkt: "cross", typ : "Ware" ,anz1 : "2"},
-			{art : "E",Karte : "4", Punkt: "shield", typ : "Ware",anz1 : "2"},
-			{art : "G",Karte : "4", typ : "Ware" ,anz1 : "2"},
-			{code: "H5", art : "H",Karte : "5", typ : "Gebäude", name : "Waldhütte", Kosten : "2 Holz", Vorteil : "jede Runde Holz+1" ,anz1 : "1", shield :"+1*",cross :"+1*",book :"x0"},
-			{code: "H6", art : "H",Karte : "6", typ : "Gebäude", name : "Sägewerk", Kosten : "2 Erz, 1 Stein", Vorteil : "Bauvorteil: einmalig Holzlager Max +2" ,anz1 : "1", shield :"+1*",cross :"x0",book :"+1*"},
-			{code: "S5", art : "S",Karte : "5", typ : "Gebäude", name : "Steinbruch", Kosten : "2 Steine", Vorteil : "jede Runde Stein+1" ,anz1 : "1", shield :"+1*",cross :"x1",book :"x0"},
-			{code: "S6", art : "S",Karte : "6", typ : "Gebäude", name : "Bergwerk", Kosten : "3 Steine", Vorteil : "Bauvorteil: einmalig Steinlager Max +2",anz1 : "1", shield :"x0",cross :"x1",book :"+1*"},
-			{code: "E5", art : "E",Karte : "5", typ : "Gebäude", name : "Erzmine", Kosten : "1 Holz, 1 Stein", Vorteil : "jede Runde Erz+1" ,anz1 : "1",anz1 : "1", shield :"x0",cross :"x0",book :"x2"},
-			{code: "E6", art : "E",Karte : "6", typ : "Gebäude", name : "Schürfmine", Kosten : "3 Holz", Vorteil : "Bauvorteil: einmalig Erzlager Max +2" ,anz1 : "1", shield :"+1*",cross :"+1*",book :"x0"},
-			{code: "G5", art : "G",Karte : "5", typ : "Gebäude", name : "Bauernhof", Kosten : "1 Holz, 1 Getreide", Vorteil : "jede Runde Getreide+1" ,anz1 : "1",anz1 : "1", shield :"x0",cross :"+2*",book :"x0"},
-			{code: "G6", art : "G",Karte : "6", typ : "Gebäude", name : "Mühle", Kosten : "1 Stein, 2 Holz", Vorteil : "Bauvorteil: einmalig Getreidelager max +2" ,anz1 : "1",anz1 : "1", shield :"+1",cross :"x1",book :"x0"},
-			{code: "H7", art : "H",Karte : "7", Punkt: "book", typ : "Gebäude", name : "Heilhaus", Kosten : "3 Holz, 2 Stein", Vorteil : "Schutz vor Pest" ,anz1 : "1",  shield :"+1*",cross :"+1*",book :"+1*"},
+			{art : "H",Karte : "2", typ : "Holz" ,anz1: "Holz"},
+			{art : "S",Karte : "2", typ : "Stein" ,anz1: "Stein"},
+			{art : "E",Karte : "2", typ : "Erz" ,anz1: "Erz"},
+			{art : "G",Karte : "2", typ : "Getreide" ,anz1: "Getreide"},
+			{art : "H",Karte : "3", Punkt: "book", typ : "Holz" ,anz1 : "Holz",anz2: "Holz"},
+			{art : "S",Karte : "3", Punkt: "cross", typ : "Stein", anz1:"Stein" ,anz2 : "Stein"},
+			{art : "E",Karte : "3", Punkt: "Krone", typ : "Erz", anz1: "Erz" ,anz2 : "Erz"},
+			{art : "G",Karte : "3", typ : "Getreide" , anz1:"Getreide",anz2 : "Getreide"},
+			{art : "H",Karte : "4", Punkt: "book", typ : "Holz" ,anz1 : "Holz",anz2: "Holz"},
+			{art : "S",Karte : "4", Punkt: "cross", typ : "Stein", anz1: "Stein" ,anz2 : "Stein"},
+			{art : "E",Karte : "4", Punkt: "Krone", typ : "Erz",anz1: "Erz", anz2: "Erz"},
+			{art : "G",Karte : "4", typ : "Getreide" ,anz1: "Getreide",anz2: "Getreide"},
+			{code: "H5", art : "H",Karte : "5", typ : "Gebäude", name : "Waldhütte", Kosten : "2 Holz", Vorteil : "jede Runde Holz+1" ,anz1 : "Holz"},
+			{code: "H6", art : "H",Karte : "6", typ : "Gebäude", name : "Sägewerk", Kosten : "2 Erz, 1 Stein", Vorteil : "Bauvorteil: eainmalig Holzlager Max +2" ,anz1 : "Holz"},
+			{code: "S5", art : "S",Karte : "5", typ : "Gebäude", name : "Steinbruch", Kosten : "2 Steine", Vorteil : "jede Runde Stein+1" ,anz1 : "Stein"},
+			{code: "S6", art : "S",Karte : "6", typ : "Gebäude", name : "Bergwerk", Kosten : "3 Steine", Vorteil : "Bauvorteil: einmalig Steinlager Max +2",anz1 : "Stein"},
+			{code: "E5", art : "E",Karte : "5", typ : "Gebäude", name : "Erzmine", Kosten : "1 Holz, 1 Stein", Vorteil : "jede Runde Erz+1" ,anz1 : "1",anz1 : "Erz"},
+			{code: "E6", art : "E",Karte : "6", typ : "Gebäude", name : "Schürfmine", Kosten : "3 Holz", Vorteil : "Bauvorteil: einmalig Erzlager Max +2" ,anz1 : "Erz"},
+			{code: "G5", art : "G",Karte : "5", typ : "Gebäude", name : "Bauernhof", Kosten : "1 Holz, 1 Getreide", Vorteil : "jede Runde Getreide+1" ,anz1 : "1",anz1 : "1"},
+			{code: "G6", art : "G",Karte : "6", typ : "Gebäude", name : "Mühle", Kosten : "1 Stein, 2 Holz", Vorteil : "Bauvorteil: einmalig Getreidelager max +2" ,anz1 : "1",anz1 : "1"},
+			{code: "H7", art : "H",Karte : "7", Punkt: "book", typ : "Gebäude", name : "Heilhaus", Kosten : "3 Holz, 2 Stein", Vorteil : "Schutz vor Pest" ,anz1 : "1"},
 			{code: "H8", art : "H",Karte : "8", Punkt: "book", typ : "Gebäude", name : "Handelhaus", Kosten : "5 Holz, 1 Stein, 2 Erz", Vorteil : "Bauvorteil: Bei jedem gewonnenen Stich 1 Karte von der Hand in die eigene Ablage" ,anz1 : "1"},
 			{code: "S7", art : "S",Karte : "7", Punkt: "cross",typ : "Gebäude", name : "Stadtmauer", Kosten : "4 Steine", Vorteil : "Bauvorteil: kein Mitspieler kann Karten aus deiner Hand oder Ablage nehmen",anz1 : "1"},
-			{code: "S8", art : "S",Karte : "8", Punkt: "cross", typ : "Gebäude", name : "Aquädukt", Kosten : "5 Steine", shield :"+1*",cross :"x0",book :"x1",anz1 : "1", Vorteil : "Schutz vor Feuersbrunst" ,anz1 : "1",  shield :"+1*",cross :"+1*",book :"+1*"},
-			{code: "E7", art : "E",Karte : "7", Punkt: "shield", typ : "Gebäude", name : "Miliz", Kosten : "2 Holz, 2 Stein", Vorteil : "Bauvorteil: Wird die eigene Warenkarte gestochen, darf man direkt 1 Karte vom Stapel auf die Hand ziehen." ,anz1 : "1"},
-			{code: "E8", art : "E",Karte : "8", Punkt: "shield", typ : "Gebäude", name : "Schmelze", Kosten : "2 Holz, 2 Stein, 1 Erz", Vorteil : "" ,anz1 : "1", shield :"+2*",cross :"+2*",book :"x0"},
-			{code: "G7", art : "G",Karte : "7", typ : "Gebäude", name : "Marktplatz", Kosten : "3 Holz, 1 Erz", Vorteil : "Rundenbeginn: 1 Karte extra",anz1 : "1", shield :"x2",cross :"x0",book :"x1" },
-			{code: "G8", art : "G",Karte : "8", typ : "Gebäude", name : "Trinkstuben", Kosten : "3 Holz, 2 Steine, 1 Erz", Vorteil : "Rundenbeginn: 1 Karte extra" ,anz1 : "1", shield :"x1",cross :"x0",book :"x2" },
-			{code: "H9", art : "H",Karte : "9", typ : "Gebäude", name : "Hafen", Kosten : "6 Holz, 6 Steine", shield :"+2*",cross :"x0",book :"+2*" ,anz1 : "1"},
+			{code: "S8", art : "S",Karte : "8", Punkt: "cross", typ : "Gebäude", name : "Aquädukt", Kosten : "5 Steine"},
+			{code: "E7", art : "E",Karte : "7", Punkt: "Krone", typ : "Gebäude", name : "Miliz", Kosten : "2 Holz, 2 Stein", Vorteil : "Bauvorteil: Wird die eigene Warenkarte gestochen, darf man direkt 1 Karte vom Stapel auf die Hand ziehen." ,anz1 : "1"},
+			{code: "E8", art : "E",Karte : "8", Punkt: "Krone", typ : "Gebäude", name : "Schmelze", Kosten : "2 Holz, 2 Stein, 1 Erz", Vorteil : "" ,anz1 : "1"},
+			{code: "G7", art : "G",Karte : "7", typ : "Gebäude", name : "Marktplatz", Kosten : "3 Holz, 1 Erz", Vorteil : "Rundenbeginn: 1 Karte extra",anz1 : "1" },
+			{code: "G8", art : "G",Karte : "8", typ : "Gebäude", name : "Trinkstuben", Kosten : "3 Holz, 2 Steine, 1 Erz", Vorteil : "Rundenbeginn: 1 Karte extra" ,anz1 : "1" },
+			{code: "H9", art : "H",Karte : "9", typ : "Gebäude", name : "Hafen", Kosten : "6 Holz, 6 Steine"},
 			{code: "H10", art : "H",Karte : "10", typ : "Gebäude", name : "Universität", Kosten : "5 Holz, 5 Steine, 5 Erz, 2 Getreide", Vorteil : "Bauvorteil: Siegpunkte am Ende der Partie verdoppeln." ,anz1 : "1"},
-			{code: "S9", art : "S",Karte : "9", typ : "Gebäude", name : "Burg", Kosten : "8 Steine, 2 Erz", shield :"x2",cross :"+1*",book :"x0",anz1 : "1"},
+			{code: "S9", art : "S",Karte : "9", typ : "Gebäude", name : "Burg", Kosten : "8 Steine, 2 Erz"},
 			{code: "S10", art : "S",Karte : "10", typ : "Gebäude", name : "Festung", Kosten : "10 Steine, 2 Erz, 3 Holz", Vorteil : "Ende der Runde: 1 Karte aus der Ablage für die nächste Runde behalten" ,anz1 : "1"},
 			{code: "E9", art : "E",Karte : "9", typ : "Gebäude", name : "Reiterhof", Kosten : "4 Holz, 4 Stein, 2 Erz", Vorteil : "Vorteil: Vor der Resourcenauswertung 1 Warenkarte von einem Spieler mit den meisten Karten in der Ablage ziehen." ,anz1 : "1"},
 			{code: "E10", art : "E",Karte : "10", typ : "Gebäude", name : "Armee", Kosten : "3 Holz, 3 Stein, 5 Erz, 3 Getreide", Vorteil : "Vorteil: Zu Beginn der Runde je 1 Handkarte von den Spielern mit der grössten Bevölkerung ziehen." ,anz1 : "1"},
-			{code: "G9", art : "G",Karte : "9", Punkt: "book", typ : "Gebäude", name : "Rathaus", Kosten : "3 Erz, 4 Holz, 3 Steine",anz1 : "1", shield :"x2",cross :"+1*",book :"x1"},
-			{code: "G10", art : "G",Karte : "10", Punkt: "shield", typ : "Gebäude", name : "Schloss", Kosten : "7 Erz, 7 Steine, 1 Holz", Vorteil : "Bauvorteil: 1 Siegpunkt direkt", anz1 : "1"},
+			{code: "G9", art : "G",Karte : "9", Punkt: "book", typ : "Gebäude", name : "Rathaus", Kosten : "3 Erz, 4 Holz, 3 Steine",anz1 : "1"},
+			{code: "G10", art : "G",Karte : "10", Punkt: "Krone", typ : "Gebäude", name : "Schloss", Kosten : "7 Erz, 7 Steine, 1 Holz", Vorteil : "Bauvorteil: 1 Siegpunkt direkt", anz1 : "1"},
 			{art : "H",Karte : "11", Punkt: "book", typ : "Person", name : "Krämer" ,anz1 : "1", Stichbonus: "Stichbonus: 1 Karte aus der Ablage des Spielers mit der niedrigsten Karte."},
 			{art : "H",Karte : "12", Punkt: "book", typ : "Person", name : "Räuber", Stichbonus : "Stichbonus: 1 Karte von der Hand in die eigene Ablage." ,anz1 : "1"},
 			{art : "H",Karte : "13", typ : "Person", name : "Gildemeister", Stichbonus : "Stichbonus: sticht zusätzlich zu der niedrigsten Karte alle Holzkarten.", anz1 : "1"},
@@ -52,43 +52,26 @@
 			{art : "S",Karte : "12", Punkt: "cross", typ : "Person", name : "Baumeister", Vorteil: "Baubonus: alle Kreuze zählen als zusätzliches Stein"},
 			{art : "S",Karte : "13", typ : "Person", name : "Karawane", Stichbonus : "Stichbonus: sticht zusätzlich zu der niedrigsten Karte alle Steinkarten." ,anz1 : "1"},
 			{art : "S",Karte : "0*", Punkt: "cross", typ : "Apokalypse", name : "Pest", Stichbonus : "Stichbonus: Falls Wert >= 11 im Stich, wird aus der 0 eine <strong>15</strong>. ", "Nachteil" : "Nachteil: kein neuer Stein" ,anz1 : ""},
-			{art : "E",Karte : "11", Punkt: "shield", typ : "Person", name : "Baumeister", Vorteil: "Baubonus: alle Schilde zählen als zusätzliches Holz"  ,anz1 : "1"},
-			{art : "E",Karte : "12", Punkt: "shield", typ : "Person", name : "Alchemist", Vorteil : "Baubonus: Schutz vor allen Apokalypsen." ,anz1 : "1"},
+			{art : "E",Karte : "11", Punkt: "Krone", typ : "Person", name : "Baumeister", Vorteil: "Baubonus: alle Schilde zählen als zusätzliches Holz"  ,anz1 : "1"},
+			{art : "E",Karte : "12", Punkt: "Krone", typ : "Person", name : "Alchemist", Vorteil : "Baubonus: Schutz vor allen Apokalypsen." ,anz1 : "1"},
 			{art : "E",Karte : "13", Punkt: "typ", typ : "Person", name : "Fürst", Stichbonus : "Stichbonus: sticht zusätzlich zu der niedrigsten Karte alle Erzkarten." ,anz1 : "1"},
-			{art : "E",Karte : "0*", Punkt: "shield", typ : "Apokalypse", name : "Krieg", Stichbonus : "Stichbonus: Falls Wert >= 11 im Stich, wird aus der 0 eine <strong>15</strong>. ", "Nachteil" : "Nachteil: kein neues Erz" ,anz1 : ""},
+			{art : "E",Karte : "0*", Punkt: "Krone", typ : "Apokalypse", name : "Krieg", Stichbonus : "Stichbonus: Falls Wert >= 11 im Stich, wird aus der 0 eine <strong>15</strong>. ", "Nachteil" : "Nachteil: kein neues Erz" ,anz1 : ""},
 			{art : "G",Karte : "11", typ : "Person", name : "Händler", Vorteil : "Baubonus: alle Bücher zählen als zusätzliches Erz." ,anz1 : "1"},
 			{art : "G",Karte : "12", typ : "Person", name : "Karawane", Vorteil : "Baubonus: nur ein Getreide zur Ernährung der Bevölkerung nötig." ,anz1 : "1"},
-			{art : "G",Karte : "13", Punkt: "shield", typ : "Person", name : "König", "Stichbonus" : "Stichbonus: sticht zusätzlich zu der niedrigsten Karte alle Getreidekarten." ,anz1 : "1"},
-			{art : "G",Karte : "0*", Punkt: "shield", typ : "Apokalypse", name : "Sturm", "Stichbonus" : "Stichbonus: Falls Wert >= 11 im Stich, wird aus der 0 eine <strong>15</strong>.", "Nachteil" : "Nachteil: kein neues Getreide.",anz1 : "" },
-			{art : "T",Karte : "Df", typ : "Dorf", name : "Dorf", "Aktion" : "Ruhmpunkte 1 bis 5.", "shield" :"x1","cross" :"x1","book" :"x1", Nachteil: "auf dieser Tafel nur 1 Symbol werten."},
-			{art : "T",Karte : "Df", typ : "Dorf", name : "Dorf", "Aktion" : "Ruhmpunkte 1 bis 5.", "shield" :"x1","cross" :"x1","book" :"x1", Nachteil: "auf dieser Tafel nur 1 Symbol werten."},
-			{art : "T",Karte : "Df", typ : "Dorf", name : "Dorf", "Aktion" : "Ruhmpunkte 1 bis 5.", "shield" :"x1","cross" :"x1","book" :"x1", Nachteil: "auf dieser Tafel nur 1 Symbol werten."},
-			{art : "T",Karte : "Df", typ : "Dorf", name : "Dorf", "Aktion" : "Ruhmpunkte 1 bis 5.", "shield" :"x1","cross" :"x1","book" :"x1", Nachteil: "auf dieser Tafel nur 1 Symbol werten."},
-			{art : "T",Karte : "Mk", typ : "Markt", name : "Markt", "Aktion" : "Ruhmpunkte 6 bis 12.", "shield" :"x1","cross" :"x1","book" :"x0", Vorteil: "jede Runde G+1"},
-			{art : "T",Karte : "Mk", typ : "Markt", name : "Markt", "Aktion" : "Ruhmpunkte 6 bis 12.", "shield" :"x1","cross" :"x1","book" :"x0", Vorteil: "jede Runde G+1"},
-			{art : "T",Karte : "Mk", typ : "Markt", name : "Markt", "Aktion" : "Ruhmpunkte 6 bis 12.", "shield" :"x1","cross" :"x1","book" :"x0", Vorteil: "jede Runde G+1"},
-			{art : "T",Karte : "Mk", typ : "Markt", name : "Markt", "Aktion" : "Ruhmpunkte 6 bis 12.", "shield" :"x1","cross" :"x1","book" :"x0", Vorteil: "jede Runde G+1"},
-			{art : "T",Karte : "St", typ : "Stadt", name : "Stadt", "Aktion" : "Ruhmpunkte 13 - 24.", "shield" :"x1","cross" :"x0","book" :"x1", Vorteil: "2. Gebäude aufschreiben"},
-			{art : "T",Karte : "St", typ : "Stadt", name : "Stadt", "Aktion" : "Ruhmpunkte 13 - 24.", "shield" :"x1","cross" :"x0","book" :"x1", Vorteil: "2. Gebäude aufschreiben"},
-			{art : "T",Karte : "St", typ : "Stadt", name : "Stadt", "Aktion" : "Ruhmpunkte 13 - 24.", "shield" :"x1","cross" :"x0","book" :"x1", Vorteil: "2. Gebäude aufschreiben"},
-			{art : "T",Karte : "St", typ : "Stadt", name : "Stadt", "Aktion" : "Ruhmpunkte 13 - 24.", "shield" :"x1","cross" :"x0","book" :"x1", Vorteil: "2. Gebäude aufschreiben"},
-			{art : "T",Karte : "St", typ : "Stadt", name : "Stadt", "Aktion" : "Ruhmpunkte 13 - 24.", "shield" :"x1","cross" :"x0","book" :"x1", Vorteil: "2. Gebäude aufschreiben"},
-			{art : "T",Karte : "Gs", typ : "Großstadt", name : "Großstadt", "Aktion" : "Ruhmpunkte ab 25.", "shield" :"x0","cross" :"x1","book" :"x1", Vorteil: "als Sieger RP+5"},
-			{art : "T",Karte : "Gs", typ : "Großstadt", name : "Großstadt", "Aktion" : "Ruhmpunkte ab 25.", "shield" :"x0","cross" :"x1","book" :"x1", Vorteil: "als Sieger RP+5"},
-			{art : "T",Karte : "Gs", typ : "Großstadt", name : "Großstadt", "Aktion" : "Ruhmpunkte ab 25.", "shield" :"x0","cross" :"x1","book" :"x1", Vorteil: "als Sieger RP+5"},
-			{art : "T",Karte : "Gs", typ : "Großstadt", name : "Großstadt", "Aktion" : "Ruhmpunkte ab 25.", "shield" :"x0","cross" :"x1","book" :"x1", Vorteil: "als Sieger RP+5"},
-			{code: "Df2", art : "G",Karte : "2", typ: "Dorf", name: "Siedler", Vorteil: "Resourcenauswertung: Bev+1" ,anz1: "1",Punkt: "book"},
-			{code: "Df3", art : "G",Karte : "3", typ: "Dorf", name: "grosse Ernte", anz1: "2", shield :"+2*",cross :"x0",book :"x0"},
+			{art : "G",Karte : "13", Punkt: "Krone", typ : "Person", name : "König", "Stichbonus" : "Stichbonus: sticht zusätzlich zu der niedrigsten Karte alle Getreidekarten." ,anz1 : "1"},
+			{art : "G",Karte : "0*", Punkt: "Krone", typ : "Apokalypse", name : "Sturm", "Stichbonus" : "Stichbonus: Falls Wert >= 11 im Stich, wird aus der 0 eine <strong>15</strong>.", "Nachteil" : "Nachteil: kein neues Getreide.",anz1 : "" },
+			{code: "Df2", art : "G",Karte : "2", typ: "Dorf", name: "Siedler", Vorteil: "Resourcenauswertung: Bev+1" ,anz1: "1",Punkt: "Krone"},
+			{code: "Df3", art : "G",Karte : "3", typ: "Dorf", name: "grosse Ernte", anz1: "2"},
 			{code: "Df4", art : "G",Karte : "4", typ: "Dorf", name: "Bauernhof", Kosten: "2 Holz, 1 Stein, 1 Erz", Vorteil: "Resourcenauswertung: Getreide +1",anz1: "1"},
 			{code: "Df5", art : "G",Karte : "5", typ: "Dorf", name: "Bauernhof", Kosten: "2 Holz, 1 Stein, 1 Erz", Vorteil: "Resourcenauswertung: Getreide +1" ,anz1: "1",anz2: "1",art2: "H"},
 			{code: "Df6", art : "G",Karte : "6", typ: "Dorf", name: "Bauernhof", Kosten: "2 Holz, 1 Stein, 1 Erz", Vorteil: "Resourcenauswertung: Getreide +1",anz1: "1",anz2: "1",art2: "H"},
-			{code: "Df7", art : "G",Karte : "7", typ: "Dorf", Punkt: "book", name: "grosser Hof", Kosten: "1 Erz, 4 Holz, 2 Steine", Vorteil: "Resourcenauswertung: Getreide +2" ,anz1: "1"},
-			{code: "Df8", art : "G",Karte : "8", typ: "Dorf", Punkt: "book", name: "grosser Hof", Kosten: "1 Erz, 4 Holz, 2 Steine", Vorteil: "Resourcenauswertung: Getreide +2" ,anz1: "1"},
-			{code: "Df9", art : "G",Karte : "9", typ: "Dorf", Punkt: "cross", name: "Kloster", Kosten: "6 Steine, 6 Holz", shield :"x0",cross :"+2*",book :"x0"  ,anz1: "1",anz2: "1",art2: "E"},
-			{code: "Df10", art : "G",Karte : "10", typ: "Dorf", Punkt: "shield" , name: "Fürstensitz", Kosten: "6 Steine, 6 Holz", Vorteil: "Handkarten ziehen: 2 Karten nachziehen und 2 ablegen."  ,anz1: "1",anz2: "1",art2: "E"},
+			{code: "Df7", art : "G",Karte : "7", typ: "Dorf", Punkt: "Krone", name: "grosser Hof", Kosten: "1 Erz, 4 Holz, 2 Steine", Vorteil: "Resourcenauswertung: Getreide +2" ,anz1: "1"},
+			{code: "Df8", art : "G",Karte : "8", typ: "Dorf", Punkt: "Krone", name: "grosser Hof", Kosten: "1 Erz, 4 Holz, 2 Steine", Vorteil: "Resourcenauswertung: Getreide +2" ,anz1: "1"},
+			{code: "Df9", art : "G",Karte : "9", typ: "Dorf", Punkt: "Krone", name: "Kloster", Kosten: "6 Steine, 6 Holz"},
+			{code: "Df10", art : "G",Karte : "10", typ: "Dorf", Punkt: "Krone" , name: "Fürstensitz", Kosten: "6 Steine, 6 Holz", Vorteil: "Handkarten ziehen: 2 Karten nachziehen und 2 ablegen."  ,anz1: "1",anz2: "1",art2: "E"},
 
-			{art : "H",Karte : "2", typ: "Markt", Punkt: "book", name: "Frondienst",anz1: "-1",anz2: "-1",art2: "G"},
-			{art : "H",Karte : "3", typ: "Markt", Punkt: "shield", name: "Barbaren", Aktion: "", Vorteil: "" ,anz1: "-1",anz2: "-1",art2: "E", shield :"+1*",cross :"x1",book :"x0"},
+			{art : "H",Karte : "2", typ: "Markt", Punkt: "cross", name: "Frondienst",anz1: "-1",anz2: "-1",art2: "G"},
+			{art : "H",Karte : "3", typ: "Markt", Punkt: "cross", name: "Barbaren", Aktion: "", Vorteil: "" ,anz1: "-1",anz2: "-1",art2: "E"},
 			{code: "Mk4", art : "H",Karte : "4", typ: "Markt", name: "Aufforstung", Aktion: "Kosten: 3 Holz, 1 Erz", Vorteil: "Bauvorteil: Resourcenauswertung: Holz+1" ,anz1: "1",anz2: "1",art2: "S"},
 			{code: "Mk5", art : "H",Karte : "5", typ: "Markt", name: "Trockenleg.", Aktion: "Kosten: 4 Holz, 1 Erz", Vorteil: "Bauvorteil: Resourcenauswertung: Holz+1, Stein+1" ,anz1: "1",anz2: "1",art2: "S"},
 			{code: "Mk6", art : "H",Karte : "6", typ: "Markt", name: "Marktplatz", Aktion: "Kosten: 6 Holz, 2 Erz", Vorteil: "Bauvorteil: Resourcenauswertung: Resourcen können 1:1 gegen Getreide getauscht werden",anz1: "1",anz2: "1",art2: "E"},
@@ -96,12 +79,12 @@
 			{code: "Mk8", art : "H",Karte : "8", typ: "Markt", Punkt: "cross", name: "Mühle", Aktion: "Kosten: 4 Steine, 4 Erz", Vorteil: "Bauvorteil: Resourcenauswertung: Getreide +3" ,anz1: "1",anz2: "1",art2: "S"},
 			{code: "Mk9", art : "H",Karte : "9", typ: "Markt", Punkt: "cross",name: "Klosterkirche", Aktion: "Kosten: 8 Holz, 6 Steine", Vorteil: "Bauvorteil: Endauswertung: 2 Ruhmpunkte extra"  ,anz1: "1",anz2: "1",art2: "G"  },
 
-			{art : "S",Karte : "2", typ: "Stadt", Punkt: "book", name: "Kriegsarmee", Aktion: "", Vorteil: "",anz1: "-1",anz2: "-1",art2: "G", shield :"+2*",cross :"x0",book :"x0"},
+			{art : "S",Karte : "2", typ: "Stadt", Punkt: "book", name: "Kriegsarmee", Aktion: "", Vorteil: "",anz1: "-1",anz2: "-1",art2: "G"},
 			{art : "S",Karte : "3", typ: "Stadt", Punkt: "cross", name: "Armeeeinzug", Aktion: "", Vorteil: "Nachteil: Bev: -1" ,anz1: "",anz2: "-1",art2: "E"},
 			{code: "St4", art : "S",Karte : "4", typ: "Stadt", name: "Erzmine", Aktion: "Kosten: 3 Erz, 2 Stein", Vorteil: "Resourcenauswertung: Erz+1" ,anz1: "1",anz2: "1",art2: "E"},
 			{code: "St5", art : "S",Karte : "5", typ: "Stadt", Punkt: "cross", name: "Kaserne", Aktion: "Kosten: 3 Erz, 2 Stein", Vorteil: "Resourcenauswertung: Erz+1." ,anz1: "1",anz2: "2",art2: "H"},
-			{code: "St6", art : "S",Karte : "6", typ: "Stadt", Punkt: "shield", name: "Reiterhof", Aktion: "Kosten: 3 Erz, 2 Stein", Vorteil: "Bauvorteil: Resourcenauswertung: 1 Warenkarte von linken nachbarn nehmen.",anz1: "1",anz2: "1",art2: "E"},
-			{code: "St7", art : "S",Karte : "7", typ: "Stadt", Punkt: "shield", name: "Atilerie", Aktion: "Kosten: 5 Erz, 1 Stein", Vorteil: "Bauvorteil: Resourcenauswertung: 1 Warenkarte von rechtem Nachbarn nehmen." ,anz1: "3"},
+			{code: "St6", art : "S",Karte : "6", typ: "Stadt", Punkt: "Krone", name: "Reiterhof", Aktion: "Kosten: 3 Erz, 2 Stein", Vorteil: "Bauvorteil: Resourcenauswertung: 1 Warenkarte von linken nachbarn nehmen.",anz1: "1",anz2: "1",art2: "E"},
+			{code: "St7", art : "S",Karte : "7", typ: "Stadt", Punkt: "Krone", name: "Atilerie", Aktion: "Kosten: 5 Erz, 1 Stein", Vorteil: "Bauvorteil: Resourcenauswertung: 1 Warenkarte von rechtem Nachbarn nehmen." ,anz1: "3"},
 			{code: "St8", art : "S",Karte : "8", typ: "Stadt", name: "Generalsitz", Aktion: "Kosten: 4 Erz, 4 Erz", Vorteil: "Bauvorteil: Rundenauswertung: 2 Punkte extra" ,anz1: "1",anz2: "1",art2: "E"},
 			{code: "St9", art : "S",Karte : "9", typ: "Stadt", name: "Residenz", Aktion: "Kosten: 6 Steine, 6 Holz", Vorteil: "Bauvorteil: Rundenauswertung: 3 Punkte extra"  ,anz1: "1",anz2: "1",art2: "G"},
 
@@ -109,8 +92,8 @@
 			{code: "Gs5", art : "E",Karte : "5", typ: "Großstadt", Punkt: "book", name: "Trockenleg.", Aktion: "", Vorteil: "Resourcenauswertung: Holz+1, Karte zu Gebäuden legen." ,anz1: "1",anz2: "2",art2: "S"},
 			{code: "Gs6", art : "E",Karte : "6", typ: "Großstadt", name: "Sägewerk", Aktion: "Kosten: 3 Holz, 1 Erz", Vorteil: "Bauvorteil: Resourcenauswertung: Holz +1",anz1: "1",anz2: "1",art2: "S"},
 			{code: "Gs7", art : "E",Karte : "7", typ: "Großstadt", name: "Flösserei", Aktion: "Kosten: 5 Holz, 1 Stein", Vorteil: "Bauvorteil: Resourcenauswertung: Holz +2" ,anz1: "3"},
-			{code: "Gs8", art : "E",Karte : "8", typ: "Großstadt", Punkt: "shield", name: "Residenz", Aktion: "Kosten: 6 Steine, 6 Holz", Vorteil: "Resourcenauswertung: Alle Dorf und Marktspieler müssen dir eine Resource ihrer Wahl abgeben. ",anz1: "-1",anz2: "-1",art2: "G"},
-			{code: "Gs9", art : "E",Karte : "9", typ: "Großstadt", Punkt: "shield", name: "Mühle", Aktion: "Kosten: 4 Steine, 4 Erz", Vorteil: "Bauvorteil: Resourcenauswertung: Getreide +3" ,anz1: "1",anz2: "1",art2: "S"},
+			{code: "Gs8", art : "E",Karte : "8", typ: "Großstadt", Punkt: "Krone", name: "Residenz", Aktion: "Kosten: 6 Steine, 6 Holz", Vorteil: "Resourcenauswertung: Alle Dorf und Marktspieler müssen dir eine Resource ihrer Wahl abgeben. ",anz1: "-1",anz2: "-1",art2: "G"},
+			{code: "Gs9", art : "E",Karte : "9", typ: "Großstadt", Punkt: "Krone", name: "Mühle", Aktion: "Kosten: 4 Steine, 4 Erz", Vorteil: "Bauvorteil: Resourcenauswertung: Getreide +3" ,anz1: "1",anz2: "1",art2: "S"},
 			{code: "Gs10", art : "E",Karte : "10", typ: "Großstadt", Punkt: "cross", name: "Kloster", Aktion: "Kosten: 6 Steine, 6 Holz", Vorteil: "Bauvorteil: Endauswertung: 2 Ruhmpunkte extra"  ,anz1: "1",anz2: "1",art2: "G", pagebreak: "pagebreak"}
 
 			]};
@@ -148,9 +131,12 @@
 		 -webkit-print-color-adjust: exact;
 	}  
 	.card {
-		background-color: #e1e1e1;
 		-webkit-print-color-adjust: exact;
 	}    
+	.toprow {
+		border-bottom: 1px solid black;
+		 -webkit-print-color-adjust: exact;
+	}
 	.Dorf { background-color: #ffd173;
 		 -webkit-print-color-adjust: exact;
 	}            
@@ -172,26 +158,26 @@
 		<div>{{header}}</div>
 		{{#cards}}
 		<div  class="card">
-		<div class="toprow  {{art}}">
+		<div class="toprow">
 			<span class="key">{{Karte}}</span>
-			<span style="font-size: 11px;padding: 0 10px;" class=name>{{typ}}</span>
+			<span style="font-size: 11px;padding: 0 10px;" class="name">{{typ}}</span>
 			<span class="key right">{{Karte}}</span>
 		</div>
 
 		{{#code}}
-			<span style="width: 30px;font-size: 11px;font-weight:bold;text-align: center; position: absolute; margin-top: 0;margin-left: 70px;background-color:white;">{{code}}</span>
+			<span style="width: 30px;font-size: 18px;text-align: center; position: absolute; margin-top: 125px;margin-left: 120px;border: 1px dotted black">{{code}}</span>
 		{{/code}}
 		{{#Punkt}}
-		<img src="img/CHR/{{Punkt}}.png" style="border-radius: 8px;border: 2px solid brown;background-color: white;width:36px;height:36px;position: absolute; margin-top: 35px;margin-left: 1px;"/>
+		<img src="img/CHR/{{Punkt}}.png" style="border-radius: 30px;border: 2px solid brown;background-color: white;width:36px;height:36px;position: absolute; margin-top: 235px;margin-left: 1px;"/>
 		{{/Punkt}}
 		{{#anz1}}
-			<span class="key col{{art}} right" style="width: 20px;text-align: center; border-radius: 8px;border: 1px solid black;position: absolute; margin-top: 35px;margin-left: 140px;background-color:white;">{{anz1}}</span>
+			<img src="img/CHR/{{anz1}}.png" style="width: 40px;height: 40px;text-align: center;border: 2px solid black;position: absolute; margin-top: 38px;margin-left: 110px;background-color:white;"/>
 		{{/anz1}}
-		{{#art2}}
-			<span class="key col{{art2}} right" style="width: 20px;text-align: center; border-radius: 8px;border: 1px solid black;position: absolute; margin-top: 35px;margin-left: 110px;background-color:white;">{{anz2}}</span>
-		{{/art2}}
+		{{#anz2}}
+			<img src="img/CHR/{{anz2}}.png" style="width: 40px;height: 40px;text-align: center;border: 2px solid black;position: absolute; margin-top: 78px;margin-left: 110px;background-color:white;"/>
+		{{/anz2}}
 		<div><img alt="picture" src="img/CHR/{{typ}}.png" style="width: 80px; height: 80px;margin: 5px 20px 5px 40px;"></div>
-		<div class="toprow" style="margin-top: 3px;">
+		<div style="margin-top: 3px;">
 			<span style="margin-left: 3px;text-align: center;font-weight:bold">{{name}}</span>
 		</div>
 		{{#Kosten}}
@@ -209,20 +195,20 @@
 		{{#Nachteil}}
 		<div style="width: 90%; text-align:center;border: 2px solid red; padding: 2px;background-color:#fb3f51">{{{Nachteil}}}</div>
 		{{/Nachteil}}
-		{{#shield}}
+		{{#Krone}}
 		<table border="2" bordercolor="#555555" style="margin-left: 5px;background-color:#F8C90E" width="140" cellpadding="0" cellspacing="0">
 			<tr>
-				<td style="text-align: center"><img src="img/CHR/shield.png" style="width:32px;height:32px;"></td>
+				<td style="text-align: center"><img src="img/CHR/Krone.png" style="width:32px;height:32px;"></td>
 				<td style="text-align: center"><img src="img/CHR/cross.png" style="width:32px;height:32px;"></td>
 				<td style="text-align: center"><img src="img/CHR/book.png" style="width:32px;height:32px;"></td>
 			</tr>
 			<tr>
-				<td style="text-align: center;font-size: 24px;font-weight: bold;">{{shield}}</td>
+				<td style="text-align: center;font-size: 24px;font-weight: bold;">{{Krone}}</td>
 				<td style="text-align: center;font-size: 24px;font-weight: bold;">{{cross}}</td>
 				<td style="text-align: center;font-size: 24px;font-weight: bold;">{{book}}</td>
 			</tr>
 		</table>
-		{{/shield}}
+		{{/Krone}}
 		<div style="width: 100%; text-align:center;">
 			  
 		</div>

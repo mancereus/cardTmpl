@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"Erz",
+				"Erz"
+			],
+			[
+				"E",
+				"E"
+			],
+			[
+				"Stadt",
+				"Stadt"
+			],
+			[
 				"Geb",
 				"Gebäuden"
 			],
@@ -28,36 +40,32 @@
 	"buffers":
 	[
 		{
-			"file": "web/TIG_karten.html",
-			"settings":
-			{
-				"buffer_size": 8087,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "web/CHR_Stadt2.html",
-			"settings":
-			{
-				"buffer_size": 8433,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "web/CHR_Stadt.html",
 			"settings":
 			{
-				"buffer_size": 11654,
+				"buffer_size": 18929,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/home/mschmitt/.config/sublime-text-2/Packages/GoSublime/CHANGELOG.md",
+			"settings":
+			{
+				"buffer_size": 16106,
+				"line_ending": "Unix"
 			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 222.0,
 		"selected_items":
 		[
+			[
+				"htm",
+				"Snippet: html"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
@@ -91,10 +99,6 @@
 				"File: Open In Browser - Testing Server"
 			],
 			[
-				"htm",
-				"HTMLPrettify: Prettify"
-			],
-			[
 				"for",
 				"Format: Javascript"
 			],
@@ -103,7 +107,7 @@
 				"Snippet: html"
 			]
 		],
-		"width": 400.0
+		"width": 575.0
 	},
 	"console":
 	{
@@ -120,6 +124,26 @@
 	},
 	"file_history":
 	[
+		"/home/mschmitt/sde/db12/cardTmpl/.git/MERGE_MSG",
+		"/home/mschmitt/sde/workspace/WebApplication/.git/COMMIT_EDITMSG",
+		"/home/mschmitt/.config/sublime-text-2/Packages/GoSublime/CHANGELOG.md",
+		"/home/mschmitt/sde/workspace/slotmanagement/src/main/resources/basisdaten/rampenskizze.csv",
+		"/home/mschmitt/sde/db12/cardTmpl/web/CHR_Stadt.html",
+		"/home/mschmitt/Downloads/test.csv",
+		"/home/mschmitt/sde/tmp/test2.csv",
+		"/home/mschmitt/sde/workspace/slotmanagement/src/main/resources/basisdaten/netzPunkte.csv",
+		"/home/mschmitt/sde/workspace/slotmanagement/src/main/resources/basisdaten/skizzen.csv",
+		"/home/mschmitt/sde/workspace/slotmanagement/src/main/resources/basisdaten/abschnitte.csv",
+		"/home/mschmitt/sde/workspace/slotmanagement/src/main/resources/basisdaten/strassen.csv",
+		"/home/mschmitt/sde/workspace/slotmanagement/src/main/resources/basisdaten/rampenskizze2.csv",
+		"/home/mschmitt/sde/workspace/slotmanagement/.git/MERGE_MSG",
+		"/home/mschmitt/sde/db12/html5/offline.html",
+		"/home/mschmitt/sde/workspace/slotmanagement/logs/jdbc.log",
+		"/home/mschmitt/sde/workspace/slotmanagement/logs/sql.log",
+		"/home/mschmitt/sde/db12/cardTmpl/web/CHR_Stadt2.html",
+		"/home/mschmitt/sde/fm4.1/.git/MERGE_MSG",
+		"/home/mschmitt/sde/workspace/slotmanagement/src/main/resources/basisdaten/plandaten.csv",
+		"/home/mschmitt/sde/db12/cardTmpl/web/TIG_karten.html",
 		"/C/sde/workspace/SlotManagement/Erweiterungen_2.3.txt",
 		"/C/sde/h5bp-html5-boilerplate-0a340fb/humans.txt",
 		"/C/sde/h5bp-html5-boilerplate-0a340fb/README.md",
@@ -239,6 +263,92 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			", \"Krone\" :\"x0\",\"cross\" :\"x1\",\"book\" :\"x1\"",
+			", \"Krone\" :\"x1\",\"cross\" :\"x0\",\"book\" :\"x1\"",
+			", \"Krone\" :\"x1\",\"cross\" :\"x1\",\"book\" :\"x0\"",
+			"shield",
+			", shield :\".+\",cross :\".*\",book :\".*\"",
+			"toprow",
+			"BaOrWä",
+			"vier",
+			"Viernheimer Kreuz",
+			"36579",
+			"Wetzlar-Ost",
+			"10884",
+			"12227",
+			"DaDr",
+			"dad",
+			"dadrg",
+			"Lang",
+			"NoKr",
+			"Ausfahrt;90,40,40,135",
+			"36566-W;36605",
+			"KelSued",
+			"36566-W",
+			"Kelsued",
+			"kelsterba",
+			"KelOst",
+			"NoKr",
+			"nokr",
+			"10869",
+			"Nokr",
+			"sukr",
+			"süd",
+			"Nokr",
+			"nordkrei",
+			"FuDr",
+			"LaDr",
+			".*Test - ",
+			"210,120,170,90",
+			"HFB;0,155,300,155",
+			".*Test - ",
+			";SW;",
+			";NO;",
+			".*Test - ",
+			"fasan",
+			".*Test - ",
+			".* - ",
+			"Sieg",
+			"viernheim;",
+			"viernheim",
+			"kelost",
+			"bensg",
+			"kirchh",
+			"kirch",
+			"kelost",
+			"SchwnH",
+			"DrDaGr",
+			"gries",
+			"wetz",
+			"bens",
+			"\\n\\d*: ",
+			"\\n.*: ",
+			";",
+			"\\n.*:",
+			"\\n .*:",
+			"Insert",
+			"Wetzlar-Dahlheim",
+			"Wetzlar",
+			"780212",
+			"insert",
+			"780212",
+			"23488",
+			"23487",
+			"23488",
+			"23487",
+			"\"Karte\"",
+			"\"art\"",
+			"klos",
+			"page",
+			"*0",
+			"*1",
+			"Kosten: ",
+			"Siedlungen mit Größe ",
+			"pagebrea",
+			"pagenre",
+			"\"D\"",
+			"position",
+			"		\n",
 			"direkt",
 			"'{",
 			"' +",
@@ -280,100 +390,27 @@
 			"session",
 			"1tq7vnjr55g59",
 			"Session",
-			"SessionManager",
-			"Session",
-			"session",
-			"Bauvorteil:",
-			"\"art2\" ",
-			"\"anz2\" ",
-			"\"anz1\" ",
-			"\"Vorteil\" ",
-			"\"Aktion\" ",
-			"\"name\" ",
-			"\"typ\" ",
-			"\"Karte\"",
-			"\"art\"",
-			"Markt",
-			"'{",
-			"' +",
-			"24.11.2011",
-			"NclGuiBenutzer",
-			"1972",
-			"24.11.2011",
-			",",
-			" ",
-			"\"",
-			"fsue",
-			"10232",
-			"{",
-			"Windows",
-			"perform",
-			"       int upd1 = getSession().createSQLQuery(\n                \"",
-			"VERTRAGSART",
-			"VTG_VERTRAEGE",
-			"vtg_vertr",
-			"Beginne dann wieder bei Start für die anderen Schätze.",
-			"Leer",
-			"<br/>Ruhm: 4",
-			", \"text\" : \"\" ",
-			"\"key\": ",
-			"\\[.*\\]",
-			"rows",
-			", \"name\":",
-			"\"},'",
-			"},'",
-			"name",
-			"$",
-			"ma.",
-			"\\(.*\\),",
-			"SQ_KAL",
-			"}}</",
-			"},",
-			"Gebäude\"",
-			"Gebäude",
-			"Date",
-			"\n",
-			"${klk.",
-			"^",
-			"\\(.*\\),",
-			"(.\".*.\"),",
-			"(\"\".*\"\"),",
-			"(\".*\"),",
-			"^",
-			"		",
-			"INFO  .* MigrationServiceTest - ",
-			"INFO  * MigrationServiceTest - ",
-			"INFO",
-			"AK_Wiesbaden",
-			"temp",
-			"Plöne",
-			"save File ",
-			"temp",
-			"from",
-			"version",
-			"vers",
-			"g",
-			"G",
-			"anstelle",
-			"}",
-			"fm-",
-			"art",
-			"reifenk",
-			"unfall",
-			"var",
-			"&",
-			"values ('MNFM",
-			"unique",
-			"constraint",
-			"Processor17",
-			"ERROR"
+			"SessionManager"
 		],
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": false,
+		"regex": true,
 		"replace_history":
 		[
+			"",
+			"Krone",
+			"",
+			"Vier",
+			"",
+			";NO;",
+			";SW;",
+			";\\n",
+			"Karte",
+			"art",
+			"",
+			"Ruhmpunkte ",
+			"\"Df\"",
 			"{",
 			"",
 			"    ",
@@ -413,23 +450,23 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "web/TIG_karten.html",
+					"file": "web/CHR_Stadt.html",
 					"settings":
 					{
-						"buffer_size": 8087,
+						"buffer_size": 18929,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6497,
-								6497
+								16397,
+								16397
 							]
 						],
 						"settings":
@@ -438,61 +475,34 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 876.0,
+						"translation.y": 2373.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "web/CHR_Stadt2.html",
+					"file": "/home/mschmitt/.config/sublime-text-2/Packages/GoSublime/CHANGELOG.md",
 					"settings":
 					{
-						"buffer_size": 8433,
+						"buffer_size": 16106,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2168,
-								2168
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"syntax": "Packages/Markdown/Markdown.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 206.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "web/CHR_Stadt.html",
-					"settings":
-					{
-						"buffer_size": 11654,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3649,
-								3649
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 525.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -556,6 +566,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 307.0,
+	"side_bar_width": 179.0,
 	"status_bar_visible": true
 }
