@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"Getr",
+				"Getreide"
+			],
+			[
 				"Erz",
 				"Erz"
 			],
@@ -43,7 +47,15 @@
 			"file": "web/CHR_Stadt.html",
 			"settings":
 			{
-				"buffer_size": 18929,
+				"buffer_size": 19635,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "web/js/data2.js",
+			"settings":
+			{
+				"buffer_size": 790,
 				"line_ending": "Windows"
 			}
 		},
@@ -263,6 +275,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"armee",
+			"anz2",
+			"anz1",
 			", \"Krone\" :\"x0\",\"cross\" :\"x1\",\"book\" :\"x1\"",
 			", \"Krone\" :\"x1\",\"cross\" :\"x0\",\"book\" :\"x1\"",
 			", \"Krone\" :\"x1\",\"cross\" :\"x1\",\"book\" :\"x0\"",
@@ -387,10 +402,7 @@
 			"remove",
 			"session",
 			"B85F14D9425FEBFFDDF42942ED3F3CE1",
-			"session",
-			"1tq7vnjr55g59",
-			"Session",
-			"SessionManager"
+			"session"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -398,6 +410,8 @@
 		"regex": true,
 		"replace_history":
 		[
+			"res2",
+			"res1",
 			"",
 			"Krone",
 			"",
@@ -458,15 +472,15 @@
 					"file": "web/CHR_Stadt.html",
 					"settings":
 					{
-						"buffer_size": 18929,
+						"buffer_size": 19635,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								16397,
-								16397
+								5652,
+								5652
 							]
 						],
 						"settings":
@@ -475,13 +489,39 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2373.0,
+						"translation.y": 705.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
+					"file": "web/js/data2.js",
+					"settings":
+					{
+						"buffer_size": 790,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								589,
+								589
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
 					"file": "/home/mschmitt/.config/sublime-text-2/Packages/GoSublime/CHANGELOG.md",
 					"settings":
 					{
