@@ -76,40 +76,43 @@
 			{art : "E",Karte : "13", Punkt: "book", typ : "Person", name : "Fürst", Stichbonus : "Stichbonus: sticht alle Karten mit {{{buch}}}." ,res1 : "Erz"},
 			{art : "G",Karte : "13", Punkt: "Krone", typ : "Person", name : "König", "Stichbonus" : "Stichbonus: sticht alle Karten mit {{{krone}}}." ,res1 : "Getreide"},
 			
-			{art : "G",Karte : "2", typ: "Dorf", name: "Siedler",Stichbonus: "{{{haus}}}{{{krone}}} +1 oder -1/+2 für ein {{{holz}}}",res1: "Getreide",Punkt: "Krone"},
-			{art : "G",Karte : "3", typ: "Dorf", name: "grosse Ernte", res1: "Getreide", res2: "Getreide",Stichbonus: "{{{haus}}}{{{krone}}} +1 oder -1/+2 für ein {{{holz}}}"},
-			{art : "G",Karte : "4", typ: "Dorf", name: "Bauernhof", Stichbonus: "{{{haus}}}{{{krone}}} +1 oder -1/+2 für ein {{{holz}}}",res1: "Getreide"},
+			{art : "G",Karte : "2", typ: "Dorf", name: "Siedler",Stichbonus: "{{{haus}}}{{{krone}}} +1 oder -1/+2 für ein {{{getreide}}}",res1: "Getreide",Punkt: "Krone"},
+			{art : "G",Karte : "3", typ: "Dorf", name: "Missernte", Nachteil : "{{{getreide}}} -1"},
+			{art : "G",Karte : "4", typ: "Dorf", name: "Bauernhof", Stichbonus: "{{{haus}}}{{{krone}}} +1 oder -1/+2 für ein {{{getreide}}}",res1: "Getreide"},
 			{code: "Df5", art : "G",Karte : "5", typ: "Dorf", name: "Bauernhof", Kosten: "2 {{{holz}}}, 1 {{{stein}}}, 1 {{{erz}}}", Vorteil: "jede Runde: {{{getreide}}} +1" ,res1: "Holz",res2: "Getreide"},
 			{code: "Df6", art : "G",Karte : "6", typ: "Dorf", name: "Bauernhof", Kosten: "2 {{{holz}}}, 1 {{{stein}}}, 1 {{{erz}}}", Vorteil: "jede Runde: {{{getreide}}} +1",res1: "Getreide",res2: "Holz"},
 			{code: "Df7", art : "G",Karte : "7", typ: "Dorf", Punkt: "Krone", name: "grosser Hof", Kosten: "1 {{{erz}}}, 4 {{{holz}}}, 2 {{{stein}}}", Vorteil: "jede Runde: {{{getreide}}} +2" ,res1: "Getreide"},
 			{code: "Df8", art : "G",Karte : "8", typ: "Dorf", Punkt: "Krone", name: "grosser Hof", Kosten: "1 {{{erz}}}, 4 {{{holz}}}, 2 {{{stein}}}", Vorteil: "jede Runde: {{{getreide}}} +2" ,res1: "Getreide"},
 			{code: "Df9", art : "G",Karte : "9", typ: "Dorf", Punkt: "Krone", name: "Kloster", Vorteil: "Resourcenauswertung: Bev+1" , Kosten: "6 {{{stein}}}, 6 {{{holz}}}", res1: "Holz" },
-			{code: "Df10", art : "G",Karte : "10", typ: "Dorf", Punkt: "Krone" , name: "Fürstensitz", Kosten: "6 {{{stein}}}, 6 {{{holz}}}", Vorteil: "Handkarten ziehen: 2 Karten nachziehen und 2 ablegen."  ,res1: "1",res2: "1",art2: "E"},
-			{art : "H",Karte : "2", typ: "Markt", Punkt: "cross", name: "Frondienst",res1: "-1",res2: "-1",art2: "G"},
-			{art : "H",Karte : "3", typ: "Markt", Punkt: "cross", name: "Barbaren", Aktion: "", Vorteil: "" ,res1: "-1",res2: "-1",art2: "E"},
-			{code: "Mk4", art : "H",Karte : "4", typ: "Markt", name: "Aufforstung", Aktion: "Kosten: 3 {{{holz}}}, 1 {{{erz}}}", Vorteil: "Bauvorteil: jede Runde: {{{holz}}}+1" ,res1: "1",res2: "1",art2: "S"},
-			{code: "Mk5", art : "H",Karte : "5", typ: "Markt", name: "Trockenleg.", Aktion: "Kosten: 4 {{{holz}}}, 1 {{{erz}}}", Vorteil: "Bauvorteil: jede Runde: {{{holz}}}+1, {{{stein}}}+1" ,res1: "1",res2: "1",art2: "S"},
-			{code: "Mk6", art : "H",Karte : "6", typ: "Markt", name: "Marktplatz", Aktion: "Kosten: 6 {{{holz}}}, 2 {{{erz}}}", Vorteil: "Bauvorteil: jede Runde: Resourcen können 1:1 gegen {{{getreide}}} getauscht werden",res1: "1",res2: "1",art2: "E"},
-			{code: "Mk7", art : "H",Karte : "7", typ: "Markt", name: "Flösserei", Aktion: "Kosten: 5 {{{holz}}}, 1 {{{stein}}}", Vorteil: "Bauvorteil: jede Runde: {{{holz}}} kann 1:1 gegen andere Resourcen geatuscht werden." ,res1: "3"},
-			{code: "Mk8", art : "H",Karte : "8", typ: "Markt", Punkt: "cross", name: "Mühle", Aktion: "Kosten: 4 {{{stein}}}, 4 {{{erz}}}", Vorteil: "Bauvorteil: jede Runde: {{{getreide}}} +3" ,res1: "1",res2: "1",art2: "S"},
-			{code: "Mk9", art : "H",Karte : "9", typ: "Markt", Punkt: "cross",name: "Klosterkirche", Aktion: "Kosten: 8 {{{holz}}}, 6 {{{stein}}}", Vorteil: "Bauvorteil: Endauswertung: 2 Ruhmpunkte extra"  ,res1: "1",res2: "1",art2: "G"  },
+			{code: "Df10", art : "G",Karte : "10", typ: "Dorf", Punkt: "Krone" , name: "Fürstensitz", Kosten: "6 {{{stein}}}, 6 {{{holz}}}", Vorteil: "Handkarten ziehen: 2 Karten nachziehen und 2 ablegen."  ,res1: "Getreide",res2: "Erz"},
 
-			{art : "S",Karte : "2", typ: "Stadt", Punkt: "book", name: "Kriegsarmee", Aktion: "", Vorteil: "",res1: "-1",res2: "-1",art2: "G"},
-			{art : "S",Karte : "3", typ: "Stadt", Punkt: "cross", name: "Armeeeinzug", Aktion: "", Vorteil: "Nachteil: Bev: -1" ,res1: "",res2: "-1",art2: "E"},
-			{code: "St4", art : "S",Karte : "4", typ: "Stadt", name: "Erzmine", Aktion: "Kosten: 3 {{{erz}}}, 2 {{{stein}}}", Vorteil: "jede Runde: {{{erz}}}+1" ,res1: "1",res2: "1",art2: "E"},
-			{code: "St5", art : "S",Karte : "5", typ: "Stadt", Punkt: "cross", name: "Kaserne", Aktion: "Kosten: 3 {{{erz}}}, 2 {{{stein}}}", Vorteil: "jede Runde: {{{erz}}}+1." ,res1: "1",res2: "2",art2: "H"},
-			{code: "St6", art : "S",Karte : "6", typ: "Stadt", Punkt: "Krone", name: "Reiterhof", Aktion: "Kosten: 3 {{{erz}}}, 2 {{{stein}}}", Vorteil: "Bauvorteil: jede Runde: 1 Warenkarte von linken nachbarn nehmen.",res1: "1",res2: "1",art2: "E"},
-			{code: "St7", art : "S",Karte : "7", typ: "Stadt", Punkt: "Krone", name: "Atilerie", Aktion: "Kosten: 5 {{{erz}}}, 1 {{{stein}}}", Vorteil: "Bauvorteil: jede Runde: 1 Warenkarte von rechtem Nachbarn nehmen." ,res1: "3"},
-			{code: "St8", art : "S",Karte : "8", typ: "Stadt", name: "Generalsitz", Aktion: "Kosten: 4 {{{stein}}}, 4 {{{erz}}}", Vorteil: "Bauvorteil: Rundenauswertung: 2 Punkte extra" ,res1: "1",res2: "1",art2: "E"},
-			{code: "St9", art : "S",Karte : "9", typ: "Stadt", name: "Residenz", Aktion: "Kosten: 6 {{{stein}}}, 6 {{{holz}}}", Vorteil: "Bauvorteil: Rundenauswertung: 3 Punkte extra"  ,res1: "1",res2: "1",art2: "G"},
+			{art : "H",Karte : "2", typ: "Markt", name: "Frondienst", Nachteil : "{{{holz}}} -1"},
+			{art : "H",Karte : "3", typ: "Markt", name: "Siedler",Stichbonus: "{{{haus}}}{{{krone}}} +1 oder -1/+2 für ein {{{holz}}}",res1: "Getreide",Punkt: "cross"},
+			{art : "H",Karte : "4", typ: "Markt", name: "Bauernhof", Stichbonus: "{{{haus}}}{{{krone}}} +1 oder -1/+2 für ein {{{holz}}}",res1: "Getreide"},
+			{code: "Mk5", art : "H",Karte : "5", typ: "Markt", name: "Trockenleg.", Kosten: "4 {{{holz}}}, 1 {{{erz}}}", Vorteil: "Bauvorteil: jede Runde: {{{holz}}}+1, {{{stein}}}+1" ,res1: "holz",res2: "Stein"},
+			{code: "Mk6", art : "H",Karte : "6", typ: "Markt", name: "Marktplatz", Kosten: "6 {{{holz}}}, 2 {{{erz}}}", Vorteil: "Bauvorteil: jede Runde: Resourcen können 1:1 gegen {{{getreide}}} getauscht werden",res1: "holz",res2: "Erz"},
+			{code: "Mk7", art : "H",Karte : "7", typ: "Markt", name: "Flösserei", Kosten: "5 {{{holz}}}, 1 {{{stein}}}", Vorteil: "Bauvorteil: jede Runde: {{{holz}}} kann 1:1 gegen andere Resourcen geatuscht werden." ,res1: "holz"},
+			{code: "Mk8", art : "H",Karte : "8", typ: "Markt", Punkt: "cross", name: "Mühle", Kosten: "4 {{{stein}}}, 4 {{{erz}}}", Vorteil: "Bauvorteil: jede Runde: {{{getreide}}} +3" ,res1: "holz",res2: "Stein"},
+			{code: "Mk9", art : "H",Karte : "9", typ: "Markt", Punkt: "cross",name: "Klosterkirche", Kosten: " 8 {{{holz}}}, 6 {{{stein}}}", Vorteil: "Bauvorteil: Endauswertung: 2 Ruhmpunkte extra"  ,res1: "holz",res2: "Getreide"  },
 
-			{code: "Gs3", art : "E",Karte : "3", typ: "Großstadt", Punkt: "book", name: "Übernahme", Aktion: "", Vorteil: "" ,res1: "-1",res2: "-1",art2: "S"},
-			{code: "Gs5", art : "E",Karte : "5", typ: "Großstadt", Punkt: "book", name: "Trockenleg.", Aktion: "", Vorteil: "jede Runde: {{{holz}}}+1, Karte zu Gebäuden legen." ,res1: "1",res2: "2",art2: "S"},
-			{code: "Gs6", art : "E",Karte : "6", typ: "Großstadt", name: "Sägewerk", Aktion: "Kosten: 3 {{{holz}}}, 1 {{{erz}}}", Vorteil: "Bauvorteil: jede Runde: {{{holz}}} +1",res1: "1",res2: "1",art2: "S"},
-			{code: "Gs7", art : "E",Karte : "7", typ: "Großstadt", name: "Flösserei", Aktion: "Kosten: 5 {{{holz}}}, 1 {{{stein}}}", Vorteil: "Bauvorteil: jede Runde: {{{holz}}} +2" ,res1: "3"},
-			{code: "Gs8", art : "E",Karte : "8", typ: "Großstadt", Punkt: "Krone", name: "Residenz", Aktion: "Kosten: 6 {{{stein}}}, 6 {{{holz}}}", Vorteil: "jede Runde: Alle Dorf und Marktspieler müssen dir eine Resource ihrer Wahl abgeben. ",res1: "-1",res2: "-1",art2: "G"},
-			{code: "Gs9", art : "E",Karte : "9", typ: "Großstadt", Punkt: "Krone", name: "Mühle", Aktion: "Kosten: 4 {{{stein}}}, 4 {{{erz}}}", Vorteil: "Bauvorteil: jede Runde: {{{getreide}}} +3" ,res1: "1",res2: "1",art2: "S"},
-			{code: "Gs10", art : "E",Karte : "10", typ: "Großstadt", Punkt: "cross", name: "Kloster", Aktion: "Kosten: 6 {{{stein}}}, 6 {{{holz}}}", Vorteil: "Bauvorteil: Endauswertung: 2 Ruhmpunkte extra"  ,res1: "1",res2: "1",art2: "G", pagebreak: "pagebreak"}
+			{art : "H",Karte : "2", typ: "Stadt", name: "Barbaren", Nachteil : "{{{stein}}} -1"},
+			{art : "H",Karte : "3", typ: "Stadt", name: "Siedler",Stichbonus: "{{{haus}}}{{{krone}}} +1 oder -1/+2 für ein {{{stein}}}",res1: "Getreide",Punkt: "cross"},
+			{art : "H",Karte : "4", typ: "Stadt", name: "Bauernhof", Stichbonus: "{{{haus}}}{{{krone}}} +1 oder -1/+2 für ein {{{stein}}}",res1: "Getreide"},
+			{code: "St5", art : "S",Karte : "5", typ: "Stadt", Punkt: "cross", name: "Kaserne", Kosten: "3 {{{erz}}}, 2 {{{stein}}}", Vorteil: "jede Runde: {{{erz}}}+1." ,res1: "Stein",res2: "Holz"},
+			{code: "St6", art : "S",Karte : "6", typ: "Stadt", Punkt: "Krone", name: "Reiterhof", Kosten: "3 {{{erz}}}, 2 {{{stein}}}", Vorteil: "Bauvorteil: jede Runde: 1 Warenkarte von linken nachbarn nehmen.",res1: "Stein",res2: "Erz"},
+			{code: "St7", art : "S",Karte : "7", typ: "Stadt", Punkt: "Krone", name: "Atilerie", Kosten: "5 {{{erz}}}, 1 {{{stein}}}", Vorteil: "Bauvorteil: jede Runde: 1 Warenkarte von rechtem Nachbarn nehmen." ,res1: "Stein"},
+			{code: "St8", art : "S",Karte : "8", typ: "Stadt", name: "Generalsitz", Kosten: "4 {{{stein}}}, 4 {{{erz}}}", Vorteil: "Bauvorteil: Rundenauswertung: 2 Punkte extra" ,res1: "Stein",res2: "Erz"},
+			{code: "St9", art : "S",Karte : "9", typ: "Stadt", name: "Residenz", Kosten: "6 {{{stein}}}, 6 {{{holz}}}", Vorteil: "Bauvorteil: Rundenauswertung: 3 Punkte extra"  ,res1: "Stein",res2: "Getreide"},
+
+			{art : "E",Karte : "2", typ: "Großstadt", name: "Kriegsdienst", Nachteil : "{{{erz}}} -1"},
+			{art : "E",Karte : "3", typ: "Großstadt", name: "Siedler",Stichbonus: "{{{haus}}}{{{krone}}} +1 oder -1/+2 für ein {{{erz}}}",res1: "Getreide",Punkt: "cross"},
+			{art : "E",Karte : "4", typ: "Großstadt", name: "Bauernhof", Stichbonus: "{{{haus}}}{{{krone}}} +1 oder -1/+2 für ein {{{erz}}}",res1: "Getreide"},
+			{code: "Gs5", art : "E",Karte : "5", typ: "Großstadt", Punkt: "book", name: "Trockenleg.",  Vorteil: "jede Runde: {{{holz}}}+1, Karte zu Gebäuden legen." ,res1: "Erz",res2: "Stein",art2: "S"},
+			{code: "Gs6", art : "E",Karte : "6", typ: "Großstadt", name: "Sägewerk", Kosten: "3 {{{holz}}}, 1 {{{erz}}}", Vorteil: "Bauvorteil: jede Runde: {{{holz}}} +1",res1: "Erz",res2: "Stein",art2: "S"},
+			{code: "Gs7", art : "E",Karte : "7", typ: "Großstadt", name: "Flösserei", Kosten: "5 {{{holz}}}, 1 {{{stein}}}", Vorteil: "Bauvorteil: jede Runde: {{{holz}}} +2" ,res1: "Erz"},
+			{code: "Gs8", art : "E",Karte : "8", typ: "Großstadt", Punkt: "Krone", name: "Residenz", Kosten: "6 {{{stein}}}, 6 {{{holz}}}", Vorteil: "jede Runde: Alle Dorf und Marktspieler müssen dir eine Resource ihrer Wahl abgeben. ",res1: "Erz",res2: "Getreide"},
+			{code: "Gs9", art : "E",Karte : "9", typ: "Großstadt", Punkt: "Krone", name: "Mühle", Kosten: "4 {{{stein}}}, 4 {{{erz}}}", Vorteil: "Bauvorteil: jede Runde: {{{getreide}}} +3" ,res1: "Erz",res2: "Stein"},
+			{code: "Gs10", art : "E",Karte : "10", typ: "Großstadt", Punkt: "cross", name: "Kloster", Kosten: "6 {{{stein}}}, 6 {{{holz}}}", Vorteil: "Bauvorteil: Endauswertung: 2 Ruhmpunkte extra"  ,res1: "Erz",res2: "Getreide"}
 
 			]};
 		</script>
@@ -180,7 +183,7 @@
 		</div>
 
 		{{#code}}
-			<span style="width: 30px;font-size: 18px;text-align: center; position: absolute; margin-top: 125px;margin-left: 120px;border: 1px dotted black">{{code}}</span>
+			<span style="width: 40px;font-size: 18px;text-align: center; position: absolute; margin-top: 125px;margin-left: 110px;border: 1px dotted black">{{code}}</span>
 		{{/code}}
 		{{#Punkt}}
 		<img src="img/CHR/{{Punkt}}.png" style="border-radius: 30px;border: 2px solid brown;background-color: white;width:36px;height:36px;position: absolute; margin-top: 235px;margin-left: 1px;"/>
