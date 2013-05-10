@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+	<title>Dschungel</title>
+	<link href="css/normalize.css" rel="stylesheet" ="text/css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script src="js/mustache.js"></script>
+	<script>
+			var overview = {"cards": [
+			{name : "Start", color : "H", Aktion: "<br/>nach Erreichen eines Ziels mit Schlüssel, hier neu starten."},
+			{name : "Hängebrücke", Aktion: "Mit einem riesiegen Edelstein kommst du nicht über die Hängebrücke.", warn:"Edelstein", bgc: "gelb" },
+			{name : "Hängebrücke", Aktion: "Mit einem riesiegen Edelstein kommst du nicht über die Hängebrücke.", warn:"Edelstein", bgc: "gelb" },
+			{name : "Hängebrücke", Aktion: "Mit einem riesiegen Edelstein kommst du nicht über die Hängebrücke.", warn:"Edelstein", bgc: "gelb" },
+			{name : "Hängebrücke", Aktion: "Mit einem riesiegen Edelstein kommst du nicht über die Hängebrücke.", warn:"Edelstein", bgc: "gelb" },
+			{name : "Hängebrücke", Aktion: "Mit einem riesiegen Edelstein kommst du nicht über die Hängebrücke.", warn:"Edelstein", bgc: "gelb" },
+			{name : "Schlange", Aktion: "Bei jedem Betreten wirst du gebissen. 1 Gegengift abgeben, sonst tot.", warn:"Gegengift"},
+			{name : "Schlange", Aktion: "Bei jedem Betreten wirst du gebissen. 1 Gegengift abgeben, sonst tot.", warn:"Gegengift"},
+			{name : "Schlange", Aktion: "Bei jedem Betreten wirst du gebissen. 1 Gegengift abgeben, sonst tot.", warn:"Gegengift"},
+			{name : "Schlange", Aktion: "Bei jedem Betreten wirst du gebissen. 1 Gegengift abgeben, sonst tot.",hor: "true", warn:"Gegengift"},
+			{name : "Schlange", Aktion: "Bei jedem Betreten wirst du gebissen. 1 Gegengift abgeben, sonst tot.",ver: "true", warn:"Gegengift"},
+			{name : "Kannibale", Aktion: "Bei jedem Betreten wirst du vom Speer getroffen. 1 Verband abgeben, sonst tot.",hor: "true", warn:"Verband"},
+			{name : "Kannibale", Aktion: "Bei jedem Betreten wirst du vom Speer getroffen. 1 Verband abgeben, sonst tot.",ver: "true", warn:"Verband"},
+			{name : "Kannibale", Aktion: "Bei jedem Betreten wirst du vom Speer getroffen. 1 Verband abgeben, sonst tot.", warn:"Verband"},
+			{name : "Kannibale", Aktion: "Bei jedem Betreten wirst du vom Speer getroffen. 1 Verband abgeben, sonst tot.", warn:"Verband"},
+			{name : "Kannibale", Aktion: "Bei jedem Betreten wirst du vom Speer getroffen. 1 Verband abgeben, sonst tot.", warn:"Verband", pagebreak: "pagebreak"},
+			{name : "Verband", Aktion: "heilt eine Speerwunde der Kannibalen.",hor: "true", imgclass:"symbol"},
+			{name : "Verband", Aktion: "heilt eine Speerwunde der Kannibalen.",hor: "true",ver: "true", imgclass:"symbol"},
+			{name : "Gegengift", Aktion: "heilt einen Schlangenbiss.",ver: "true", imgclass:"symbol"},
+			{name : "Gegengift", Aktion: "heilt einen Schlangenbiss.",hor: "true",ver: "true", imgclass:"symbol"},
+			{name : "Machete", Aktion: "Man kann einmal durch eine Dschungelwand gehen.",ver: "true", imgclass:"symbol"},
+			{name : "Machete", Aktion: "Man kann einmal durch eine Dschungelwand gehen.",hor: "true",ver: "true", imgclass:"symbol"},
+			{name : "Lasso", Aktion: "Mit dem Lasso kann man einmal ein Feld und alle Wände überspringen.",ver: "true", imgclass:"symbol"},
+			{name : "Lasso", Aktion: "Mit dem Lasso kann man einmal ein Feld und alle Wände überspringen.",hor: "true",ver: "true", imgclass:"symbol"},
+			{name : "Weg", Aktion: "",ver: "true"},
+			{name : "Weg", Aktion: "",ver: "true"},
+			{name : "Weg", Aktion: "",ver: "true"},
+			{name : "Weg", Aktion: "",ver: "true"},
+			{name : "Weg", Aktion: "",ver: "true"},
+			{name : "Weg", Aktion: "",ver: "true"},
+			{name : "Weg", Aktion: "",ver: "true"},
+			{name : "Höhle", Aktion: "Durch die Höhle kann man direkt zu anderen Höhlen gehen.",ver: "true"},
+			{name : "Höhle", Aktion: "Durch die Höhle kann man direkt zu anderen Höhlen gehen."},
+			{name : "Höhle", Aktion: "Durch die Höhle kann man direkt zu anderen Höhlen gehen.",hor: "true"},
+			{name : "Weg", Aktion: "",hor: "true"},
+			{name : "Weg", Aktion: "",hor: "true"},
+			{name : "Weg", Aktion: "",hor: "true"},
+			{name : "Weg", Aktion: "",hor: "true"},
+			{name : "Weg", Aktion: "",hor: "true"},
+			{name : "Weg", Aktion: "",hor: "true"},
+			{name : "Weg", Aktion: "",hor: "true"},
+			{name : "Schatz", Aktion: "Wenn du alle 3 Edelsteine bei ihren Wächtern liegen hast, findest du hier den goldenen Panther."},
+			{name : "Rubin", Aktion: "1 riesigen Rubin gefunden. Bringe ihn zur richtigen Statue.", imgclass:"symbol"},
+			{name : "Smaragd", Aktion: "1 riesigen Smaragd gefunden. Bringe ihn zur richtigen Statue.",ver: "true", imgclass:"symbol"},
+			{name : "Saphir", Aktion: "1 riesigen Saphir gefunden. Bringe ihn zur richtigen Statue.",hor: "true", imgclass:"symbol"},
+			{name : "Statue", color : "H",Aktion: "Bring den riesigen <b>Rubin</b> hierher.", warn:"Rubin", bgc:"blue"},
+			{name : "Statue", color : "H",Aktion: "Bring den riesigen <b>Smaragd</b> hierher.", warn:"Smaragd", bgc:"blue"},
+			{name : "Statue", color : "H", Aktion: "Bring den riesigen <b>Saphir</b> hierher.", warn:"Saphir", bgc:"blue", pagebreak: "pagebreak"},
+			{name : "Machete", Aktion: "Man kann einmal durch eine Dschungelwand gehen.",hor: "true", imgclass:"symbol"},
+			{name : "Modus",  color : "S", Aktion: "<b>Einfach</b>: Start: (Rot/Grün), Inventar: unbegrenzt. Im Ziel: alle freien Felder auffüllen."},
+			{name : "Modus",  color : "S", Aktion: "<b>Normal</b>: Start: (Rot/Grün), Inventar: max. 4 Dinge. Im Ziel: 2 Felder auffüllen. ABC beachten."},
+			{name : "Modus",  color : "S", Aktion: "<b>Schwer</b>: Start: 1 Ding, Inventar: 3 Dinge. Im Ziel: 1 Feld auffüllen. ABC beachten."},
+			{name : "Modus",  color : "S", Aktion: "<b>Extrem</b>: Start: nichts, Inventar: max. 2 Dinge. Im Ziel: nichts. ABC beachten."}
+			]}
+		</script>
+		<script src="js/data2.js"></script>
+<style type="text/css">
+	body, * {
+		font-size: 14px;
+		font-family: 'Nobile', arial, serif;
+	}
+
+	.card {
+		margin:1px; 
+		float:left;
+		width: 160px;
+		height: 210px;
+		border: 1px solid black;
+		background-image: url("img/TIG/backsmall.png") ;
+	}
+	.key{ font-size: 14pt;}
+	.H { background-color: #CCFFCC;
+		 -webkit-print-color-adjust: exact;
+	}          
+	.S { background-color: #FFCCCC;
+		 -webkit-print-color-adjust: exact;
+	}          
+          
+	.E { background-color: #FFCCCC;
+		 -webkit-print-color-adjust: exact;
+	}                    
+	.G { background-color: #FFFFCC;
+		 -webkit-print-color-adjust: exact;
+	}   
+	.symbol {
+		border: 3px solid green;
+		padding: 3px;
+		border-radius: 50px;
+		background-color: #6f0;
+		margin-left: 20px;
+		width: 80px;
+		height: 80px;
+	}
+	.symbol img {
+		margin-top: 10px;
+		margin-left: 10px;
+		width: 60px;
+		height: 60px;
+	}
+	.warn {
+		border: 3px solid orange;
+		padding: 3px;
+		border-radius: 50px;
+		background-color: #f60;
+		margin-left: 120px;
+		width: 30px;
+		height: 30px;
+		z-index: 10;
+	}
+	.warn img {
+		margin-top: 5px;
+		margin-left: 5px;
+		width: 20px;
+		height: 20px;
+		z-index: 11;
+	}
+	.bgc-blue{
+		border: 3px solid blue;
+		background-color: #39c;
+	}
+	.bgc-gelb{
+		border: 3px solid #fc0;
+		background-color: #ff0;
+	}
+</style>      
+</head>       
+<body>        
+	<div id="content"></div>
+	<div id="template" style="display: none">
+		{{#cards}}
+		<div  class="card {{color}}">
+		
+		<div style="position: absolute; ">
+			<div style="position: absolute; margin-left: 3px;font-size: 14px;font-weight: bold;top: 5px; left: 5px;width:140px;text-align: center;background-color: white">{{name}} </div>
+			<div class="{{imgclass}}" style="position: absolute; top: 30px;left: 10px;"><img alt="picture" src="img/tig2/{{name}}.png" ></div>
+			{{#warn}}<div class="warn bgc-{{bgc}}" style="position: absolute; top: 100px;left: -25px;"><img alt="picture" src="img/tig2/{{warn}}.png" ></div>{{/warn}}
+			{{#hor}}<img alt="picture" src="img/TIG/horiz.jpg" style="position: absolute; width:160px; height: 20px;top: 190px;">{{/hor}}
+			{{#ver}}<img alt="picture" src="img/TIG/vertic.jpg" style="position: absolute; left: 140px; width:20px; height: 210px;top: 0px;">{{/ver}}
+			<div style="position: absolute;width: 120px; top: 150px; left: 10px;text-align:center;font-size: 9px;background-color: white">
+			{{{Aktion}}}			  
+			</div>
+		</div>
+              
+		</div>
+		{{#pagebreak}}<div class="pagebreak" style="width: 600px">page-break</div>{{/pagebreak}}
+		{{/cards}}
+              
+</body>       
+</html>       
+              
