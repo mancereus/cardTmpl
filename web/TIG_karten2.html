@@ -8,12 +8,12 @@
 	<script src="js/mustache.js"></script>
 	<script>
 			var overview = {"cards": [
-			{name : "Start", color : "H", Aktion: "<br/>nach Erreichen eines Ziels mit Schlüssel, hier neu starten."},
-			{name : "Hängebrücke", Aktion: "Mit einem riesiegen Edelstein kommst du nicht über die Hängebrücke.", warn:"Edelstein", bgc: "gelb" },
-			{name : "Hängebrücke", Aktion: "Mit einem riesiegen Edelstein kommst du nicht über die Hängebrücke.", warn:"Edelstein", bgc: "gelb" },
-			{name : "Hängebrücke", Aktion: "Mit einem riesiegen Edelstein kommst du nicht über die Hängebrücke.", warn:"Edelstein", bgc: "gelb" },
-			{name : "Hängebrücke", Aktion: "Mit einem riesiegen Edelstein kommst du nicht über die Hängebrücke.", warn:"Edelstein", bgc: "gelb" },
-			{name : "Hängebrücke", Aktion: "Mit einem riesiegen Edelstein kommst du nicht über die Hängebrücke.", warn:"Edelstein", bgc: "gelb" },
+			{name : "Start", color : "H", Aktion: "Bringe die drei Edelsteine zu ihren Wächtern, um den goldenen Panther zu holen."},
+			{name : "Hängebrücke", Aktion: "Mit einem riesigen Edelstein kommst du nicht über die Hängebrücke.", warn:"Edelstein", bgc: "gelb" },
+			{name : "Hängebrücke", Aktion: "Mit einem riesigen Edelstein kommst du nicht über die Hängebrücke.", warn:"Edelstein", bgc: "gelb" },
+			{name : "Hängebrücke", Aktion: "Mit einem riesigen Edelstein kommst du nicht über die Hängebrücke.", warn:"Edelstein", bgc: "gelb" },
+			{name : "Hängebrücke", Aktion: "Mit einem riesigen Edelstein kommst du nicht über die Hängebrücke.", warn:"Edelstein", bgc: "gelb" },
+			{name : "Hängebrücke", Aktion: "Mit einem riesigen Edelstein kommst du nicht über die Hängebrücke.", warn:"Edelstein", bgc: "gelb" },
 			{name : "Schlange", Aktion: "Bei jedem Betreten wirst du gebissen. 1 Gegengift abgeben, sonst tot.", warn:"Gegengift"},
 			{name : "Schlange", Aktion: "Bei jedem Betreten wirst du gebissen. 1 Gegengift abgeben, sonst tot.", warn:"Gegengift"},
 			{name : "Schlange", Aktion: "Bei jedem Betreten wirst du gebissen. 1 Gegengift abgeben, sonst tot.", warn:"Gegengift"},
@@ -39,7 +39,7 @@
 			{name : "Weg", Aktion: "",ver: "true"},
 			{name : "Weg", Aktion: "",ver: "true"},
 			{name : "Weg", Aktion: "",ver: "true"},
-			{name : "Höhle", Aktion: "Durch die Höhle kann man direkt zu anderen Höhlen gehen.",ver: "true"},
+			{name : "Höhle", Aktion: "Durch die Höhle kann man direkt zu anderen Höhlen gehen.",ver: "true", pagebreak: "pagebreak"},
 			{name : "Höhle", Aktion: "Durch die Höhle kann man direkt zu anderen Höhlen gehen."},
 			{name : "Höhle", Aktion: "Durch die Höhle kann man direkt zu anderen Höhlen gehen.",hor: "true"},
 			{name : "Weg", Aktion: "",hor: "true"},
@@ -57,10 +57,29 @@
 			{name : "Statue", color : "H",Aktion: "Bring den riesigen <b>Smaragd</b> hierher.", warn:"Smaragd", bgc:"blue"},
 			{name : "Statue", color : "H", Aktion: "Bring den riesigen <b>Saphir</b> hierher.", warn:"Saphir", bgc:"blue", pagebreak: "pagebreak"},
 			{name : "Machete", Aktion: "Man kann einmal durch eine Dschungelwand gehen.",hor: "true", imgclass:"symbol"},
-			{name : "Modus",  color : "S", Aktion: "<b>Einfach</b>: Start: (Rot/Grün), Inventar: unbegrenzt. Im Ziel: alle freien Felder auffüllen."},
-			{name : "Modus",  color : "S", Aktion: "<b>Normal</b>: Start: (Rot/Grün), Inventar: max. 4 Dinge. Im Ziel: 2 Felder auffüllen. ABC beachten."},
-			{name : "Modus",  color : "S", Aktion: "<b>Schwer</b>: Start: 1 Ding, Inventar: 3 Dinge. Im Ziel: 1 Feld auffüllen. ABC beachten."},
-			{name : "Modus",  color : "S", Aktion: "<b>Extrem</b>: Start: nichts, Inventar: max. 2 Dinge. Im Ziel: nichts. ABC beachten."}
+			{name : "Verband", Aktion: "heilt eine Speerwunde der Kannibalen.",hor: "true", imgclass:"symbol"},
+			{name : "Gegengift", Aktion: "heilt einen Schlangenbiss.",ver: "true", imgclass:"symbol"},
+			{name : "Modus: Einfach",  color : "S", top: "top", Aktion: "Start: 3 bel. Gegenstände <br/>Inventar: unbegrenzt. <br/>Edelstein fertig: alle freien Gegenstände auffüllen."},
+			{name : "Modus: Normal",  color : "S", top: "top", Aktion: "Start: 1 Verband, 1 Gegengift  <br/>Inventar: max. 4 Dinge. <br/>Edelstein fertig: 2 Felder auffüllen. "},
+			{name : "Modus: Schwer",  color : "S", top: "top", Aktion: "Start: 1 Gegenstand, <br/>Inventar: 3 Dinge. <br/>Edelstein fertig: 1 Feld auffüllen. "},
+			{name : "Modus: Extrem",  color : "S", top: "top", Aktion: "Start: nichts, <br/>Inventar: max. 2 Dinge. <br/>Edelstein fertig: nichts."}
+			],
+			symbols: [
+				{name: "Rubin"},
+				{name: "Smaragd"},
+				{name: "Saphir"},
+				{name: "Verband"},
+				{name: "Verband"},
+				{name: "Verband"},
+				{name: "Gegengift"},
+				{name: "Gegengift"},
+				{name: "Gegengift"},
+				{name: "Machete"},
+				{name: "Machete"},
+				{name: "Machete"},
+				{name: "Lasso"},
+				{name: "Lasso"},
+				{name: "Lasso"},
 			]}
 		</script>
 		<script src="js/data2.js"></script>
@@ -132,13 +151,28 @@
 		border: 3px solid #fc0;
 		background-color: #ff0;
 	}
+	.text {
+		position: absolute;
+		width: 120px; 
+		top: 150px; 
+		left: 10px;
+		text-align:center;
+		font-size: 9px;
+		background-color: white
+	}
+	.top {
+		top: 50px; 
+		height: 120px;
+		text-align: left;
+		
+	}
 </style>      
 </head>       
 <body>        
 	<div id="content"></div>
 	<div id="template" style="display: none">
 		{{#cards}}
-		<div  class="card {{color}}">
+		<div style="position: relative;" class="card {{color}}">
 		
 		<div style="position: absolute; ">
 			<div style="position: absolute; margin-left: 3px;font-size: 14px;font-weight: bold;top: 5px; left: 5px;width:140px;text-align: center;background-color: white">{{name}} </div>
@@ -146,14 +180,17 @@
 			{{#warn}}<div class="warn bgc-{{bgc}}" style="position: absolute; top: 100px;left: -25px;"><img alt="picture" src="img/tig2/{{warn}}.png" ></div>{{/warn}}
 			{{#hor}}<img alt="picture" src="img/TIG/horiz.jpg" style="position: absolute; width:160px; height: 20px;top: 190px;">{{/hor}}
 			{{#ver}}<img alt="picture" src="img/TIG/vertic.jpg" style="position: absolute; left: 140px; width:20px; height: 210px;top: 0px;">{{/ver}}
-			<div style="position: absolute;width: 120px; top: 150px; left: 10px;text-align:center;font-size: 9px;background-color: white">
+			<div class="text {{top}}">
 			{{{Aktion}}}			  
 			</div>
 		</div>
               
 		</div>
-		{{#pagebreak}}<div class="pagebreak" style="width: 600px">page-break</div>{{/pagebreak}}
+		{{#pagebreak}}<div class="pagebreak" style="width: 600px; page-break-after: always">page-break</div>{{/pagebreak}}
 		{{/cards}}
+		{{#symbols}}
+			<span class="symbol" style="width:80px;height:80px;float:left;margin-bottom: 10px;"><img alt="picture" src="img/tig2/{{name}}.png" ></span>
+		{{/symbols}}
               
 </body>       
 </html>       
