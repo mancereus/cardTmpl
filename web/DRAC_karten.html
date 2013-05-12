@@ -2,64 +2,94 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
-<title>Stadtchronik</title>
+<title>Dracula</title>
 <link href="css/style.css" rel="stylesheet" ="text/css" />
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 		<script src="js/mustache.js"></script>
 		<script>
 			var overview = {"cards": [
-			{name: "Eingang", "cardclass" : "H", Aktion : "Jonathan Harker betritt das Schloss des Grafen auf der Suche nach Mina."},
-			{name: "Gruft", Aktion : "In der Gruft steht ein Sarg. Liegt ein Vampir darin beisst er dich."},
-			{name: "Gruft", Aktion : "In der Gruft steht ein Sarg. Liegt ein Vampir darin beisst er dich."},
-			{name: "Gruft", Aktion : "In der Gruft steht ein Sarg. Liegt ein Vampir darin beisst er dich."},
-			{name: "Gruft", Aktion : "In der Gruft steht ein Sarg. Liegt ein Vampir darin beisst er dich."},
-			{name: "Gruft", Aktion : "In der Gruft steht ein Sarg. Liegt ein Vampir darin beisst er dich."},
-			{name: "Gruft", Aktion : "In der Gruft steht ein Sarg. Liegt ein Vampir darin beisst er dich."},
-			{name: "Vampir", Ding:"yellow", Aktion : "Der Vampir zieht in eine freie Gruft. Sind alle Grüfte belegt, bleibt er hier.", hwall : "wall" },
-			{name: "Vampir", Ding:"yellow", Aktion : "Der Vampir zieht in eine freie Gruft. Sind alle Grüfte belegt, bleibt er hier.", hwall : "wall" },
-			{name: "Vampir", Ding:"yellow", Aktion : "Der Vampir zieht in eine freie Gruft. Sind alle Grüfte belegt, bleibt er hier.", hwall : "wall" },
-			{name: "Vampir", Ding:"yellow", Aktion : "Der Vampir zieht in eine freie Gruft. Sind alle Grüfte belegt, bleibt er hier.", vwall : "wall" },
-			{name: "Vampir", Ding:"yellow", Aktion : "Der Vampir zieht in eine freie Gruft. Sind alle Grüfte belegt, bleibt er hier.", vwall : "wall" },
-			{name: "Vampir", Ding:"yellow", Aktion : "Der Vampir zieht in eine freie Gruft. Sind alle Grüfte belegt, bleibt er hier.", vwall : "wall" },
-			{name: "Vampir", Ding:"yellow", Aktion : "Der Vampir zieht in eine freie Gruft. Sind alle Grüfte belegt, bleibt er hier."},
-			{name: "Schlüssel", Ding:"green", Aktion : "Mit dem Schlüssel kann man eine Tür öffnen. Lege dazu den Schlüssel auf die Tür",hwall : "wall" },
-			{name: "Schlüssel", Ding:"green", Aktion : "Mit dem Schlüssel kann man eine Tür öffnen. Lege dazu den Schlüssel auf die Tür",vwall : "wall", pagebreak: "true" },
-			{name: "Schlüssel", Ding:"green", Aktion : "Mit dem Schlüssel kann man eine Tür öffnen. Lege dazu den Schlüssel auf die Tür" ,hwall : "oneway",vwall : "oneway"},
-			{name: "Geheimgang", Ding:"red", Aktion : "Mit dem Geheimgang kann man eine Wand öffnen. Lege dazu den 'Geheimgang' auf die Wand",vwall : "wall" },
-			{name: "Geheimgang", Ding:"red", Aktion : "Mit dem Geheimgang kann man eine Wand öffnen. Lege dazu den 'Geheimgang' auf die Wand",hwall : "wall" },
-			{name: "Hammer", Ding:"blue", Aktion : "Den Hammer benötigst du, um Vampire oder Dracula zu töten.",hwall : "tuer",vwall : "tuer" },
-			{name: "Pflock", Ding:"brown", Aktion : "Mit Hammer und Pflock kannst du einen Vampir töten. Der Pflock geht dabei verloren.",vwall : "wall"},
-			{name: "Pflock", Ding:"brown", Aktion : "Mit Hammer und Pflock kannst du einen Vampir töten. Der Pflock geht dabei verloren.",hwall : "wall"},
-			{name: "Pflock", Ding:"brown", Aktion : "Mit Hammer und Pflock kannst du einen Vampir töten. Der Pflock geht dabei verloren.",hwall : "oneway",vwall : "oneway"},
-			{name: "Kreuz", Ding:"orange", Aktion : "Dracula kann nur mit Kreuz, Hammer und Pflock getötet werden.", vwall:"wall"},
-			{name: "Weihwasser", Ding:"white", Aktion : "Mit dem Weihwasser kann ein Biss geheilt werden.", vwall:"tuer", hwall:"tuer"},
-			{name: "Weihwasser", Ding:"white", Aktion : "Mit dem Weihwasser kann ein Biss geheilt werden.", vwall:"tuer", hwall:"tuer"},
-			{name: "Raum", Aktion : "ein leerer Raum."},
-			{name: "Raum", Aktion : "ein leerer Raum."},
-			{name: "Raum", Aktion : "ein leerer Raum.",hwall : "wall"},
-			{name: "Raum", Aktion : "ein leerer Raum.",hwall : "oneway"},
-			{name: "Raum", Aktion : "ein leerer Raum.",vwall : "oneway"},
-			{name: "Raum", Aktion : "ein leerer Raum.",vwall : "wall", pagebreak: "true"},
-			{name: "Raum", Aktion : "ein leerer Raum.",vwall : "oneway"},
-			{name: "Raum", Aktion : "ein leerer Raum.",hwall : "oneway"},
-			{name: "Minas Zimmer", Ding: "", Aktion : " Hier wird Mina gefunden.",vwall : "oneway",hwall : "wall"},
-			{name: "Draculas Gruft", Aktion : " Wenn man Darcula hier tötet, kann man mit Mina das Schloss verlassen. Ende.",hwall : "wall",vwall : "tuer", hupwall : "tuer", vupwall : "tuer"},
+			{name: "Eingang", "cardclass" : "H", Aktion : "Du betrittst das Schloss des Grafen. Töte Dracula und rette Mina Harker. Das Schloss hat 6 mal 6 Räume."},
+			{name: "Gruft", Aktion : "In der Gruft steht ein leerer Sarg. ", hwall: "tuer"},
+			{name: "Gruft", Aktion : "In der Gruft steht ein leerer Sarg. "},
+			{name: "Gruft", Aktion : "In der Gruft steht ein leerer Sarg. ", hwall: "tuer"},
+			{name: "Gruft", Aktion : "In der Gruft steht ein leerer Sarg. ", vwall: "tuer"},
+			{name: "Gruft", Aktion : "In der Gruft steht ein leerer Sarg. ", vwall: "tuer"},
+			{name: "Gruft", Aktion : "In der Gruft steht ein leerer Sarg. "},
+			{name: "Gruft", Aktion : "In der Gruft steht ein leerer Sarg. "},
+			{name: "Vampir", Ding:"Ding", Aktion : "Der Vampir zieht in eine freie Gruft. Sind alle Grüfte belegt, bleibt er hier. Triffst du nachts ihn, beisst er dich.", hwall : "wall" },
+			{name: "Vampir", Ding:"Ding", Aktion : "Der Vampir zieht in eine freie Gruft. Sind alle Grüfte belegt, bleibt er hier. Triffst du nachts ihn, beisst er dich.", hwall : "tuer" },
+			{name: "Vampir", Ding:"Ding", Aktion : "Der Vampir zieht in eine freie Gruft. Sind alle Grüfte belegt, bleibt er hier. Triffst du nachts ihn, beisst er dich.", hwall : "wall" },
+			{name: "Vampir", Ding:"Ding", Aktion : "Der Vampir zieht in eine freie Gruft. Sind alle Grüfte belegt, bleibt er hier. Triffst du nachts ihn, beisst er dich.", vwall : "tuer" },
+			{name: "Vampir", Ding:"Ding", Aktion : "Der Vampir zieht in eine freie Gruft. Sind alle Grüfte belegt, bleibt er hier. Triffst du nachts auf ihn, beisst er dich.", vwall : "wall" },
+			{name: "Vampir", Ding:"Ding", Aktion : "Der Vampir zieht in eine freie Gruft. Sind alle Grüfte belegt, bleibt er hier. Triffst du nachts auf ihn, beisst er dich.", vwall : "wall" },
+			{name: "Schlüssel", Ding:"Ding", Aktion : "Mit dem Schlüssel kann man eine Tür öffnen. Lege dazu den Schlüssel auf die Tür",hwall : "wall" },
+			{name: "Schlüssel", Ding:"Ding", Aktion : "Mit dem Schlüssel kann man eine Tür öffnen. Lege dazu den Schlüssel auf die Tür",vwall : "wall", pagebreak: "true" },
+			{name: "Schlüssel", Ding:"Ding", Aktion : "Mit dem Schlüssel kann man eine Tür öffnen. Lege dazu den Schlüssel auf die Tür",hwall : "tuer" },
+			{name: "Schlüssel", Ding:"Ding", Aktion : "Mit dem Schlüssel kann man eine Tür öffnen. Lege dazu den Schlüssel auf die Tür",vwall : "tuer"},
+			{name: "Schlüssel", Ding:"Ding", Aktion : "Mit dem Schlüssel kann man eine Tür öffnen. Lege dazu den Schlüssel auf die Tür" ,hwall : "oneway",vwall : "oneway"},
+			{name: "Geheimgang", Ding:"Ding", Aktion : "Mit dem Geheimgang kann man eine Wand öffnen. Lege dazu den 'Geheimgang' auf die Wand",vwall : "wall" },
+			{name: "Geheimgang", Ding:"Ding", Aktion : "Mit dem Geheimgang kann man eine Wand öffnen. Lege dazu den 'Geheimgang' auf die Wand",hwall : "wall" },
+			{name: "Hammer", Ding:"Ding", Aktion : "Du findest einen Hammer. Diesen benötigst du, um Vampire oder Dracula zu töten.",hwall : "tuer",vwall : "tuer" },
+			{name: "Pflock", Ding:"Ding", Aktion : "Mit Hammer und Pflock kannst du einen Vampir töten. Der Pflock geht dabei verloren.",vwall : "wall"},
+			{name: "Pflock", Ding:"Ding", Aktion : "Mit Hammer und Pflock kannst du einen Vampir töten. Der Pflock geht dabei verloren.",hwall : "wall"},
+			{name: "Pflock", Ding:"Ding", Aktion : "Mit Hammer und Pflock kannst du einen Vampir töten. Der Pflock geht dabei verloren.",hwall : "oneway",vwall : "oneway"},
+			{name: "Pflock", Ding:"Ding", Aktion : "Mit Hammer und Pflock kannst du einen Vampir töten. Der Pflock geht dabei verloren."},
+			{name: "Kreuz", Ding:"Ding", Aktion : "Du findest das einzige Kreuz. Verliere es nicht. ", vwall:"tuer", hwall:"tuer"},
+			{name: "Weihwasser", Ding:"Ding", Aktion : "Wenn du gebissen wirst, musst du ein Weihwasser abgeben, sonst wirst du zum Vampir.", vwall:"tuer", hwall:"tuer"},
+			{name: "Weihwasser", Ding:"Ding", Aktion : "Wenn du gebissen wirst, musst du ein Weihwasser abgeben, sonst wirst du zum Vampir.", vwall:"tuer", hwall:"tuer"},
+			{name: "Weihwasser", Ding:"Ding", Aktion : "Wenn du gebissen wirst, musst du ein Weihwasser abgeben, sonst wirst du zum Vampir."},
+			{name: "Hammer", Ding:"Ding", Aktion : "Du findest einen Hammer. Diesen benötigst du, um Vampire oder Dracula zu töten.",hwall : "wall"},
+			{name: "Raum", Aktion : "Du betrittst einen leeren Raum.",vwall : "wall", pagebreak: "true"},
+			{name: "Raum", Aktion : "Du betrittst einen leeren Raum.",vwall : "oneway"},
+			{name: "Raum", Aktion : "Du betrittst einen leeren Raum.",hwall : "oneway"},
+			{name: "Minas Zimmer", Ding: "", Aktion : " Hier wird Mina gefunden. Wenn Draculas getötet ist, kann man mit Mina das Schloss verlassen.",vwall : "oneway",hwall : "wall"},
+			{name: "Draculas Gruft", Aktion : " Nur hier kann man Dracula mit Kreuz, Hammer und Pflock töten. Der Pfloch geht dabei verloren.",vwall : "tuer", hupwall : "tuer", vupwall : "tuer"},
 			{name: "Fledermaus", "cardclass" : "ereignis", Aktion : "Fledermäuse fliegen an dir vorbei. Du verlierst einen Gegenstand"},
 			{name: "Fledermaus", "cardclass" : "ereignis", Aktion : "Fledermäuse fliegen an dir vorbei. Du verlierst einen Gegenstand"},
-			{name: "Vampirfrau", "cardclass" : "ereignis", Aktion : "Draculas Frau. Wenn du kein Kreuz hast, wirst du gebissen."},
-			{name: "Vampir kommt", "cardclass" : "ereignis", Aktion : "<br>Alle Vampire bewegen sich einen Raum nach <b>rechts</b>, falls keine Wand."},
-			{name: "Vampir kommt", "cardclass" : "ereignis", Aktion : "<br>Alle Vampire bewegen sich einen Raum nach <b>rechts</b>, falls keine Wand."},
-			{name: "Vampir kommt", "cardclass" : "ereignis", Aktion : "<br>Alle Vampire bewegen sich einen Raum nach <b>links</b>, falls keine Wand."},
-			{name: "Vampir kommt", "cardclass" : "ereignis", Aktion : "<br>Alle Vampire bewegen sich einen Raum nach <b>links</b>, falls keine Wand."},
-			{name: "Vampir kommt", "cardclass" : "ereignis", Aktion : "<br>Alle Vampire bewegen sich einen Raum nach <b>oben</b>, falls keine Wand."},
-			{name: "Vampir kommt", "cardclass" : "ereignis", Aktion : "<br>Alle Vampire bewegen sich einen Raum nach <b>oben</b>, falls keine Wand."},
-			{name: "Vampir kommt", "cardclass" : "ereignis", Aktion : "<br>Alle Vampire bewegen sich einen Raum nach <b>unten</b>, falls keine Wand."},
-			{name: "Vampir kommt", "cardclass" : "ereignis", Aktion : "<br>Alle Vampire bewegen sich einen Raum nach <b>unten</b>, falls keine Wand."},
-			{name: "Mina", "cardclass" : "ereignis", Ding: "white", Aktion : " liegt in ihrem Zimmer oder unter den Stapel.", pagebreak: "true"},
+			{name: "Draculas Frauen", "cardclass" : "ereignis", Aktion : "Wenn du kein Kreuz hast, wirst du gebissen."},
+			{name: "Dämmerung", "cardclass" : "ereignis", Aktion : "Der Tag wechselt zur Nacht oder die Nacht zum Tag. Dracula kommt auf dein Feld. Du kannst das Feld nachts nicht mehr betreten."},
+			{name: "Dämmerung", "cardclass" : "ereignis", Aktion : "Der Tag wechselt zur Nacht oder die Nacht zum Tag. Dracula kommt auf dein Feld. Du kannst das Feld nachts nicht mehr betreten."},
+			{name: "Dämmerung", "cardclass" : "ereignis", Aktion : "Der Tag wechselt zur Nacht oder die Nacht zum Tag. Dracula kommt auf dein Feld. Du kannst das Feld nachts nicht mehr betreten."},
+			{name: "Renfield", "cardclass" : "ereignis", Aktion : "Renfield nimmt dir dein Kreuz ab und legt es auf den Eingang."},
+			{name: "Vampir kommt", "cardclass" : "ereignis", Aktion : "<br>Alle Vampire bewegen sich einen Raum nach <b>rechts</b>."},
+			{name: "Vampir kommt", "cardclass" : "ereignis", Aktion : "<br>Alle Vampire bewegen sich einen Raum nach <b>links</b>."},
+			{name: "Vampir kommt", "cardclass" : "ereignis", Aktion : "<br>Alle Vampire bewegen sich einen Raum nach <b>oben</b>."},
+			{name: "Vampir kommt", "cardclass" : "ereignis", Aktion : "<br>Alle Vampire bewegen sich einen Raum nach <b>unten</b>."},
+			{name: "Mina", "cardclass" : "ereignis", Ding: "Ding noopac", Aktion : " legt sich in ihr Zimmer. Falls Das Zimmer noch nicht da, ist geht sie unter den Stapel.", pagebreak: "true"},
 			{name: "Jonathan Harker", "cardclass" : "Inventar",  Aktion : " hat zwei <b>Weihwasser</b> und kann bis zu <b>5 Dinge</b> tragen."},
-			{name: "Dr. Seward", "cardclass" : "Inventar",  Aktion : " hat ein <b>Weihwasser</b> und einen Hammer und kann bis zu <b>4 Dinge</b> tragen."},
+			{name: "Dr. Seward", "cardclass" : "Inventar",  Aktion : " hat ein <b>Weihwasser</b> und einen <b>Hammer</b> und kann bis zu <b>4 Dinge</b> tragen."},
 			{name: "Prof. van Helsing", "cardclass" : "Inventar",  Aktion : " hat ein <b>Kreuz</b> und ein <b>Weihwasser</b> kann bis zu <b>3 Dinge</b> tragen."},
-			{name: "Dracula", "cardclass" : "ereignis",Ding: "blue", Aktion : "Wenn du kein Kreuz hast, beisst er dich. Dann geht er in seine Gruft oder unter den Stapel."}
+			{name: "Dracula", "cardclass" : "ereignis",Ding: "Ding noopac", Aktion : "Wenn du kein Kreuz hast, beisst er dich. Dann legt er sich in Draculas Gruft oder unter den Stapel."},
+			{name: "Sonne", "cardclass" : "Inventar", Aktion : "Tagsüber kannst du ungehindert an den Vampiren vorbeigehen. Alle Türen sind geöffnet."},
+			{name: "Mond", "cardclass" : "Inventar", Aktion : "Nachts können die Vampire dich beissen. Alle Türen ohne Schlüssel sind geschlossen."}
+			],
+			symbols: [
+				{name: "Mina"},
+				{name: "Dracula"},
+				{name: "Kreuz"},
+				{name: "Hammer"},
+				{name: "Pflock"},
+				{name: "Pflock"},
+				{name: "Pflock"},
+				{name: "Pflock"},
+				{name: "Weihwasser"},
+				{name: "Weihwasser"},
+				{name: "Weihwasser"},
+				{name: "Schlüssel"},
+				{name: "Schlüssel"},
+				{name: "Schlüssel"},
+				{name: "Schlüssel"},
+				{name: "Schlüssel"},
+				{name: "Geheimgang"},
+				{name: "Geheimgang"},
+				{name: "Geheimgang"},
+				{name: "Hammer"},
+				{name: "Vampir"},
+				{name: "Vampir"},
+				{name: "Vampir"},
+				{name: "Vampir"},
+				{name: "Vampir"},
+				{name: "Vampir"}
 			]};
 		</script>
 		<script src="js/data2.js"></script>
@@ -69,39 +99,24 @@
 		width: 160px; 
 		height: 210px;
 		 -webkit-print-color-adjust: exact;
-		background-color: #fd3749;
+		background-color: #c69;
 	}
-	.ereignis { background-color: #38b2ce;
+	.ereignis { background-color: #c99;
 		 -webkit-print-color-adjust: exact;
 	}  
-	.Inventar { background-color: #ffe940;
+	.Inventar { background-color: #633;
 		 -webkit-print-color-adjust: exact;
 	}  
-	.H { background-color: #CCFFCC;
+	.H { background-color: #c66;
 		 -webkit-print-color-adjust: exact;
 	}  
-	.S { background-color: #FFCCCC;
+	.Ding { border-radius: 70px;
 		 -webkit-print-color-adjust: exact;
-	}          
-          
-	.E { background-color: #FFCCCC;
-		 -webkit-print-color-adjust: exact;
-	}                    
-	.G { background-color: #FFFFCC;
-		 -webkit-print-color-adjust: exact;
-	}            
-	.Dorf { background-color: #FFFF99;
-		 -webkit-print-color-adjust: exact;
-	}            
-	.Markt { background-color: #99FF99;
-		 -webkit-print-color-adjust: exact;
-	}            
-	.Stadt { background-color: #99FFFF;
-		 -webkit-print-color-adjust: exact;
-	}            
-	.Gstadt { background-color: #FF9999;
-		 -webkit-print-color-adjust: exact;
-	}       
+		 opacity: 0.5;
+	}  
+	.noopac {
+		opacity: 1.0; 
+	}
 </style>      
 </head>       
 <body>        
@@ -110,16 +125,13 @@
 		{{#cards}}
 		<div  class="card {{cardclass}}">
 
-		{{#Ding}}
-			<span style="width: 25px;height: 25px; border-radius: 18px;border: 2px solid red; position: absolute; margin-top: 2px;margin-left: 2px;z-index: 22; background-color:{{Ding}};"></span>
-		{{/Ding}}
 		<div style="position: relative; ">
-			<img alt="picture" src="img/DRAC/{{name}}.png" style="background-color: white; border: 1px solid black; position: absolute; margin-left: 0px; width:120px; height: 120px;top: 5px; left: 12px;">
+			<img alt="picture" src="img/DRAC/{{name}}.png" class="{{Ding}}" style="background-color: white; border: 1px solid black; position: absolute; margin-left: 0px; width:120px; height: 120px;top: 5px; left: 12px;">
 			{{#hwall}}<img alt="picture" src="img/DRAC/{{hwall}}h.png" style="position: absolute; margin-left: 0px; width:162px; height: 20px;top: 192px">{{/hwall}}
 			{{#vwall}}<img alt="picture" src="img/DRAC/{{vwall}}v.png" style="position: absolute; margin-left: 142px; width:20px; height: 208px;top: 0px">{{/vwall}}
 			{{#hupwall}}<img alt="picture" src="img/DRAC/{{hupwall}}h.png" style="position: absolute; margin-left: 0px; width:162px; height: 15px;top: 0">{{/hupwall}}
 			{{#vupwall}}<img alt="picture" src="img/DRAC/{{vupwall}}v.png" style="position: absolute; margin-left: 0px; width:15px; height: 208px;top: 0px">{{/vupwall}}
-			<div style=" text-align:center;font-size: 9px;px;position: absolute; margin-left: 8px; width:132px; height: 60px;top: 132px">
+			<div style=" text-align:center;font-size: 9px;px;position: absolute; margin-left: 8px; width:132px; height: 60px;top: 132px; background-color: white;">
 				<b>{{{name}}}</b> {{{Aktion}}}				
 		</div>
 	  
@@ -128,6 +140,11 @@
 		</div>
 		{{#pagebreak}}<div class="pagebreak" style="width: 600px">page-break</div>{{/pagebreak}}
 		{{/cards}}
+		<div style="float: clear;width: 800px;">symbols</div>
+		{{#symbols}}
+			<div class="symbol" style="margin:10px;float:left;margin-bottom: 10px;opacity:1.0"><img alt="picture" style="border: 3px solid red; border-radius: 70px;width:120px;height:120px;" src="img/DRAC/{{name}}.png" ></div>
+		{{/symbols}}
+
               
 </body>       
 </html>       
