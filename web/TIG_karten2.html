@@ -59,10 +59,10 @@
 			{name : "Machete", Aktion: "Man kann einmal durch eine Dschungelwand gehen.",hor: "true", imgclass:"symbol"},
 			{name : "Verband", Aktion: "heilt eine Speerwunde der Kannibalen.",hor: "true", imgclass:"symbol"},
 			{name : "Gegengift", Aktion: "heilt einen Schlangenbiss.",ver: "true", imgclass:"symbol"},
-			{name : "Modus: Einfach",  color : "S", top: "top", Aktion: "Start: 3 bel. Gegenstände <br/>Inventar: unbegrenzt. <br/>Edelstein fertig: alle freien Gegenstände auffüllen."},
-			{name : "Modus: Normal",  color : "S", top: "top", Aktion: "Start: 1 Verband, 1 Gegengift  <br/>Inventar: max. 4 Dinge. <br/>Edelstein fertig: 2 Felder auffüllen. "},
-			{name : "Modus: Schwer",  color : "S", top: "top", Aktion: "Start: 1 Gegenstand, <br/>Inventar: 3 Dinge. <br/>Edelstein fertig: 1 Feld auffüllen. "},
-			{name : "Modus: Extrem",  color : "S", top: "top", Aktion: "Start: nichts, <br/>Inventar: max. 2 Dinge. <br/>Edelstein fertig: nichts."}
+			{name : "Stufe Einfach",  color : "S", top: "top", Aktion: "Start: 3 bel. Gegenstände <br/>Inventar: unbegrenzt. <br/>Edelstein fertig: alle freien Gegenstände auffüllen."},
+			{name : "Stufe Normal",  color : "S", top: "top", Aktion: "Start: 1 Verband, 1 Gegengift  <br/>Inventar: max. 4 Dinge. <br/>Edelstein fertig: 2 Felder auffüllen. "},
+			{name : "Stufe Schwer",  color : "S", top: "top", Aktion: "Start: 1 Gegenstand, <br/>Inventar: 3 Dinge. <br/>Edelstein fertig: 1 Feld auffüllen. "},
+			{name : "Stufe Extrem",  color : "S", top: "top", Aktion: "Start: nichts, <br/>Inventar: max. 2 Dinge. <br/>Edelstein fertig: nichts."}
 			],
 			symbols: [
 				{name: "Rubin"},
@@ -95,7 +95,7 @@
 		width: 160px;
 		height: 210px;
 		border: 1px solid black;
-		background-image: url("img/TIG/backsmall.png") ;
+		background-image: url("img/TIG/backsmallhell.png") ;
 	}
 	.key{ font-size: 14pt;}
 	.H { background-color: #CCFFCC;
@@ -119,6 +119,8 @@
 		margin-left: 20px;
 		width: 80px;
 		height: 80px;
+		opacity: 0.4;
+
 	}
 	.symbol img {
 		margin-top: 10px;
@@ -158,11 +160,11 @@
 		left: 10px;
 		text-align:center;
 		font-size: 9px;
-		background-color: white
+		background-color: white;
 	}
 	.top {
 		top: 50px; 
-		height: 120px;
+		height: 100px;
 		text-align: left;
 		
 	}
@@ -176,10 +178,10 @@
 		
 		<div style="position: absolute; ">
 			<div style="position: absolute; margin-left: 3px;font-size: 14px;font-weight: bold;top: 5px; left: 5px;width:140px;text-align: center;background-color: white">{{name}} </div>
-			<div class="{{imgclass}}" style="position: absolute; top: 30px;left: 10px;"><img alt="picture" src="img/tig2/{{name}}.png" ></div>
-			{{#warn}}<div class="warn bgc-{{bgc}}" style="position: absolute; top: 100px;left: -25px;"><img alt="picture" src="img/tig2/{{warn}}.png" ></div>{{/warn}}
-			{{#hor}}<img alt="picture" src="img/TIG/horiz.jpg" style="position: absolute; width:160px; height: 20px;top: 190px;">{{/hor}}
-			{{#ver}}<img alt="picture" src="img/TIG/vertic.jpg" style="position: absolute; left: 140px; width:20px; height: 210px;top: 0px;">{{/ver}}
+			<div class="{{imgclass}}" style="position: absolute; top: 30px;left: 10px"><img alt="picture" src="img/tig2/{{name}}.png" ></div>
+			{{#warn}}<div class="warn bgc-{{bgc}}" style="position: absolute; top: 100px;left: -30px;"><img alt="picture" src="img/tig2/{{warn}}.png" ></div>{{/warn}}
+			{{#hor}}<img alt="picture" src="img/TIG/horiz.jpg" style="position: absolute; width:160px; height: 30px;top: 180px;">{{/hor}}
+			{{#ver}}<img alt="picture" src="img/TIG/vertic.jpg" style="position: absolute; left: 130px; width:30px; height: 210px;top: 0px;">{{/ver}}
 			<div class="text {{top}}">
 			{{{Aktion}}}			  
 			</div>
@@ -189,7 +191,7 @@
 		{{#pagebreak}}<div class="pagebreak" style="width: 600px; page-break-after: always">page-break</div>{{/pagebreak}}
 		{{/cards}}
 		{{#symbols}}
-			<span class="symbol" style="width:80px;height:80px;float:left;margin-bottom: 10px;"><img alt="picture" src="img/tig2/{{name}}.png" ></span>
+			<span class="symbol" style="width:80px;height:80px;float:left;margin-bottom: 10px;opacity:1.0"><img alt="picture" src="img/tig2/{{name}}.png" ></span>
 		{{/symbols}}
               
 </body>       
