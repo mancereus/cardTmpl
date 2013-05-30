@@ -8,7 +8,7 @@
 	<script src="js/mustache.js"></script>
 	<script>
 			var overview = {"cards": [
-			{name : "Start", color : "H", Aktion: "Bringe die drei Edelsteine zu ihren Wächtern, um den goldenen Panther zu holen."},
+			{name : "Start", color : "H", Aktion: "Bringe die drei Edelsteine zu ihren Statuen, um den goldenen Panther zu holen."},
 			{name : "Hängebrücke", Aktion: "Mit einem riesigen Edelstein kommst du nicht über die Hängebrücke.", warn:"Edelstein", bgc: "gelb" },
 			{name : "Hängebrücke", Aktion: "Mit einem riesigen Edelstein kommst du nicht über die Hängebrücke.", warn:"Edelstein", bgc: "gelb" },
 			{name : "Hängebrücke", Aktion: "Mit einem riesigen Edelstein kommst du nicht über die Hängebrücke.", warn:"Edelstein", bgc: "gelb" },
@@ -28,8 +28,8 @@
 			{name : "Verband", Aktion: "heilt eine Speerwunde der Kannibalen.",hor: "true",ver: "true", imgclass:"symbol"},
 			{name : "Gegengift", Aktion: "heilt einen Schlangenbiss.",ver: "true", imgclass:"symbol"},
 			{name : "Gegengift", Aktion: "heilt einen Schlangenbiss.",hor: "true",ver: "true", imgclass:"symbol"},
-			{name : "Machete", Aktion: "Man kann einmal durch eine Dschungelwand gehen.",ver: "true", imgclass:"symbol"},
-			{name : "Machete", Aktion: "Man kann einmal durch eine Dschungelwand gehen.",hor: "true",ver: "true", imgclass:"symbol"},
+			{name : "Machete", Aktion: "Lege die Machete auf eine Dschungelwand, um diese zu öffnen.",ver: "true", imgclass:"symbol"},
+			{name : "Machete", Aktion: "Lege die Machete auf eine Dschungelwand, um diese zu öffnen.",hor: "true",ver: "true", imgclass:"symbol"},
 			{name : "Lasso", Aktion: "Mit dem Lasso kann man einmal ein Feld und alle Wände überspringen.",ver: "true", imgclass:"symbol"},
 			{name : "Lasso", Aktion: "Mit dem Lasso kann man einmal ein Feld und alle Wände überspringen.",hor: "true",ver: "true", imgclass:"symbol"},
 			{name : "Weg", Aktion: "",ver: "true"},
@@ -49,20 +49,20 @@
 			{name : "Weg", Aktion: "",hor: "true"},
 			{name : "Weg", Aktion: "",hor: "true"},
 			{name : "Weg", Aktion: "",hor: "true"},
-			{name : "Schatz", Aktion: "Wenn du alle 3 Edelsteine bei ihren Wächtern liegen hast, findest du hier den goldenen Panther."},
+			{name : "Schatz", Aktion: "Wenn du alle 3 Edelsteine bei den Statuen liegen hast, findest du hier den goldenen Panther."},
 			{name : "Rubin", Aktion: "1 riesigen Rubin gefunden. Bringe ihn zur richtigen Statue.", imgclass:"symbol"},
 			{name : "Smaragd", Aktion: "1 riesigen Smaragd gefunden. Bringe ihn zur richtigen Statue.",ver: "true", imgclass:"symbol"},
 			{name : "Saphir", Aktion: "1 riesigen Saphir gefunden. Bringe ihn zur richtigen Statue.",hor: "true", imgclass:"symbol"},
-			{name : "Statue", color : "H",Aktion: "Bring den riesigen <b>Rubin</b> hierher.", warn:"Rubin", bgc:"blue"},
-			{name : "Statue", color : "H",Aktion: "Bring den riesigen <b>Smaragd</b> hierher.", warn:"Smaragd", bgc:"blue"},
-			{name : "Statue", color : "H", Aktion: "Bring den riesigen <b>Saphir</b> hierher.", warn:"Saphir", bgc:"blue", pagebreak: "pagebreak"},
-			{name : "Machete", Aktion: "Man kann einmal durch eine Dschungelwand gehen.",hor: "true", imgclass:"symbol"},
+			{name : "Statue", color : "H",Aktion: "Bring den riesigen <b>Rubin</b> hierher.", warn:"Rubin", bgc:"blue",ver: "true"},
+			{name : "Statue", color : "H",Aktion: "Bring den riesigen <b>Smaragd</b> hierher.", warn:"Smaragd", bgc:"blue",ver: "true"},
+			{name : "Statue", color : "H", Aktion: "Bring den riesigen <b>Saphir</b> hierher.", warn:"Saphir", bgc:"blue",hor: "true", pagebreak: "pagebreak"},
+			{name : "Machete", Aktion: "Lege die Machete auf eine Dschungelwand, um diese zu öffnen.",hor: "true", imgclass:"symbol"},
 			{name : "Verband", Aktion: "heilt eine Speerwunde der Kannibalen.",hor: "true", imgclass:"symbol"},
 			{name : "Gegengift", Aktion: "heilt einen Schlangenbiss.",ver: "true", imgclass:"symbol"},
-			{name : "Stufe Einfach",  color : "S", top: "top", Aktion: "Start: 3 bel. Gegenstände <br/>Inventar: unbegrenzt. <br/>Edelstein fertig: alle freien Gegenstände auffüllen."},
-			{name : "Stufe Normal",  color : "S", top: "top", Aktion: "Start: 1 Verband, 1 Gegengift  <br/>Inventar: max. 4 Dinge. <br/>Edelstein fertig: 2 Felder auffüllen. "},
-			{name : "Stufe Schwer",  color : "S", top: "top", Aktion: "Start: 1 Gegenstand, <br/>Inventar: 3 Dinge. <br/>Edelstein fertig: 1 Feld auffüllen. "},
-			{name : "Stufe Extrem",  color : "S", top: "top", Aktion: "Start: nichts, <br/>Inventar: max. 2 Dinge. <br/>Edelstein fertig: nichts."}
+			{name : "Stufe Einfach",  color : "S", top: "top", Aktion: "<b>Start:</b> 3 bel. Gegenstände <br/><b>Inventar:</b> unbegrenzt. <br/><b>Edelstein bei Statue:</b><br> alle Gegenstände auffüllen."},
+			{name : "Stufe Normal",  color : "S", top: "top", Aktion: "<b>Start:</b> 1 Verband, 1 Gegengift  <br/><b>Inventar:</b> max. 4 Dinge. <br/><b>Edelstein bei Statue:</b><br> 2 Gegenstände auffüllen. "},
+			{name : "Stufe Schwer",  color : "S", top: "top", Aktion: "<b>Start:</b> 1 Gegenstand, <br>Statuen in den Ecken<br/><b>Inventar:</b> max. 3 Dinge. <br/><b>Edelstein bei Statue:</b><br> 1 Gegenstand auffüllen. "},
+			{name : "Stufe Extrem",  color : "S", top: "top", Aktion: "<b>Start:</b> nichts, <br>Statuen in den Ecken<br/><b>Inventar:</b> max. 2 Dinge. <br/><b>Edelstein bei Statue:</b><br> nichts."}
 			],
 			symbols: [
 				{name: "Rubin"},
@@ -163,8 +163,9 @@
 		background-color: white;
 	}
 	.top {
-		top: 50px; 
-		height: 100px;
+		top: 120px; 
+		width: 150px;
+		height: 90px;
 		text-align: left;
 		
 	}
