@@ -8,12 +8,12 @@
 	<script src="js/mustache.js"></script>
 	<script>
 			var overview = {"cards": [
-			{name : "Start", color : "H", Aktion: "Bringe die drei Edelsteine zu ihren Statuen, um den goldenen Panther zu holen."},
-			{name : "Hängebrücke", Aktion: "Mit einem Edelstein kommst du nicht über die Hängebrücke. Lege den Edelstein auf sein Feld zurück.", warn:"Edelstein", bgc: "gelb" },
-			{name : "Hängebrücke", Aktion: "Mit einem Edelstein kommst du nicht über die Hängebrücke. Lege den Edelstein auf sein Feld zurück.", warn:"Edelstein", bgc: "gelb" },
-			{name : "Hängebrücke", Aktion: "Mit einem Edelstein kommst du nicht über die Hängebrücke. Lege den Edelstein auf sein Feld zurück.", warn:"Edelstein", bgc: "gelb" },
-			{name : "Hängebrücke", Aktion: "Mit einem Edelstein kommst du nicht über die Hängebrücke. Lege den Edelstein auf sein Feld zurück.", warn:"Edelstein", bgc: "gelb" },
-			{name : "Hängebrücke", Aktion: "Mit einem Edelstein kommst du nicht über die Hängebrücke. Lege den Edelstein auf sein Feld zurück.", warn:"Edelstein", bgc: "gelb" },
+			{name : "Start", color : "H", Aktion: "Mit dem Flugzeug abgestürzt. Finde Jane und die Schriftrolle und bring beide aus dem Dschungel raus."},
+			{name : "Hängebrücke", Aktion: "Mit grossen Dingen kommst du nicht über die Hängebrücke. Lege diese auf ihr Feld zurück.", warn:"Edelstein", bgc: "gelb" },
+			{name : "Hängebrücke", Aktion: "Mit grossen Dingen kommst du nicht über die Hängebrücke. Lege diese auf ihr Feld zurück.", warn:"Edelstein", bgc: "gelb" },
+			{name : "Hängebrücke", Aktion: "Mit grossen Dingen kommst du nicht über die Hängebrücke. Lege diese auf ihr Feld zurück.", warn:"Edelstein", bgc: "gelb" },
+			{name : "Hängebrücke", Aktion: "Mit grossen Dingen kommst du nicht über die Hängebrücke. Lege diese auf ihr Feld zurück.", warn:"Edelstein", bgc: "gelb" },
+			{name : "Treibsand", Aktion: "Du kannst den Treibsand nur überqueren, wenn du ein Lasso bei dir hast.", warn:"Lasso" , bgc:"blue"},
 			{name : "Schlange", Aktion: "Bei jedem Betreten wirst du gebissen. 1 Gegengift abgeben, sonst stirbst du. Partie verloren.", warn:"Gegengift"},
 			{name : "Schlange", Aktion: "Bei jedem Betreten wirst du gebissen. 1 Gegengift abgeben, sonst stirbst du. Partie verloren.", warn:"Gegengift"},
 			{name : "Schlange", Aktion: "Bei jedem Betreten wirst du gebissen. 1 Gegengift abgeben, sonst stirbst du. Partie verloren.", warn:"Gegengift"},
@@ -28,8 +28,8 @@
 			{name : "Verband", Aktion: "heilt eine Speerwunde der Kannibalen.",hor: "true",ver: "true", imgclass:"symbol"},
 			{name : "Gegengift", Aktion: "heilt einen Schlangenbiss.",ver: "true", imgclass:"symbol"},
 			{name : "Gegengift", Aktion: "heilt einen Schlangenbiss.",hor: "true",ver: "true", imgclass:"symbol"},
-			{name : "Machete", Aktion: "Lege die Machete auf eine Dschungelwand, um diese zu öffnen.",ver: "true", imgclass:"symbol"},
-			{name : "Machete", Aktion: "Lege die Machete auf eine Dschungelwand, um diese zu öffnen.",hor: "true",ver: "true", imgclass:"symbol"},
+			{name : "Machete", Aktion: "Die Machete kann eine Dschungelwand öffnen. Lege die Machete in den Pool.",ver: "true", imgclass:"symbol"},
+			{name : "Machete", Aktion: "Die Machete kann eine Dschungelwand öffnen. Lege die Machete in den Pool.",hor: "true",ver: "true", imgclass:"symbol"},
 			{name : "Lasso", Aktion: "Mit dem Lasso kann man einmal ein Feld und alle Wände überspringen.",ver: "true", imgclass:"symbol"},
 			{name : "Lasso", Aktion: "Mit dem Lasso kann man einmal ein Feld und alle Wände überspringen.",hor: "true",ver: "true", imgclass:"symbol"},
 			{name : "Weg", Aktion: "",ver: "true"},
@@ -39,9 +39,9 @@
 			{name : "Weg", Aktion: "",ver: "true"},
 			{name : "Weg", Aktion: "",ver: "true"},
 			{name : "Weg", Aktion: "",ver: "true"},
-			{name : "Höhle", Aktion: "Nur mit der Fackel kann man durch die Höhle direkt zu anderen Höhlen gehen.",ver: "true", pagebreak: "pagebreak"},
-			{name : "Höhle", Aktion: "Nur mit der Fackel kann man durch die Höhle direkt zu anderen Höhlen gehen."},
-			{name : "Höhle", Aktion: "Nur mit der Fackel kann man durch die Höhle direkt zu anderen Höhlen gehen.",hor: "true"},
+			{name : "Höhle", Aktion: "Nur mit der Fackel kann man durch die Höhle direkt zu anderen Höhlen gehen.",ver: "true", warn:"Fackel" , bgc:"blue", pagebreak: "pagebreak"},
+			{name : "Höhle", Aktion: "Nur mit der Fackel kann man durch die Höhle direkt zu anderen Höhlen gehen.", warn:"Fackel" , bgc:"blue"},
+			{name : "Höhle", Aktion: "Nur mit der Fackel kann man durch die Höhle direkt zu anderen Höhlen gehen.",hor: "true", warn:"Fackel" , bgc:"blue"},
 			{name : "Weg", Aktion: "",hor: "true"},
 			{name : "Weg", Aktion: "",hor: "true"},
 			{name : "Weg", Aktion: "",hor: "true"},
@@ -49,33 +49,35 @@
 			{name : "Weg", Aktion: "",hor: "true"},
 			{name : "Weg", Aktion: "",hor: "true"},
 			{name : "Weg", Aktion: "",hor: "true"},
-			{name : "Schatz", Aktion: "Wenn alle 3 Edelsteine bei den Statuen liegen, findest du hier den goldenen Panther. Partie gewonnen."},
-			{name : "Rubin", Aktion: "1 riesigen Rubin gefunden. Bringe ihn zur richtigen Statue.", imgclass:"symbol"},
-			{name : "Smaragd", Aktion: "1 riesigen Smaragd gefunden. Bringe ihn zur richtigen Statue.",ver: "true", imgclass:"symbol"},
-			{name : "Saphir", Aktion: "1 riesigen Saphir gefunden. Bringe ihn zur richtigen Statue.",hor: "true", imgclass:"symbol"},
-			{name : "Statue", color : "H",Aktion: "Bring den riesigen <b>Rubin</b> hierher.", warn:"Rubin", bgc:"blue",ver: "true"},
-			{name : "Statue", color : "H",Aktion: "Bring den riesigen <b>Smaragd</b> hierher.", warn:"Smaragd", bgc:"blue",ver: "true"},
-			{name : "Statue", color : "H", Aktion: "Bring den riesigen <b>Saphir</b> hierher.", warn:"Saphir", bgc:"blue",hor: "true", pagebreak: "pagebreak"},
-			{name : "Fackel", Aktion: "Mit der Fackel kann man durch die Höhlen gehen.",hor: "true", imgclass:"symbol"},
+			{name : "Tempel", Aktion: "Der verschlossene Tempel kann mit den Hieroglyphen geöffnet werden. Darin befindet sich die Schriftrolle.",warn:"Schriftrolle", bgc:"green"},
+			{name : "Boot", Aktion: "Bring das Boot zum Fluss, um das Abenteuer beenden zu können.", imgclass:"symbol"},
+			{name : "Hieroglyphen", Aktion: "Jane kann die Hieroglyphen entziffenn und den Eingang zum Tempel finden.",ver: "true",warn:"Jane2", bgc:"blue"},
+			{name : "Idol", Aktion: "Mit der verlorenen Idol kannst du die Kannibalen ablenken und Jane befreien.",hor: "true", imgclass:"symbol"},
+			{name : "Diamantenmine", color : "H",Aktion: "Nimm dir so viele Diamanten wie du tragen kannst und lasse dein restliches Inventar hier.", imgclass:"symbol", ver: "true"},
+			{name : "Jane", color : "H",Aktion: "Jane wurde nach dem Fugzeugabsturz von den Kannibalen verschleppt.", warn:"Idol", bgc:"blue",ver: "true"},
+			{name : "Fluss", color : "H", Aktion: "Bring das Boot hierher. Mit Jane, der Schriftrolle und den Diamanten kannst du das Abenteuer erfolgreich beenden.", warn:"Boot", bgc:"blue",hor: "true", pagebreak: "pagebreak"},
+			{name : "Fackel", Aktion: "Mit der Fackel kann man durch die Höhlen gehen oder eine Schlange töten.(Lege die Fackel dazu verdeckt auf die Schlange.)",ver: "true", imgclass:"symbol"},
 			{name : "Stufe Einfach",  color : "S", top: "top", Aktion: "<b>Start:</b> 1 Verband, <br>1 Gegengift, 1 Machete<br/><b>Inventar:</b> unbegrenzt. <br/><b>Edelstein bei Statue:</b><br> alle Gegenstände auffüllen."},
 			{name : "Stufe Normal",  color : "S", top: "top", Aktion: "<b>Start:</b> 1 Verband, 1 Gegengift  <br/><b>Inventar:</b> max. 4 Dinge. <br/><b>Edelstein bei Statue:</b><br> 2 Gegenstände auffüllen. "},
 			{name : "Stufe Schwer",  color : "S", top: "top", Aktion: "<b>Start:</b> 1 Gegenstand, <br>Statuen in den Ecken<br/><b>Inventar:</b> max. 3 Dinge. <br/><b>Edelstein bei Statue:</b><br> 1 Gegenstand auffüllen. "},
 			{name : "Stufe Extrem",  color : "S", top: "top", Aktion: "<b>Start:</b> nichts, <br>Statuen in den Ecken<br/><b>Inventar:</b> max. 2 Dinge. <br/><b>Edelstein bei Statue:</b><br> nichts."}
 			],
 			symbols: [
-				{name: "Rubin"},
-				{name: "Smaragd"},
-				{name: "Saphir"},
+				{name: "Idol", bgc: "gelb"},
+				{name: "Schriftrolle"},
+				{name: "Jane2"},
+				{name: "Boot", bgc: "gelb"},
 				{name: "Verband"},
 				{name: "Verband"},
 				{name: "Verband"},
+				{name: "Diamantenmine", bgc: "gelb"},
+				
 				{name: "Gegengift"},
 				{name: "Gegengift"},
 				{name: "Gegengift"},
 				{name: "Machete"},
 				{name: "Machete"},
 				{name: "Machete"},
-				{name: "Lasso"},
 				{name: "Lasso"},
 				{name: "Lasso"},
 				{name: "Fackel"},
@@ -148,6 +150,10 @@
 		border: 3px solid blue;
 		background-color: #39c;
 	}
+	.bgc-green{
+		border: 3px solid green;
+		background-color: #6f0;
+	}
 	.bgc-gelb{
 		border: 3px solid #fc0;
 		background-color: #ff0;
@@ -191,7 +197,7 @@
 		{{#pagebreak}}<div class="pagebreak" style="width: 600px; page-break-after: always">page-break</div>{{/pagebreak}}
 		{{/cards}}
 		{{#symbols}}
-			<span class="symbol" style="width:80px;height:80px;float:left;margin-bottom: 10px;opacity:1.0"><img alt="picture" src="img/tig2/{{name}}.png" ></span>
+			<span class="symbol bgc-{{bgc}}" style="width:80px;height:80px;float:left;margin-bottom: 10px;opacity:1.0"><img alt="picture" src="img/tig2/{{name}}.png" ></span>
 		{{/symbols}}
               
 </body>       
