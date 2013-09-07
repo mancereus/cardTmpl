@@ -38,17 +38,22 @@
 			{name: "Höhle", Aktion: "Nur mit der Fackel kann man durch die Höhle direkt zu anderen Höhlen gehen.",hor: "true", warn:"Fackel" , bgc:"blue"},
 			{name: "Höhle", Aktion: "Nur mit der Fackel kann man durch die Höhle direkt zu anderen Höhlen gehen.",hor: "true", warn:"Fackel" , bgc:"blue"},
 			{name: "Idol", Aktion: "Mit der verlorenen Idol kannst du die Kannibalen ablenken und Jane befreien.",hor: "true", imgclass:"symbol"},
-			{name: "Tempel", Aktion: "Der verschollene Tempel. Mit den Hieroglyphen findest du den verdeckten Eingang und die Schriftrolle.",hor: "true", bgc:"green",warn:"Schriftrolle"},
-			{name: "Hieroglyphen", Aktion: "Jane kann die Hieroglyphen entziffenn und den Eingang zum Tempel finden.",warn:"Jane2", bgc:"blue", task: true, pagebreak: "pagebreak"},
-			{name: "Jäger", Aktion: "Der wilde Jäger klaut alle deine Dinge und Jane und bringt sie zum Fluss.",warn:"Fluss", bgc:"blue", task: true},
-			{name: "Elefantenfriedhof", Aktion: "Im Elefantenfriedhof findest du Elfenbein. Für den Zugang benötigst du die Machete.",warn:"Machete", imgclass:"symbol", task: true},
-			{name: "Treibsand", Aktion: "Jane fällt in den Treibsand. Du kannst sie nur mit einer Liane retten. Bis dahin kannst du keine anderen Dinge nehmen.", warn:"Liane" , bgc:"blue", task: true},
-			{name: "Diamantenmine", color : "H",Aktion: "Du findest in der dunklen Mine grosse Diamenten. Lasse dazu die Fackel zurück.", warn:"Fackel", imgclass:"symbol", task: true},
-			{name: "Kannibalendorf", color : "H",Aktion: "Jane wird von den Kannibalen gefangengenommen. Mit dem Idol kannst du Jane befreien.", warn:"Idol", task: true},
-			{name: "Fluss", color : "H", Aktion: "Bring das Boot hierher. Wenn die anderen Ecken erfüllt sind, kannst du das Abenteuer erfolgreich beenden.", warn:"Boot", bgc:"blue", task: true},
-			{name: "Fackel", Aktion: "Mit der Fackel kann man durch die Höhlen gehen oder eine Schlange töten.(Lege die Fackel dazu verdeckt auf die Schlange.)",ver: "true", imgclass:"symbol"},
+			{name: "Tempel", Aktion: "Der verschollene Tempel.",hor: "true", bgc:"green"},
+			{name: "Fackel", Aktion: "Mit der Fackel kann man durch die Höhlen gehen oder eine Schlange töten.(Lege die Fackel dazu verdeckt auf die Schlange.)",ver: "true", imgclass:"symbol", pagebreak: "pagebreak"},
 			{name: "Liane", Aktion: "Mit der Liane kann man einmal ein Feld und alle Wände überspringen.",hor: "true", imgclass:"symbol"},
 			{name: "Weg", Aktion: "",hor: "true"},
+			{name: "Hieroglyphen", Aktion: "Jane kann die Hieroglyphen entziffenn und den versteckten Eingang zum Tempel finden. Dort findest du die Hieroglyphen.",warn:"Jane2", bgc:"blue", win:"Schriftrolle", bgcwin:"green", task: true},
+			{name: "Jäger", Aktion: "Der Jäger klaut dir drei Dinge (deiner Wahl) und Jane und bringt sie zum Fluss. Mit der Pistole kannst du das verhindern.",warn:"Pistole", bgc:"orange", win:"Fluss", bgcwin:"blue",task: true},
+			{name: "Tarzan", Aktion: "Jane verliebt sich in Tarzan und bleibt bei ihm. Am Ende fährt sie mit dir über den Fluss zurück.",win:"Fluss", bgcwin:"blue", warn:"Jane2", bgc:"orange", task: true},
+			{name: "Elefantenfriedhof", Aktion: "Im Elefantenfriedhof findest du Elfenbein. Für den Zugang benötigst du die Machete.",warn:"Machete", win:"Elefantenfriedhof", bgcwin:"green", imgclass:"symbol", task: true},
+			{name: "Treibsand", Aktion: "Jane fällt in den Treibsand. Du kannst sie nur mit einer Liane retten. Bis dahin kannst du keine anderen Dinge nehmen.", warn:"Liane", win:"Jane2", bgcwin:"green" , bgc:"blue", task: true},
+			{name: "Diamantenmine", color : "H",Aktion: "Du findest in der dunklen Mine grosse Diamenten. Bein Herausholen verlierst du die Fackel.", warn:"Fackel", win:"Diamantenmine", bgcwin:"green", imgclass:"symbol", task: true},
+			{name: "Lager", color : "H",Aktion: "Du findest ein verlassenes Lager. Du kannst bis zu 2 leere Dingfelder aus dem Vorrat wieder auffüllen.", warn:"Edelstein", bgc:"green", win:"Edelstein", bgcwin:"green", task: true},
+			{name: "Karte", color : "H",Aktion: "Du findest eine Karte des Dschungels. Ab sofort kannst du Karten auch diagonal anlegen.", task: true},
+			{name: "Sturm", color : "H",Aktion: "Ein Sturm zieht durch den Dschungel. Alle verwendeten Macheten kommen auf Machetenfelder zurück.", task: true},
+			{name: "Sturm", color : "H",Aktion: "Ein Sturm zieht durch den Dschungel. Ein Ding auf dem Spielplan kann auf das Startfeld gelegt werden.", task: true},
+			{name: "Kannibalendorf", color : "H",Aktion: "Jane wird von den Kannibalen gefangengenommen. Mit dem Idol kannst du Jane befreien.", warn:"Idol", win:"Jane2", bgcwin:"green", task: true},
+			{name: "Fluss", color : "H", Aktion: "Bring das Boot hierher. Wenn die anderen Ecken erfüllt sind, kannst du das Abenteuer erfolgreich beenden.", warn:"Boot", bgc:"blue", task: true},
 			{name: "Weg", Aktion: "",hor: "true"},
 			{name: "Weg", Aktion: "",hor: "true"},
 			{name: "Weg", Aktion: ""},
@@ -77,6 +82,7 @@
 				{name: "Tagebuch"},
 				{name: "Machete"},
 				{name: "Machete"},
+				{name: "Liane"},
 				{name: "Liane"},
 				{name: "Liane"},
 				{name: "Fackel"},
@@ -185,7 +191,8 @@
 			<div style="position: absolute; margin-left: 3px;font-size: 14px;font-weight: bold;top: 5px; left: 5px;width:140px;text-align: center;background-color: white">{{name}} </div>
 			<div class="{{imgclass}}" style="position: absolute; top: 30px;left: 10px"><img alt="picture" src="img/tig2/{{name}}.png" ></div>
 			{{#task}}<div class="" style="position: absolute; top: 5px;left: 125px;"><img alt="picture" src="img/tig2/Stern.png" ></div>{{/task}}
-			{{#warn}}<div class="warn bgc-{{bgc}}" style="position: absolute; top: 100px;left: -30px;"><img alt="picture" src="img/tig2/{{warn}}.png" ></div>{{/warn}}
+			{{#warn}}<div class="warn bgc-{{bgc}}" style="position: absolute; top: 100px;left: -20px;"><img alt="picture" src="img/tig2/{{warn}}.png" ></div>{{/warn}}
+			{{#win}}<div class="warn bgc-{{bgcwin}}" style="position: absolute; top: 60px;left: -20px;"><img alt="picture" src="img/tig2/{{win}}.png" ></div>{{/win}}
 			{{#hor}}<img alt="picture" src="img/TIG/horiz.jpg" style="position: absolute; width:160px; height: 30px;top: 180px;">{{/hor}}
 			{{#ver}}<img alt="picture" src="img/TIG/vertic.jpg" style="position: absolute; left: 130px; width:30px; height: 210px;top: 0px;">{{/ver}}
 			<div class="text {{top}}">
