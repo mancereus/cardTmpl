@@ -8,7 +8,7 @@
 	<script src="js/mustache.js"></script>
 	<script>
 			var overview = {"cards": [
-			{name: "Start", color : "H", Aktion: "Mit dem Flugzeug abgestürzt. Finde Jane und die Schriftrolle und bring beide aus dem Dschungel raus.",task: true},
+			{name: "Start", color : "H", Aktion: "Ihr seid mit dem Flugzeug abgestürzt. Löse die Rätsel des Dschungels und bring dich und Jane hier raus.",task: true},
 			{name: "Hängebrücke", Aktion: "Mit grossen Dingen kommst du nicht über die Hängebrücke. Lege diese auf ihr Feld zurück.", warn:"Edelstein", bgc: "gelb" },
 			{name: "Hängebrücke", Aktion: "Mit grossen Dingen kommst du nicht über die Hängebrücke. Lege diese auf ihr Feld zurück.", warn:"Edelstein", bgc: "gelb" },
 			{name: "Hängebrücke", Aktion: "Mit grossen Dingen kommst du nicht über die Hängebrücke. Lege diese auf ihr Feld zurück.", warn:"Edelstein", bgc: "gelb" },
@@ -37,7 +37,7 @@
 			{name: "Höhle", Aktion: "Nur mit der Fackel kann man durch die Höhle direkt zu anderen Höhlen gehen.",ver: "true", warn:"Fackel" , bgc:"blue"},
 			{name: "Höhle", Aktion: "Nur mit der Fackel kann man durch die Höhle direkt zu anderen Höhlen gehen.",hor: "true", warn:"Fackel" , bgc:"blue"},
 			{name: "Höhle", Aktion: "Nur mit der Fackel kann man durch die Höhle direkt zu anderen Höhlen gehen.",hor: "true", warn:"Fackel" , bgc:"blue"},
-			{name: "Idol", Aktion: "Mit der verlorenen Idol kannst du die Kannibalen ablenken und Jane befreien.",hor: "true", imgclass:"symbol"},
+			{name: "Idol", Aktion: "Eine Idolstatue der Kannibalen.",hor: "true", imgclass:"symbol"},
 			{name: "Tempel", Aktion: "Der verschollene Tempel.",hor: "true", bgc:"green"},
 			{name: "Fackel", Aktion: "Mit der Fackel kann man durch die Höhlen gehen oder eine Schlange töten.(Lege die Fackel dazu verdeckt auf die Schlange.)",ver: "true", imgclass:"symbol", pagebreak: "pagebreak"},
 			{name: "Liane", Aktion: "Mit der Liane kann man einmal ein Feld und alle Wände überspringen.",hor: "true", imgclass:"symbol"},
@@ -55,12 +55,12 @@
 			{name: "Kannibalendorf", color : "H",Aktion: "Jane wird von den Kannibalen gefangengenommen. Mit dem Idol kannst du Jane befreien.", warn:"Idol", win:"Jane2", bgcwin:"green", task: true},
 			{name: "Fluss", color : "H", Aktion: "Bring das Boot hierher. Wenn die anderen Ecken erfüllt sind, kannst du das Abenteuer erfolgreich beenden.", warn:"Boot", bgc:"blue", task: true},
 			{name: "Weg", Aktion: "",hor: "true"},
-			{name: "Weg", Aktion: "",hor: "true"},
+			{name: "Weg", Aktion: "",hor: "true", pagebreak: "pagebreak"},
 			{name: "Weg", Aktion: ""},
 			{name: "Weg", Aktion: "",hor: "true"},
 			{name: "Weg", Aktion: "",ver: "true"},
 			{name: "Weg", Aktion: "",ver: "true"},
-			{name: "Weg", Aktion: "",ver: "true", pagebreak: "pagebreak"},
+			{name: "Weg", Aktion: "",ver: "true"},
 			{name: "Weg", Aktion: "",ver: "true"},
 			{name: "Weg", Aktion: "",ver: "true"},
 			{name: "Weg", Aktion: "",ver: "true"},
@@ -203,6 +203,7 @@
 		</div>
 		{{#pagebreak}}<div class="pagebreak" style="width: 600px; page-break-after: always">page-break</div>{{/pagebreak}}
 		{{/cards}}
+		<div style="clear:both;width: 600px" >final</div>
 		{{#symbols}}
 			<span class="symbol bgc-{{bgc}}" style="width:80px;height:80px;float:left;margin-bottom: 10px;opacity:1.0"><img alt="picture" src="img/tig2/{{name}}.png" ></span>
 		{{/symbols}}
