@@ -1,0 +1,38 @@
+% Dschungel
+% 
+% 
+
+<div id="content">
+</div>
+<div id="template" style="display: none">
+{{\#cards}}
+<div style="position: relative;" class="card {{color}}">
+<div style="position: absolute; ">
+<div style="position: absolute; margin-left: 3px;font-size: 14px;font-weight: bold;top: 5px; left: 5px;width:140px;text-align: center;background-color: white">
+{{name}}
+</div>
+<div class="{{imgclass}}" style="position: absolute; top: 30px;left: 10px">
+![picture](img/tig2/{{name}}.png)
+</div>
+{{\#task}}
+<div class style="position: absolute; top: 5px;left: 125px;">
+![picture](img/tig2/Stern.png)
+</div>
+{{/task}} {{\#warn}}
+<div class="warn bgc-{{bgc}}" style="position: absolute; top: 100px;left: -30px;">
+![picture](img/tig2/{{warn}}.png)
+</div>
+{{/warn}} {{\#hor}}![picture](img/TIG/horiz.jpg){{/hor}}
+{{\#ver}}![picture](img/TIG/vertic.jpg){{/ver}}
+<div class="text {{top}}">
+{{{Aktion}}}
+</div>
+</div>
+</div>
+{{\#pagebreak}}
+<div class="pagebreak" style="width: 600px; page-break-after: always">
+page-break
+</div>
+{{/pagebreak}} {{/cards}} {{\#symbols}}
+<span class="symbol bgc-{{bgc}}" style="width:80px;height:80px;float:left;margin-bottom: 10px;opacity:1.0">![picture](img/tig2/{{name}}.png)</span>
+{{/symbols}}

@@ -8,26 +8,26 @@
 	<script src="js/mustache.js"></script>
 	<script>
 			var overview = {"cards": [
-			{name: "Start", color : "H", Aktion: "Ihr seid mit dem Flugzeug abgestürzt. Löse die Rätsel des Dschungels und bring dich und Jane hier raus.",task: true},
+			{name: "Start", color : "H", Aktion: "Ihr seid mit dem Flugzeug abgestürzt. Löse die Rätsel des Dschungels und bring dich und Jane hier raus."},
 			{name: "Hängebrücke", Aktion: "Mit grossen Dingen kommst du nicht über die Hängebrücke. Lege diese auf ihr Feld zurück.", warn:"Edelstein", bgc: "gelb" },
 			{name: "Hängebrücke", Aktion: "Mit grossen Dingen kommst du nicht über die Hängebrücke. Lege diese auf ihr Feld zurück.", warn:"Edelstein", bgc: "gelb" },
 			{name: "Hängebrücke", Aktion: "Mit grossen Dingen kommst du nicht über die Hängebrücke. Lege diese auf ihr Feld zurück.", warn:"Edelstein", bgc: "gelb" },
 			{name: "Hängebrücke", Aktion: "Mit grossen Dingen kommst du nicht über die Hängebrücke. Lege diese auf ihr Feld zurück.", warn:"Edelstein", bgc: "gelb" },
+			{name: "Schlange", Aktion: "Bei jedem Betreten wirst du gebissen. 1 Gegengift abgeben, sonst stirbst du.", warn:"Gegengift",hor: "true"},
+			{name: "Schlange", Aktion: "Bei jedem Betreten wirst du gebissen. 1 Gegengift abgeben, sonst stirbst du.", warn:"Gegengift",ver: "true"},
 			{name: "Schlange", Aktion: "Bei jedem Betreten wirst du gebissen. 1 Gegengift abgeben, sonst stirbst du.", warn:"Gegengift"},
 			{name: "Schlange", Aktion: "Bei jedem Betreten wirst du gebissen. 1 Gegengift abgeben, sonst stirbst du.", warn:"Gegengift"},
-			{name: "Schlange", Aktion: "Bei jedem Betreten wirst du gebissen. 1 Gegengift abgeben, sonst stirbst du.", warn:"Gegengift"},
-			{name: "Schlange", Aktion: "Bei jedem Betreten wirst du gebissen. 1 Gegengift abgeben, sonst stirbst du.",hor: "true", warn:"Gegengift"},
-			{name: "Schlange", Aktion: "Bei jedem Betreten wirst du gebissen. 1 Gegengift abgeben, sonst stirbst du.",ver: "true", warn:"Gegengift"},
 			{name: "Kannibale", Aktion: "Die Kannibalen verfolgen dich. Du hast das Idol oder 1 Gegenstand abgeben, sonst stirbst du.", warn:"Edelstein"},
 			{name: "Kannibale", Aktion: "Die Kannibalen verfolgen dich. Du hast das Idol oder 1 Gegenstand abgeben, sonst stirbst du.", warn:"Edelstein"},
 			{name: "Kannibale", Aktion: "Die Kannibalen verfolgen dich. Du hast das Idol oder 1 Gegenstand abgeben, sonst stirbst du.", warn:"Edelstein"},
 			{name: "Kannibale", Aktion: "Die Kannibalen verfolgen dich. Du hast das Idol oder 1 Gegenstand abgeben, sonst stirbst du.", warn:"Edelstein"},
-			{name: "Boot", Aktion: "Bring das Boot zum Fluss, um das Abenteuer beenden zu können.", imgclass:"symbol"},
+			{name: "Boot", Aktion: "Bring das Boot zum Fluss, um das Abenteuer beenden zu können.", hor: true, imgclass:"symbol"},
+			{name: "Tagebuch", Aktion: "Das Tagebuch enthält Aufzeichnungen. Lege eine offene Karte zurück in den Stapel und mische diesen.",ver: "true", imgclass:"symbol"},
 			{name: "Kannibale", Aktion: "Die Kannibalen verfolgen dich. 1 Gegenstand abgeben, sonst stirbst du.", warn:"Edelstein", pagebreak: "pagebreak"},
-			{name: "Tagebuch", Aktion: "Das Tagebuch beschreibt einen Ort. Decke eine Eckkarte auf.",hor: "true", imgclass:"symbol"},
+			{name: "Rucksack", Aktion: "Mit dem Rucksack kannst du 3 Dinge mehr tragen.",ver: "true", imgclass:"symbol"},
 			{name: "Pistole", Aktion: "Die Pistole ist alt und hat keine Munition.",hor: "true",ver: "true", imgclass:"symbol", bgc: "gelb"},
+			{name: "Gegengift", Aktion: "heilt einen Schlangenbiss.",hor: "true", imgclass:"symbol"},
 			{name: "Gegengift", Aktion: "heilt einen Schlangenbiss.",ver: "true", imgclass:"symbol"},
-			{name: "Gegengift", Aktion: "heilt einen Schlangenbiss.",hor: "true",ver: "true", imgclass:"symbol"},
 			{name: "Machete", Aktion: "Die Machete kann eine Dschungelwand öffnen. Lege die Machete auf die Wand.",ver: "true", imgclass:"symbol"},
 			{name: "Machete", Aktion: "Die Machete kann eine Dschungelwand öffnen. Lege die Machete auf die Wand.",hor: "true",ver: "true", imgclass:"symbol"},
 			{name: "Machete", Aktion: "Die Machete kann eine Dschungelwand öffnen. Lege die Machete auf die Wand.",hor: "true", imgclass:"symbol"},
@@ -36,24 +36,24 @@
 			{name: "Höhle", Aktion: "Nur mit der Fackel kann man durch die Höhle direkt zu anderen Höhlen gehen.",ver: "true", warn:"Fackel" , bgc:"blue"},
 			{name: "Höhle", Aktion: "Nur mit der Fackel kann man durch die Höhle direkt zu anderen Höhlen gehen.",ver: "true", warn:"Fackel" , bgc:"blue"},
 			{name: "Höhle", Aktion: "Nur mit der Fackel kann man durch die Höhle direkt zu anderen Höhlen gehen.",hor: "true", warn:"Fackel" , bgc:"blue"},
-			{name: "Höhle", Aktion: "Nur mit der Fackel kann man durch die Höhle direkt zu anderen Höhlen gehen.",hor: "true", warn:"Fackel" , bgc:"blue"},
-			{name: "Idol", Aktion: "Eine Idolstatue der Kannibalen.",hor: "true", imgclass:"symbol"},
+			{name: "Idol", Aktion: "Mit dem Idol kannst du die Kannibalen verjagen und an Ihnen vorbeilaufen.",hor: "true", imgclass:"symbol"},
+			{name: "Voodoopuppe", Aktion: "Die verlorene Voodoopuppe der Kannibalen.",ver: "true", imgclass:"symbol"},
 			{name: "Tempel", Aktion: "Der verschollene Tempel.",hor: "true", bgc:"green"},
 			{name: "Fackel", Aktion: "Mit der Fackel kann man durch die Höhlen gehen oder eine Schlange töten.(Lege die Fackel dazu verdeckt auf die Schlange.)",ver: "true", imgclass:"symbol", pagebreak: "pagebreak"},
 			{name: "Liane", Aktion: "Mit der Liane kann man einmal ein Feld und alle Wände überspringen.",hor: "true", imgclass:"symbol"},
 			{name: "Weg", Aktion: "",hor: "true"},
-			{name: "Hieroglyphen", Aktion: "Jane kann die Hieroglyphen entziffenn und den versteckten Eingang zum Tempel finden. Dort findest du die Hieroglyphen.",warn:"Jane2", bgc:"blue", win:"Schriftrolle", bgcwin:"green", task: true},
-			{name: "Jäger", Aktion: "Der Jäger klaut dir drei Dinge (deiner Wahl) und Jane und bringt sie zum Fluss. Mit der Pistole kannst du das verhindern.",warn:"Pistole", bgc:"orange", win:"Fluss", bgcwin:"blue",task: true},
+			{name: "Hieroglyphen", Aktion: "Jane kann die Hieroglyphen entziffenn und den versteckten Eingang zum Tempel finden. Dort findest du die Schriftrolle.",warn:"Jane2", bgc:"blue", win:"Schriftrolle", bgcwin:"green", task: true},
+			{name: "Jäger", Aktion: "Der Jäger klaut dir zwei Dinge (deiner Wahl) und bringt sie zum Tempel. Mit der Pistole kannst du das verhindern.",warn:"Pistole", bgc:"orange", win:"Fluss", bgcwin:"blue",task: true},
 			{name: "Tarzan", Aktion: "Jane verliebt sich in Tarzan und bleibt bei ihm. Am Ende fährt sie mit dir über den Fluss zurück.",win:"Fluss", bgcwin:"blue", warn:"Jane2", bgc:"orange", task: true},
-			{name: "Elefantenfriedhof", Aktion: "Im Elefantenfriedhof findest du Elfenbein. Für den Zugang benötigst du die Machete.",warn:"Machete", win:"Elefantenfriedhof", bgcwin:"green", imgclass:"symbol", task: true},
-			{name: "Treibsand", Aktion: "Jane fällt in den Treibsand. Du kannst sie nur mit einer Liane retten. Bis dahin kannst du keine anderen Dinge nehmen.", warn:"Liane", win:"Jane2", bgcwin:"green" , bgc:"blue", task: true},
+			{name: "Elfenbein", Aktion: "Im Elefantenfriedhof findest du Elfenbein. Für den Zugang benötigst du die Machete.",warn:"Machete", win:"Elfenbein", bgcwin:"green", imgclass:"symbol", task: true},
+			{name: "Treibsand", Aktion: "Dein Partner fällt in den Treibsand. Du kannst ihn nur mit einer Liane retten. Bis dahin kannst du keine anderen Dinge nehmen.", warn:"Liane", bgcwin:"green" , bgc:"blue", task: true},
 			{name: "Diamantenmine", color : "H",Aktion: "Du findest in der dunklen Mine grosse Diamenten. Bein Herausholen verlierst du die Fackel.", warn:"Fackel", win:"Diamantenmine", bgcwin:"green", imgclass:"symbol", task: true},
 			{name: "Lager", color : "H",Aktion: "Du findest ein verlassenes Lager. Du kannst bis zu 2 leere Dingfelder aus dem Vorrat wieder auffüllen.", warn:"Edelstein", bgc:"green", win:"Edelstein", bgcwin:"green", task: true},
 			{name: "Karte", color : "H",Aktion: "Du findest eine Karte des Dschungels. Ab sofort kannst du Karten auch diagonal anlegen.", task: true},
 			{name: "Sturm", color : "H",Aktion: "Ein Sturm zieht durch den Dschungel. Alle verwendeten Macheten kommen auf Machetenfelder zurück.", task: true},
-			{name: "Sturm", color : "H",Aktion: "Ein Sturm zieht durch den Dschungel. Ein Ding auf dem Spielplan kann auf das Startfeld gelegt werden.", task: true},
-			{name: "Kannibalendorf", color : "H",Aktion: "Jane wird von den Kannibalen gefangengenommen. Mit dem Idol kannst du Jane befreien.", warn:"Idol", win:"Jane2", bgcwin:"green", task: true},
-			{name: "Fluss", color : "H", Aktion: "Bring das Boot hierher. Wenn die anderen Ecken erfüllt sind, kannst du das Abenteuer erfolgreich beenden.", warn:"Boot", bgc:"blue", task: true},
+			{name: "Tierfalle", color : "H",Aktion: "Dein Bein verletzt sich in einer Tierfalle. Du kommst schlechter vorwärts.", task: true, fuss: "-1"},
+			{name: "Kannibalendorf", color : "H",Aktion: "Jane wird von den Kannibalen gefangengenommen. Mit der Voodoopuppe kannst du Jane befreien.", warn:"Voodoopuppe", win:"Jane2", bgcwin:"green", task: true},
+			{name: "Fluss", color : "H", Aktion: "Lege beliebige Dinge hier ab. Wenn die anderen Ecken erfüllt sind, kannst du das Abenteuer mit dem Boot erfolgreich beenden.", warn:"Boot", bgc:"blue"},
 			{name: "Weg", Aktion: "",hor: "true"},
 			{name: "Weg", Aktion: "",hor: "true", pagebreak: "pagebreak"},
 			{name: "Weg", Aktion: ""},
@@ -69,17 +69,17 @@
 			symbols: [
 				{name: "Idol", bgc: "gelb"},
 				{name: "Schriftrolle"},
-				{name: "Jane2"},
 				{name: "Boot", bgc: "gelb"},
 				{name: "Diamantenmine", bgc: "gelb"},
-				{name: "Elefantenfriedhof", bgc: "gelb"},
+				{name: "Elfenbein", bgc: "gelb"},
 				
-				{name: "Gegengift"},
+				{name: "Voodoopuppe"},
 				{name: "Gegengift"},
 				{name: "Gegengift"},
 				{name: "Machete"},
 				{name: "Pistole"},
 				{name: "Tagebuch"},
+				{name: "Rucksack"},
 				{name: "Machete"},
 				{name: "Machete"},
 				{name: "Liane"},
@@ -104,7 +104,7 @@
 		background-image: url("img/TIG/backsmallhell.png") ;
 	}
 	.key{ font-size: 14pt;}
-	.H { background-color: #CCFFCC;
+	.H { background-color: #CCFFCC important!;
 		 -webkit-print-color-adjust: exact;
 	}          
 	.S { background-color: #FFCCCC;
@@ -185,12 +185,14 @@
 	<div id="content"></div>
 	<div id="template" style="display: none">
 		{{#cards}}
-		<div style="position: relative;" class="card {{color}}">
+		<div style="position: relative;" class="card">
 		
 		<div style="position: absolute; ">
-			<div style="position: absolute; margin-left: 3px;font-size: 14px;font-weight: bold;top: 5px; left: 5px;width:140px;text-align: center;background-color: white">{{name}} </div>
+			<div class="{{color}}" style="position: absolute; margin-left: 3px;font-size: 14px;font-weight: bold;top: 5px; left: 5px;width:140px;text-align: center;background-color: white">{{name}} </div>
 			<div class="{{imgclass}}" style="position: absolute; top: 30px;left: 10px"><img alt="picture" src="img/tig2/{{name}}.png" ></div>
 			{{#task}}<div class="" style="position: absolute; top: 5px;left: 125px;"><img alt="picture" src="img/tig2/Stern.png" ></div>{{/task}}
+			{{#task}}<div class="" style="position: absolute; top: 5px;left: 5px;"><img alt="picture" src="img/tig2/fuss{{fuss}}.png" ></div>{{/task}}
+			{{#inventar}}<div class="" style="position: absolute; top: 5px;left: 125px;"><img alt="picture" src="img/tig2/Stern.png" ></div>{{/inventar}}
 			{{#warn}}<div class="warn bgc-{{bgc}}" style="position: absolute; top: 100px;left: -20px;"><img alt="picture" src="img/tig2/{{warn}}.png" ></div>{{/warn}}
 			{{#win}}<div class="warn bgc-{{bgcwin}}" style="position: absolute; top: 60px;left: -20px;"><img alt="picture" src="img/tig2/{{win}}.png" ></div>{{/win}}
 			{{#hor}}<img alt="picture" src="img/TIG/horiz.jpg" style="position: absolute; width:160px; height: 30px;top: 180px;">{{/hor}}
@@ -203,11 +205,66 @@
 		</div>
 		{{#pagebreak}}<div class="pagebreak" style="width: 600px; page-break-after: always">page-break</div>{{/pagebreak}}
 		{{/cards}}
-		<div style="clear:both;width: 600px" >final</div>
+        <div style="position: relative;" class="card">
+			<div style="position: absolute; ">
+				<div style="position: absolute; margin-left: 3px;font-size: 14px;font-weight: bold;top: 5px; left: 5px;width:140px;text-align: center;background-color: white">Jack</div>
+				<div class="{{imgclass}}" style="position: absolute; top: 30px;left: 20px; border:3px solid red;border-radius: 10px;"><img alt="picture" style="height: 60px; " src="img/tig2/Jack.png" ></div>
+				<div class="{{imgclass}}" style="position: absolute; top: 50px;left: 80px;border:3px solid yellow;border-radius: 10px;">
+					<img alt="picture" style="width: 40px; height: 40px;" src="img/tig2/Jane2.png" ></div>
+				<div class="text" style="position: absolute; top: 100px;left: 10px;width: 140px;">
+				Jack kann bis zu 3 Dinge tragen und sich pro Zug um 2 Felder bewegen. Zusammen mit Jane kann er einen großen (gelben) Gegenstand tragen. 			  
+				</div>
+				<div class="{{imgclass}}" style="position: absolute; top: 160px;left: 5px;width: 150px">
+					<img alt="picture" style="width: 20px; height: 20px;border:1px solid black;border-radius: 2px;float:left;" src="img/tig2/rucksack.png" >
+					<img alt="picture" style="width: 20px; height: 20px;border:1px solid black;border-radius: 2px;float:left;" src="img/tig2/rucksack.png" >
+					<img alt="picture" style="width: 20px; height: 20px;border:1px solid black;border-radius: 2px;float:left;" src="img/tig2/rucksack.png" >
+					<img alt="picture" style="width: 20px; height: 20px;border:1px solid black;border-radius: 2px;float:left;opacity:0.5" src="img/tig2/rucksack.png" >
+					<img alt="picture" style="width: 20px; height: 20px;border:1px solid black;border-radius: 2px;float:left;opacity:0.5" src="img/tig2/rucksack.png" >
+					<img alt="picture" style="width: 20px; height: 20px;border:1px solid black;border-radius: 2px;float:left;opacity:0.5" src="img/tig2/rucksack.png" >
+				</div>
+				<div class="{{imgclass}}" style="position: absolute; top: 185px;left: 5px;width: 150px">
+					<img alt="picture" style="width: 20px; height: 20px;border:1px solid black;border-radius: 2px;float:left;" src="img/tig2/fuss.png" >
+					<img alt="picture" style="width: 20px; height: 20px;border:1px solid black;border-radius: 2px;float:left;" src="img/tig2/fuss.png" >
+					<img alt="picture" style="width: 20px; height: 20px;border:1px solid black;border-radius: 2px;float:left;opacity:0.5" src="img/tig2/fuss.png" >
+					<img alt="picture" style="width: 20px; height: 20px;border:1px solid black;border-radius: 2px;float:left;opacity:0.5" src="img/tig2/fuss.png" >
+					<img alt="picture" style="width: 20px; height: 20px;border:1px solid black;border-radius: 2px;float:left;opacity:0.5" src="img/tig2/fuss.png" >
+					<img alt="picture" style="width: 20px; height: 20px;border:1px solid black;border-radius: 2px;float:left;opacity:0.5" src="img/tig2/fuss.png" >
+				</div>
+			</div>
+		</div>
+        <div style="position: relative;" class="card">
+			<div style="position: absolute; ">
+				<div style="position: absolute; margin-left: 3px;font-size: 14px;font-weight: bold;top: 5px; left: 5px;width:140px;text-align: center;background-color: white">Jane</div>
+				<div class="{{imgclass}}" style="position: absolute; top: 25px;left: 10px; border:3px solid red;border-radius: 10px;"><img alt="picture" style="width: 70px;" src="img/tig2/Jane2.png" ></div>
+				<div class="{{imgclass}}" style="position: absolute; top: 50px;left: 90px;border:3px solid yellow;border-radius: 10px;">
+					<img alt="picture" style="width: 40px; height: 40px;" src="img/tig2/Jack.png" ></div>
+				<div class="text" style="position: absolute; top: 100px;left: 10px;width: 140px;">
+				Jane kann bis zu 2 Dinge tragen und sich pro Zug um 3 Felder bewegen. Zusammen mit Jack kann sie einen großen (gelben) Gegenstand tragen. 			  
+				</div>
+				<div class="{{imgclass}}" style="position: absolute; top: 160px;left: 5px;width: 150px">
+					<img alt="picture" style="width: 20px; height: 20px;border:1px solid black;border-radius: 2px;float:left;" src="img/tig2/rucksack.png" >
+					<img alt="picture" style="width: 20px; height: 20px;border:1px solid black;border-radius: 2px;float:left;" src="img/tig2/rucksack.png" >
+					<img alt="picture" style="width: 20px; height: 20px;border:1px solid black;border-radius: 2px;float:left;opacity:0.5" src="img/tig2/rucksack.png" >
+					<img alt="picture" style="width: 20px; height: 20px;border:1px solid black;border-radius: 2px;float:left;opacity:0.5" src="img/tig2/rucksack.png" >
+					<img alt="picture" style="width: 20px; height: 20px;border:1px solid black;border-radius: 2px;float:left;opacity:0.5" src="img/tig2/rucksack.png" >
+				</div>
+				<div class="{{imgclass}}" style="position: absolute; top: 185px;left: 5px;width: 155px">
+					<img alt="picture" style="width: 20px; height: 20px;border:1px solid black;border-radius: 2px;float:left;" src="img/tig2/fuss.png" >
+					<img alt="picture" style="width: 20px; height: 20px;border:1px solid black;border-radius: 2px;float:left;" src="img/tig2/fuss.png" >
+					<img alt="picture" style="width: 20px; height: 20px;border:1px solid black;border-radius: 2px;float:left;" src="img/tig2/fuss.png" >
+					<img alt="picture" style="width: 20px; height: 20px;border:1px solid black;border-radius: 2px;float:left;opacity:0.5" src="img/tig2/fuss.png" >
+					<img alt="picture" style="width: 20px; height: 20px;border:1px solid black;border-radius: 2px;float:left;opacity:0.5" src="img/tig2/fuss.png" >
+					<img alt="picture" style="width: 20px; height: 20px;border:1px solid black;border-radius: 2px;float:left;opacity:0.5" src="img/tig2/fuss.png" >
+					<img alt="picture" style="width: 20px; height: 20px;border:1px solid black;border-radius: 2px;float:left;opacity:0.5" src="img/tig2/fuss.png" >
+				</div>
+			</div>
+		</div>
+		<div style="clear: both"/>
 		{{#symbols}}
 			<span class="symbol bgc-{{bgc}}" style="width:80px;height:80px;float:left;margin-bottom: 10px;opacity:1.0"><img alt="picture" src="img/tig2/{{name}}.png" ></span>
 		{{/symbols}}
-              
+		<div class="pagebreak" style="width: 600px; page-break-after: always">page-break</div>
+		<img alt="picture" style="width: 400px;" src="img/tig2/Titel.png" >
 </body>       
 </html>       
               
