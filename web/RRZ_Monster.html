@@ -8,32 +8,33 @@
 			src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 		<script src="js/mustache.js"></script>
 		<script>
-			var overviewstr = '{"cards": ['
-				  + '{"level" : "1", "key": "5", "shadow" : "6", "extra":"+V", "name": "Goblin", "immun": "Treffer: alle gespielten Schwerter abgeben.<br/>Ruhm: 3<br/>Beute: 1"},'
-				  + '{"level" : "1", "key": "4", "shadow" : "2", "name": "Skelett", "immun": "(5-6) immun gegen Bogen<br/>Ruhm: 2<br/>Beute: 1"},'
-				  + '{"level" : "1", "key": "6", "shadow" : "6", "name": "Ork", "immun": "(5-6) immun gegen 3<br/>Ruhm: 4<br/>Beute: 1"},'
-				  + '{"level" : "1", "key": "8", "shadow" : "4", "name": "Zombie", "immun": "(5-6) immun gegen 1,2<br/>Ruhm: 5<br/>Beute: 1"},'
-				  + '{"level" : "1", "key": "10", "shadow" : "5", "name": "Werbär", "immun": "(5-6) immun gegen 2,3<br/>Ruhm: 6<br/>Beute: 1"},'
-				  + '{"level" : "1", "key": "+ 1 Monster", "shadow" : "7", "name": "Falle", "immun": "zusätzliches Monster. Angriff von rechts."},'
-				  + '{"level" : "1", "key": "+ 1 Monster", "shadow" : "7", "name": "Falle", "immun": "zusätzliches Monster. Angriff von links."},'
-				  + '{"level" : "1", "key": "Pause", "shadow" : "7", "name": "Pause", "immun": "Pause. nach diesem Kampf könnt ihr Waffenkarten 1:1 tauschen."},'
-				  + '{"level" : "2", "key": "10", "shadow" : "5", "name": "Werbär", "immun": "(5-6) immun gegen Axt<br/>Ruhm: 6<br/>Beute: 1"},'
-				  + '{"level" : "2", "key": "11", "shadow" : "4", "name": "Schlange", "immun": "(5-6) immun gegen Armbrust<br/>Ruhm: 7<br/>Beute: 1"},'
-				  + '{"level" : "2", "key": "12", "shadow" : "4", "name": "Wurm", "immun": "(5-6) immun gegen Axt<br/>Ruhm: 8<br/>Beute: 1"},'
-				  + '{"level" : "2", "key": "14", "shadow" : "1", "name": "Ghul", "immun": "(5-6) immun gegen Schwert<br/>Ruhm: 9<br/>Beute: 1"},'
-				  + '{"level" : "2", "key": "15", "shadow" : "2", "name": "Troll", "immun": "(5-6) immun gegen Schwert<br/>Ruhm: 9<br/>Beute: 1"},'
-				  + '{"level" : "1", "key": "+ 1 Monster", "shadow" : "7", "name": "Falle", "immun": "zusätzliches Monster. Angriff von hinten."},'
-				  + '{"level" : "1", "key": "+ 1 Monster", "shadow" : "7", "name": "Falle", "immun": "zusätzliches Monster. Angriff von links."},'
-				  + '{"level" : "1", "key": "Pause", "shadow" : "7", "name": "Pause", "immun": "Pause. nach diesem Kampf könnt ihr Waffenkarten 1:1 tauschen."},'
-				  + '{"level" : "3", "key": "18", "shadow" : "1", "name": "Medusa", "immun": "(5-6) immun gegen 4<br/>Ruhm: 10<br/>Beute: 1"},'
-				  + '{"level" : "3", "key": "14", "shadow" : "1", "name": "Hydra", "immun": "(5-6) immun gegen 5<br/>Ruhm: 7<br/>Beute: 1"},'
-				  + '{"level" : "3", "key": "14", "shadow" : "5", "name": "Werbär", "immun": "(5-6) immun gegen 6<br/>Ruhm: 8<br/>Beute: 1"},'
-				  + '{"level" : "1", "key": "+ 1 Monster", "shadow" : "7", "name": "Falle", "immun": "zusätzliches Monster. Angriff von hinten."},'
-				  + '{"level" : "1", "key": "+ 1 Monster", "shadow" : "7", "name": "Falle", "immun": "zusätzliches Monster. Angriff von rechts."},'
-				  + '{"level" : "3", "key": "20", "shadow" : "8", "name": "Drache", "immun": "Ruhm: 6/4/2<br/>alle Immunkarten"}'
-				  + ']}';
+			var overview = {"cards": [
+				  {"level" : "1", "key": "5", "shadow" : "6", "extra":"+V", "name": "Goblin", "immun": "<br/>Ruhm: 3<br/>Beute: 1"},
+				  {"level" : "1", "key": "4", "shadow" : "2", "name": "Skelett", "immun": "immun gegen Armbrust<br/>Ruhm: 2<br/>Beute: 1"},
+				  {"level" : "1", "key": "6", "shadow" : "6", "name": "Ork", "immun": "<br/>Ruhm: 4<br/>Beute: 1"},
+				  {"level" : "1", "key": "8", "shadow" : "4", "name": "Zombie", "immun": "<br/>Ruhm: 5<br/>Beute: 1"},
+				  {"level" : "1", "key": "10", "shadow" : "5", "name": "Werbär", "immun": "<br/>Ruhm: 6<br/>Beute: 1"},
+				  {"level" : "1", "key": "2 Monster", "shadow" : "7", "name": "Falle", "immun": "Angriff von Vorne und Rechts."},
+				  {"level" : "1", "key": "2 Monster", "shadow" : "7", "name": "Falle", "immun": "Angriff von Vorne und Links."},
+				  {"level" : "1", "key": "Leer", "shadow" : "7", "name": "Pause", "immun": "Pause. Ihr könnt Waffenkarten 1:1 tauschen."},
+				  {"level" : "2", "key": "10", "shadow" : "5", "name": "Werbär", "immun": "(5-6) immun gegen Axt<br/>Ruhm: 6<br/>Beute: 1"},
+				  {"level" : "2", "key": "11", "shadow" : "4", "name": "Schlange", "immun": "(5-6) immun gegen Armbrust<br/>Ruhm: 7<br/>Beute: 1"},
+				  {"level" : "2", "key": "12", "shadow" : "4", "name": "Wurm", "immun": "(5-6) immun gegen Axt<br/>Ruhm: 8<br/>Beute: 1"},
+				  {"level" : "2", "key": "14", "shadow" : "1", "name": "Ghul", "immun": "(5-6) immun gegen Schwert<br/>Ruhm: 9<br/>Beute: 1"},
+				  {"level" : "2", "key": "15", "shadow" : "2", "name": "Troll", "immun": "(5-6) immun gegen Schwert<br/>Ruhm: 9<br/>Beute: 1"},
+				  {"level" : "2", "key": "2 Monster", "shadow" : "7", "name": "Falle", "immun": "Angriff von Vorne und Rechts."},
+				  {"level" : "2", "key": "2 Monster", "shadow" : "7", "name": "Falle", "immun": "Angriff von Vorne und Links."},
+				  {"level" : "2", "key": "Leer", "shadow" : "7", "name": "Pause", "immun": "Pause. Ihr könnt Waffenkarten 1:1 tauschen."},
+				  {"level" : "3", "key": "18", "shadow" : "1", "name": "Medusa", "immun": "(5-6) immun gegen 4<br/>Ruhm: 10<br/>Beute: 1"},
+				  {"level" : "3", "key": "14", "shadow" : "1", "name": "Hydra", "immun": "(5-6) immun gegen 5<br/>Ruhm: 7<br/>Beute: 1"},
+				  {"level" : "3", "key": "14", "shadow" : "5", "name": "Werbär", "immun": "(5-6) immun gegen 6<br/>Ruhm: 8<br/>Beute: 1"},
+				  {"level" : "3", "key": "2 Monster", "shadow" : "7", "name": "Falle", "immun": "Angriff von Vorne und Rechts."},
+				  {"level" : "3", "key": "2 Monster", "shadow" : "7", "name": "Falle", "immun": "Angriff von Vorne und Links."},
+				  {"level" : "3", "key": "Leer", "shadow" : "7", "name": "Pause", "immun": "Pause. Ihr könnt Waffenkarten 1:1 tauschen."},
+				  {"level" : "3", "key": "20", "shadow" : "8", "name": "Drache", "immun": "Ruhm: 6/4/2<br/>alle Immunkarten"}
+				  ]};
 		</script>
-		<script src="js/data.js"></script>
+		<script src="js/data2.js"></script>
 <style type="text/css">
 .card {
 	width: 250px;
@@ -50,9 +51,24 @@
 		<div  class="card {{name}}">
 		<div class="toprow"><span  class="name">{{name}}</span><span class="key right">{{key}} {{extra}}</span></div>
 		<div style="font-size: 16px;width: 100%; text-align:center;">Verliesstufe  {{level}}</div>
-		<div><img alt="picture" src="img/RRZ/shadow{{shadow}}.png" style="width: 80px; height: 80px;margin: 10px 25px;"></div>
+		<div style="text-align:center;"><img alt="picture" src="img/RRZ/shadow{{shadow}}.png" style="width: 80px; height: 80px;margin: 10px 25px;"></div>
 		<div style="width: 100%; text-align:center;">{{{immun}}}</div>
-
+		<div style="width: 100%; text-align:center;">
+			<table style="border: 1px solid black; font-size: 16px;width: 80%; margin: 10px 20px;">
+				<tr>
+					<td>_</td>
+					<td>_</td>
+					<td>_</td>
+					<td>_</td>
+					<td>_</td>
+					<td>_</td>
+					<td>_</td>
+					<td>_</td>
+					<td>_</td>
+					<td>_</td>
+				</tr>
+			</table>
+		</div>
 		</div>
 		{{#pagebreak}}<div class="pagebreak"></span>{{/pagebreak}}
 		{{/cards}}
